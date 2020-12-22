@@ -1,0 +1,319 @@
+//style for Horizontal
+.hubert-gallery-widget.horizontal {
+  background-color: #f4efea;
+  padding: 60px 0px;
+  @include media-breakpoint-up(md) {
+    padding: 60px 24px;
+  }
+  @include media-breakpoint-up(lg) {
+    padding: 60px 26px;
+  }
+  ::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+  }
+  .video-container {
+    position: relative;
+  }
+
+  .video-container:before {
+    content: "";
+    position: absolute;
+    display: block;
+    background-image: url("/wp-content/themes/hubert/assets/images/play.svg");
+    background-repeat: no-repeat;
+    background-size: 40px;
+    opacity: 0.85;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    @include media-breakpoint-up(md) {
+      background-size: 55px;
+    }
+    @include media-breakpoint-up(lg) {
+      background-size: 70px;
+    }
+  }
+  .play-section {
+    margin: 0px 19px 40px 19px;
+    background-color: white;
+    @include media-breakpoint-up(md) {
+      display: flex;
+      margin: 0px -15px 31px -15px;
+    }
+    video {
+      position: relative;
+      display: block;
+      width: 100%;
+    }
+    img {
+      width: 100%;
+    }
+  }
+  .playlist {
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    margin: 0px -15px;
+    .item {
+      width: min-content;
+      margin-right: 20px;
+      cursor: pointer;
+    }
+    .items {
+      display: flex;
+      flex-direction: row;
+      overflow: scroll;
+      overflow: -moz-scrollbars-none;
+      -ms-overflow-style: none; // IE 10+
+      img {
+        width: 160px;
+        height: 90.1px;
+      }
+      video {
+        width: 160px;
+        height: 90.1px;
+      }
+      h3 {
+        margin-top: 16px;
+      }
+
+      @include media-breakpoint-up(md) {
+        .item {
+          margin-right: 30px;
+        }
+        img {
+          width: 220px;
+          height: 124px;
+        }
+        video {
+          width: 220px;
+          height: 124px;
+        }
+      }
+      @include media-breakpoint-up(lg) {
+        img {
+          width: 280px;
+          height: 157.6px;
+        }
+        video {
+          width: 280px;
+          height: 157.6px;
+        }
+      }
+    }
+  }
+  .previous,
+  .next {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    margin-top: 42px;
+    z-index: 1;
+    cursor: pointer;
+    @include media-breakpoint-up(lg) {
+      margin-top: 59px;
+    }
+  }
+  .previous {
+    left: -25px;
+  }
+  .next {
+    right: -25px;
+  }
+  /*Hide up and down buttons*/
+  .up,
+  .down {
+    display: none !important;
+  }
+  .caption {
+    padding: 20px 0px 20px 18px;
+    @include media-breakpoint-up(md) {
+      padding: 30px 0px 0px 15px;
+    }
+  }
+  .media-player {
+    padding: 0px;
+    @include media-breakpoint-up(md) {
+      width: 66%;
+      padding-right: 15px;
+    }
+  }
+}
+
+//Style for vertical widgets
+.hubert-gallery-widget.vertical {
+  position: relative;
+  padding: 60px 0px;
+  background-color: #f4efea;
+  @include media-breakpoint-up(md) {
+    padding: 30px 24px 0px 24px;
+  }
+  @include media-breakpoint-up(lg) {
+    padding: 50px 0px;
+  }
+  ::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+  }
+  @include media-breakpoint-up(md) {
+    background-color: white;
+  }
+  .media-container {
+    @include media-breakpoint-up(md) {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+  .video-container {
+    position: relative;
+  }
+
+  .video-container:before {
+    content: "";
+    position: absolute;
+    display: block;
+    background-image: url("/wp-content/themes/hubert/assets/images/play.svg");
+    background-repeat: no-repeat;
+    background-size: 40px;
+    opacity: 0.85;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    @include media-breakpoint-up(md) {
+      background-size: 38px;
+    }
+    @include media-breakpoint-up(lg) {
+      background-size: 39px;
+    }
+  }
+  .play-section {
+    background-color: white;
+    margin-bottom: 30px;
+    @include media-breakpoint-up(md) {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      margin-bottom: 0px;
+    }
+    video {
+      display: block;
+      width: 100%;
+    }
+    img {
+      width: 100%;
+    }
+    .title {
+      display: none;
+    }
+  }
+  .playlist-container {
+    position: relative;
+    @include media-breakpoint-up(md) {
+      width: 149px;
+    }
+    @include media-breakpoint-up(lg) {
+      width: 154px;
+    }
+  }
+  .playlist {
+    @include media-breakpoint-up(md) {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+    .item {
+      width: min-content;
+      cursor: pointer;
+      margin-bottom: 2px;
+      margin-right: 20px;
+      .item-title {
+        display: none !important;
+      }
+    }
+    .items {
+      display: flex;
+      flex-direction: row;
+      overflow: scroll;
+      overflow: -moz-scrollbars-none;
+      -ms-overflow-style: none; // IE 10+
+      @include media-breakpoint-up(md) {
+        display: flex;
+        flex-direction: column;
+      }
+      img {
+        width: 160px;
+      }
+      video {
+        display: block;
+        width: 160px;
+      }
+      h3 {
+        margin-top: 16px;
+      }
+
+      @include media-breakpoint-up(md) {
+        img {
+          width: 149px;
+        }
+        video {
+          width: 149px;
+        }
+      }
+      @include media-breakpoint-up(lg) {
+        img {
+          width: 154px;
+        }
+        video {
+          width: 154px;
+        }
+      }
+    }
+  }
+  .up,
+  .down {
+    display: block;
+    position: absolute;
+    left: 52px;
+    width: 48px;
+    height: 48px;
+    z-index: 1;
+    cursor: pointer;
+    @include media-breakpoint-up(lg) {
+    }
+  }
+  .down {
+    bottom: -25px;
+  }
+  .up {
+    top: -25px;
+  }
+  /*Hide next and previous buttons*/
+  .previous,
+  .next {
+    display: none !important;
+  }
+  .caption {
+    padding: 10px 0px 15px 12px;
+    font-family: GTPressura;
+    font-size: 0.875rem;
+    color: #9d958e;
+    p {
+      margin-bottom: 0px;
+    }
+    @include media-breakpoint-up(md) {
+      padding-top: 11px;
+    }
+  }
+  .media-player {
+    padding: 0px;
+    @include media-breakpoint-up(md) {
+      padding-right: 2px;
+    }
+  }
+}

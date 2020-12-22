@@ -1,0 +1,65 @@
+.main-header {
+  .page-title {
+    font-size: 16px;
+    font-weight: 700;
+  }
+  .navbar {
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+
+    @include media-breakpoint-up(md) {
+      .nav-link[data-toggle="collapse"][aria-expanded="true"] {
+        background: $orange-dark;
+        color: #fff;
+        transition: background-color 1s ease, color 1s ease;
+      }
+    }
+  }
+  .menu-panel {
+    background: $orange-dark;
+    color: #fff;
+
+    & > .newsletter {
+      & > .row {
+        margin: 0;
+        padding: 50px 46px;
+      }
+    }
+  }
+  > .social-icons {
+    padding: 37px 0.5rem 5px 0;
+    @include media-breakpoint-down(md) {
+      display: none !important;
+    }
+  }
+  .social-icons {
+    a {
+      display: block;
+      width: 24px;
+      height: 24px;
+      margin-left: 0.25rem;
+      margin-right: 0.25rem;
+      background-repeat: no-repeat;
+      background-position: center center;
+      &.hubert_fb_url {
+        background-image: url(../images/icon_facebook.svg);
+      }
+      &.hubert_twitter_url {
+        background-image: url(../images/icon_twitter.svg);
+      }
+      &.hubert_pinterest_url {
+        background-image: url(../images/icon_pinterest.svg);
+      }
+    }
+    &.navbar-nav {
+      margin-left: 0.5rem;
+      a.nav-link {
+        padding: 0;
+        margin: $nav-link-padding;
+        margin-left: 0.25rem;
+        margin-right: 0.25rem;
+      }
+    }
+  }
+}

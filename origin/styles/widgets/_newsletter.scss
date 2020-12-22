@@ -1,0 +1,43 @@
+.widget.newsletter {
+  & > h3 {
+    display: none;
+  }
+
+  .subscribe-form {
+    @extend .input-group;
+
+    background-color: white;
+
+    &:hover .mailjet-subscribe {
+      background-color: $gray;
+    }
+
+    &:hover input#email::placeholder {
+      color: $gray;
+    }
+
+    input#email {
+      @extend .form-control;
+
+      border: 0;
+
+      &::placeholder {
+        color: $gray-light;
+      }
+    }
+
+    input[type=submit] {
+      background: #FFF url(../images/icon_arrow_brown.svg) no-repeat center center;
+      width: 40px;
+      height: 40px;
+      border: none;
+      line-height: 0;
+      color: transparent;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $gray;
+      }
+    }
+  }
+}
