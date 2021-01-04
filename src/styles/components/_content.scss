@@ -14,7 +14,7 @@
 
       @include media-breakpoint-up(md) {
         margin-bottom: 20px;
-        margin-right: $grid-gutter-width-base;
+        margin-right: $grid-gutter-width;
       }
 
       @include padded-content-unpad-left();
@@ -137,7 +137,6 @@
     }
 
     .optional-image {
-
     }
   }
 
@@ -273,7 +272,6 @@
   }
 
   .comments {
-
     .comment-reply-title {
       display: none;
     }
@@ -286,7 +284,8 @@
   #showComment {
     background-color: $blue-lighter;
 
-    input, textarea {
+    input,
+    textarea {
       border: 0;
     }
   }
@@ -377,7 +376,6 @@
       margin: 15px 0;
 
       @include media-breakpoint-down(sm) {
-
       }
     }
 
@@ -415,7 +413,6 @@
 }
 
 .article {
-
   .content {
     margin: 30px 0;
 
@@ -427,7 +424,6 @@
       margin-top: 40px;
     }
   }
-
 }
 
 .page-content {
