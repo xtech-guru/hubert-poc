@@ -14,7 +14,7 @@
 
       @include media-breakpoint-up(md) {
         margin-bottom: 20px;
-        margin-right: $grid-gutter-width;
+        margin-right: $grid-gutter-width-base;
       }
 
       @include padded-content-unpad-left();
