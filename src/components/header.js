@@ -36,8 +36,12 @@ const Header = () => (
       </button>
 
       <a className="navbar-brand" href="https://www.sorpetaler.de/hubert/">
-        <img className="hidden-md-up" src={HLogo} alt="" />
-        <img className="hidden-sm-down" src={HUBERTLogoDesktop} alt="" />
+        <img className="hidden-md-up" src={HLogo} alt="Hubert logo" />
+        <img
+          className="hidden-sm-down"
+          src={HUBERTLogoDesktop}
+          alt="Hubert logo"
+        />
         <div className="hidden-md-down">
           <h1 className="page-title">text</h1>
         </div>

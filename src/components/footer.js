@@ -1,28 +1,10 @@
 // import { Link } from "gatsby"
 import React from "react"
-import Image from "gatsby-image"
-import { useStaticQuery, graphql } from "gatsby"
 import letter from "../images/letter.svg"
 import close from "../images/close.svg"
 import arrowDown from "../images/arrow-down.svg"
 
 const Header = () => {
-  const data = useStaticQuery(
-    graphql`
-      {
-        file(relativePath: { eq: "letter.svg" }) {
-          childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-      }
-    `
-  )
-
-  console.log(data)
-
   return (
     <footer className="main-footer">
       <div className="footer1 bg-body-light">
@@ -113,16 +95,16 @@ const Header = () => {
           <div className="container">
             <div className="row">
               <div className="header-text col-11 offset-1">
-                <img src={letter} />
+                <img src={letter} alt="letter icon" />
                 <p>Nichts verpassen!</p>
               </div>
             </div>
           </div>
           <div className="close-icon">
-            <img src={close} />
+            <img src={close} alt="close icon" />
           </div>
           <span className="minimise-icon">
-            <img src={arrowDown} />
+            <img src={arrowDown} alt="minimise icon" />
           </span>
         </div>
         <div className="container">
