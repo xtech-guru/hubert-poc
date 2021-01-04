@@ -4,10 +4,26 @@ import { Helmet } from "react-helmet"
 import Footer from "../components/footer"
 import Header from "../components/header"
 
+import icon_arrow_blue from "../images/icon_arrow_blue.svg"
+import icon_arrow_brown from "../images/icon_arrow_brown.svg"
+
 const IndexPage = () => (
   <>
     <Helmet>
       <html lang="en" />
+
+      <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+        crossorigin="anonymous"
+      />
+
+      <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"
+      ></script>
 
       {/* <script>
       (function(w, d, s, l, i) {
@@ -42,14 +58,8 @@ const IndexPage = () => (
             </div>
             <p className="post-text">paragraph</p>
             <a className="read-more" href="<?php the_permalink(); ?>">
-              <img
-                className="hidden-md-up"
-                src="./images/icon_arrow_blue.svg"
-              />
-              <img
-                className="hidden-sm-down"
-                src="./images/icon_arrow_brown.svg"
-              />
+              <img className="hidden-md-up" src={icon_arrow_blue} />
+              <img className="hidden-sm-down" src={icon_arrow_brown.svg} />
             </a>
           </div>
         </article>
