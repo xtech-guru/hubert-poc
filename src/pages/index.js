@@ -7,7 +7,9 @@ import Header from "../components/header"
 import icon_arrow_blue from "../images/icon_arrow_blue.svg"
 import icon_arrow_brown from "../images/icon_arrow_brown.svg"
 import Posts from "../components/posts"
-const IndexPage = () => (
+import { graphql } from "gatsby"
+
+const IndexPage = ({ data }) => (
   <>
     <Helmet>
       <html lang="en" />
@@ -204,7 +206,7 @@ const IndexPage = () => (
             </a>
           </div>
         </article>
-        <Posts />
+        <Posts data={data.allWordpressPost.nodes.slice(0, 9)} />
       </div>
 
       <Footer />
@@ -212,4 +214,20 @@ const IndexPage = () => (
   </>
 )
 
+export const query = graphql`
+  query indexQuery {
+    allWordpressPost(filter: { status: { eq: "publish" } }) {
+      nodes {
+        title
+        id
+        link
+        categories {
+          name
+          link
+        }
+        excerpt
+      }
+    }
+  }
+`
 export default IndexPage
