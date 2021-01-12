@@ -1,0 +1,34 @@
+$enable-rounded: false;
+$font-family-sans-serif: "GT Pressura", -apple-system, system-ui,
+  BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+$font-family-serif: Merriweather, Georgia, "Times New Roman", Times, serif;
+$font-family-monospace: Menlo, Monaco, Consolas, "Liberation Mono",
+  "Courier New", monospace;
+$font-family-base: $font-family-serif;
+$font-weight-normal: 400;
+$font-weight-bold: 700;
+$font-size-h1: 2rem;
+$font-size-h2: 1.375rem;
+$font-size-h3: 1.125rem;
+$headings-font-family: $font-family-sans-serif;
+$headings-font-weight: $font-weight-bold;
+$blockquote-font-size: 1.875rem;
+$intro-article-size: 1.125rem;
+$small-title-dark-size: 0.875rem;
+$gray: #756b62;
+$gray-dark: #4b3e31;
+$gray-light: #9d958e;
+$gray-lighter: #c7bcb2;
+$gray-lighter2: #eee6de;
+$orange-dark: #f86968;
+$blue-dark: #247bc0;
+$blue-light: #71b3e7;
+$blue-lighter: #eaf2fa;
+$beige: #f4efea;
+
+$navbar-light-color: $gray-light;
+$navbar-light-hover-color: $gray-light;
+$navbar-light-active-color: $gray-light;
+$navbar-light-disabled-color: $gray-light;
+$navbar-light-toggler-bg: url(../images/burger_menu.svg);
+$navbar-light-toggler-border: none;

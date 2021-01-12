@@ -1,0 +1,46 @@
+.error404 {
+  background-color: $orange-dark;
+
+  .error-page {
+    flex-direction: column;
+    display: -webkit-flex; /* Safari */
+    -webkit-justify-content: space-around; /* Safari 6.1+ */
+    display: flex;
+    justify-content: space-around;
+    width: 100vw;
+    height: 100vh;
+    font-family: $font-family-sans-serif;
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
+
+    &_logo {
+    }
+
+    &_message {
+      color: white;
+      font-size: $font-size-h1;
+
+      @include media-breakpoint-only(md) {
+        font-size: 2.5rem;
+      }
+
+      @include media-breakpoint-up(lg) {
+        font-size: 3rem;
+      }
+    }
+
+    &_home {
+      a {
+        border: 1px solid white;
+        color: white;
+        padding: 0.625rem 1rem;
+        text-decoration: none;
+      }
+      span {
+        &:hover {
+          border-bottom: solid 4px;
+        }
+      }
+    }
+  }
+}

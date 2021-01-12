@@ -1,0 +1,457 @@
+.article,
+.page-content {
+  margin-top: 2.625rem;
+
+  @include media-breakpoint-down(sm) {
+    margin-top: 1.875rem;
+  }
+
+  .padded-content {
+    @include padded-content();
+
+    .unpad-left {
+      margin-bottom: 30px;
+
+      @include media-breakpoint-up(md) {
+        margin-bottom: 20px;
+        margin-right: $grid-gutter-width-base;
+      }
+
+      @include padded-content-unpad-left();
+    }
+  }
+
+  blockquote {
+    padding: 15px 0;
+    font-family: $font-family-sans-serif;
+    font-size: 30px;
+    line-height: 36px;
+    font-weight: $font-weight-bold;
+    color: $orange-dark;
+    border-top: 3px solid #ffd0d0;
+    border-bottom: 3px solid #ffd0d0;
+
+    @include padded-content-unpad-left();
+    @include padded-content-unpad-right();
+
+    p {
+      margin: 0;
+    }
+  }
+
+  .category-text {
+    background-color: $orange-dark;
+    font-weight: $font-weight-bold;
+    font-size: $small-title-dark-size;
+    padding: 5px 17px 5px 17px;
+    color: white;
+
+    a {
+      color: white;
+    }
+  }
+
+  .h1 {
+    margin: 20px 0 21px 0;
+
+    a {
+      color: #4b3e31;
+
+      @include media-breakpoint-down(sm) {
+        font-size: 2rem;
+      }
+      @include media-breakpoint-up(md) {
+        font-size: 3rem;
+      }
+      @include media-breakpoint-only(md) {
+        font-size: 2.5rem;
+      }
+    }
+  }
+
+  &-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .highlighted-element {
+    margin-left: 30px;
+    margin-bottom: 20px;
+    float: right;
+    background-color: #f4efea;
+    padding: 20px 20px;
+
+    @include media-breakpoint-down(sm) {
+      float: none;
+      margin: 30px 0;
+    }
+
+    p {
+      font-family: $font-family-sans-serif;
+      font-weight: $font-weight-bold;
+      color: $gray-light;
+      text-transform: uppercase;
+      line-height: 1.25;
+      margin: 0;
+
+      @include media-breakpoint-only(md) {
+        max-width: 183px;
+      }
+      @include media-breakpoint-up(lg) {
+        max-width: 163px;
+      }
+    }
+
+    & + br {
+      display: none;
+    }
+  }
+
+  .text-with_link {
+    background-color: #f4efea;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 30px 20px;
+
+    @include media-breakpoint-up(md) {
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+
+    @include padded-content();
+    @include padded-content-unpad-left();
+    @include padded-content-unpad-right(true);
+
+    .text_content {
+      font-size: $intro-article-size;
+      margin-bottom: 20px;
+    }
+
+    img.link-icon {
+      width: 20px;
+      height: 18px;
+    }
+
+    .text-link {
+      color: $blue-light;
+    }
+
+    .optional-image {
+    }
+  }
+
+  .introduction {
+    font-size: 1.125rem;
+    color: $gray-light;
+    margin-bottom: 25px;
+  }
+
+  .author {
+    color: $gray-lighter;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    margin: 0;
+
+    &-block {
+      color: $gray-light;
+      text-transform: uppercase;
+      font-size: 0.875rem;
+      text-align: center;
+
+      @include media-breakpoint-down(sm) {
+        margin: 30px 0;
+      }
+
+      @include media-breakpoint-up(md) {
+        margin: 30px 0 60px 0;
+      }
+
+      .avatar {
+        @include media-breakpoint-down(sm) {
+          margin-bottom: 10px;
+        }
+      }
+
+      &_name {
+        margin-bottom: 5px;
+        @include media-breakpoint-up(md) {
+          text-align: left;
+        }
+
+        a {
+          color: $gray;
+          font-weight: $font-weight-bold;
+        }
+      }
+
+      &_description {
+        text-transform: none;
+        @include media-breakpoint-up(md) {
+          padding: 0;
+          text-align: left;
+        }
+      }
+
+      img {
+        border-radius: 50%;
+        margin: 0;
+      }
+
+      .read-more {
+        a {
+          color: $blue-light;
+        }
+        @include media-breakpoint-up(md) {
+          display: inline-block;
+        }
+      }
+    }
+
+    a {
+      color: $gray-lighter;
+      text-decoration: underline;
+    }
+
+    &-separator {
+      margin-top: 14px;
+    }
+  }
+
+  .rating {
+    text-align: center;
+    color: $gray-lighter;
+    font-size: 0.875rem;
+
+    &-title {
+      @include media-breakpoint-down(sm) {
+        margin: 10px 0 10px 0;
+      }
+
+      @include media-breakpoint-up(md) {
+        text-align: left;
+      }
+    }
+
+    &-widget {
+      @include media-breakpoint-up(md) {
+        text-align: right;
+
+        &_title {
+          margin-right: 25px;
+        }
+      }
+    }
+
+    hr {
+      border-top: 1px solid $gray-lighter2;
+    }
+  }
+
+  .share {
+    color: $gray-lighter;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+
+    a {
+      color: $gray-lighter;
+      text-decoration: none;
+      margin-right: 25px;
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+
+    span {
+      margin-right: 25px;
+    }
+  }
+
+  .content {
+    color: #756b62;
+  }
+
+  .comments {
+    .comment-reply-title {
+      display: none;
+    }
+
+    .comment-notes {
+      display: none;
+    }
+  }
+
+  #showComment {
+    background-color: $blue-lighter;
+
+    input,
+    textarea {
+      border: 0;
+    }
+  }
+
+  .comment-submit {
+    margin: 40px 0 0 0;
+
+    &_cta {
+      width: 124px;
+      height: 50px;
+      background-color: $blue-light;
+      font-weight: $headings-font-weight;
+      font-family: $font-family-sans-serif;
+      color: $white;
+      padding: 10px 21px 10px 21px;
+      border-color: $blue-light;
+
+      &:hover {
+        background-color: $blue-dark;
+        border-color: $blue-dark;
+      }
+    }
+  }
+
+  .comment-policy {
+    font-size: $small-title-dark-size;
+    color: $blue-light;
+  }
+
+  .show-comments {
+    background-color: $blue-lighter;
+    font-size: 0.875rem;
+
+    @include media-breakpoint-down(sm) {
+      margin-bottom: 30px;
+      padding: 12px 0;
+    }
+
+    @include media-breakpoint-up(md) {
+      margin-bottom: 40px;
+      padding: 19px 0;
+    }
+
+    &_number {
+      font-weight: $font-weight-bold;
+      color: $gray-light;
+      text-decoration: none;
+    }
+
+    .icon {
+      padding-right: 20px;
+      background: url("../images/arrow_comments_close.svg") no-repeat center;
+    }
+
+    [data-toggle="collapse"] {
+      .icon {
+        background: url("../images/arrow_comments_close.svg") no-repeat center;
+      }
+    }
+
+    [data-toggle="collapse"].collapsed {
+      .icon {
+        background: url("../images/arrow_comments_open.svg") no-repeat center;
+      }
+    }
+  }
+
+  .comment-form {
+    margin-top: 40px;
+  }
+
+  .comment {
+    color: $gray-light;
+    font-size: 0.875rem;
+
+    &-author {
+      font-family: $font-family-sans-serif;
+      font-weight: $font-weight-bold;
+      text-transform: uppercase;
+    }
+
+    &-date {
+      font-family: $font-family-sans-serif;
+      color: $gray-light;
+    }
+
+    &-details {
+      margin: 15px 0;
+
+      @include media-breakpoint-down(sm) {
+      }
+    }
+
+    &-reply {
+      a {
+        color: $blue-light;
+      }
+    }
+  }
+
+  h2.related-posts_title {
+    color: $gray;
+    font-size: $small-title-dark-size;
+  }
+
+  h1.card-title {
+    margin-bottom: 0.875rem;
+
+    @include media-breakpoint-down(sm) {
+      margin-bottom: 0.625rem;
+    }
+
+    a {
+      @include media-breakpoint-down(sm) {
+        font-size: $font-size-h2;
+      }
+      @include media-breakpoint-only(md) {
+        font-size: 1.5rem;
+      }
+      @include media-breakpoint-up(lg) {
+        font-size: 1.75rem;
+      }
+    }
+  }
+}
+
+.article {
+  .content {
+    margin: 30px 0;
+
+    @include media-breakpoint-up(md) {
+      margin-top: 60px;
+    }
+
+    @include media-breakpoint-up(lg) {
+      margin-top: 40px;
+    }
+  }
+}
+
+.page-content {
+  margin: 30px 0 60px;
+
+  @include media-breakpoint-up(md) {
+    margin-top: 60px;
+  }
+
+  .content {
+    margin: 0 0 20px;
+
+    @include media-breakpoint-up(md) {
+      margin-bottom: 30px;
+    }
+  }
+}
+
+.comment-list_separator {
+  border-color: $white;
+
+  .children & {
+    display: none;
+  }
+}
+
+.children {
+  .comment {
+    border-left: 2px solid $gray-lighter;
+  }
+}

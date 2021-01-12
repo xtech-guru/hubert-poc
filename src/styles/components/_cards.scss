@@ -1,0 +1,45 @@
+.card-columns {
+  @include media-breakpoint-down(sm) {
+    column-count: 1;
+  }
+  @include media-breakpoint-up(md) {
+    column-count: 3;
+  }
+
+  .card {
+    border: none;
+
+    @include media-breakpoint-down(md) {
+      margin-bottom: 2.5625rem;
+    }
+    @include media-breakpoint-up(lg) {
+      margin-bottom: 3.8125rem;
+    }
+  }
+}
+
+.card {
+  .image-container {
+    margin-bottom: 1.25rem;
+  }
+
+  .card-block {
+    padding: 0;
+  }
+
+  .card-title {
+    margin-bottom: 0.625rem;
+    font-size: 1.75rem;
+    font-family: $font-family-sans-serif;
+    font-weight: $font-weight-bold;
+
+    a {
+      color: #4b3e31;
+    }
+  }
+
+  .card-text {
+    color: $gray;
+    margin-bottom: 0.6875rem;
+  }
+}
