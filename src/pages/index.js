@@ -226,6 +226,15 @@ export const query = graphql`
           link
         }
         excerpt
+        featured_media {
+          localFile {
+            childImageSharp {
+              fixed(width: 300) { // TODO: change this to the correct width
+                src // TODO: change this to the correct fragment used by gatsby-image
+              }
+            }
+          }
+        }
       }
     }
   }
