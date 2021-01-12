@@ -38,6 +38,7 @@ module.exports = {
     {
       resolve: "gatsby-source-wordpress",
       options: {
+        minimizeDeprecationNotice: true,
         /*
          * The base URL of the WordPress site without the trailingslash and the protocol. This is required.
          * Example : 'demo.wp-api.org' or 'www.example-site.com'
@@ -76,7 +77,9 @@ module.exports = {
         perPage: 100,
 
         // Set how many simultaneous requests are sent at once.
-        concurrentRequests: 10,
+        // TODO: return this to 10 before publishing
+        // Use GATSBY_CONCURRENT_DOWNLOAD=1 gatsby develop if you have a timeout problem when downloading images
+        concurrentRequests: 1,
         // Set WP REST API routes whitelists
         // and blacklists using glob patterns.
         // Defaults to whitelist the routes shown
@@ -86,7 +89,11 @@ module.exports = {
         // ` will either include or exclude routes ending in `comments` and
         // all routes that begin with `yoast` from fetch.
         // Whitelisted routes using glob patterns
-        includedRoutes: ["**/wp/v2/posts", "**/wp/v2/categories"],
+        includedRoutes: [
+          "**/wp/v2/posts",
+          "**/wp/v2/categories",
+          "**/wp/v2/media",
+        ],
         // Set this to keep media sizes.
         // This option is particularly useful in case you need access to
         // URLs for thumbnails, or any other media detail.
