@@ -1,19 +1,20 @@
 import React from "react"
+import GatsbyImage from "gatsby-image"
 
 const Posts = function ({ data }) {
   return (
     <div
       id="ajax-load-more"
-      class="ajax-load-more-wrap default alm-0"
+      className="ajax-load-more-wrap default alm-0"
       data-alm-id="0"
       data-canonical-url="https://www.sorpetaler.de/hubert/"
       data-slug="home"
       data-post-id="0"
       data-total-posts="126"
     >
-      <div class="alm-masonry container" style={{ opacity: 1 }}>
+      <div className="alm-masonry container" style={{ opacity: 1 }}>
         <div
-          class="alm-listing alm-ajax"
+          className="alm-listing alm-ajax"
           data-repeater="default"
           data-post-type="post"
           data-order="DESC"
@@ -35,28 +36,32 @@ const Posts = function ({ data }) {
         >
           {data.map(post => {
             return (
-              <article class="grid-item card">
+              <article className="grid-item card">
                 <div>
-                  <div class="image-container">
-                    <img
-                      class="card-img-top img-fluid"
-                      src="https://www.sorpetaler.de/wp-content/uploads/2020/10/schoenste-holzhaeuser-vis-a-vis-luna-productions_fassade-e1604049455169.jpg"
-                    />
-                    <div class="category-text">
+                  <div className="image-container">
+                    {post.featured_media.localFile.childImageSharp.fixed && (
+                      <GatsbyImage
+                        className="card-img-top img-fluid"
+                        fixed={
+                          post.featured_media.localFile.childImageSharp.fixed
+                        }
+                      />
+                    )}
+                    <div className="category-text">
                       <a href={post.categories?.[0].link}>
                         {post.categories?.[0].name}
-                      </a>{" "}
+                      </a>
                     </div>
                   </div>
-                  <div class="card-block">
-                    <p class="card-title">
-                      <a class="card-title_link" href={post.link}>
+                  <div className="card-block">
+                    <p className="card-title">
+                      <a className="card-title_link" href={post.link}>
                         {post.title}
                       </a>
                     </p>
-                    <p class="card-text">{post.excerpt}</p>
+                    <p className="card-text">{post.excerpt}</p>
                     <a
-                      class="read-more"
+                      className="read-more"
                       href="https://www.sorpetaler.de/hubert/nachhaltig-bauen-und-sanieren/die-schoensten-holzhaeuser-gewinner/"
                     >
                       Mehr
@@ -68,8 +73,8 @@ const Posts = function ({ data }) {
           })}
         </div>
       </div>
-      <div class="alm-btn-wrap" style={{ visibility: "visible" }}>
-        <button class="alm-load-more-btn more" rel="next">
+      <div className="alm-btn-wrap" style={{ visibility: "visible" }}>
+        <button className="alm-load-more-btn more" rel="next">
           mehr Laden
         </button>
       </div>

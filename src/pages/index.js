@@ -229,8 +229,8 @@ export const query = graphql`
         featured_media {
           localFile {
             childImageSharp {
-              fixed(width: 300) { // TODO: change this to the correct width
-                src // TODO: change this to the correct fragment used by gatsby-image
+              fixed(width: 340) {
+                ...GatsbyImageSharpFixed_withWebp
               }
             }
           }
