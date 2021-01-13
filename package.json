@@ -1,11 +1,17 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "hubert-poc",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
-  "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "description": "A simple proof of concept for the Hubert website so we can see the benefit of Static Site Generators",
+  "version": "0.1.1",
+  "author": "Oussama Bouthouri <oussamabo@xtech.guru>",
+  "contributors": [
+    {"name":"Hamdi Gatri","email":"hamdiga@xtech.guru"},
+    {"name":"Fekher Ghouili","email":"fekhergh@xtech.guru"}
+  ],
   "dependencies": {
+    "bootstrap": "4.0.0-alpha.6",
     "gatsby": "^2.26.1",
+    "gatsby-cli": "^2.16.2",
     "gatsby-image": "^2.5.0",
     "gatsby-plugin-manifest": "^2.6.1",
     "gatsby-plugin-offline": "^3.4.0",
@@ -36,9 +42,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/xtech-guru/hubert-poc"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://app.clickup.com/2427294/v/li/36044757"
   }
 }

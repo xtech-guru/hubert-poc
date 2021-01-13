@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="shortcut icon" type="image/png" />
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Google Tag Manager - @formatter:off -->
+    <script>
+      (function(w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-P6DRKLV");
+    </script>
+    <!-- End Google Tag Manager - @formatter:on -->
+    <link rel="stylesheet" href="main.css" />
+  </head>
+
+  <body>
+    <header class="main-header container">
+      <div class="social-icons d-flex justify-content-end">
+        <a
+          class="<?php echo $icon['cls']; ?>"
+          href="<?php echo $icon['url']; ?>"
+          target="_blank"
+        ></a>
+        <a
+          class="<?php echo $icon['cls']; ?>"
+          href="<?php echo $icon['url']; ?>"
+          target="_blank"
+        ></a>
+        <a
+          class="<?php echo $icon['cls']; ?>"
+          href="<?php echo $icon['url']; ?>"
+          target="_blank"
+        ></a>
+      </div>
+      <nav class="navbar navbar-toggleable-sm navbar-light align-items-md-end">
+        <button
+          class="navbar-toggler navbar-toggler-right"
+          type="button"
+          data-toggle="collapse"
+          data-target="#mainNavBar"
+          aria-controls="mainNavBar"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <a class="navbar-brand" href="https://www.sorpetaler.de/hubert/">
+          <img class="hidden-md-up" src="./images/H_logo.svg" alt="" />
+          <img
+            class="hidden-sm-down"
+            src="./images/HUBERT_logo_desktop.svg"
+            alt=""
+          />
+          <div class="hidden-md-down"><h1 class="page-title">text</h1></div>
+        </a>
+
+        <div id="mainNavBar" class="collapse navbar-collapse">
+          <ul class="navbar-nav mt-2 mt-md-0 ml-md-auto">
+            <li class="nav-item dropdown">
+              <a
+                id="navbarCategoriesLink"
+                class="nav-link dropdown-toggle"
+                href="#"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+                >text</a
+              >
+              <div class="dropdown-menu" aria-labelledby="navbarCategoriesLink">
+                <a class="dropdown-item" href="#">category 1</a>
+                <a class="dropdown-item" href="#">category 2</a
+                ><a class="dropdown-item" href="#">category 3</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">nav item</a>
+            </li>
+
+            <li class="nav-item">
+              <a
+                class="nav-link no-scroll"
+                href="#newsletter"
+                data-toggle="collapse"
+                aria-expanded="false"
+                aria-controls="newsletter"
+                >nav item 2</a
+              >
+            </li>
+          </ul>
+          <ul
+            class="social-icons navbar-nav mt-2 mt-md-0 hidden-sm-down hidden-lg-up"
+          >
+            <li class="nav-item">
+              <a
+                class="nav-link icon <?php echo $icon['cls']; ?>"
+                href="<?php echo $icon['url']; ?>"
+                target="_blank"
+              >
+                scoial icon</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link icon <?php echo $icon['cls']; ?>"
+                href="<?php echo $icon['url']; ?>"
+                target="_blank"
+              >
+                scoial icon 2</a
+              >
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div class="menu-panel">
+        <div class="collapse newsletter" id="newsletter">
+          <div class="row align-items-center">
+            <div class="col-md-8 text-md-right">
+              Verpasse keine Neuigkeiten von Hubert. Jetzt zum Newsletter
+              anmelden!
+            </div>
+            <div class="col-md-4">
+              side bar newsletter
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="posts">
+      <article
+        class="main-post"
+        style="background-image: url(https://www.sorpetaler.de/wp-content/uploads/2019/02/holzart-bestimmen-e1551088414591.jpg)"
+      >
+        <div class="content">
+          <div class="category-text"></div>
+          <div class="h1">
+            <a href="<?php the_permalink(); ?>">Article title 1</a>
+          </div>
+          <p class="post-text">paragraph</p>
+          <a class="read-more" href="<?php the_permalink(); ?>">
+            <img class="hidden-md-up" src="./images/icon_arrow_blue.svg" />
+            <img class="hidden-sm-down" src="./images/icon_arrow_brown.svg" />
+          </a>
+        </div>
+      </article>
+      <div class="page-content">
+        <article class="container">
+          <header class="content padded-content">
+            <h1><a href="#">title</a></h1>
+          </header>
+          <div class="content padded-content">
+            <article class="grid-item card">
+              <div>
+                <div class="image-container">
+                  <img
+                    class="card-img-top img-fluid"
+                    src="https://www.sorpetaler.de/wp-content/uploads/2020/10/schoenste-holzhaeuser-vis-a-vis-luna-productions_fassade-e1604049455169.jpg"
+                  />
+                  <div class="category-text">
+                    category text
+                  </div>
+                </div>
+                <div class="card-block">
+                  <p class="card-title">
+                    <a class="card-title_link" href="<?php the_permalink();?>"
+                      >article title</a
+                    >
+                  </p>
+                  <p class="card-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Quae et ut nulla consequuntur error officia!
+                  </p>
+                  <a class="read-more" href="<?php the_permalink();?>">Mehr</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </article>
+        <article class="container">
+          <header class="content padded-content">
+            <h1><a href="#">title</a></h1>
+          </header>
+          <div class="content padded-content">
+            <article class="grid-item card">
+              <div>
+                <div class="image-container">
+                  <img
+                    class="card-img-top img-fluid"
+                    src="https://www.sorpetaler.de/wp-content/uploads/2020/10/schoenste-holzhaeuser-vis-a-vis-luna-productions_fassade-e1604049455169.jpg"
+                  />
+                  <div class="category-text">
+                    category text
+                  </div>
+                </div>
+                <div class="card-block">
+                  <p class="card-title">
+                    <a class="card-title_link" href="<?php the_permalink();?>"
+                      >article title</a
+                    >
+                  </p>
+                  <p class="card-text">description</p>
+                  <a class="read-more" href="<?php the_permalink();?>">Mehr</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </article>
+        <article class="container">
+          <header class="content padded-content">
+            <h1><a href="#">title</a></h1>
+          </header>
+          <div class="content padded-content">
+            <article class="grid-item card">
+              <div>
+                <div class="image-container">
+                  <img
+                    class="card-img-top img-fluid"
+                    src="https://www.sorpetaler.de/wp-content/uploads/2020/10/schoenste-holzhaeuser-vis-a-vis-luna-productions_fassade-e1604049455169.jpg"
+                  />
+                  <div class="category-text">
+                    category text
+                  </div>
+                </div>
+                <div class="card-block">
+                  <p class="card-title">
+                    <a class="card-title_link" href="<?php the_permalink();?>"
+                      >article title</a
+                    >
+                  </p>
+                  <p class="card-text">description</p>
+                  <a class="read-more" href="<?php the_permalink();?>">Mehr</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </article>
+        <article class="container">
+          <header class="content padded-content">
+            <h1><a href="#">title</a></h1>
+          </header>
+          <div class="content padded-content">
+            <article class="grid-item card">
+              <div>
+                <div class="image-container">
+                  <img
+                    class="card-img-top img-fluid"
+                    src="https://www.sorpetaler.de/wp-content/uploads/2020/10/schoenste-holzhaeuser-vis-a-vis-luna-productions_fassade-e1604049455169.jpg"
+                  />
+                  <div class="category-text">
+                    category text
+                  </div>
+                </div>
+                <div class="card-block">
+                  <p class="card-title">
+                    <a class="card-title_link" href="<?php the_permalink();?>"
+                      >article title</a
+                    >
+                  </p>
+                  <p class="card-text">description</p>
+                  <a class="read-more" href="<?php the_permalink();?>">Mehr</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </article>
+      </div>
+      <button>
+        Load more
+      </button>
+    </div>
+    <footer class="main-footer">
+      <div class="footer1 bg-body-light">
+        <div class="container">
+          <div class="row mb-12">
+            <div class="footer-item col-sm-12 mt-5 col-lg-4">
+              <h6 class="header">Hubert Magazin</h6>
+              <p>
+                Hubert ist das neue Online-Magazin für Holz-Kultur, das
+                hochwertige und mitreißende Beiträge rund um den Baustoff Holz
+                liefert. Hubert wird herausgegeben von Sorpetaler Fensterbau.
+              </p>
+              <div>
+                <a href="<?php echo get_home_url() . '/hubert/about' ?>"
+                  >Mehr erfahren</a
+                >
+              </div>
+              <div>
+                <a href="mailto:post@hubert-magazin.de"
+                  >post@hubert-magazin.de</a
+                >
+              </div>
+            </div>
+            <div class="footer-item col-sm-12 mt-5 col-lg-4">
+              <h6 class="header">Folge uns</h6>
+              <ul class="list-unstyled">
+                <li>
+                  <a href="<?php echo stripslashes($fb_url); ?>" target="_blank"
+                    >Facebook</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="<?php echo stripslashes($twitter_url); ?>"
+                    target="_blank"
+                    >Twitter</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="<?php echo stripslashes($pinterest_url); ?>"
+                    target="_blank"
+                    >Pinterest</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="footer-item col-sm-12 my-5 col-lg-4">
+              <h6 class="header">newsletter</h6>
+              <p>
+                Verpasse keine Neuigkeiten von Hubert. Jetzt zum Newsletter
+                anmelden!
+              </p>
+              <?php if (is_active_sidebar('hubert-newsletter')) {
+        dynamic_sidebar('hubert-newsletter');
+    }?>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr class="hidden-lg-up" />
+      <div class="footer-bottom bg-body-dark py-5 text-center">
+        <div class="container">
+          <div class="row d-flex justify-content-center">
+            <div class="mx-2">©2017 Hubert</div>
+            <div class="mx-2">|</div>
+            <div class="mx-2">
+              <a href="<?php echo get_home_url() . '/hubert/impressum' ?>"
+                >Impressum</a
+              >
+            </div>
+            <div class="hidden-sm-down ml-2 mr-0">|</div>
+            <div class="col-sm-12 pl-0 col-md-3 col-lg-2">
+              Powered by
+              <a href="https://www.sorpetaler.de/" target="_blank"
+                >Sorpetaler</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="newsletter-popup">
+        <div class="popup-header">
+          <div class="container">
+            <div class="row">
+              <div class="header-text col-11 offset-1">
+                <img src="./images/letter.svg" />
+                <p>Nichts verpassen!</p>
+              </div>
+            </div>
+          </div>
+          <div class="close-icon">
+            <img src="./images/close.svg" />
+          </div>
+          <span class="minimise-icon"
+            ><img src="./images/arrow-down.svg"
+          /></span>
+        </div>
+        <div class="container">
+          <div class="popup-content row">
+            <div class="popup-text col-6 offset-1">
+              <p>
+                Du willst regelmäßig die neuesten Hubert-Artikel erhalten? Dann
+                melde dich jetzt für unseren Newsletter an.
+              </p>
+            </div>
+            <div class="popup-form col-4 offset-1">
+              if sidebar
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

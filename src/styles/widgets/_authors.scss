@@ -1,0 +1,50 @@
+.authors {
+  padding: 60px 0 60px;
+  background-color: #f4efea;
+
+  &-list {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  &-avatar {
+    margin: 40px 0 20px;
+
+    @include media-breakpoint-up(md) {
+      margin: 44px 0 30px;
+    }
+
+    @include media-breakpoint-up(lg) {
+      margin-top: 40px;
+    }
+
+    img {
+      border-radius: 50%;
+      width: 100px;
+      height: auto;
+
+      @include media-breakpoint-up(lg) {
+        width: 126px;
+        height: auto;
+      }
+    }
+  }
+
+  &-description {
+    color: $gray;
+  }
+
+  &-name {
+    font-size: $font-size-h2;
+    color: $gray-dark;
+  }
+
+  &-title {
+    font-size: 1.75rem;
+    color: $gray-dark;
+  }
+
+  &-link {
+    color: $blue-light;
+  }
+}

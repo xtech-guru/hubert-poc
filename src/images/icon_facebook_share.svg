@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 14</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="website" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="02.article_mobile" transform="translate(-83.000000, -384.000000)">
+            <g id="Group-14" transform="translate(84.000000, 385.000000)">
+                <circle id="Oval-2-Copy" stroke="#C7BCB2" cx="14" cy="14" r="14"></circle>
+                <g id="icon_facebook" transform="translate(10.000000, 7.000000)" fill="#C7BCB2">
+                    <path d="M0,4.33333333 L1.75,4.33333333 L1.75,2.6 C1.49945169,2.41748486 1.51565737,1.5286025 1.75,0.866666667 C2.47435116,0.39667235 3.14987206,0 4.375,0 C6.20251005,0 7,0.242283497 7,0 L7,2.6 C6.62471061,2.23328826 5.99951261,2.07125639 5.25,1.73333333 C4.83355672,2.07125639 4.31071037,2.2585102 4.375,2.6 L4.375,4.33333333 L7,4.33333333 L6.125,6.06666667 L4.375,6.06666667 L4.375,13 L1.75,13 L1.75,6.06666667 L0,6.06666667 L0,4.33333333 Z" id="Fill-3"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

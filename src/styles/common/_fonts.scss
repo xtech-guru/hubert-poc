@@ -1,0 +1,47 @@
+@font-face {
+  font-family: "Merriweather";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Merriweather"), local("Merriweather-Regular"),
+    url("/src/styles/fonts/Merriweather-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Merriweather";
+  font-style: italic;
+  font-weight: 400;
+  src: local("Merriweather Italic"), local("Merriweather-Italic"),
+    url("/src/styles/fonts/Merriweather-Italic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "GT Pressura";
+  font-style: normal;
+  font-weight: 400;
+  src: local("GT Pressura"), local("GT-Pressura-Regular"),
+    url("/src/styles/fonts/GT-Pressura-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "GT Pressura";
+  font-style: italic;
+  font-weight: 400;
+  src: local("GT Pressura Regular Italic"), local("GT-Pressura-Regular-Italic"),
+    url("/src/styles/fonts/GT-Pressura-Regular-Italic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "GT Pressura";
+  font-style: normal;
+  font-weight: 700;
+  src: local("GT Pressura Bold"), local("GT-Pressura-Bold"),
+    url("/src/styles/fonts/GT-Pressura-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "GT Pressura";
+  font-style: italic;
+  font-weight: 700;
+  src: local("GT Pressura Bold Italic"), local("GT-Pressura-Bold-Italic"),
+    url("/src/styles/fonts/GT-Pressura-Bold-Italic.ttf") format("truetype");
+}

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="8px" height="15px" viewBox="0 0 8 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
+    <title>icon_facebook</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="top_bar_tablet" transform="translate(-668.000000, -23.000000)" fill="#C7BCB2">
+            <g id="Group-3">
+                <g id="Group-22" transform="translate(668.000000, 23.000000)">
+                    <g id="icon_facebook">
+                        <path d="M0,5 L2,5 L2,3 C1.71365907,2.78940561 1.73217985,1.76377212 2,1 C2.8278299,0.457698865 3.59985378,0 5,0 C7.08858292,0 8,0.279557881 8,0 L8,3 C7.57109784,2.57687107 6.85658584,2.38991122 6,2 C5.52406482,2.38991122 4.92652614,2.60597331 5,3 L5,5 L8,5 L7,7 L5,7 L5,15 L2,15 L2,7 L0,7 L0,5 Z" id="Fill-3"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
