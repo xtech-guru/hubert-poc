@@ -4,22 +4,22 @@ import HLogo from "../images/H_logo.svg"
 import HUBERTLogoDesktop from "../images/HUBERT_logo_desktop.svg"
 
 const Header = () => (
-  <header class="main-header container">
-    <div class="social-icons d-flex justify-content-end">
+  <header className="main-header container">
+    <div className="social-icons d-flex justify-content-end">
       <a
-        class="hubert_fb_url"
+        className="hubert_fb_url"
         href="https://www.facebook.com/hubertmagazin"
         target="_blank"
-      ></a>
+      />
       <a
-        class="hubert_pinterest_url"
+        className="hubert_pinterest_url"
         href="https://www.pinterest.de/sorpetaler/hubert-magazin-f%C3%BCr-holzkultur/"
         target="_blank"
-      ></a>
+      />
     </div>
-    <nav class="navbar navbar-toggleable-sm navbar-light align-items-md-end">
+    <nav className="navbar navbar-toggleable-sm navbar-light align-items-md-end">
       <button
-        class="navbar-toggler navbar-toggler-right"
+        className="navbar-toggler navbar-toggler-right"
         type="button"
         data-toggle="collapse"
         data-target="#mainNavBar"
@@ -27,7 +27,7 @@ const Header = () => (
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
-        <span class="navbar-toggler-icon"></span>
+        <span className="navbar-toggler-icon" />
       </button>
 
       <a className="navbar-brand" href="https://www.sorpetaler.de/hubert/">
@@ -38,16 +38,16 @@ const Header = () => (
           alt="Hubert logo"
         />
         <div className="hidden-md-down">
-          <h1 class="page-title">Magazin Für Holz-Kultur</h1>
+          <h1 className="page-title">Magazin Für Holz-Kultur</h1>
         </div>
       </a>
 
-      <div id="mainNavBar" class="collapse navbar-collapse">
-        <ul class="navbar-nav mt-2 mt-md-0 ml-md-auto">
-          <li class="nav-item dropdown">
+      <div id="mainNavBar" className="collapse navbar-collapse">
+        <ul className="navbar-nav mt-2 mt-md-0 ml-md-auto">
+          <li className="nav-item dropdown">
             <a
               id="navbarCategoriesLink"
-              class="nav-link dropdown-toggle"
+              className="nav-link dropdown-toggle"
               href="#"
               data-toggle="dropdown"
               aria-haspopup="true"
@@ -55,47 +55,50 @@ const Header = () => (
             >
               Rubriken
             </a>
-            <div class="dropdown-menu" aria-labelledby="navbarCategoriesLink">
+            <div
+              className="dropdown-menu"
+              aria-labelledby="navbarCategoriesLink"
+            >
               <a
-                class="dropdown-item"
+                className="dropdown-item"
                 href="https://www.sorpetaler.de/hubert/category/allgemein/"
               >
                 Allgemein
               </a>
               <a
-                class="dropdown-item"
+                className="dropdown-item"
                 href="https://www.sorpetaler.de/hubert/category/der-werkstoff-holz/"
               >
                 Der Werkstoff Holz
               </a>
               <a
-                class="dropdown-item"
+                className="dropdown-item"
                 href="https://www.sorpetaler.de/hubert/category/fensterratgeber/"
               >
                 Fensterratgeber
               </a>
               <a
-                class="dropdown-item"
+                className="dropdown-item"
                 href="https://www.sorpetaler.de/hubert/category/nachhaltig-bauen-und-sanieren/"
               >
                 Nachhaltig Bauen und Sanieren
               </a>
               <a
-                class="dropdown-item"
+                className="dropdown-item"
                 href="https://www.sorpetaler.de/hubert/category/persoenlichkeiten/"
               >
                 Persönlichkeiten
               </a>
             </div>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://www.sorpetaler.de/hubert/about">
+          <li className="nav-item">
+            <a className="nav-link" href="/about">
               Über uns
             </a>
           </li>
-          <li class="nav-item">
+          <li className="nav-item">
             <a
-              class="nav-link no-scroll"
+              className="nav-link no-scroll"
               href="#newsletter"
               data-toggle="collapse"
               aria-expanded="false"
@@ -105,33 +108,33 @@ const Header = () => (
             </a>
           </li>
         </ul>
-        <ul class="social-icons navbar-nav mt-2 mt-md-0 hidden-sm-down hidden-lg-up">
-          <li class="nav-item">
+        <ul className="social-icons navbar-nav mt-2 mt-md-0 hidden-sm-down hidden-lg-up">
+          <li className="nav-item">
             <a
-              class="nav-link icon hubert_fb_url"
+              className="nav-link icon hubert_fb_url"
               href="https://www.facebook.com/hubertmagazin"
               target="_blank"
-            ></a>
+            />
           </li>
-          <li class="nav-item">
+          <li className="nav-item">
             <a
-              class="nav-link icon hubert_pinterest_url"
+              className="nav-link icon hubert_pinterest_url"
               href="https://www.pinterest.de/sorpetaler/hubert-magazin-f%C3%BCr-holzkultur/"
               target="_blank"
-            ></a>
+            />
           </li>
         </ul>
       </div>
     </nav>
-    <div class="menu-panel">
-      <div class="collapse newsletter" id="newsletter">
-        <div class="row align-items-center">
-          <div class="col-md-8 text-md-right">
+    <div className="menu-panel">
+      <div className="collapse newsletter" id="newsletter">
+        <div className="row align-items-center">
+          <div className="col-md-8 text-md-right">
             Verpasse keine Neuigkeiten von Hubert. Jetzt zum Newsletter
             anmelden!
           </div>
-          <div class="col-md-4">
-            <div class="mailjet_widget_front_container">
+          <div className="col-md-4">
+            <div className="mailjet_widget_front_container">
               <div id="mailjet-widget-title-wrap">
                 <h3>Newsletter</h3>{" "}
               </div>
@@ -141,7 +144,7 @@ const Header = () => (
                 id="mailjetSubscriptionForm"
                 name="wp_mailjet_subscribe_widget-2"
               >
-                <div class="mailjet-widget-form-group">
+                <div className="mailjet-widget-form-group">
                   <input
                     type="email"
                     name="subscription_email"
@@ -168,7 +171,7 @@ const Header = () => (
                 />
                 <input type="submit" value="Registrieren" />
               </form>
-              <span class="mailjet_widget_form_message"></span>
+              <span className="mailjet_widget_form_message" />
             </div>
           </div>
         </div>
