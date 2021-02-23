@@ -125,7 +125,7 @@ const IndexPage = ({ data }) => {
           <article
             className="main-post"
             style={{
-              backgroundImage: `url(${featuredPost.featured_media.localFile.childImageSharp.fixed})`,
+              backgroundImage: `url(${featuredPost.featured_media?.localFile.childImageSharp.fixed})`,
             }}
           >
             <div className="content">
@@ -162,15 +162,15 @@ export const query = graphql`
           link
         }
         excerpt
-        featured_media {
-          localFile {
-            childImageSharp {
-              fixed(width: 340) {
-                ...GatsbyImageSharpFixed_withWebp
-              }
-            }
-          }
-        }
+        #featured_media {
+        #localFile {
+        #childImageSharp {
+        #fixed(width: 340) {
+        #...GatsbyImageSharpFixed_withWebp
+        #}
+        #}
+        #}
+        #}
       }
     }
   }

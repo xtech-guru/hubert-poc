@@ -28,7 +28,7 @@ const Posts = function ({ data }) {
             >
               <article>
                 <div className="image-container">
-                  {post.featured_media.localFile.childImageSharp.fixed && (
+                  {post.featured_media?.localFile.childImageSharp.fixed && (
                     <GatsbyImage
                       className="card-img-top img-fluid"
                       fixed={
