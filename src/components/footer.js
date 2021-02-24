@@ -4,7 +4,7 @@ import letter from "../images/letter.svg"
 import close from "../images/close.svg"
 import arrowDown from "../images/arrow-down.svg"
 
-const Header = () => {
+const Footer = () => {
   return (
     <footer class="main-footer">
       <div class="footer1 bg-body-light">
@@ -196,4 +196,4 @@ const Header = () => {
   )
 }
 
-export default Header
+export default Footer
