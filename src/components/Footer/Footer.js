@@ -109,7 +109,7 @@ export const Footer = () => {
             <div className="mx-2">©2017 Hubert</div>
             <div className="mx-2">|</div>
             <div className="mx-2">
-              <a href="https://www.sorpetaler.de/hubert/impressum">Impressum</a>
+              <a href="/impressum">Impressum</a>
             </div>
             <div className="hidden-sm-down ml-2 mr-0">|</div>
             <div className="col-sm-12 pl-0 col-md-3 col-lg-2">
@@ -150,7 +150,7 @@ export const Footer = () => {
             <div className="popup-form col-4 offset-1">
               <div className="mailjet_widget_front_container">
                 <div id="mailjet-widget-title-wrap">
-                  <h3>Newsletter</h3>{" "}
+                  <h3>Newsletter</h3>
                 </div>
 
                 <form
