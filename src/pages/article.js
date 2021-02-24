@@ -6,7 +6,7 @@ const ArticlePage = ({ data }) => {
     <Layout>
       <div className="article">
         <ArticleContent />
-        <ArticleComments />
+        {/* <ArticleComments /> */}
         <RecommendedPosts />
       </div>
     </Layout>
