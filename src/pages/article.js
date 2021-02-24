@@ -4,7 +4,7 @@ import Layout from "../components/layout"
 const ArticlePage = ({ data }) => {
   return (
     <Layout>
-      <div class="article">
+      <div className="article">
         <ArticleContent />
         <ArticleComments />
         <RecommendedPosts />
@@ -15,30 +15,27 @@ const ArticlePage = ({ data }) => {
 
 const ArticleContent = () => {
   return (
-    <article
-      class="container"
-      class="post-12053 post type-post status-publish format-standard has-post-thumbnail hentry category-nachhaltig-bauen-und-sanieren"
-    >
-      <header class="padded-content">
-        <span class="category-text">
+    <article className="container post-12053 post type-post status-publish format-standard has-post-thumbnail hentry category-nachhaltig-bauen-und-sanieren">
+      <header className="padded-content">
+        <span className="category-text">
           <a href="https://www.sorpetaler.de/hubert/category/nachhaltig-bauen-und-sanieren/">
             Nachhaltig Bauen und Sanieren
           </a>
         </span>
-        <div class="h1">
+        <div className="h1">
           <a href="https://www.sorpetaler.de/hubert/nachhaltig-bauen-und-sanieren/die-schoensten-holzhaeuser-gewinner/">
             Die schönsten Holzhäuser &#8211; Gewinner stehen fest
           </a>
         </div>
-        <p class="introduction">
+        <p className="introduction">
           Die Gewinner des Wettbewerbs "Die schönsten Holzhäuser 2020" stehen
           fest. Hier stellen wir ihre Entwürfe vor und erläutern, warum gerade
           diese die Jury am meisten überzeugt haben.
         </p>
         <hr />
-        <div class="mx-0 px-0 row d-flex justify-content-between align-items-center">
-          <div class="col-sm-12 col-md-auto pl-0">
-            <p class="author">
+        <div className="mx-0 px-0 row d-flex justify-content-between align-items-center">
+          <div className="col-sm-12 col-md-auto pl-0">
+            <p className="author">
               Von{" "}
               <a
                 href="https://www.sorpetaler.de/hubert/author/sandra/"
@@ -48,8 +45,8 @@ const ArticleContent = () => {
               </a>
             </p>
           </div>
-          <hr class="px-0 hidden-md-up col-sm-12" />
-          <div class="share col-sm-12 col-md-auto pr-0 pl-0">
+          <hr className="px-0 hidden-md-up col-sm-12" />
+          <div className="share col-sm-12 col-md-auto pr-0 pl-0">
             <span>Teilen</span>
             <a
               href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fwww.sorpetaler.de%2Fhubert%2Fnachhaltig-bauen-und-sanieren%2Fdie-schoensten-holzhaeuser-gewinner%2F&p[title]=Die sch%C3%B6nsten Holzh%C3%A4user %E2%80%93 Gewinner stehen fest"
@@ -71,15 +68,15 @@ const ArticleContent = () => {
             </a>
           </div>
         </div>
-        <hr class="hidden-sm-down" />
+        <hr className="hidden-sm-down" />
       </header>
-      <div class="mt-3">
+      <div className="mt-3">
         <img
-          class="article-image img-fluid img-responsive"
+          className="article-image img-fluid img-responsive"
           src="https://www.sorpetaler.de/wp-content/uploads/2020/10/schoenste-holzhaeuser-vis-a-vis-luna-productions_fassade-e1604049455169.jpg"
         />
       </div>
-      <div class="content padded-content">
+      <div className="content padded-content">
         <p>
           Bis zum 30. Juni konnten Studierende, Architekt*innen oder
           Bauherr*innen ihre Entwürfe für ein besonderes Holzhaus beim
@@ -114,9 +111,9 @@ const ArticleContent = () => {
           nimmt. Im Gegenteil: Das Architektenpaar betrachtet ein Gebäude nicht
           bloß als die Verwirklichung individueller Ideen, sondern immer als
           Teil eines Ganzen, einer Gemeinschaft.{" "}
-          <div class="float-md-left unpad-left">
+          <div className="float-md-left unpad-left">
             <img
-              class="alignnone"
+              className="alignnone"
               src="https://www.sorpetaler.de/wp-content/uploads/2020/10/schoenste-holzhaeuser-vis-a-vis-luna-productions-2.png"
               alt="Das Holzhaus vis-à-vis von luna productions aus der Schweiz mit einem Kirschbaum als tragendem Element"
               width="400"
@@ -185,9 +182,9 @@ const ArticleContent = () => {
           kaum auf &#8211; bis auf die Fassade vielleicht, die auf den Fotos
           noch ganz frisch wirkt. Ansonsten aber fügt es sich unglaublich
           natürlich in seine Umgebung ein.
-          <div class="float-md-left unpad-left">
+          <div className="float-md-left unpad-left">
             <img
-              class="alignnone"
+              className="alignnone"
               src="https://www.sorpetaler.de/wp-content/uploads/2020/10/schoenste-holzhaeuser-haus-h-eugen-happacher.png"
               alt="Zweiter Platz beim Wettbewerb Die schönsten Holzhäuser: Haus H in Südtirol von Eva Miclavcic und Eugen Happacher"
               width="500"
@@ -227,9 +224,9 @@ const ArticleContent = () => {
           Jugendlichen, Familien oder anderen Interessierten vielfältige
           Veranstaltungen und Angebote rund um die Themen Umwelt und
           Nachhaltigkeit.{" "}
-          <div class="float-md-left unpad-left">
+          <div className="float-md-left unpad-left">
             <img
-              class="alignnone"
+              className="alignnone"
               src="https://www.sorpetaler.de/wp-content/uploads/2020/10/schoenste-holzhaeuser-umweltbildungszentrum-kienbergpark-kolbripke.png"
               alt="Platz 3 des Wettbewerbs Die schönsten Holzhäuser: Das Umweltbildungszentrum Kienbergpark von KolpRipke Architekten in Berlin"
               width="500"
@@ -268,9 +265,9 @@ const ArticleContent = () => {
           möglich ist. Die leichte Abbaubarkeit und der einfache Transport
           eröffnen die Chance, dieses System für vielfältigste andere Nutzungen
           einzusetzen&#8221;, schließen die Architekten von KolbRipke.{" "}
-          <div class="float-md-left unpad-left">
+          <div className="float-md-left unpad-left">
             <img
-              class="alignnone"
+              className="alignnone"
               src="https://www.sorpetaler.de/wp-content/uploads/2020/10/schoenste-holzhaeuser-umweltbildungszentrum-kienbergpark-kolbripke-skizze.png"
               alt="Skizze des Umweltbildungszentrum Kienbergpark von KolbRipke Architekten"
               width="450"
@@ -313,16 +310,16 @@ const ArticleContent = () => {
             &#8211; Hanns Joosten &#8211; KolbRipke
           </em>
         </p>
-        <div class="text-with_link">
-          <div class="row">
-            <div class="col-md-6 img-fluid">
+        <div className="text-with_link">
+          <div className="row">
+            <div className="col-md-6 img-fluid">
               <img
-                class="optional-image img-fluid"
+                className="optional-image img-fluid"
                 src="https://www.sorpetaler.de/wp-content/uploads/2019/10/hausbau-mit-holz-klimaschutz.jpg"
               />
             </div>
-            <div class="col-md-6 mt-4 mt-md-0">
-              <div class="text_content">
+            <div className="col-md-6 mt-4 mt-md-0">
+              <div className="text_content">
                 {" "}
                 Der Holzhaus-Bau entwickelt sich zu einem echten Trend. Doch
                 nicht nur kurze Bauzeiten und große Flexibilität machen den
@@ -332,31 +329,33 @@ const ArticleContent = () => {
                 Entscheidung für ein Holzhaus auf unsere Umwelt haben kann.
               </div>
               <img
-                class="link-icon"
+                className="link-icon"
                 src="https://www.sorpetaler.de/wp-content/themes/hubert/assets/images/icon_arrow_blue.svg"
               />
               <a
                 href="https://www.sorpetaler.de/hubert/nachhaltig-bauen-und-sanieren/hausbau-mit-holz/"
-                class="text-link"
+                className="text-link"
               >
-                <span class="ml-2">Jetzt lesen</span>
+                <span className="ml-2">Jetzt lesen</span>
               </a>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="rating padded-content">
+      <div className="rating padded-content">
         <hr />
-        <div class="row">
-          <div class="rating-title col-sm-6">War dieser Artikel hilfreich?</div>
-          <div class="col-sm-6">
-            <div class="rating-widget">
-              <div class="rating-widget_title hidden-sm-down">RATE</div>
+        <div className="row">
+          <div className="rating-title col-sm-6">
+            War dieser Artikel hilfreich?
+          </div>
+          <div className="col-sm-6">
+            <div className="rating-widget">
+              <div className="rating-widget_title hidden-sm-down">RATE</div>
               <div>
                 <div
                   id="post-ratings-12053"
-                  class="post-ratings"
+                  className="post-ratings"
                   data-nonce="3a4ad085c5"
                 >
                   <img
@@ -373,19 +372,19 @@ const ArticleContent = () => {
                   (No Ratings Yet)
                   <br />
                   <span
-                    class="post-ratings-text"
+                    className="post-ratings-text"
                     id="ratings_12053_text"
                   ></span>
                 </div>
                 <div
                   id="post-ratings-12053-loading"
-                  class="post-ratings-loading"
+                  className="post-ratings-loading"
                 >
                   <img
                     src="https://www.sorpetaler.de/wp-content/plugins/wp-postratings/images/loading.gif"
                     width="16"
                     height="16"
-                    class="post-ratings-image"
+                    className="post-ratings-image"
                   />
                   Loading...
                 </div>{" "}
@@ -396,9 +395,9 @@ const ArticleContent = () => {
         <hr />
       </div>
 
-      <div class="author-block padded-content">
-        <div class="row d-flex align-items-center">
-          <div class="avatar col-sm-12 col-md-auto">
+      <div className="author-block padded-content">
+        <div className="row d-flex align-items-center">
+          <div className="avatar col-sm-12 col-md-auto">
             <a
               href="https://www.sorpetaler.de/hubert/author/sandra/"
               rel="author"
@@ -407,8 +406,8 @@ const ArticleContent = () => {
             </a>
           </div>
 
-          <div class="col-sm-12 col-md">
-            <div class="author-block_name">
+          <div className="col-sm-12 col-md">
+            <div className="author-block_name">
               <a
                 href="https://www.sorpetaler.de/hubert/author/sandra/"
                 rel="author"
@@ -417,14 +416,14 @@ const ArticleContent = () => {
               </a>
             </div>
             <div>
-              <div class="author-block_description col-sm-12">
+              <div className="author-block_description col-sm-12">
                 Sandra ist hauptberuflich Digital Marketing Managerin und
                 beschäftigt sich seit vielen Jahren mit den neuesten Trends im
                 Internet. Seit 2016 arbeitet sie in der Baubranche. Ihr
                 besonderes Interesse gilt dabei dem Thema nachhaltig Bauen und
                 Leben. Weil sie so gerne spricht, ist sie unsere
                 Hauptinterviewführerin.{" "}
-                <div class="read-more col-sm-12 col-md-auto px-0">
+                <div className="read-more col-sm-12 col-md-auto px-0">
                   <a
                     href="https://www.sorpetaler.de/hubert/author/sandra/"
                     rel="author"
@@ -443,21 +442,21 @@ const ArticleContent = () => {
 
 const ArticleComments = () => {
   return (
-    <div class="show-comments">
-      <div class="container">
-        <div class="padded-content">
+    <div className="show-comments">
+      <div className="container">
+        <div className="padded-content">
           <a
-            class="show-comments_number d-flex justify-content-between"
+            className="show-comments_number d-flex justify-content-between"
             data-toggle="collapse"
             href="#showComments"
             aria-expanded="false"
             aria-controls="showComments"
           >
             <div>Keine Kommentare</div>
-            <div class="icon"></div>
+            <div className="icon"></div>
           </a>
-          <div class="collapse" id="showComments">
-            <section id="comments" class="comments"></section>
+          <div className="collapse" id="showComments">
+            <section id="comments" className="comments"></section>
           </div>
         </div>
       </div>
@@ -467,41 +466,41 @@ const ArticleComments = () => {
 
 const RecommendedPosts = () => {
   return (
-    <div class="posts">
-      <div class="container">
-        <h2 class="related-posts_title mb-sm-3 mb-md-4">
+    <div className="posts">
+      <div className="container">
+        <h2 className="related-posts_title mb-sm-3 mb-md-4">
           Das könnte dir auch gefallen
         </h2>
-        <div class="grid post-list">
-          <article class="grid-item card">
+        <div className="grid post-list">
+          <article className="grid-item card">
             <div>
-              <div class="image-container">
+              <div className="image-container">
                 <img
-                  class="card-img-top img-fluid"
+                  className="card-img-top img-fluid"
                   src="https://www.sorpetaler.de/wp-content/uploads/2020/05/afz-assessment-foerderzentrum-neuwied_waechter-architekten.jpg"
                 />
-                <div class="category-text">
+                <div className="category-text">
                   <a href="https://www.sorpetaler.de/hubert/category/nachhaltig-bauen-und-sanieren/">
                     Nachhaltig Bauen und Sanieren
                   </a>{" "}
                 </div>
               </div>
-              <div class="card-block">
-                <p class="card-title">
+              <div className="card-block">
+                <p className="card-title">
                   <a
-                    class="card-title_link"
+                    className="card-title_link"
                     href="https://www.sorpetaler.de/hubert/nachhaltig-bauen-und-sanieren/holzhaus-wettbewerb-verlaengert/"
                   >
                     Holzhaus-Wettbewerb verlängert
                   </a>
                 </p>
-                <p class="card-text">
+                <p className="card-text">
                   Der Wettbewerb "Die schönsten Holzhäuser 2020" von Sorpetaler
                   wird bis zum 30. Juni 2020 verlängert. Als Gewinne winken
                   Geldpreise bis 1.500€ und eine Erwähnung im nächsten E-Book.
                 </p>
                 <a
-                  class="read-more"
+                  className="read-more"
                   href="https://www.sorpetaler.de/hubert/nachhaltig-bauen-und-sanieren/holzhaus-wettbewerb-verlaengert/"
                 >
                   Mehr
@@ -509,36 +508,36 @@ const RecommendedPosts = () => {
               </div>
             </div>
           </article>
-          <article class="grid-item card">
+          <article className="grid-item card">
             <div>
-              <div class="image-container">
+              <div className="image-container">
                 <img
-                  class="card-img-top img-fluid"
+                  className="card-img-top img-fluid"
                   src="https://www.sorpetaler.de/wp-content/uploads/2020/03/mehrfamilienhaus-holz-berliner-eisberg.png"
                 />
-                <div class="category-text">
+                <div className="category-text">
                   <a href="https://www.sorpetaler.de/hubert/category/nachhaltig-bauen-und-sanieren/">
                     Nachhaltig Bauen und Sanieren
                   </a>{" "}
                 </div>
               </div>
-              <div class="card-block">
-                <p class="card-title">
+              <div className="card-block">
+                <p className="card-title">
                   <a
-                    class="card-title_link"
+                    className="card-title_link"
                     href="https://www.sorpetaler.de/hubert/nachhaltig-bauen-und-sanieren/eisberg-berlin-mehrfamilienhaus-holz/"
                   >
                     Der Berliner Eisberg &#8211; ein Mehrfamilienhaus aus Holz
                   </a>
                 </p>
-                <p class="card-text">
+                <p className="card-text">
                   Auf 100m² Grundfläche ein mehrgeschossiges Wohngebäude mit elf
                   Wohnungen errichten, geht das? Ja, das geht. Gezeigt haben es
                   die Berliner Architekten von rundzwei mit einem innovativen
                   Holz-Hybridbau.
                 </p>
                 <a
-                  class="read-more"
+                  className="read-more"
                   href="https://www.sorpetaler.de/hubert/nachhaltig-bauen-und-sanieren/eisberg-berlin-mehrfamilienhaus-holz/"
                 >
                   Mehr
@@ -546,29 +545,29 @@ const RecommendedPosts = () => {
               </div>
             </div>
           </article>
-          <article class="grid-item card">
+          <article className="grid-item card">
             <div>
-              <div class="image-container">
+              <div className="image-container">
                 <img
-                  class="card-img-top img-fluid"
+                  className="card-img-top img-fluid"
                   src="https://www.sorpetaler.de/wp-content/uploads/2020/02/die-schoensten-holzhaeuser-ebook-wettbewerb-sorpetaler.png"
                 />
-                <div class="category-text">
+                <div className="category-text">
                   <a href="https://www.sorpetaler.de/hubert/category/nachhaltig-bauen-und-sanieren/">
                     Nachhaltig Bauen und Sanieren
                   </a>{" "}
                 </div>
               </div>
-              <div class="card-block">
-                <p class="card-title">
+              <div className="card-block">
+                <p className="card-title">
                   <a
-                    class="card-title_link"
+                    className="card-title_link"
                     href="https://www.sorpetaler.de/hubert/nachhaltig-bauen-und-sanieren/e-book-holzhaeuser/"
                   >
                     Neues E-Book: Die schönsten Holzhäuser
                   </a>
                 </p>
-                <p class="card-text">
+                <p className="card-text">
                   Holzhäuser können vieles sein: Urtümlich. Modern. Groß. Klein.
                   Urban. Ländlich. Diese vielen Facetten zeigt das neue E-Book
                   "Die schönsten Holzhäuser 2019". Außerdem: Der große
@@ -576,7 +575,7 @@ const RecommendedPosts = () => {
                   Suche nach den schönsten Holzhäusern 2020.
                 </p>
                 <a
-                  class="read-more"
+                  className="read-more"
                   href="https://www.sorpetaler.de/hubert/nachhaltig-bauen-und-sanieren/e-book-holzhaeuser/"
                 >
                   Mehr
