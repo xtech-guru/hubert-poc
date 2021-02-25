@@ -52,10 +52,10 @@ const static_data = [
       von der Umgebung, rein funktional oder wirtschaftlich in der Blick
       nimmt. Im Gegenteil: Das Architektenpaar betrachtet ein Gebäude nicht
       bloß als die Verwirklichung individueller Ideen, sondern immer als
-      Teil eines Ganzen, einer Gemeinschaft.{" "}
-      <div className="float-md-left unpad-left">
+      Teil eines Ganzen, einer Gemeinschaft.
+      <div class="float-md-left unpad-left">
         <img
-          className="alignnone"
+          class="alignnone"
           src="https://www.sorpetaler.de/wp-content/uploads/2020/10/schoenste-holzhaeuser-vis-a-vis-luna-productions-2.png"
           alt="Das Holzhaus vis-à-vis von luna productions aus der Schweiz mit einem Kirschbaum als tragendem Element"
           width="400"
@@ -124,9 +124,9 @@ const static_data = [
       kaum auf &#8211; bis auf die Fassade vielleicht, die auf den Fotos
       noch ganz frisch wirkt. Ansonsten aber fügt es sich unglaublich
       natürlich in seine Umgebung ein.
-      <div className="float-md-left unpad-left">
+      <div class="float-md-left unpad-left">
         <img
-          className="alignnone"
+          class="alignnone"
           src="https://www.sorpetaler.de/wp-content/uploads/2020/10/schoenste-holzhaeuser-haus-h-eugen-happacher.png"
           alt="Zweiter Platz beim Wettbewerb Die schönsten Holzhäuser: Haus H in Südtirol von Eva Miclavcic und Eugen Happacher"
           width="500"
@@ -165,10 +165,10 @@ const static_data = [
       Zentrum- der Name verrät es schon &#8211; bietet Kitas und Schulen,
       Jugendlichen, Familien oder anderen Interessierten vielfältige
       Veranstaltungen und Angebote rund um die Themen Umwelt und
-      Nachhaltigkeit.{" "}
-      <div className="float-md-left unpad-left">
+      Nachhaltigkeit.
+      <div class="float-md-left unpad-left">
         <img
-          className="alignnone"
+          class="alignnone"
           src="https://www.sorpetaler.de/wp-content/uploads/2020/10/schoenste-holzhaeuser-umweltbildungszentrum-kienbergpark-kolbripke.png"
           alt="Platz 3 des Wettbewerbs Die schönsten Holzhäuser: Das Umweltbildungszentrum Kienbergpark von KolpRipke Architekten in Berlin"
           width="500"
@@ -206,10 +206,10 @@ const static_data = [
       einen Prototypen dar, der zeigen soll, was mit einem Holzmodulbau
       möglich ist. Die leichte Abbaubarkeit und der einfache Transport
       eröffnen die Chance, dieses System für vielfältigste andere Nutzungen
-      einzusetzen&#8221;, schließen die Architekten von KolbRipke.{" "}
-      <div className="float-md-left unpad-left">
+      einzusetzen&#8221;, schließen die Architekten von KolbRipke.
+      <div class="float-md-left unpad-left">
         <img
-          className="alignnone"
+          class="alignnone"
           src="https://www.sorpetaler.de/wp-content/uploads/2020/10/schoenste-holzhaeuser-umweltbildungszentrum-kienbergpark-kolbripke-skizze.png"
           alt="Skizze des Umweltbildungszentrum Kienbergpark von KolbRipke Architekten"
           width="450"
@@ -240,10 +240,10 @@ const static_data = [
     </p>
     <p>
       Die erste Auflage des E-Books &#8220;Die schönsten Holzhäuser&#8221;
-      kannst du dir{" "}
+      kannst du dir
       <a href="https://www.sorpetaler.de/wp-content/uploads/2020/02/ebook-die-schoensten-holzhaeuser-2019.pdf">
         hier
-      </a>{" "}
+      </a>
       kostenfrei herunterladen.
     </p>
     <p>
@@ -252,17 +252,16 @@ const static_data = [
         &#8211; Hanns Joosten &#8211; KolbRipke
       </em>
     </p>
-    <div className="text-with_link">
-      <div className="row">
-        <div className="col-md-6 img-fluid">
+    <div class="text-with_link">
+      <div class="row">
+        <div class="col-md-6 img-fluid">
           <img
-            className="optional-image img-fluid"
+            class="optional-image img-fluid"
             src="https://www.sorpetaler.de/wp-content/uploads/2019/10/hausbau-mit-holz-klimaschutz.jpg"
           />
         </div>
-        <div className="col-md-6 mt-4 mt-md-0">
-          <div className="text_content">
-            {" "}
+        <div class="col-md-6 mt-4 mt-md-0">
+          <div class="text_content">
             Der Holzhaus-Bau entwickelt sich zu einem echten Trend. Doch
             nicht nur kurze Bauzeiten und große Flexibilität machen den
             Werkstoff Holz zu einem beliebten Material für neue Häuser. In
@@ -271,14 +270,14 @@ const static_data = [
             Entscheidung für ein Holzhaus auf unsere Umwelt haben kann.
           </div>
           <img
-            className="link-icon"
+            class="link-icon"
             src="https://www.sorpetaler.de/wp-content/themes/hubert/assets/images/icon_arrow_blue.svg"
           />
           <a
             href="https://www.sorpetaler.de/hubert/nachhaltig-bauen-und-sanieren/hausbau-mit-holz/"
-            className="text-link"
+            class="text-link"
           >
-            <span className="ml-2">Jetzt lesen</span>
+            <span class="ml-2">Jetzt lesen</span>
           </a>
         </div>
       </div>
@@ -288,24 +287,30 @@ const static_data = [
         posts: [
           {
             title: `Holzhaus-Wettbewerb verlängert`,
-            text: `Der Wettbewerb "Die schönsten Holzhäuser 2020" von Sorpetaler
+            excerpt: `Der Wettbewerb "Die schönsten Holzhäuser 2020" von Sorpetaler
         wird bis zum 30. Juni 2020 verlängert. Als Gewinne winken
         Geldpreise bis 1.500€ und eine Erwähnung im nächsten E-Book.`,
+            img:
+              "https://www.sorpetaler.de/wp-content/uploads/2020/05/afz-assessment-foerderzentrum-neuwied_waechter-architekten.jpg",
           },
           {
             title: `Der Berliner Eisberg &#8211; ein Mehrfamilienhaus aus Holz`,
-            text: `Auf 100m² Grundfläche ein mehrgeschossiges Wohngebäude mit elf
+            excerpt: `Auf 100m² Grundfläche ein mehrgeschossiges Wohngebäude mit elf
           Wohnungen errichten, geht das? Ja, das geht. Gezeigt haben es
           die Berliner Architekten von rundzwei mit einem innovativen
           Holz-Hybridbau.`,
+            img:
+              "https://www.sorpetaler.de/wp-content/uploads/2020/03/mehrfamilienhaus-holz-berliner-eisberg.png",
           },
           {
             title: `Neues E-Book: Die schönsten Holzhäuser`,
-            text: `Holzhäuser können vieles sein: Urtümlich. Modern. Groß. Klein.
+            excerpt: `Holzhäuser können vieles sein: Urtümlich. Modern. Groß. Klein.
           Urban. Ländlich. Diese vielen Facetten zeigt das neue E-Book
           "Die schönsten Holzhäuser 2019". Außerdem: Der große
           Wettbewerb für Architekten, Studierende oder Bauherren auf der
           Suche nach den schönsten Holzhäusern 2020.`,
+            img:
+              "https://www.sorpetaler.de/wp-content/uploads/2020/02/die-schoensten-holzhaeuser-ebook-wettbewerb-sorpetaler.png",
           },
         ],
       },
