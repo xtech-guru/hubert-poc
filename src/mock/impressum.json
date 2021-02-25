@@ -1,0 +1,25 @@
+{
+  "title":"Impressum",
+  "companyInformation":{
+    "bio":"Hubert, das Online-Magazin f&uuml;r Holzkultur wird herausgegeben von:",
+    "address":"Sorpetaler Fensterbau GmbH<br /> Selbecke 6<br />D-59846 Sundern",
+    "phoneNumber":"Telefon: +49 2393 91 92 0",
+    "email":"Email: info@sorpetaler.de",
+    "authorizedRepresentative":"Vertretungsberechtigter Gesch&auml;ftsf&uuml;hrer: Eduard Appelhans (V.i.S.d. &sect;55 RStV)"
+  },
+  "companyRegistrationInformation":{
+    "ustidnr":"UStIDNr.: DE232573200",
+    "registerCourt":"Registergericht: Arnsberg",
+    "registerNumber":"Registernummer: HRB 10599"
+  },
+  "paragraphs":[
+    {
+      "title":"Bildnachweise",
+      "description":"Sorpetaler Fensterbau GmbH <br /> Dipl.Des. Stefanie Schenk-Busse <br /> RSA &ndash; Rinsdorf Str&ouml;cker Architekten GmbH <br /> materio GmbH"
+    },
+    {
+      "title":"Rechtlicher Hinwei",
+      "description":"&copy; Alle auf dieser Website ver&ouml;ffentlichten Texte und Bilder sind nach deutschem Recht urheberrechtlich gesch&uuml;tzt. Sie d&uuml;rfen ohne Erlaubnis weder kopiert noch anderweitig genutzt werden."
+    }
+  ]
+}
