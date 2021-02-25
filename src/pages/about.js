@@ -50,8 +50,6 @@ const AboutPage = props => {
               description={props.header.description}
             />
 
-            <div dangerouslySetInnerHTML={{ __html: props.content.image }} />
-
             <Paragraph paragraph={props.content.paragraph} />
           </ArticleContentWrapper>
         </ArticleWrapper>

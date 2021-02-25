@@ -4,9 +4,13 @@
     "description":"Ein Hallo von Hubert – dem Magazin für Holz-Kultur!</br></br>Schön, dass du da bist. Bei Hubert informieren wir dich über die neuesten Trends rund um den Werkstoff Holz, über aktuelle Entwicklungen in der Architektur und nachhaltiges Bauen und Wohnen. Wir liefern Interviews mit spannenden Persönlichkeiten aus der Branche und bieten Tipps und Tricks für die ideale Pflege und Behandlung von Holz."
   },
   "content":{
-    "image":"<img src='https://www.sorpetaler.de/wp-content/uploads/2017/10/hubert-ber-uns.png' alt='Oben: Hubert Appelhans (ganz rechts) vor der Landschreinerei Appelhans; unten: Holz für die Fensterfertigung, Anfertigung des Glasleistenrahmens' width='500' height='500' srcSet='https://www.sorpetaler.de/wp-content/uploads/2017/10/hubert-ber-uns.png 800w, https://www.sorpetaler.de/wp-content/uploads/2017/10/hubert-ber-uns-150x150.png 150w, https://www.sorpetaler.de/wp-content/uploads/2017/10/hubert-ber-uns-300x300.png 300w, https://www.sorpetaler.de/wp-content/uploads/2017/10/hubert-ber-uns-768x768.png 768w, https://www.sorpetaler.de/wp-content/uploads/2017/10/hubert-ber-uns-380x380.png 380w' sizes='(max-width: 500px) 100vw, 500px'/>",
     "paragraph":{
       "blocks":[
+        {
+          "descriptions": [
+            "<img src='https://www.sorpetaler.de/wp-content/uploads/2017/10/hubert-ber-uns.png' alt='Oben: Hubert Appelhans (ganz rechts) vor der Landschreinerei Appelhans; unten: Holz für die Fensterfertigung, Anfertigung des Glasleistenrahmens' width='500' height='500' srcSet='https://www.sorpetaler.de/wp-content/uploads/2017/10/hubert-ber-uns.png 800w, https://www.sorpetaler.de/wp-content/uploads/2017/10/hubert-ber-uns-150x150.png 150w, https://www.sorpetaler.de/wp-content/uploads/2017/10/hubert-ber-uns-300x300.png 300w, https://www.sorpetaler.de/wp-content/uploads/2017/10/hubert-ber-uns-768x768.png 768w, https://www.sorpetaler.de/wp-content/uploads/2017/10/hubert-ber-uns-380x380.png 380w' sizes='(max-width: 500px) 100vw, 500px'/>"
+          ]
+        },
         {
           "descriptions":[
             "In unserem Fensterratgeber nehmen wir außerdem speziell das Thema Fenster unter die Lupe und liefern Ratschläge und Hinweise – etwa zur Pflege und zum Streichen von Holzfenstern."
