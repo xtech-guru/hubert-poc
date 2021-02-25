@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 
 import { Container, Layout, Seo } from "../components"
-import props from "../mock/about.json"
+import mockData from "../mock/about.json"
 
 const ArticleHeader = ({ title, description }) => {
   return (
@@ -24,7 +24,7 @@ const ParagraphBlock = ({ title, descriptions = [] }) => {
   )
 }
 
-const ArticleContent = ({ paragraph }) => {
+const Paragraph = ({ paragraph }) => {
   return (
     <>
       {paragraph.blocks.map((block, index) => (
@@ -38,7 +38,7 @@ const ArticleContent = ({ paragraph }) => {
   )
 }
 
-const AboutPage = () => {
+const AboutPage = props => {
   return (
     <Layout>
       <Seo title="About" />
@@ -52,7 +52,7 @@ const AboutPage = () => {
 
             <StyledImage {...props.content.image} />
 
-            <ArticleContent paragraph={props.content.paragraph} />
+            <Paragraph paragraph={props.content.paragraph} />
           </ArticleContentWrapper>
         </ArticleWrapper>
       </Container>
@@ -61,6 +61,8 @@ const AboutPage = () => {
 }
 
 export default AboutPage
+
+AboutPage.defaultProps = mockData
 
 const StyledImage = styled.img`
   display: block;
