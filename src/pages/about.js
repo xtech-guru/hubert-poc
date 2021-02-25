@@ -50,7 +50,7 @@ const AboutPage = props => {
               description={props.header.description}
             />
 
-            <StyledImage {...props.content.image} />
+            <div dangerouslySetInnerHTML={{ __html: props.content.image }} />
 
             <Paragraph paragraph={props.content.paragraph} />
           </ArticleContentWrapper>
@@ -63,33 +63,6 @@ const AboutPage = props => {
 export default AboutPage
 
 AboutPage.defaultProps = mockData
-
-const StyledImage = styled.img`
-  display: block;
-  margin-left: 0;
-  margin-right: 0;
-  max-width: 100%;
-  height: auto;
-  vertical-align: middle;
-  border-style: none;
-
-  *,
-  :after,
-  :before {
-    box-sizing: inherit;
-  }
-
-  @media (min-width: 768px) {
-    margin-bottom: 20px;
-    margin-right: 30px;
-    margin-left: -63px;
-    float: left !important;
-  }
-
-  @media (min-width: 992px) {
-    margin-left: -77px;
-  }
-`
 
 const ArticleWrapper = styled.article`
   @media (min-width: 576px) {
@@ -143,5 +116,31 @@ const ArticleContentWrapper = styled.div`
 
   @media (min-width: 768px) {
     margin-bottom: 30px;
+  }
+
+  img {
+    margin-left: 0;
+    margin-right: 0;
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+    border-style: none;
+
+    *,
+    :after,
+    :before {
+      box-sizing: inherit;
+    }
+
+    @media (min-width: 768px) {
+      margin-bottom: 20px;
+      margin-right: 30px;
+      margin-left: -63px;
+      float: left !important;
+    }
+
+    @media (min-width: 992px) {
+      margin-left: -77px;
+    }
   }
 `
