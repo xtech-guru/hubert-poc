@@ -7,7 +7,8 @@ const masonryOptions = {
 }
 
 const imagesLoadedOptions = { background: ".my-bg-image-el" }
-const Posts = function ({ data }) {
+
+export const Posts = function ({ data }) {
   return (
     <div className="alm-masonry container" style={{ opacity: 1 }}>
       <Masonry
@@ -69,5 +70,3 @@ const Posts = function ({ data }) {
     </div>
   )
 }
-
-export default Posts

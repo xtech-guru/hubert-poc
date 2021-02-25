@@ -1,9 +1,9 @@
 import React from "react"
 
-import HLogo from "../images/H_logo.svg"
-import HUBERTLogoDesktop from "../images/HUBERT_logo_desktop.svg"
+import HLogo from "../../images/H_logo.svg"
+import HUBERTLogoDesktop from "../../images/HUBERT_logo_desktop.svg"
 
-const Header = () => (
+export const Header = () => (
   <header className="main-header container">
     <div className="social-icons d-flex justify-content-end">
       <a
@@ -179,5 +179,3 @@ const Header = () => (
     </div>
   </header>
 )
-
-export default Header

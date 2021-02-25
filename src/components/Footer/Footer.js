@@ -1,10 +1,10 @@
 // import { Link } from "gatsby"
 import React from "react"
-import letter from "../images/letter.svg"
-import close from "../images/close.svg"
-import arrowDown from "../images/arrow-down.svg"
+import letter from "../../images/letter.svg"
+import close from "../../images/close.svg"
+import arrowDown from "../../images/arrow-down.svg"
 
-const Footer = () => {
+export const Footer = () => {
   return (
     <footer className="main-footer">
       <div className="footer1 bg-body-light">
@@ -195,5 +195,3 @@ const Footer = () => {
     </footer>
   )
 }
-
-export default Footer

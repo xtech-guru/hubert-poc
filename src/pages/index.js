@@ -1,13 +1,12 @@
 import React from "react"
 // import { Link } from "gatsby"
 import { Helmet } from "react-helmet"
-import Footer from "../components/footer"
-import Header from "../components/header"
+import { graphql } from "gatsby"
+
+import { Footer, Header, Posts } from "../components"
 
 import icon_arrow_blue from "../images/icon_arrow_blue.svg"
 import icon_arrow_brown from "../images/icon_arrow_brown.svg"
-import Posts from "../components/posts"
-import { graphql } from "gatsby"
 
 const IndexPage = ({ data }) => {
   const featuredPost = data.allWordpressPost.nodes[0]
