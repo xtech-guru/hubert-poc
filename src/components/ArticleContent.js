@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import AuthorBlock from "./AuthorBlock"
 
 const ArticleContent = ({
   content,
@@ -28,7 +29,7 @@ const ArticleContent = ({
         <Author>
           <div>
             <p>
-              Von{" "}
+              Von
               <a
                 href="https://www.sorpetaler.de/hubert/author/sandra/"
                 rel="author"
@@ -99,43 +100,7 @@ const ArticleContent = ({
         </Row>
         <hr />
       </RatingContent>
-
-      <AuthorBlock>
-        <AuthorBlockContainer>
-          <AuthorBlockImage>
-            <a
-              href="https://www.sorpetaler.de/hubert/author/sandra/"
-              rel="author"
-            >
-              <img src="https://secure.gravatar.com/avatar/1bd475830113d79a6d0f79eac7fdcdc4?s=96&r=g" />
-            </a>
-          </AuthorBlockImage>
-
-          <AuthorBlockParagraph>
-            <AuthorBlockName>
-              <a
-                href="https://www.sorpetaler.de/hubert/author/sandra/"
-                rel="author"
-              >
-                {author.name}
-              </a>
-            </AuthorBlockName>
-            <div>
-              <AuthorBlockDescription>
-                {author.description}
-                <ReadMore>
-                  <a
-                    href="https://www.sorpetaler.de/hubert/author/sandra/"
-                    rel="author"
-                  >
-                    Mehr
-                  </a>
-                </ReadMore>
-              </AuthorBlockDescription>
-            </div>
-          </AuthorBlockParagraph>
-        </AuthorBlockContainer>
-      </AuthorBlock>
+      <AuthorBlock author={author} />
     </ContentContainer>
   )
 }
@@ -303,111 +268,6 @@ const PostRatingLoading = styled.div`
     margin: 0;
     width: 16px;
     height: 16px;
-  }
-`
-
-const AuthorBlock = styled.div`
-  margin: 30px 0 60px;
-  color: #9d958e;
-  text-transform: uppercase;
-  font-size: 0.875rem;
-  text-align: center;
-  padding-left: 77px;
-  padding-right: 233px;
-  @media (min-width: 768px) {
-    margin: 30px 0 60px;
-  }
-  @media (min-width: 992px) {
-    padding-left: 77px;
-    padding-right: 233px;
-  }
-  @media (min-width: 768px) {
-    padding-left: 63px;
-    padding-right: 63px;
-  }
-`
-
-const AuthorBlockContainer = styled.div`
-  display: flex !important;
-  align-items: center !important;
-  flex-direction: row;
-  flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
-  @media (min-width: 1200px) {
-    margin-right: -15px;
-    margin-left: -15px;
-  }
-  @media (min-width: 992px) {
-    padding-left: 77px;
-    padding-right: 233px;
-    margin-right: -15px;
-    margin-left: -15px;
-  }
-  @media (min-width: 768px) {
-    padding-left: 63px;
-    padding-right: 63px;
-    margin-right: -15px;
-    margin-left: -15px;
-  }
-  @media (min-width: 576px) {
-    margin-right: -15px;
-    margin-left: -15px;
-  }
-
-  img {
-    float: left;
-    border-radius: 50%;
-    margin: 0;
-  }
-`
-const AuthorBlockName = styled.div`
-  a {
-    color: #756b62;
-    font-weight: 700;
-  }
-  text-align: left;
-`
-const AuthorBlockParagraph = styled.div`
-  flex-basis: 0;
-  flex-grow: 1;
-  max-width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
-`
-const AuthorBlockImage = styled.div`
-  @media (min-width: 768px) {
-    flex: 0 0 auto;
-    width: auto;
-  }
-`
-const AuthorBlockDescription = styled.div`
-  padding: 0;
-  text-align: left;
-  text-transform: none;
-  @media (min-width: 576px) {
-    flex: 0 0 100%;
-    max-width: 100%;
-  }
-`
-
-const ReadMore = styled.div`
-  color: #71b3e7;
-  a {
-    color: #71b3e7;
-  }
-  @media (min-width: 768px) {
-    display: inline-block;
-  }
-  padding-right: 0 !important;
-  padding-left: 0 !important;
-  @media (min-width: 768px) {
-    flex: 0 0 auto;
-    width: auto;
-  }
-  @media (min-width: 576px) {
-    flex: 0 0 100%;
-    max-width: 100%;
   }
 `
 
