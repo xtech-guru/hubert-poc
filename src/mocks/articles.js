@@ -2,13 +2,45 @@ const static_data = [
   {
     article: {
       header: {
-        category_text: "Nachhaltig Bauen und Sanieren",
+        category: {
+          name: "Nachhaltig Bauen und Sanieren",
+          link:
+            "https://www.sorpetaler.de/hubert/category/nachhaltig-bauen-und-sanieren/",
+        },
         title: "Die schönsten Holzhäuser &#8211; Gewinner stehen fest",
+        link:
+          "https://www.sorpetaler.de/hubert/nachhaltig-bauen-und-sanieren/die-schoensten-holzhaeuser-gewinner/",
         introduction:
           " Die Gewinner des Wettbewerbs Die schönsten Holzhäuser 2020 stehen fest. Hier stellen wir ihre Entwürfe vor und erläutern, warum gerade diese die Jury am meisten überzeugt haben.",
+        img:
+          "https://www.sorpetaler.de/wp-content/uploads/2020/10/schoenste-holzhaeuser-vis-a-vis-luna-productions_fassade-e1604049455169.jpg",
+      },
+      social_media: {
+        facebook: {
+          icon:
+            "https://www.sorpetaler.de/wp-content/themes/hubert/assets/images/icon_facebook_share.svg",
+          link:
+            "http://www.facebook.com/sharer.php?u=https%3A%2F%2Fwww.sorpetaler.de%2Fhubert%2Fnachhaltig-bauen-und-sanieren%2Fdie-schoensten-holzhaeuser-gewinner%2F&p[title]=Die sch%C3%B6nsten Holzh%C3%A4user %E2%80%93 Gewinner stehen fest",
+        },
+        twitter: {
+          icon:
+            "https://www.sorpetaler.de/wp-content/themes/hubert/assets/images/icon_twitter_share.svg",
+          link:
+            "http://twitter.com/share?text=Die sch%C3%B6nsten Holzh%C3%A4user %E2%80%93 Gewinner stehen fest&url=https%3A%2F%2Fwww.sorpetaler.de%2Fhubert%2Fnachhaltig-bauen-und-sanieren%2Fdie-schoensten-holzhaeuser-gewinner%2F",
+        },
+        pinterest: {
+          icon:
+            "https://www.sorpetaler.de/wp-content/themes/hubert/assets/images/icon_pinterest_share.svg",
+          link:
+            "http://pinterest.com/pin/create/button/?url=https%3A%2F%2Fwww.sorpetaler.de%2Fhubert%2Fnachhaltig-bauen-und-sanieren%2Fdie-schoensten-holzhaeuser-gewinner%2F&media=https%3A%2F%2Fwww.sorpetaler.de%2Fwp-content%2Fuploads%2F2020%2F10%2Fschoenste-holzhaeuser-vis-a-vis-luna-productions_fassade-e1604049455169.jpg&description=Die sch%C3%B6nsten Holzh%C3%A4user %E2%80%93 Gewinner stehen fest",
+        },
       },
       rating: {
+        img:
+          "https://www.sorpetaler.de/wp-content/plugins/wp-postratings/images/heart/rating_1_off.gif",
         title: "War dieser Artikel hilfreich?",
+        loading:
+          "https://www.sorpetaler.de/wp-content/plugins/wp-postratings/images/loading.gif",
       },
       author: {
         name: "Sandra Stein ",

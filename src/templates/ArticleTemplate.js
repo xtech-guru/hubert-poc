@@ -10,15 +10,17 @@ const ArticleTemplate = ({ pageContext }) => {
       <PageContainer>
         <ArticleContent
           title={pageContext.data.article.header.title}
+          link={pageContext.data.article.header.link}
+          img={pageContext.data.article.img}
           content={pageContext.data.article.content}
-          category={pageContext.data.article.header.category_text}
+          category={pageContext.data.article.header.category}
           introduction={pageContext.data.article.header.introduction}
           author={pageContext.data.article.author}
           rating={pageContext.data.article.rating}
+          social_media={pageContext.data.article.social_media}
         />
         <RelatedPosts
           title={pageContext.data.article.related_posts.title}
-          category={pageContext.data.article.header.category_text}
           posts={pageContext.data.article.related_posts.posts}
         />
       </PageContainer>

@@ -4,25 +4,23 @@ import AuthorBlock from "./AuthorBlock"
 
 const ArticleContent = ({
   content,
+  img,
   title,
   category,
   introduction,
   author,
   rating,
+  link,
+  social_media,
 }) => {
   return (
     <ContentContainer>
       <header>
         <CategoryText>
-          <a href="https://www.sorpetaler.de/hubert/category/nachhaltig-bauen-und-sanieren/">
-            {category}
-          </a>
+          <a href={category.link}>{category.name}</a>
         </CategoryText>
         <ArticleTitle>
-          <a
-            dangerouslySetInnerHTML={{ __html: title }}
-            href="https://www.sorpetaler.de/hubert/nachhaltig-bauen-und-sanieren/die-schoensten-holzhaeuser-gewinner/"
-          ></a>
+          <a dangerouslySetInnerHTML={{ __html: title }} href={link}></a>
         </ArticleTitle>
         <Introduction>{introduction}</Introduction>
         <hr />
@@ -30,10 +28,7 @@ const ArticleContent = ({
           <div>
             <p>
               Von
-              <a
-                href="https://www.sorpetaler.de/hubert/author/sandra/"
-                rel="author"
-              >
+              <a href={author.link} rel="author">
                 {author.name}
               </a>
             </p>
@@ -41,30 +36,21 @@ const ArticleContent = ({
           <hr />
           <div>
             <span>Teilen</span>
-            <a
-              href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fwww.sorpetaler.de%2Fhubert%2Fnachhaltig-bauen-und-sanieren%2Fdie-schoensten-holzhaeuser-gewinner%2F&p[title]=Die sch%C3%B6nsten Holzh%C3%A4user %E2%80%93 Gewinner stehen fest"
-              target="_blank"
-            >
-              <img src="https://www.sorpetaler.de/wp-content/themes/hubert/assets/images/icon_facebook_share.svg" />
+            <a href={social_media.facebook.link} target="_blank">
+              <img src={social_media.facebook.icon} />
             </a>
-            <a
-              href="http://twitter.com/share?text=Die sch%C3%B6nsten Holzh%C3%A4user %E2%80%93 Gewinner stehen fest&url=https%3A%2F%2Fwww.sorpetaler.de%2Fhubert%2Fnachhaltig-bauen-und-sanieren%2Fdie-schoensten-holzhaeuser-gewinner%2F"
-              target="_blank"
-            >
-              <img src="https://www.sorpetaler.de/wp-content/themes/hubert/assets/images/icon_twitter_share.svg" />
+            <a href={social_media.twitter.link} target="_blank">
+              <img src={social_media.twitter.icon} />
             </a>
-            <a
-              href="http://pinterest.com/pin/create/button/?url=https%3A%2F%2Fwww.sorpetaler.de%2Fhubert%2Fnachhaltig-bauen-und-sanieren%2Fdie-schoensten-holzhaeuser-gewinner%2F&media=https%3A%2F%2Fwww.sorpetaler.de%2Fwp-content%2Fuploads%2F2020%2F10%2Fschoenste-holzhaeuser-vis-a-vis-luna-productions_fassade-e1604049455169.jpg&description=Die sch%C3%B6nsten Holzh%C3%A4user %E2%80%93 Gewinner stehen fest"
-              target="_blank"
-            >
-              <img src="https://www.sorpetaler.de/wp-content/themes/hubert/assets/images/icon_pinterest_share.svg" />
+            <a href={social_media.pinterest.link} target="_blank">
+              <img src={social_media.pinterest.icon} />
             </a>
           </div>
         </Author>
         <hr />
       </header>
       <div>
-        <ArticleImage src="https://www.sorpetaler.de/wp-content/uploads/2020/10/schoenste-holzhaeuser-vis-a-vis-luna-productions_fassade-e1604049455169.jpg" />
+        <ArticleImage src={img} />
       </div>
       <Content dangerouslySetInnerHTML={{ __html: content }}></Content>
 
@@ -79,7 +65,7 @@ const ArticleContent = ({
                 <PostRating>
                   <img
                     id="rating_12053_1"
-                    src="https://www.sorpetaler.de/wp-content/plugins/wp-postratings/images/heart/rating_1_off.gif"
+                    src={rating.image}
                     alt="1 Star"
                     title="1 Star"
                     onmouseover="current_rating(12053, 1, '1 Star');"
@@ -91,7 +77,7 @@ const ArticleContent = ({
                   <br />
                 </PostRating>
                 <PostRatingLoading id="post-ratings-12053-loading">
-                  <img src="https://www.sorpetaler.de/wp-content/plugins/wp-postratings/images/loading.gif" />
+                  <img src={rating.loading} />
                   Loading...
                 </PostRatingLoading>
               </div>
