@@ -1,13 +1,12 @@
 import React from "react"
 // import { Link } from "gatsby"
 import { Helmet } from "react-helmet"
-import Footer from "../components/footer"
-import Header from "../components/header"
+import { graphql } from "gatsby"
+
+import { Footer, Header, Posts } from "../components"
 
 import icon_arrow_blue from "../images/icon_arrow_blue.svg"
 import icon_arrow_brown from "../images/icon_arrow_brown.svg"
-import Posts from "../components/posts"
-import { graphql } from "gatsby"
 
 const IndexPage = ({ data }) => {
   const featuredPost = data.allWordpressPost.nodes[0]
@@ -125,7 +124,7 @@ const IndexPage = ({ data }) => {
           <article
             className="main-post"
             style={{
-              backgroundImage: `url(${featuredPost.featured_media.localFile.childImageSharp.fixed})`,
+              backgroundImage: `url(${featuredPost.featured_media?.localFile.childImageSharp.fixed})`,
             }}
           >
             <div className="content">
@@ -162,15 +161,15 @@ export const query = graphql`
           link
         }
         excerpt
-        featured_media {
-          localFile {
-            childImageSharp {
-              fixed(width: 340) {
-                ...GatsbyImageSharpFixed_withWebp
-              }
-            }
-          }
-        }
+        #featured_media {
+        #localFile {
+        #childImageSharp {
+        #fixed(width: 340) {
+        #...GatsbyImageSharpFixed_withWebp
+        #}
+        #}
+        #}
+        #}
       }
     }
   }
