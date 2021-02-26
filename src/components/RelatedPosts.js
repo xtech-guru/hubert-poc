@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 
-const RelatedPosts = ({ title, category, posts }) => {
+const RelatedPosts = ({ title, posts }) => {
   return (
     <RelatedPostsContainer>
       <RelatedPostsTitle>{title}</RelatedPostsTitle>
@@ -12,22 +12,18 @@ const RelatedPosts = ({ title, category, posts }) => {
               <RelatedPostImageContainer>
                 <img src={post.img} />
                 <PostCategory>
-                  <a href="https://www.sorpetaler.de/hubert/category/nachhaltig-bauen-und-sanieren/">
-                    {category}
-                  </a>
+                  <a href={post.category.link}>{post.category.name}</a>
                 </PostCategory>
               </RelatedPostImageContainer>
               <div>
                 <RelatedPostTitle>
                   <a
                     dangerouslySetInnerHTML={{ __html: post.title }}
-                    href="https://www.sorpetaler.de/hubert/nachhaltig-bauen-und-sanieren/holzhaus-wettbewerb-verlaengert/"
+                    href={post.link}
                   ></a>
                 </RelatedPostTitle>
                 <RelatedPostDescription>{post.excerpt}</RelatedPostDescription>
-                <a href="https://www.sorpetaler.de/hubert/nachhaltig-bauen-und-sanieren/holzhaus-wettbewerb-verlaengert/">
-                  Mehr
-                </a>
+                <a href={post.link}>Mehr</a>
               </div>
             </div>
           </RelatedPost>

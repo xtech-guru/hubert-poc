@@ -18,6 +18,9 @@ const static_data = [
         besonderes Interesse gilt dabei dem Thema nachhaltig Bauen und
         Leben. Weil sie so gerne spricht, ist sie unsere
         Hauptinterviewführerin.`,
+        link: "https://www.sorpetaler.de/hubert/author/sandra/",
+        avatart:
+          "https://secure.gravatar.com/avatar/1bd475830113d79a6d0f79eac7fdcdc4?s=96&r=g",
       },
       content: `     <p>
       Bis zum 30. Juni konnten Studierende, Architekt*innen oder
@@ -286,14 +289,23 @@ const static_data = [
         title: `Das könnte dir auch gefallen`,
         posts: [
           {
+            link:
+              "https://www.sorpetaler.de/hubert/nachhaltig-bauen-und-sanieren/holzhaus-wettbewerb-verlaengert/",
             title: `Holzhaus-Wettbewerb verlängert`,
             excerpt: `Der Wettbewerb "Die schönsten Holzhäuser 2020" von Sorpetaler
         wird bis zum 30. Juni 2020 verlängert. Als Gewinne winken
         Geldpreise bis 1.500€ und eine Erwähnung im nächsten E-Book.`,
             img:
               "https://www.sorpetaler.de/wp-content/uploads/2020/05/afz-assessment-foerderzentrum-neuwied_waechter-architekten.jpg",
+            category: {
+              name: "Nachhaltig Bauen und Sanieren",
+              link:
+                "https://www.sorpetaler.de/hubert/category/nachhaltig-bauen-und-sanieren/",
+            },
           },
           {
+            link:
+              "https://www.sorpetaler.de/hubert/nachhaltig-bauen-und-sanieren/eisberg-berlin-mehrfamilienhaus-holz/",
             title: `Der Berliner Eisberg &#8211; ein Mehrfamilienhaus aus Holz`,
             excerpt: `Auf 100m² Grundfläche ein mehrgeschossiges Wohngebäude mit elf
           Wohnungen errichten, geht das? Ja, das geht. Gezeigt haben es
@@ -301,8 +313,16 @@ const static_data = [
           Holz-Hybridbau.`,
             img:
               "https://www.sorpetaler.de/wp-content/uploads/2020/03/mehrfamilienhaus-holz-berliner-eisberg.png",
+            category: {
+              name: "Nachhaltig Bauen und Sanieren",
+              link:
+                "https://www.sorpetaler.de/hubert/category/nachhaltig-bauen-und-sanieren/",
+            },
           },
           {
+            link:
+              "https://www.sorpetaler.de/hubert/nachhaltig-bauen-und-sanieren/e-book-holzhaeuser/",
+
             title: `Neues E-Book: Die schönsten Holzhäuser`,
             excerpt: `Holzhäuser können vieles sein: Urtümlich. Modern. Groß. Klein.
           Urban. Ländlich. Diese vielen Facetten zeigt das neue E-Book
@@ -311,6 +331,11 @@ const static_data = [
           Suche nach den schönsten Holzhäusern 2020.`,
             img:
               "https://www.sorpetaler.de/wp-content/uploads/2020/02/die-schoensten-holzhaeuser-ebook-wettbewerb-sorpetaler.png",
+            category: {
+              name: "Nachhaltig Bauen und Sanieren",
+              link:
+                "https://www.sorpetaler.de/hubert/category/nachhaltig-bauen-und-sanieren/",
+            },
           },
         ],
       },
