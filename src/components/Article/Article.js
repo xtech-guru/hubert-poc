@@ -1,11 +1,11 @@
 import React from "react"
 import styled from "styled-components"
 
-const ArticleHeader = ({ title, description }) => {
+const ArticleHeader = ({ title, description: introduction }) => {
   return (
     <div>
       {title && <h1>{title}</h1>}
-      {description && <p dangerouslySetInnerHTML={{ __html: description }} />}
+      {introduction && <p dangerouslySetInnerHTML={{ __html: introduction }} />}
     </div>
   )
 }
@@ -20,6 +20,11 @@ export const Article = ({ header, content }) => {
 }
 
 const Wrapper = styled.article`
+  display: block;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+
   @media (min-width: 576px) {
     width: 540px;
     max-width: 100%;
@@ -48,14 +53,7 @@ const Wrapper = styled.article`
     padding-left: 15px;
   }
 
-  display: block;
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
-  box-sizing: inherit;
-
   & div {
-    display: block;
     margin: 0 0 20px;
     color: #756b62;
 
