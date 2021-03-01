@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 
-import data from "../../mock/header.json"
+import data from "../../mocks/header.json"
 import { Menu } from "../Menu"
 
 export const Header = props => (
