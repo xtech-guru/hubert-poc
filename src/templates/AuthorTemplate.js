@@ -21,10 +21,10 @@ const AuthorTemplate = ({ pageContext }) => {
         <ul>
           <h2>Publizierte Artikel</h2>
           <hr />
-          {author.publiched_articles.map(article => {
+          {author.publiched_articles.map((article, index) => {
             return (
               <>
-                <li>
+                <li key={index}>
                   <a
                     href={article.link}
                     rel="bookmark"
