@@ -2,8 +2,8 @@ import React from "react"
 import styled from "styled-components"
 
 import data from "../../mock/menu.json"
-import HLogo from "../../images/H_logo.svg"
-import HUBERTLogoDesktop from "../../images/HUBERT_logo_desktop.svg"
+import headerLogoSm from "../../images/H_logo.svg"
+import headerLogoLg from "../../images/HUBERT_logo_desktop.svg"
 
 const MenuItem = ({ content, route, type, selected, items = [], onClick }) => {
   return (
@@ -40,8 +40,8 @@ export const Menu = props => {
         </button>
 
         <a href={props.logoUrl}>
-          <img src={HLogo} alt="Hubert logo" />
-          <img src={HUBERTLogoDesktop} alt="Hubert logo" />
+          <img src={headerLogoSm} alt="Hubert logo" />
+          <img src={headerLogoLg} alt="Hubert logo" />
           <div>
             <h1>Magazin Für Holz-Kultur</h1>
           </div>
