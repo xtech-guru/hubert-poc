@@ -1,7 +1,8 @@
 import React from "react"
-import { Layout } from "../components"
 import styled from "styled-components"
 import { Link } from "gatsby"
+
+import { Layout } from "../components"
 
 const AuthorTemplate = ({ pageContext }) => {
   const { author } = pageContext.data
