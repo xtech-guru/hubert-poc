@@ -1,8 +1,9 @@
 import React from "react"
 import styled from "styled-components"
-import AuthorBlock from "./AuthorBlock"
+import { AuthorBlock } from "../AuthorBlock"
+import { RatingBlock } from "../RatingBlock"
 
-const ArticleContent = ({
+export const ArticleContent = ({
   content,
   img,
   title,
@@ -53,39 +54,11 @@ const ArticleContent = ({
         <ArticleImage src={img} />
       </div>
       <Content dangerouslySetInnerHTML={{ __html: content }}></Content>
-
-      <RatingContent>
-        <hr />
-        <Row>
-          <RatingTitle>{rating.title}</RatingTitle>
-          <div>
-            <RatingWidget>
-              <RatingWidgetTitle>RATE</RatingWidgetTitle>
-              <div>
-                <PostRating>
-                  <img
-                    id="rating_12053_1"
-                    src={rating.image}
-                    alt="1 Star"
-                    title="1 Star"
-                    onmouseover="current_rating(12053, 1, '1 Star');"
-                    onmouseout="ratings_off(0, 0, 0);"
-                    onclick="rate_post();"
-                    onkeypress="rate_post();"
-                  />
-                  (No Ratings Yet)
-                  <br />
-                </PostRating>
-                <PostRatingLoading id="post-ratings-12053-loading">
-                  <img src={rating.loading} />
-                  Loading...
-                </PostRatingLoading>
-              </div>
-            </RatingWidget>
-          </div>
-        </Row>
-        <hr />
-      </RatingContent>
+      <RatingBlock
+        title={rating.title}
+        image={rating.image}
+        isLoading={rating.loading}
+      />
       <AuthorBlock author={author} />
     </ContentContainer>
   )
@@ -214,47 +187,3 @@ const Content = styled.div`
   padding-left: 77px;
   padding-right: 233px;
 `
-
-const RatingContent = styled.div`
-  text-align: center;
-  color: #c7bcb2;
-  font-size: 0.875rem;
-  padding-left: 77px;
-  padding-right: 233px;
-`
-const Row = styled.div`
-  margin-right: -15px;
-  margin-left: -15px;
-`
-
-const RatingTitle = styled.div`
-  text-align: left;
-`
-const RatingWidget = styled.div`
-  text-align: right;
-`
-
-const RatingWidgetTitle = styled.div`
-  margin-right: 25px;
-`
-const PostRating = styled.div`
-  width: 100%;
-  opacity: 1;
-  img{
-    cursor: "pointer", border: "0px"
-  }
-`
-const PostRatingLoading = styled.div`
-  display: none;
-  height: 16px;
-  text-align: left;
-  img {
-    border: 0;
-    padding: 0;
-    margin: 0;
-    width: 16px;
-    height: 16px;
-  }
-`
-
-export default ArticleContent

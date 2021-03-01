@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 
-const AuthorBlock = ({ author }) => (
+export const AuthorBlock = ({ author }) => (
   <AuthorBlockWidget>
     <AuthorBlockContainer>
       <AuthorBlockImage>
@@ -135,4 +135,3 @@ const ReadMore = styled.div`
     max-width: 100%;
   }
 `
-export default AuthorBlock

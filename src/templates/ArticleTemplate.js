@@ -1,8 +1,6 @@
 import React from "react"
-import Layout from "../components/layout"
-import RelatedPosts from "../components/RelatedPosts"
-import ArticleContent from "../components/ArticleContent"
 import styled from "styled-components"
+import { Layout, ArticleContent, RelatedPosts } from "../components"
 
 const ArticleTemplate = ({ pageContext }) => {
   return (

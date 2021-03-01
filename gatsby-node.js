@@ -1,4 +1,4 @@
-const static_data = require(`./src/consts/articles`)
+const static_data = require(`./src/mocks/articles`)
 const path = require(`path`)
 /**
  * Implement Gatsby's Node APIs in this file.

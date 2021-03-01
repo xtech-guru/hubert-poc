@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 
-const RelatedPosts = ({ title, posts }) => {
+export const RelatedPosts = ({ title, posts }) => {
   return (
     <RelatedPostsContainer>
       <RelatedPostsTitle>{title}</RelatedPostsTitle>
@@ -116,5 +116,3 @@ const RelatedPostsTitle = styled.h2`
     width: 33.333%;
   }
 `
-
-export default RelatedPosts
