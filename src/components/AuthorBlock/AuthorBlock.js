@@ -3,7 +3,7 @@ import styled from "styled-components"
 
 export const AuthorBlock = ({ author }) => (
   <AuthorBlockWidget>
-    <AuthorBlockContainer>
+    <AuthorBlockWrapper>
       <AuthorBlockImage>
         <a href={author.link} rel="author">
           <img src={author.avatart} />
@@ -27,7 +27,7 @@ export const AuthorBlock = ({ author }) => (
           </AuthorBlockDescription>
         </div>
       </AuthorBlockParagraph>
-    </AuthorBlockContainer>
+    </AuthorBlockWrapper>
   </AuthorBlockWidget>
 )
 
@@ -52,7 +52,7 @@ const AuthorBlockWidget = styled.div`
   }
 `
 
-const AuthorBlockContainer = styled.div`
+const AuthorBlockWrapper = styled.div`
   display: flex !important;
   align-items: center !important;
   flex-direction: row;

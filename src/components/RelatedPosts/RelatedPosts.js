@@ -4,7 +4,7 @@ import { ArticlePreview } from "../ArticlePreview"
 
 export const RelatedPosts = ({ title, posts }) => {
   return (
-    <RelatedPostsContainer>
+    <RelatedPostsWrapper>
       <RelatedPostsTitle>{title}</RelatedPostsTitle>
       <RelatedPostsList>
         {posts.map(post => (
@@ -17,11 +17,11 @@ export const RelatedPosts = ({ title, posts }) => {
           />
         ))}
       </RelatedPostsList>
-    </RelatedPostsContainer>
+    </RelatedPostsWrapper>
   )
 }
 
-const ContainerWrapper = styled.div`
+const Wrapper = styled.div`
   position: relative;
   margin-left: auto;
   margin-right: auto;
@@ -49,7 +49,7 @@ const RelatedPostsList = styled.div`
   display: flex;
 `
 
-const RelatedPostsContainer = styled(ContainerWrapper)`
+const RelatedPostsWrapper = styled(Wrapper)`
   width: 1140px;
   max-width: 100%;
   @media (min-width: 992px) {

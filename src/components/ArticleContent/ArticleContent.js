@@ -15,7 +15,7 @@ export const ArticleContent = ({
   social_media,
 }) => {
   return (
-    <ContentContainer>
+    <ContentWrapper>
       <header>
         <CategoryText>
           <a href={category.link}>{category.name}</a>
@@ -60,11 +60,11 @@ export const ArticleContent = ({
         isLoading={rating.loading}
       />
       <AuthorBlock author={author} />
-    </ContentContainer>
+    </ContentWrapper>
   )
 }
 
-const ContainerWrapper = styled.article`
+const Wrapper = styled.article`
   position: relative;
   margin-left: auto;
   margin-right: auto;
@@ -88,7 +88,7 @@ const ContainerWrapper = styled.article`
   }
 `
 
-const ContentContainer = styled(ContainerWrapper)`
+const ContentWrapper = styled(Wrapper)`
   color: #756b62;
   width: 1140px;
   padding-right: 15px;

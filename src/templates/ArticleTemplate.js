@@ -5,7 +5,7 @@ import { Layout, ArticleContent, RelatedPosts } from "../components"
 const ArticleTemplate = ({ pageContext }) => {
   return (
     <Layout>
-      <PageContainer>
+      <PageWrapper>
         <ArticleContent
           title={pageContext.data.article.header.title}
           link={pageContext.data.article.header.link}
@@ -21,12 +21,12 @@ const ArticleTemplate = ({ pageContext }) => {
           title={pageContext.data.article.related_posts.title}
           posts={pageContext.data.article.related_posts.posts}
         />
-      </PageContainer>
+      </PageWrapper>
     </Layout>
   )
 }
 
-const PageContainer = styled.div`
+const PageWrapper = styled.div`
   margin-top: 2.625rem;
 `
 

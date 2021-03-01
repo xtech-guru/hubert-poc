@@ -3,13 +3,13 @@ import styled from "styled-components"
 
 export const ArticlePreview = ({ title, description, img, category, link }) => {
   return (
-    <ArticlePreviewContainer>
-      <ImageContainer>
+    <ArticlePreviewWrapper>
+      <ImageWrapper>
         <img src={img} />
         <Category>
           <a href={category.link}>{category.name}</a>
         </Category>
-      </ImageContainer>
+      </ImageWrapper>
       <div>
         <Title>
           <a dangerouslySetInnerHTML={{ __html: title }} href={link}></a>
@@ -17,11 +17,11 @@ export const ArticlePreview = ({ title, description, img, category, link }) => {
         <Description>{description}</Description>
         <a href={link}>Mehr</a>
       </div>
-    </ArticlePreviewContainer>
+    </ArticlePreviewWrapper>
   )
 }
 
-const ArticlePreviewContainer = styled.article`
+const ArticlePreviewWrapper = styled.article`
   padding-right: 30px;
   padding-bottom: 61px;
 `
@@ -40,7 +40,7 @@ const Description = styled.p`
   color: #756b62;
   margin-bottom: 0.6875rem;
 `
-const ImageContainer = styled.div`
+const ImageWrapper = styled.div`
   position: relative;
   margin-bottom: 1.25rem;
   img {
