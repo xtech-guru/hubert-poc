@@ -1,0 +1,39 @@
+{
+  "menuItems": [
+    {
+      "content": "rubriken",
+      "route": "#",
+      "items": [
+        {
+          "content": "allgemein",
+          "route": "/hubert/category/allgemein/"
+        },
+        {
+          "content": "der werkstoff holz",
+          "route": "/hubert/category/der-werkstoff-holz/"
+        },
+        {
+          "content": "fensterratgeber",
+          "route": "/hubert/category/fensterratgeber/"
+        },
+        {
+          "content": "nachhaltig bauen und sanieren",
+          "route": "/hubert/category/nachhaltig-bauen-und-sanieren/"
+        },
+        {
+          "content": "persönlichkeiten",
+          "route": "hubert/category/persoenlichkeiten/"
+        }
+      ]
+    },
+    {
+      "content": "Über uns",
+      "route": "/about"
+    },
+    {
+      "content": "newsletter",
+      "route": "#",
+      "type": "collapse"
+    }
+  ]
+}
