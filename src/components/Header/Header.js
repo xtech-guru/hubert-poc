@@ -1,25 +1,24 @@
 import React from "react"
 import styled from "styled-components"
 
+import data from "../../mock/header.json"
 import { Menu } from "../Menu"
 
-export const Header = () => (
+export const Header = props => (
   <HeaderWrapper>
     <SocialMediaIconButtonsWrapper>
-      <a
-        className="hubert_fb_url"
-        href="https://www.facebook.com/hubertmagazin"
-        target="_blank"
-      />
+      <a className="hubert_fb_url" href={props.facebookUrl} target="_blank" />
       <a
         className="hubert_pinterest_url"
-        href="https://www.pinterest.de/sorpetaler/hubert-magazin-f%C3%BCr-holzkultur/"
+        href={props.pinterestUrl}
         target="_blank"
       />
     </SocialMediaIconButtonsWrapper>
     <Menu />
   </HeaderWrapper>
 )
+
+Header.defaultProps = data
 
 const HeaderWrapper = styled.header`
   display: block;

@@ -39,7 +39,7 @@ export const Menu = props => {
           <span />
         </button>
 
-        <a href="https://www.sorpetaler.de/hubert/">
+        <a href={props.logoUrl}>
           <img src={HLogo} alt="Hubert logo" />
           <img src={HUBERTLogoDesktop} alt="Hubert logo" />
           <div>
