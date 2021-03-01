@@ -39,11 +39,11 @@ export const Menu = props => {
           <span />
         </button>
 
-        <a href={props.logoUrl}>
+        <a href={props.logo.url}>
           <img src={headerLogoSm} alt="Hubert logo" />
           <img src={headerLogoLg} alt="Hubert logo" />
           <div>
-            <h1>Magazin Für Holz-Kultur</h1>
+            <h1>{props.logo.content}</h1>
           </div>
         </a>
 
@@ -74,14 +74,11 @@ export const Menu = props => {
       >
         <div>
           <div>
-            <div>
-              Verpasse keine Neuigkeiten von Hubert. Jetzt zum Newsletter
-              anmelden!
-            </div>
+            <div>{props.form.description}</div>
             <div>
               <div>
                 <div id="mailjet-widget-title-wrap">
-                  <h3>Newsletter</h3>
+                  <h3>{props.form.title}</h3>
                 </div>
                 <form
                   method="post"
@@ -114,7 +111,7 @@ export const Menu = props => {
                     name="widget_id"
                     value="wp_mailjet_subscribe_widget-2"
                   />
-                  <input type="submit" value="Registrieren" />
+                  <input type="submit" value={props.form.submitButtonContent} />
                 </form>
                 <span />
               </div>

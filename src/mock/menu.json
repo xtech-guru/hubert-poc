@@ -1,5 +1,8 @@
 {
-  "logoUrl": "https://www.sorpetaler.de/hubert/",
+  "logo": {
+    "url": "https://www.sorpetaler.de/hubert/",
+    "content": "Magazin Für Holz-Kultur"
+  },
   "menuItems": [
     {
       "content": "rubriken",
@@ -36,5 +39,10 @@
       "route": "#",
       "type": "collapse"
     }
-  ]
+  ],
+  "form" : {
+    "title": "Newsletter",
+    "description": "Verpasse keine Neuigkeiten von Hubert. Jetzt zum Newsletter anmelden!",
+    "submitButtonContent": "Registrieren"
+  }
 }
