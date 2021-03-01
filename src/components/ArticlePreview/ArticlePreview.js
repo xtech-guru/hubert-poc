@@ -3,32 +3,29 @@ import styled from "styled-components"
 
 export const ArticlePreview = ({ title, description, img, category, link }) => {
   return (
-    <RelatedPost>
+    <ArticlePreviewContainer>
+      <ImageContainer>
+        <img src={img} />
+        <Category>
+          <a href={category.link}>{category.name}</a>
+        </Category>
+      </ImageContainer>
       <div>
-        <RelatedPostImageContainer>
-          <img src={img} />
-          <PostCategory>
-            <a href={category.link}>{category.name}</a>
-          </PostCategory>
-        </RelatedPostImageContainer>
-        <div>
-          <RelatedPostTitle>
-            <a dangerouslySetInnerHTML={{ __html: title }} href={link}></a>
-          </RelatedPostTitle>
-          <RelatedPostDescription>{description}</RelatedPostDescription>
-          <a href={link}>Mehr</a>
-        </div>
+        <Title>
+          <a dangerouslySetInnerHTML={{ __html: title }} href={link}></a>
+        </Title>
+        <Description>{description}</Description>
+        <a href={link}>Mehr</a>
       </div>
-    </RelatedPost>
+    </ArticlePreviewContainer>
   )
 }
 
-const RelatedPost = styled.article`
+const ArticlePreviewContainer = styled.article`
   padding-right: 30px;
   padding-bottom: 61px;
-  width: 33.333%;
 `
-const RelatedPostTitle = styled.p`
+const Title = styled.p`
   margin-bottom: 0.625rem;
   font-size: 1.75rem;
   font-family: GT Pressura, -apple-system, system-ui, BlinkMacSystemFont,
@@ -39,11 +36,11 @@ const RelatedPostTitle = styled.p`
     color: #4b3e31;
   }
 `
-const RelatedPostDescription = styled.p`
+const Description = styled.p`
   color: #756b62;
   margin-bottom: 0.6875rem;
 `
-const RelatedPostImageContainer = styled.div`
+const ImageContainer = styled.div`
   position: relative;
   margin-bottom: 1.25rem;
   img {
@@ -53,7 +50,7 @@ const RelatedPostImageContainer = styled.div`
     margin-bottom: 0;
   }
 `
-const PostCategory = styled.div`
+const Category = styled.div`
   position: absolute;
   bottom: 10px;
   background-color: #f86968;
