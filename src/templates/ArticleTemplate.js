@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+
 import { Layout, ArticleContent, RelatedPosts } from "../components"
 
 const ArticleTemplate = ({ pageContext }) => {

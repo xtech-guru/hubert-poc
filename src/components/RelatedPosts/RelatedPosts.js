@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+
 import { ArticlePreview } from "../ArticlePreview"
 
 export const RelatedPosts = ({ title, posts }) => {
