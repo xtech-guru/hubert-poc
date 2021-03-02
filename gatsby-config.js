@@ -92,7 +92,7 @@ module.exports = {
         includedRoutes: [
           "**/wp/v2/posts",
           "**/wp/v2/categories",
-          "**/wp/v2/media",
+          //"**/wp/v2/media",
         ],
         // Set this to keep media sizes.
         // This option is particularly useful in case you need access to
