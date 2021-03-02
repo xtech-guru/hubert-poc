@@ -2,7 +2,7 @@
   "name": "hubert-poc",
   "private": true,
   "description": "A simple proof of concept for the Hubert website so we can see the benefit of Static Site Generators",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "author": "Oussama Bouthouri <oussamabo@xtech.guru>",
   "contributors": [
     {
