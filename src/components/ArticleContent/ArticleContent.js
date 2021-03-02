@@ -29,14 +29,14 @@ export const ArticleContent = ({
         <Author>
           <div>
             <p>
-              Von
+              Von{" "}
               <a href={author.link} rel="author">
                 {author.name}
               </a>
             </p>
           </div>
           <hr />
-          <div>
+          <SocialMediaBlock>
             <span>Teilen</span>
             <a href={social_media.facebook.link} target="_blank">
               <img src={social_media.facebook.icon} />
@@ -47,7 +47,7 @@ export const ArticleContent = ({
             <a href={social_media.pinterest.link} target="_blank">
               <img src={social_media.pinterest.icon} />
             </a>
-          </div>
+          </SocialMediaBlock>
         </Author>
         <hr />
       </header>
@@ -64,7 +64,12 @@ export const ArticleContent = ({
     </ContentWrapper>
   )
 }
-
+const SocialMediaBlock = styled.div`
+  display: flex;
+  span {
+    margin-right: 10px;
+  }
+`
 const Wrapper = styled.article`
   position: relative;
   margin-left: auto;
