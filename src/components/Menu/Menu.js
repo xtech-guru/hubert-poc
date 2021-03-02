@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 
-import data from "../../mock/menu.json"
+import data from "../../mocks/menu.json"
 import headerLogoSm from "../../images/H_logo.svg"
 import headerLogoLg from "../../images/HUBERT_logo_desktop.svg"
 

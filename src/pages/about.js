@@ -1,7 +1,7 @@
 import React from "react"
 
 import { Article, Container, Layout, SEO } from "../components"
-import mockData from "../mock/about.json"
+import mockData from "../mocks/about.json"
 
 const AboutPage = props => {
   return (

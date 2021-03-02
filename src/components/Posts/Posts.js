@@ -1,6 +1,6 @@
 import React from "react"
-import GatsbyImage from "gatsby-image"
 import Masonry from "react-masonry-component"
+import { ArticlePreview } from "../ArticlePreview"
 
 const masonryOptions = {
   transitionDuration: 0,
@@ -19,45 +19,16 @@ export const Posts = function ({ data }) {
         updateOnEachImageLoad={false} // default false and works only if disableImagesLoaded is false
         imagesLoadedOptions={imagesLoadedOptions} // default {}
       >
-        {data.map(post => {
+        {data.map(({ title, img, link, excerpt, categories }, index) => {
           return (
-            <li
-              className="grid-item card"
-              style={{
-                width: "30%",
-              }}
-            >
-              <article>
-                <div className="image-container">
-                  {post.featured_media?.localFile.childImageSharp.fixed && (
-                    <GatsbyImage
-                      className="card-img-top img-fluid"
-                      fixed={
-                        post.featured_media.localFile.childImageSharp.fixed
-                      }
-                    />
-                  )}
-                  <div className="category-text">
-                    <a href={post.categories?.[0].link}>
-                      {post.categories?.[0].name}
-                    </a>
-                  </div>
-                </div>
-                <div className="card-block">
-                  <p className="card-title">
-                    <a className="card-title_link" href={post.link}>
-                      {post.title}
-                    </a>
-                  </p>
-                  <p className="card-text">{post.excerpt}</p>
-                  <a
-                    className="read-more"
-                    href="https://www.sorpetaler.de/hubert/nachhaltig-bauen-und-sanieren/die-schoensten-holzhaeuser-gewinner/"
-                  >
-                    Mehr
-                  </a>
-                </div>
-              </article>
+            <li className="grid-item card" key={index}>
+              <ArticlePreview
+                title={title}
+                description={excerpt}
+                img={img}
+                category={categories[0]}
+                link={link}
+              />
             </li>
           )
         })}
