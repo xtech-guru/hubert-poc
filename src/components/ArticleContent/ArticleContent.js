@@ -218,4 +218,46 @@ const Content = styled.div`
   color: #756b62;
   padding-left: 77px;
   padding-right: 233px;
+  .text-with_link {
+    margin-right: -233px;
+    background-color: #f4efea;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 30px 20px;
+    .row {
+      .text_content {
+        color: #756b62;
+        margin-bottom: 20px;
+        font-size: 18px;
+        font-weight: bold;
+      }
+      div:last-child {
+        img {
+          width: 20px;
+          height: 18px;
+          margin: 0;
+        }
+        a {
+          color: #71b3e7;
+          text-decoration: none;
+        }
+      }
+    }
+    @media (min-width: 768px) {
+      margin-left: -63px;
+      margin-right: -63px;
+    }
+    @media (min-width: 992px) {
+      padding-left: 77px;
+      padding-right: 233px;
+      margin-left: -77px;
+    }
+
+    @media (min-width: 768px) {
+      padding-top: 40px;
+      padding-bottom: 40px;
+      padding-left: 63px;
+      padding-right: 63px;
+    }
+  }
 `
