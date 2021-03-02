@@ -318,9 +318,11 @@ const MenuItemWrapper = styled.li`
 `
 
 const FormWrapper = styled.div`
-  display: ${props => (props.visible ? "block" : "none")};
+  overflow: hidden;
+  height: ${props => (props.visible ? "255px;" : "0px;")}
   background: #f86968;
   color: #fff;
+  transition: height .3s ease;
 
   > div {
     display: block;
