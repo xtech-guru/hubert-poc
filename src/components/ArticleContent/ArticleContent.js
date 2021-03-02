@@ -55,7 +55,7 @@ export const ArticleContent = ({
       <Content dangerouslySetInnerHTML={{ __html: content }}></Content>
       <RatingBlock
         title={rating.title}
-        image={rating.image}
+        image={rating.img}
         isLoading={rating.loading}
       />
       <AuthorBlock author={author} />
