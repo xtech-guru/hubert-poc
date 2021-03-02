@@ -28,12 +28,10 @@ export const ArticleContent = ({
         <hr />
         <Author>
           <div>
-            <p>
-              Von{" "}
-              <a href={author.link} rel="author">
-                {author.name}
-              </a>
-            </p>
+            Von{" "}
+            <a href={author.link} rel="author">
+              {author.name}
+            </a>
           </div>
           <hr />
           <SocialMediaBlock>
@@ -45,7 +43,7 @@ export const ArticleContent = ({
               <img src={social_media.twitter.icon} />
             </a>
             <a href={social_media.pinterest.link} target="_blank">
-              <img src={social_media.pinterest.icon} />
+              <img src={social_media.pinterest.icon} /> Enregistrer
             </a>
           </SocialMediaBlock>
         </Author>
@@ -66,8 +64,28 @@ export const ArticleContent = ({
 }
 const SocialMediaBlock = styled.div`
   display: flex;
-  span {
-    margin-right: 10px;
+  align-items: center;
+  a {
+    margin-left: 30px;
+  }
+  a:last-child {
+    height: 20px;
+    border-radius: 2px;
+    padding: 0 4px 0 0;
+    text-decoration: none;
+    font: 11px/20px "Helvetica Neue", Helvetica, sans-serif;
+    font-weight: bold;
+    color: #fff !important;
+    background: #111
+      url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zd…AyMS45NSwxLjY4NiAxNC43MzMsMS42ODYiIGZpbGw9IiMxMTEiPjwvcGF0aD48L2c+PC9zdmc+)
+      3px 50% no-repeat;
+    background-size: 14px 14px;
+    img {
+      width: 20px;
+    }
+  }
+  img {
+    margin: 0;
   }
 `
 const Wrapper = styled.article`
@@ -91,6 +109,10 @@ const Wrapper = styled.article`
     max-width: 100%;
     padding-right: 15px;
     padding-left: 15px;
+  }
+  hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
   }
 `
 
@@ -174,6 +196,10 @@ const Author = styled.div`
   display: flex;
   justify-content: space-between !important;
   align-items: center;
+  color: #c7bcb2;
+  text-transform: uppercase;
+  font-size: 14px;
+  margin: 0;
   a {
     color: #c7bcb2;
     text-decoration: underline;
