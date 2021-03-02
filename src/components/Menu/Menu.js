@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { Link } from "gatsby"
 
 import data from "../../mocks/menu.json"
 import headerLogoSm from "../../images/H_logo.svg"
@@ -8,15 +9,15 @@ import headerLogoLg from "../../images/HUBERT_logo_desktop.svg"
 const MenuItem = ({ content, route, type, selected, items = [], onClick }) => {
   return (
     <MenuItemWrapper selected={selected} type={type}>
-      <a href={route} onClick={onClick}>
+      <Link to={route} onClick={onClick}>
         {content}
-      </a>
+      </Link>
       {!!items.length && selected && (
         <div>
           {items.map(item => (
-            <a key={item.route} href={item.route}>
+            <Link key={item.route} to={item.route}>
               {item.content}
-            </a>
+            </Link>
           ))}
         </div>
       )}
@@ -39,13 +40,13 @@ export const Menu = props => {
           <span />
         </button>
 
-        <a href={props.logo.url}>
+        <Link to={props.logo.url}>
           <img src={headerLogoSm} alt="Hubert logo" />
           <img src={headerLogoLg} alt="Hubert logo" />
           <div>
             <h1>{props.logo.content}</h1>
           </div>
-        </a>
+        </Link>
 
         <div>
           <ul>

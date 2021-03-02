@@ -1,5 +1,7 @@
 // import { Link } from "gatsby"
 import React from "react"
+import { Link } from "gatsby"
+
 import letter from "../../images/letter.svg"
 import close from "../../images/close.svg"
 import arrowDown from "../../images/arrow-down.svg"
@@ -109,7 +111,7 @@ export const Footer = () => {
             <div className="mx-2">©2017 Hubert</div>
             <div className="mx-2">|</div>
             <div className="mx-2">
-              <a href="/impressum">Impressum</a>
+              <Link to="/impressum">Impressum</Link>
             </div>
             <div className="hidden-sm-down ml-2 mr-0">|</div>
             <div className="col-sm-12 pl-0 col-md-3 col-lg-2">
