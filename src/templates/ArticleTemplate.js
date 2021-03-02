@@ -10,7 +10,7 @@ const ArticleTemplate = ({ pageContext }) => {
         <ArticleContent
           title={pageContext.data.article.header.title}
           link={pageContext.data.article.header.link}
-          img={pageContext.data.article.img}
+          img={pageContext.data.article.header.img}
           content={pageContext.data.article.content}
           category={pageContext.data.article.header.category}
           introduction={pageContext.data.article.header.introduction}
