@@ -1,12 +1,20 @@
 import React from "react"
+import { Link } from "gatsby"
 import styled from "styled-components"
 
-const ArticleHeader = ({ title, description: introduction }) => {
+const ArticleHeader = ({
+  title: { content, link },
+  description: introduction,
+}) => {
   return (
-    <div>
-      {title && <h1>{title}</h1>}
+    <Title hasLink={!!link}>
+      {content && (
+        <h1>
+          <Link to={link}>{content}</Link>
+        </h1>
+      )}
       {introduction && <p dangerouslySetInnerHTML={{ __html: introduction }} />}
-    </div>
+    </Title>
   )
 }
 
@@ -18,6 +26,24 @@ export const Article = ({ header, content }) => {
     </Wrapper>
   )
 }
+
+const Title = styled.div`
+  h1 {
+    ${props =>
+      props.hasLink
+        ? ` & a {
+      color: #0275d8 !important;
+      text-decoration: none !important;
+      touch-action: manipulation !important;
+      cursor: pointer;
+      &:hover {
+        color: #014c8c !important;
+        text-decoration: underline !important;
+      }
+    }`
+        : ""}
+  }
+`
 
 const Wrapper = styled.article`
   display: block;
