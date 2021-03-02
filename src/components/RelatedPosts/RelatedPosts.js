@@ -8,8 +8,9 @@ export const RelatedPosts = ({ title, posts }) => {
     <RelatedPostsWrapper>
       <RelatedPostsTitle>{title}</RelatedPostsTitle>
       <RelatedPostsList>
-        {posts.map(post => (
+        {posts.map((post, index) => (
           <ArticlePreview
+            key={index}
             title={post.title}
             description={post.excerpt}
             img={post.img}

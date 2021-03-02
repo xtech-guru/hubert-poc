@@ -19,9 +19,9 @@ export const Posts = function ({ data }) {
         updateOnEachImageLoad={false} // default false and works only if disableImagesLoaded is false
         imagesLoadedOptions={imagesLoadedOptions} // default {}
       >
-        {data.map(({ title, img, link, excerpt, categories }) => {
+        {data.map(({ title, img, link, excerpt, categories }, index) => {
           return (
-            <li className="grid-item card">
+            <li className="grid-item card" key={index}>
               <ArticlePreview
                 title={title}
                 description={excerpt}
