@@ -1,25 +1,34 @@
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://www.sorpetaler.de/hubert/">
-    <img alt="Gatsby" src="https://www.sorpetaler.de/wp-content/themes/hubert/dist/images/HUBERT_logo_desktop.svg" width="60" />
+    <img alt="Gatsby" src="https://www.sorpetaler.de/wp-content/themes/hubert/dist/images/HUBERT_logo_desktop.svg"  />
   </a>
 </p>
 <h1 align="center">
-  Hubert website documentation
+  Project documentation
 </h1>
 
 A documentation for the <a href="https://www.sorpetaler.de/">Sorpetaler</a> Hubert website.
 
-## 🚀 Permalink
+## Permalink
 
-### Page types
+### Project tree
 
-In this website we have four types of pages:
+```
+.
+├── pages
+    └── PageName.js
+├── templates
+    └── NameTemplate.js
+├── components
+│   ├── index.js
+    └── ComponentName
+        ├── ComponentName.js
+        └── index.js
+├── styles
+├── images
 
-- dynamic pages that are created dynamically using gatsby-node file `[slug].js`
-- static pages designated by there names
-- static pages that need arguments and that may act as a single-page app `(name).js`
-- index pages that will take he directory name when accessing from the web
+```
 
 ## Developement rules
 
