@@ -1,5 +1,7 @@
-const static_data = require(`./src/mocks/articles`)
+const articles = require(`./src/mocks/articles`)
 const authors = require(`./src/mocks/authors`)
+const categories = require(`./src/mocks/categories`)
+
 const path = require(`path`)
 /**
  * Implement Gatsby's Node APIs in this file.
@@ -87,6 +89,15 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve(`./src/templates/AuthorTemplate.js`),
       context: { data: author },
     })
+  })
+  // Create categories pages
+  const category_data = categories[0]
+  const { title: category_title } = category_data.category
+  const category_title_slug = slugify(category_title)
+  await createPage({
+    path: `/categories/${category_title_slug}`,
+    component: path.resolve(`./src/templates/CategoryTemplate.js`),
+    context: { data: category_data },
   })
 }
 
