@@ -10,7 +10,8 @@ import icon_arrow_blue from "../images/icon_arrow_blue.svg"
 import icon_arrow_brown from "../images/icon_arrow_brown.svg"
 
 const IndexPage = ({ data }) => {
-  const featuredPost = data.allWordpressPost.nodes[0]
+  const articles = [...data.allContentfulArticle.nodes]
+  const featuredArticle = articles[0]
   return (
     <>
       <Helmet>
@@ -121,27 +122,23 @@ const IndexPage = ({ data }) => {
 
       <>
         <Header />
-        <PostsWrapper
-          mainArticleUrl={
-            featuredPost.featured_media?.localFile.childImageSharp.fixed
-          }
-        >
+
+        <PostsWrapper mainArticleUrl={featuredArticle.featuredImage?.fluid.src}>
           <article>
             <div>
-              <div>{featuredPost.categories?.[0].name}</div>
+              <div>{featuredArticle.category.title}</div>
               <div>
-                <a href={featuredPost.link}>{featuredPost.title}</a>
+                <a href="#">{featuredArticle.title}</a>
               </div>
-              <p>{featuredPost.excerpt}</p>
-              <a href="<?php the_permalink(); ?>">
-                <img src={icon_arrow_blue} alt="" />
-                <img src={icon_arrow_brown.svg} alt="" />
+              <p>{featuredArticle.introduction}</p>
+              <a>
+                <img src={icon_arrow_blue} />
+                <img src={icon_arrow_brown.svg} />
               </a>
             </div>
           </article>
-          <Posts data={data.allWordpressPost.nodes.slice(0, 9)} />
+          <Posts data={articles} />
         </PostsWrapper>
-
         <Footer />
       </>
     </>
@@ -253,26 +250,21 @@ const PostsWrapper = styled.div`
 `
 
 export const query = graphql`
-  query indexQuery {
-    allWordpressPost(filter: { status: { eq: "publish" } }) {
+  query {
+    allContentfulArticle {
       nodes {
         title
-        id
-        link
-        categories {
-          name
-          link
+        introduction
+        slug
+        featuredImage {
+          fluid {
+            src
+          }
+          title
         }
-        excerpt
-        #featured_media {
-        #localFile {
-        #childImageSharp {
-        #fixed(width: 340) {
-        #...GatsbyImageSharpFixed_withWebp
-        #}
-        #}
-        #}
-        #}
+        category {
+          title
+        }
       }
     }
   }
