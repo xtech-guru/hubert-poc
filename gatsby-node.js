@@ -10,14 +10,45 @@ const path = require(`path`)
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   // Create articles pages
-  const articles_data = static_data[0]
-  const { title } = articles_data.article.header
-  const title_slug = slugify(title)
-  await createPage({
-    path: `/articles/${title_slug}`,
-    component: path.resolve(`./src/templates/ArticleTemplate.js`),
-    context: { data: articles_data },
+  const result = await graphql(`
+    query {
+      allContentfulArticle {
+        nodes {
+          content {
+            raw
+            references {
+              contentful_id
+              fluid {
+                src
+              }
+            }
+          }
+          category {
+            title
+          }
+          title
+          introduction
+          slug
+          featuredImage {
+            fluid {
+              src
+            }
+            title
+          }
+        }
+      }
+    }
+  `)
+
+  const articles_list = result.data.allContentfulArticle.nodes
+  articles_list.map(article => {
+    createPage({
+      path: `/articles/${article.slug}`,
+      component: path.resolve(`./src/templates/ArticleTemplate.js`),
+      context: { data: article },
+    })
   })
+
   // Create authors pages
   const authors_data = authors[0]
   const { name } = authors_data.author
