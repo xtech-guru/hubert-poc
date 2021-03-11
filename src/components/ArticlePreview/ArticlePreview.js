@@ -1,21 +1,22 @@
 import React from "react"
 import styled from "styled-components"
+import { Link } from "gatsby"
 
-export const ArticlePreview = ({ title, description, img, category, link }) => {
+export const ArticlePreview = ({ title, description, img, category, slug }) => {
   return (
     <ArticlePreviewWrapper>
       <ImageWrapper>
-        <img src={img} />
+        <img src={img.fluid.src} />
         <Category>
-          <a href={category.link}>{category.name}</a>
+          <a href="#">{category}</a>
         </Category>
       </ImageWrapper>
       <div>
         <Title>
-          <a dangerouslySetInnerHTML={{ __html: title }} href={link}></a>
+          <Link to={`articles/${slug}`}>{title}</Link>
         </Title>
         <Description>{description}</Description>
-        <a href={link}>Mehr</a>
+        <Link to={`articles/${slug}`}>Mehr</Link>
       </div>
     </ArticlePreviewWrapper>
   )
@@ -34,6 +35,9 @@ const Title = styled.p`
   font-weight: 700;
   line-height: 1.5;
   a {
+    color: #4b3e31;
+  }
+  a:hover {
     color: #4b3e31;
   }
 `

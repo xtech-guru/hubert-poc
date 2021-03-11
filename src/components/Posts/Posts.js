@@ -20,19 +20,21 @@ export const Posts = function ({ data }) {
         updateOnEachImageLoad={false} // default false and works only if disableImagesLoaded is false
         imagesLoadedOptions={imagesLoadedOptions} // default {}
       >
-        {data.map(({ title, img, link, excerpt, categories }, index) => {
-          return (
-            <li key={index}>
-              <ArticlePreview
-                title={title}
-                description={excerpt}
-                img={img}
-                category={categories[0]}
-                link={link}
-              />
-            </li>
-          )
-        })}
+        {data.map(
+          ({ title, featuredImage, introduction, category, slug }, index) => {
+            return (
+              <li key={index}>
+                <ArticlePreview
+                  title={title}
+                  description={introduction}
+                  img={featuredImage}
+                  category={category.title}
+                  slug={slug}
+                />
+              </li>
+            )
+          }
+        )}
       </Masonry>
       <div>
         <button rel="next">mehr Laden</button>
