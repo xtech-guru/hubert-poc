@@ -1,32 +1,42 @@
 import React from "react"
 import styled from "styled-components"
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import { BLOCKS } from "@contentful/rich-text-types"
 
 import { AuthorBlock } from "../AuthorBlock"
 import { RatingBlock } from "../RatingBlock"
 
 export const ArticleContent = ({
   content,
+  assets,
   img,
   title,
   category,
   introduction,
-  author,
-  rating,
-  link,
-  social_media,
 }) => {
+  const richTextOptions = {
+    renderNode: {
+      [BLOCKS.EMBEDDED_ASSET]: node => {
+        const img = assets.find(i => {
+          return i.contentful_id === node.data.target.sys.id
+        })
+        return <img src={img?.fluid.src} alt="test" />
+      },
+    },
+  }
+
   return (
     <ContentWrapper>
       <header>
         <CategoryText>
-          <a href={category.link}>{category.name}</a>
+          <a href={category}>{category}</a>
         </CategoryText>
         <ArticleTitle>
-          <a dangerouslySetInnerHTML={{ __html: title }} href={link}></a>
+          <a dangerouslySetInnerHTML={{ __html: title }} href="#"></a>
         </ArticleTitle>
         <Introduction>{introduction}</Introduction>
         <hr />
-        <Author>
+        {/* <Author>
           <div>
             Von{" "}
             <a href={author.link} rel="author">
@@ -46,19 +56,21 @@ export const ArticleContent = ({
               <img src={social_media.pinterest.icon} /> Enregistrer
             </a>
           </SocialMediaBlock>
-        </Author>
+        </Author> */}
         <hr />
       </header>
-      <div>
-        <ArticleImage src={img} />
-      </div>
-      <Content dangerouslySetInnerHTML={{ __html: content }}></Content>
-      <RatingBlock
+      {img && <ArticleImage src={img.fluid.src} alt={img.title} />}
+      {content && (
+        <Content>
+          {documentToReactComponents(JSON.parse(content), richTextOptions)}
+        </Content>
+      )}
+      {/* <RatingBlock
         title={rating.title}
         image={rating.img}
         isLoading={rating.loading}
-      />
-      <AuthorBlock author={author} />
+      /> */}
+      {/* <AuthorBlock author={author} /> */}
     </ContentWrapper>
   )
 }
@@ -250,6 +262,15 @@ const Content = styled.div`
     @media (min-width: 992px) {
       padding-left: 77px;
       padding-right: 233px;
+    }
+  img {
+    margin-left: 0;
+    margin-right: 0;
+    max-width: 100%;
+    height: auto;
+    max-width: 500px;
+    float: left !important;
+    @media (min-width: 992px) {
       margin-left: -77px;
     }
 
@@ -258,6 +279,9 @@ const Content = styled.div`
       padding-bottom: 40px;
       padding-left: 63px;
       padding-right: 63px;
+      margin-bottom: 20px;
+      margin-right: 30px;
+      margin-left: -63px;
     }
   }
 `
