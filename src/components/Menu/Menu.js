@@ -87,7 +87,7 @@ export const Menu = props => {
                   id="mailjetSubscriptionForm"
                   name="wp_mailjet_subscribe_widget-2"
                 >
-                  <div className="mailjet-widget-form-group">
+                  <div>
                     <input
                       type="email"
                       name="subscription_email"
