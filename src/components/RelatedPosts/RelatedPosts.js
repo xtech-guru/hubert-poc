@@ -27,19 +27,19 @@ const articlesQuery = graphql`
 export const RelatedPosts = ({ category }) => {
   return (
     <RelatedPostsWrapper>
-      <RelatedPostsTitle>test</RelatedPostsTitle>
+      <RelatedPostsTitle>DAS KÖNNTE DIR AUCH GEFALLEN</RelatedPostsTitle>
       <RelatedPostsList>
         <StaticQuery
           query={articlesQuery}
           render={data => {
             const articles = data.allContentfulArticle.nodes
-            articles
-              .filter(article => {
-                return article.category.title === category
-              })
+            articles.filter(article => {
+              return article.category.title === category
+            })
+
+            return articles
               .slice(0, 3)
-            return articles.map(
-              ({ title, introduction, featuredImage, category, slug }) => (
+              .map(({ title, introduction, featuredImage, category, slug }) => (
                 <ArticlePreview
                   title={title}
                   description={introduction}
@@ -47,11 +47,9 @@ export const RelatedPosts = ({ category }) => {
                   category={category.title}
                   slug={slug}
                 />
-              )
-            )
+              ))
           }}
         />
-        ))}
       </RelatedPostsList>
     </RelatedPostsWrapper>
   )
