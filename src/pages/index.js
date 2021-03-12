@@ -1,7 +1,7 @@
 import React from "react"
 // import { Link } from "gatsby"
 import { Helmet } from "react-helmet"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import styled from "styled-components"
 
 import { Footer, Header, Posts } from "../components"
@@ -126,9 +126,15 @@ const IndexPage = ({ data }) => {
         <PostsWrapper mainArticleUrl={featuredArticle.featuredImage?.fluid.src}>
           <article>
             <div>
-              <div>{featuredArticle.category.title}</div>
               <div>
-                <a href="#">{featuredArticle.title}</a>
+                <Link to={`/categories/${featuredArticle.category.slug}`}>
+                  {featuredArticle.category.title}
+                </Link>
+              </div>
+              <div>
+                <Link to={`/articles/${featuredArticle.slug}`}>
+                  {featuredArticle.title}
+                </Link>
               </div>
               <p>{featuredArticle.introduction}</p>
               <a>
@@ -185,7 +191,6 @@ const PostsWrapper = styled.div`
           font-size: 0.875rem;
           color: #fff;
           touch-action: manipulation;
-          text-decoration: none;
           background-color: transparent;
         }
       }
@@ -208,7 +213,6 @@ const PostsWrapper = styled.div`
           font-size: 3rem;
           color: #fff;
           touch-action: manipulation;
-          text-decoration: none;
           background-color: transparent;
         }
       }
@@ -264,6 +268,7 @@ export const query = graphql`
         }
         category {
           title
+          slug
         }
       }
     }

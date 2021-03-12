@@ -8,7 +8,7 @@ export const ArticlePreview = ({ title, description, img, category, slug }) => {
       <ImageWrapper>
         <img src={img.fluid.src} />
         <Category>
-          <a href="#">{category.title}</a>
+          <Link to={`/categories/${category.slug}`}>{category.title}</Link>
         </Category>
       </ImageWrapper>
       <div>
@@ -61,6 +61,9 @@ const Category = styled.div`
   background-color: #f86968;
   padding: 5px 17px;
   a {
+    color: #fff;
+  }
+  a:hover {
     color: #fff;
   }
 `

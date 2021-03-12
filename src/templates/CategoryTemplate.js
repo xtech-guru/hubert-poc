@@ -3,17 +3,20 @@ import { Layout, Posts } from "../components"
 import styled from "styled-components"
 
 const CategoryTemplate = ({ pageContext }) => {
-  const { category } = pageContext.data
-  const data = category.articles.map(article => ({
-    ...article,
-    categories: [{ ...article.category }],
+  const { title, relatedArticles } = pageContext.data
+  const articles = relatedArticles.map(item => ({
+    ...item,
+    category: {
+      title,
+    },
   }))
+
   return (
     <Layout>
       <PageWrapper>
-        <CategoryTitle>{category.title}</CategoryTitle>
+        <CategoryTitle>{title}</CategoryTitle>
         <ArticlesWrapper>
-          <Posts data={data} />
+          <Posts data={articles} />
         </ArticlesWrapper>
       </PageWrapper>
     </Layout>

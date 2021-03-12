@@ -2,10 +2,10 @@ import React from "react"
 import styled from "styled-components"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { BLOCKS } from "@contentful/rich-text-types"
+import { Link } from "gatsby"
 
 import { AuthorBlock } from "../AuthorBlock"
 import { RatingBlock } from "../RatingBlock"
-import { Link } from "gatsby"
 
 export const ArticleContent = ({
   content,

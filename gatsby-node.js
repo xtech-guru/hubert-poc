@@ -1,6 +1,4 @@
-const articles = require(`./src/mocks/articles`)
 const authors = require(`./src/mocks/authors`)
-const categories = require(`./src/mocks/categories`)
 
 const path = require(`path`)
 /**
@@ -14,6 +12,21 @@ exports.createPages = async ({ graphql, actions }) => {
   // Create articles pages
   const result = await graphql(`
     query {
+      allContentfulCategory {
+        nodes {
+          slug
+          title
+          relatedArticles: article {
+            title
+            introduction
+            featuredImage {
+              fluid {
+                src
+              }
+            }
+          }
+        }
+      }
       allContentfulArticle {
         nodes {
           title
@@ -80,6 +93,15 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve(`./src/templates/ArticleTemplate.js`),
       context: { data: article },
     })
+
+    const categories_list = result.data.allContentfulCategory.nodes
+    categories_list.map(category => {
+      createPage({
+        path: `/categories/${category.slug}`,
+        component: path.resolve(`./src/templates/CategoryTemplate.js`),
+        context: { data: category },
+      })
+    })
   })
 
   const authors_list = result.data.allContentfulAuthor.nodes
@@ -89,15 +111,6 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve(`./src/templates/AuthorTemplate.js`),
       context: { data: author },
     })
-  })
-  // Create categories pages
-  const category_data = categories[0]
-  const { title: category_title } = category_data.category
-  const category_title_slug = slugify(category_title)
-  await createPage({
-    path: `/categories/${category_title_slug}`,
-    component: path.resolve(`./src/templates/CategoryTemplate.js`),
-    context: { data: category_data },
   })
 }
 
