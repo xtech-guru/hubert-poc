@@ -24,6 +24,7 @@ export const ArticlePreview = ({ title, description, img, category, link }) => {
 const ArticlePreviewWrapper = styled.article`
   padding-right: 30px;
   padding-bottom: 61px;
+  flex: 1 1 0px;
 `
 const Title = styled.p`
   margin-bottom: 0.625rem;

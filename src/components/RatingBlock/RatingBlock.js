@@ -46,6 +46,8 @@ const RatingContent = styled.div`
   padding-right: 233px;
 `
 const Row = styled.div`
+  display: flex;
+  justify-content: space-between;
   margin-right: -15px;
   margin-left: -15px;
 `
@@ -55,6 +57,10 @@ const RatingTitle = styled.div`
 `
 const RatingWidget = styled.div`
   text-align: right;
+  img {
+    margin: 0;
+    margin-right: 5px;
+  }
 `
 
 const RatingWidgetTitle = styled.div`
