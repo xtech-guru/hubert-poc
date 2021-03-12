@@ -34,7 +34,7 @@ export const RelatedPosts = ({ category }) => {
           render={data => {
             const articles = data.allContentfulArticle.nodes
             articles.filter(article => {
-              return article.category.title === category
+              return article.category.title === category.title
             })
 
             return articles
@@ -44,7 +44,7 @@ export const RelatedPosts = ({ category }) => {
                   title={title}
                   description={introduction}
                   img={featuredImage}
-                  category={category.title}
+                  category={category}
                   slug={slug}
                 />
               ))

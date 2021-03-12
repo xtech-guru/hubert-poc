@@ -14,6 +14,15 @@ exports.createPages = async ({ graphql, actions }) => {
     query {
       allContentfulArticle {
         nodes {
+          title
+          introduction
+          slug
+          featuredImage {
+            fluid {
+              src
+            }
+            title
+          }
           content {
             raw
             references {
@@ -25,15 +34,37 @@ exports.createPages = async ({ graphql, actions }) => {
           }
           category {
             title
+            slug
           }
-          title
-          introduction
+          author {
+            fullName
+            slug
+            details {
+              details
+            }
+            featuredImage: picture {
+              fluid {
+                src
+              }
+            }
+          }
+        }
+      }
+      allContentfulAuthor {
+        nodes {
+          fullName
+          details {
+            details
+          }
           slug
-          featuredImage {
+          featuredImage: picture {
             fluid {
               src
             }
+          }
+          wrottenArticles: article {
             title
+            slug
           }
         }
       }
@@ -49,14 +80,13 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
-  // Create authors pages
-  const authors_data = authors[0]
-  const { name } = authors_data.author
-  const name_slug = slugify(name)
-  await createPage({
-    path: `/authors/${name_slug}`,
-    component: path.resolve(`./src/templates/AuthorTemplate.js`),
-    context: { data: authors_data },
+  const authors_list = result.data.allContentfulAuthor.nodes
+  authors_list.map(author => {
+    createPage({
+      path: `/authors/${author.slug}`,
+      component: path.resolve(`./src/templates/AuthorTemplate.js`),
+      context: { data: author },
+    })
   })
 }
 

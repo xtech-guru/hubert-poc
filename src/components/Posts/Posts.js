@@ -28,7 +28,7 @@ export const Posts = function ({ data }) {
                   title={title}
                   description={introduction}
                   img={featuredImage}
-                  category={category.title}
+                  category={category}
                   slug={slug}
                 />
               </li>

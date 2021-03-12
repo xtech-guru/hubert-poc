@@ -8,7 +8,7 @@ export const ArticlePreview = ({ title, description, img, category, slug }) => {
       <ImageWrapper>
         <img src={img.fluid.src} />
         <Category>
-          <a href="#">{category}</a>
+          <a href="#">{category.title}</a>
         </Category>
       </ImageWrapper>
       <div>

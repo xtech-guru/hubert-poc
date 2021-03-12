@@ -5,15 +5,8 @@ import { BLOCKS } from "@contentful/rich-text-types"
 
 import { AuthorBlock } from "../AuthorBlock"
 import { RatingBlock } from "../RatingBlock"
+import { Link } from "gatsby"
 
-const author = {
-  name: "SANDRA STEIN",
-  description:
-    "Sandra ist hauptberuflich Digital Marketing Managerin und beschäftigt sich seit vielen Jahren mit den neuesten Trends im Internet. Seit 2016 arbeitet sie in der Baubranche. Ihr besonderes Interesse gilt dabei dem Thema nachhaltig Bauen und Leben. Weil sie so gerne spricht, ist sie unsere Hauptinterviewführerin",
-  link: "https://www.sorpetaler.de/hubert/author/sandra/",
-  avatar:
-    "https://secure.gravatar.com/avatar/1bd475830113d79a6d0f79eac7fdcdc4?s=96&r=g",
-}
 export const ArticleContent = ({
   content,
   assets,
@@ -21,6 +14,7 @@ export const ArticleContent = ({
   title,
   category,
   introduction,
+  author,
 }) => {
   const richTextOptions = {
     renderNode: {
@@ -37,10 +31,10 @@ export const ArticleContent = ({
     <ContentWrapper>
       <header>
         <CategoryText>
-          <a href={category}>{category}</a>
+          <Link to={`categories/${category.slug}`}>{category.title}</Link>
         </CategoryText>
         <ArticleTitle>
-          <a dangerouslySetInnerHTML={{ __html: title }} href="#"></a>
+          <a href="#">{title}</a>
         </ArticleTitle>
         <Introduction>{introduction}</Introduction>
         <hr />
