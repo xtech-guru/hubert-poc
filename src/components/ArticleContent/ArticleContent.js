@@ -73,7 +73,7 @@ export const ArticleContent = ({
                 src={
                   "https://www.sorpetaler.de/wp-content/themes/hubert/assets/images/icon_pinterest_share.svg"
                 }
-              />{" "}
+              />
               Enregistrer
             </a>
           </SocialMediaBlock>
@@ -129,7 +129,7 @@ const Wrapper = styled.article`
   margin-right: auto;
   padding-right: 15px;
   padding-left: 15px;
-  media (min-width: 1200px) {
+  @media (min-width: 1200px) {
     width: 1140px;
     max-width: 100%;
   }
