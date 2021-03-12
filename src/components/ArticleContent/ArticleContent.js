@@ -6,6 +6,14 @@ import { BLOCKS } from "@contentful/rich-text-types"
 import { AuthorBlock } from "../AuthorBlock"
 import { RatingBlock } from "../RatingBlock"
 
+const author = {
+  name: "SANDRA STEIN",
+  description:
+    "Sandra ist hauptberuflich Digital Marketing Managerin und beschäftigt sich seit vielen Jahren mit den neuesten Trends im Internet. Seit 2016 arbeitet sie in der Baubranche. Ihr besonderes Interesse gilt dabei dem Thema nachhaltig Bauen und Leben. Weil sie so gerne spricht, ist sie unsere Hauptinterviewführerin",
+  link: "https://www.sorpetaler.de/hubert/author/sandra/",
+  avatar:
+    "https://secure.gravatar.com/avatar/1bd475830113d79a6d0f79eac7fdcdc4?s=96&r=g",
+}
 export const ArticleContent = ({
   content,
   assets,
@@ -36,27 +44,40 @@ export const ArticleContent = ({
         </ArticleTitle>
         <Introduction>{introduction}</Introduction>
         <hr />
-        {/* <Author>
+        <Author>
           <div>
             Von{" "}
             <a href={author.link} rel="author">
-              {author.name}
+              SANDRA
             </a>
           </div>
           <hr />
           <SocialMediaBlock>
             <span>Teilen</span>
-            <a href={social_media.facebook.link} target="_blank">
-              <img src={social_media.facebook.icon} />
+            <a href="#" target="_blank">
+              <img
+                src={
+                  "https://www.sorpetaler.de/wp-content/themes/hubert/assets/images/icon_facebook_share.svg"
+                }
+              />
             </a>
-            <a href={social_media.twitter.link} target="_blank">
-              <img src={social_media.twitter.icon} />
+            <a href="#" target="_blank">
+              <img
+                src={
+                  "https://www.sorpetaler.de/wp-content/themes/hubert/assets/images/icon_twitter_share.svg"
+                }
+              />
             </a>
-            <a href={social_media.pinterest.link} target="_blank">
-              <img src={social_media.pinterest.icon} /> Enregistrer
+            <a href="#" target="_blank">
+              <img
+                src={
+                  "https://www.sorpetaler.de/wp-content/themes/hubert/assets/images/icon_pinterest_share.svg"
+                }
+              />{" "}
+              Enregistrer
             </a>
           </SocialMediaBlock>
-        </Author> */}
+        </Author>
         <hr />
       </header>
       {img && <ArticleImage src={img.fluid.src} alt={img.title} />}
@@ -65,12 +86,14 @@ export const ArticleContent = ({
           {documentToReactComponents(JSON.parse(content), richTextOptions)}
         </Content>
       )}
-      {/* <RatingBlock
-        title={rating.title}
-        image={rating.img}
-        isLoading={rating.loading}
-      /> */}
-      {/* <AuthorBlock author={author} /> */}
+      <RatingBlock
+        title="War dieser Artikel hilfreich?"
+        image={
+          "https://www.sorpetaler.de/wp-content/plugins/wp-postratings/images/heart/rating_1_over.gif"
+        }
+        isLoading={false}
+      />
+      <AuthorBlock author={author} />
     </ContentWrapper>
   )
 }

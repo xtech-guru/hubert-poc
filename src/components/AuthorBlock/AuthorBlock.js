@@ -6,7 +6,7 @@ export const AuthorBlock = ({ author }) => (
     <AuthorBlockWrapper>
       <AuthorBlockImage>
         <a href={author.link} rel="author">
-          <img src={author.avatart} />
+          <img src={author.avatar} />
         </a>
       </AuthorBlockImage>
 
