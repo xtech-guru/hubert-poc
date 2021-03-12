@@ -13,10 +13,10 @@ export const ArticlePreview = ({ title, description, img, category, slug }) => {
       </ImageWrapper>
       <div>
         <Title>
-          <Link to={`articles/${slug}`}>{title}</Link>
+          <Link to={`/articles/${slug}`}>{title}</Link>
         </Title>
         <Description>{description}</Description>
-        <Link to={`articles/${slug}`}>Mehr</Link>
+        <Link to={`/articles/${slug}`}>Mehr</Link>
       </div>
     </ArticlePreviewWrapper>
   )

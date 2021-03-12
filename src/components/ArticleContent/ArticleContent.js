@@ -31,7 +31,7 @@ export const ArticleContent = ({
     <ContentWrapper>
       <header>
         <CategoryText>
-          <Link to={`categories/${category.slug}`}>{category.title}</Link>
+          <Link to={`/categories/${category.slug}`}>{category.title}</Link>
         </CategoryText>
         <ArticleTitle>
           <a href="#">{title}</a>
