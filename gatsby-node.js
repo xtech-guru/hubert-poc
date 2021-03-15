@@ -10,22 +10,83 @@ const path = require(`path`)
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   // Create articles pages
-  const articles_data = static_data[0]
-  const { title } = articles_data.article.header
-  const title_slug = slugify(title)
-  await createPage({
-    path: `/articles/${title_slug}`,
-    component: path.resolve(`./src/templates/ArticleTemplate.js`),
-    context: { data: articles_data },
+  const result = await graphql(`
+    query {
+      allContentfulArticle {
+        nodes {
+          title
+          introduction
+          slug
+          featuredImage {
+            fluid {
+              src
+            }
+            title
+          }
+          content {
+            raw
+            references {
+              contentful_id
+              fluid {
+                src
+              }
+            }
+          }
+          category {
+            title
+            slug
+          }
+          author {
+            fullName
+            slug
+            details {
+              details
+            }
+            featuredImage: picture {
+              fluid {
+                src
+              }
+            }
+          }
+        }
+      }
+      allContentfulAuthor {
+        nodes {
+          fullName
+          details {
+            details
+          }
+          slug
+          featuredImage: picture {
+            fluid {
+              src
+            }
+          }
+          wrottenArticles: article {
+            title
+            slug
+          }
+        }
+      }
+    }
+  `)
+
+  const articles_list = result.data.allContentfulArticle.nodes
+  articles_list.map(article => {
+    createPage({
+      path: `/articles/${article.slug}`,
+      component: path.resolve(`./src/templates/ArticleTemplate.js`),
+      context: { data: article },
+    })
   })
-  // Create authors pages
-  const authors_data = authors[0]
-  const { name } = authors_data.author
-  const name_slug = slugify(name)
-  await createPage({
-    path: `/authors/${name_slug}`,
-    component: path.resolve(`./src/templates/AuthorTemplate.js`),
-    context: { data: authors_data },
+
+  const authors_list = result.data.allContentfulAuthor.nodes
+  authors_list.map(author => {
+    createPage({
+      path: `/authors/${author.slug}`,
+      component: path.resolve(`./src/templates/AuthorTemplate.js`),
+      context: { data: author },
+    })
   })
 }
 

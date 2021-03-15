@@ -4,34 +4,36 @@ import { Link } from "gatsby"
 
 import { Layout } from "../components"
 
+const Icon =
+  "https://www.sorpetaler.de/wp-content/themes/hubert/assets/images/icon_arrow_blue.svg"
 const AuthorTemplate = ({ pageContext }) => {
-  const { author } = pageContext.data
+  const {
+    fullName,
+    details,
+    featuredImage,
+    wrottenArticles,
+    slug,
+  } = pageContext.data
   return (
     <Layout>
       <AuthorContainer>
         <Link to="/about">
-          <BackIcon src={author.arrow_icon} />
+          <BackIcon src={Icon} />
           <span>Zurück zu 'Über uns'</span>
         </Link>
-        <AuthorName>{author.name}</AuthorName>
+        <AuthorName>{fullName.substr(0, fullName.indexOf(" "))}</AuthorName>
         <AvatarContainer>
-          <img src={author.img} />
+          <img src={featuredImage.fluid.src} />
         </AvatarContainer>
-        <p>{author.description}</p>
+        <p>{details.details}</p>
         <ul>
           <h2>Publizierte Artikel</h2>
           <hr />
-          {author.publiched_articles.map((article, index) => {
+          {wrottenArticles.map((article, index) => {
             return (
               <>
                 <li key={index}>
-                  <a
-                    href={article.link}
-                    rel="bookmark"
-                    title={`Permanent Link:${article.title}`}
-                  >
-                    {article.title}
-                  </a>
+                  <Link to={`/articles/${article.slug}`}>{article.title}</Link>
                 </li>
                 <hr />
               </>

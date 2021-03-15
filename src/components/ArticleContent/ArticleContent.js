@@ -1,62 +1,88 @@
 import React from "react"
 import styled from "styled-components"
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import { BLOCKS } from "@contentful/rich-text-types"
 
 import { AuthorBlock } from "../AuthorBlock"
 import { RatingBlock } from "../RatingBlock"
+import { Link } from "gatsby"
 
 export const ArticleContent = ({
   content,
+  assets,
   img,
   title,
   category,
   introduction,
   author,
-  rating,
-  link,
-  social_media,
 }) => {
+  const richTextOptions = {
+    renderNode: {
+      [BLOCKS.EMBEDDED_ASSET]: node => {
+        const img = assets.find(i => {
+          return i.contentful_id === node.data.target.sys.id
+        })
+        return <img src={img?.fluid.src} alt="test" />
+      },
+    },
+  }
+
   return (
     <ContentWrapper>
       <header>
         <CategoryText>
-          <a href={category.link}>{category.name}</a>
+          <Link to={`/categories/${category.slug}`}>{category.title}</Link>
         </CategoryText>
         <ArticleTitle>
-          <a dangerouslySetInnerHTML={{ __html: title }} href={link}></a>
+          <a href="#">{title}</a>
         </ArticleTitle>
         <Introduction>{introduction}</Introduction>
         <hr />
         <Author>
           <div>
-            Von{" "}
-            <a href={author.link} rel="author">
-              {author.name}
-            </a>
+            Von <Link to={`/authors/${author.slug}`}>{author.fullName}</Link>
           </div>
           <hr />
           <SocialMediaBlock>
             <span>Teilen</span>
-            <a href={social_media.facebook.link} target="_blank">
-              <img src={social_media.facebook.icon} />
+            <a href="#" target="_blank">
+              <img
+                src={
+                  "https://www.sorpetaler.de/wp-content/themes/hubert/assets/images/icon_facebook_share.svg"
+                }
+              />
             </a>
-            <a href={social_media.twitter.link} target="_blank">
-              <img src={social_media.twitter.icon} />
+            <a href="#" target="_blank">
+              <img
+                src={
+                  "https://www.sorpetaler.de/wp-content/themes/hubert/assets/images/icon_twitter_share.svg"
+                }
+              />
             </a>
-            <a href={social_media.pinterest.link} target="_blank">
-              <img src={social_media.pinterest.icon} /> Enregistrer
+            <a href="#" target="_blank">
+              <img
+                src={
+                  "https://www.sorpetaler.de/wp-content/themes/hubert/assets/images/icon_pinterest_share.svg"
+                }
+              />
+              Enregistrer
             </a>
           </SocialMediaBlock>
         </Author>
         <hr />
       </header>
-      <div>
-        <ArticleImage src={img} />
-      </div>
-      <Content dangerouslySetInnerHTML={{ __html: content }}></Content>
+      {img && <ArticleImage src={img.fluid.src} alt={img.title} />}
+      {content && (
+        <Content>
+          {documentToReactComponents(JSON.parse(content), richTextOptions)}
+        </Content>
+      )}
       <RatingBlock
-        title={rating.title}
-        image={rating.img}
-        isLoading={rating.loading}
+        title="War dieser Artikel hilfreich?"
+        image={
+          "https://www.sorpetaler.de/wp-content/plugins/wp-postratings/images/heart/rating_1_over.gif"
+        }
+        isLoading={false}
       />
       <AuthorBlock author={author} />
     </ContentWrapper>
@@ -94,7 +120,7 @@ const Wrapper = styled.article`
   margin-right: auto;
   padding-right: 15px;
   padding-left: 15px;
-  media (min-width: 1200px) {
+  @media (min-width: 1200px) {
     width: 1140px;
     max-width: 100%;
   }
@@ -129,7 +155,6 @@ const ContentWrapper = styled(Wrapper)`
     @media (min-width: 992px) {
       margin-right: -77px;
     }
-
     @media (min-width: 768px) {
       margin-right: -63px;
     }
@@ -153,7 +178,6 @@ const ContentWrapper = styled(Wrapper)`
     @media (min-width: 992px) {
       margin-left: -77px;
     }
-
     @media (min-width: 768px) {
       margin-bottom: 20px;
       margin-right: 30px;
@@ -214,6 +238,27 @@ const ArticleImage = styled.img`
   }
 `
 const Content = styled.div`
+img {
+  margin-left: 0;
+  margin-right: 0;
+  max-width: 100%;
+  height: auto;
+  max-width: 500px;
+  max-height : 495px;
+  float: left !important;
+  @media (min-width: 992px) {
+    margin-left: -77px;
+  }
+  @media (min-width: 768px) {
+    margin-bottom: 20px;
+    margin-right: 30px;
+    margin-left: -63px;
+  }
+}
+
+h2:first-of-type{
+  display:inline-block;
+}
   margin: 30px 0;
   color: #756b62;
   padding-left: 77px;
@@ -250,14 +295,6 @@ const Content = styled.div`
     @media (min-width: 992px) {
       padding-left: 77px;
       padding-right: 233px;
-      margin-left: -77px;
     }
 
-    @media (min-width: 768px) {
-      padding-top: 40px;
-      padding-bottom: 40px;
-      padding-left: 63px;
-      padding-right: 63px;
-    }
-  }
 `

@@ -1,28 +1,25 @@
 import React from "react"
 import styled from "styled-components"
+import { Link } from "gatsby"
 
 export const AuthorBlock = ({ author }) => (
   <AuthorBlockWidget>
     <AuthorBlockWrapper>
       <AuthorBlockImage>
-        <a href={author.link} rel="author">
-          <img src={author.avatart} />
-        </a>
+        <Link to={`/authors/${author.slug}`}>
+          <img src={author.featuredImage?.fluid.src} />
+        </Link>
       </AuthorBlockImage>
 
       <AuthorBlockParagraph>
         <AuthorBlockName>
-          <a href={author.link} rel="author">
-            {author.name}
-          </a>
+          <Link to={`/authors/${author.slug}`}>{author.fullName}</Link>
         </AuthorBlockName>
         <div>
           <AuthorBlockDescription>
-            {author.description}
+            {author.details.details}
             <ReadMore>
-              <a href={author.link} rel="author">
-                Mehr
-              </a>
+              <Link to={`/authors/${author.slug}`}>Mehr</Link>
             </ReadMore>
           </AuthorBlockDescription>
         </div>
