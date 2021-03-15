@@ -1,28 +1,24 @@
 import React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
+import { getImage, GatsbyImage } from "gatsby-plugin-image"
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import { BLOCKS } from "@contentful/rich-text-types"
 
-const ArticleHeader = ({
-  title: { content, link },
-  description: introduction,
-}) => {
-  return (
-    <Title hasLink={!!link}>
-      {content && (
-        <h1>
-          <Link to={link}>{content}</Link>
-        </h1>
-      )}
-      {introduction && <p dangerouslySetInnerHTML={{ __html: introduction }} />}
-    </Title>
-  )
-}
-
-export const Article = ({ header, content }) => {
+export const Article = ({ content }) => {
+  const richTextOptions = {
+    renderNode: {
+      [BLOCKS.EMBEDDED_ASSET]: node => {
+        const img = content.references.find(i => {
+          return i.contentful_id === node.data.target.sys.id
+        })
+        return <GatsbyImage image={getImage(img)} alt="About page image" />
+      },
+    },
+  }
   return (
     <Wrapper>
-      <ArticleHeader {...header} />
-      <div dangerouslySetInnerHTML={{ __html: content }} />
+      {documentToReactComponents(JSON.parse(content.raw), richTextOptions)}
     </Wrapper>
   )
 }
@@ -91,25 +87,24 @@ const Wrapper = styled.article`
     @media (min-width: 768px) {
       margin-bottom: 30px;
     }
+  }
+  .gatsby-image-wrapper {
+    margin-left: 0;
+    margin-right: 0;
+    width: 500px;
+    height: 500px;
+    vertical-align: middle;
+    border-style: none;
+    float: left !important;
+    @media (min-width: 768px) {
+      margin-bottom: 20px;
+      margin-right: 30px;
+      margin-left: -63px;
+      float: left !important;
+    }
 
-    & img {
-      margin-left: 0;
-      margin-right: 0;
-      max-width: 100%;
-      height: auto;
-      vertical-align: middle;
-      border-style: none;
-
-      @media (min-width: 768px) {
-        margin-bottom: 20px;
-        margin-right: 30px;
-        margin-left: -63px;
-        float: left !important;
-      }
-
-      @media (min-width: 992px) {
-        margin-left: -77px;
-      }
+    @media (min-width: 992px) {
+      margin-left: -77px;
     }
   }
 `
