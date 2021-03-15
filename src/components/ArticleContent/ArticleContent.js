@@ -40,10 +40,7 @@ export const ArticleContent = ({
         <hr />
         <Author>
           <div>
-            Von{" "}
-            <a href={author.link} rel="author">
-              SANDRA
-            </a>
+            Von <Link to={`/authors/${author.slug}`}>{author.fullName}</Link>
           </div>
           <hr />
           <SocialMediaBlock>
