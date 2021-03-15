@@ -37,9 +37,9 @@ const Title = styled.p`
   line-height: 1.5;
   a {
     color: #4b3e31;
-  }
-  a:hover {
-    color: #4b3e31;
+    :hover {
+      color: #4b3e31;
+    }
   }
 `
 const Description = styled.p`

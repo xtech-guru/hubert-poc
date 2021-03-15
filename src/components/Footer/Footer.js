@@ -33,7 +33,7 @@ export function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="https://www.pinterest.de/sorpetaler/hubert-magazin-f%C3%BCr-holzkultur/">
+                  <Link to="https://www.pinterest.de/sorpetaler/hubert-magazin-f%C3%BCr-holzkultur/">
                     Pinterest
                   </Link>
                 </li>
