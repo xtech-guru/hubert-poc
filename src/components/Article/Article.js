@@ -1,5 +1,4 @@
 import React from "react"
-import { Link } from "gatsby"
 import styled from "styled-components"
 import { getImage, GatsbyImage } from "gatsby-plugin-image"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
@@ -46,48 +45,55 @@ const Wrapper = styled.article`
   position: relative;
   margin-left: auto;
   margin-right: auto;
+  padding-right: 15px;
+  padding-left: 15px;
 
   @media (min-width: 576px) {
     width: 540px;
     max-width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
   }
 
   @media (min-width: 768px) {
     width: 720px;
     max-width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
   }
 
   @media (min-width: 992px) {
     width: 960px;
     max-width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
   }
 
   @media (min-width: 1200px) {
     width: 1140px;
     max-width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
   }
 
-  & div {
-    margin: 0 0 20px;
-    color: #756b62;
+  color: #756b62;
 
-    @media (min-width: 992px) {
-      padding-left: 77px;
-      padding-right: 233px;
-    }
+  h1,
+  h2 {
+    text-transform: uppercase;
+  }
 
-    @media (min-width: 768px) {
-      margin-bottom: 30px;
+  a {
+    color: #0275d8;
+    text-decoration: none;
+
+    :hover {
+      color: #014c8c;
+      text-decoration: underline;
     }
   }
+
+  @media (min-width: 992px) {
+    padding-left: 77px;
+    padding-right: 233px;
+  }
+
+  @media (min-width: 768px) {
+    margin-bottom: 30px;
+  }
+
   .gatsby-image-wrapper {
     margin-left: 0;
     margin-right: 0;
