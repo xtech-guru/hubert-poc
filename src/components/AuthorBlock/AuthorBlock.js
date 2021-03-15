@@ -1,13 +1,14 @@
 import React from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 export const AuthorBlock = ({ author }) => (
   <AuthorBlockWidget>
     <AuthorBlockWrapper>
       <AuthorBlockImage>
         <Link to={`/authors/${author.slug}`}>
-          <img src={author.featuredImage?.fluid.src} />
+          <GatsbyImage image={getImage(author.featuredImage)} />
         </Link>
       </AuthorBlockImage>
 

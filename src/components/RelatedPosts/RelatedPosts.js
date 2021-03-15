@@ -15,9 +15,7 @@ const articlesQuery = graphql`
         introduction
         slug
         featuredImage {
-          fluid {
-            src
-          }
+          gatsbyImageData
           title
         }
       }

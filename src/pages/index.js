@@ -123,7 +123,11 @@ const IndexPage = ({ data }) => {
       <>
         <Header />
 
-        <PostsWrapper mainArticleUrl={featuredArticle.featuredImage?.fluid.src}>
+        <PostsWrapper
+          mainArticleUrl={
+            featuredArticle.featuredImage?.gatsbyImageData.images.fallback.src
+          }
+        >
           <article>
             <div>
               <div>
@@ -261,9 +265,7 @@ export const query = graphql`
         introduction
         slug
         featuredImage {
-          fluid {
-            src
-          }
+          gatsbyImageData
           title
         }
         category {

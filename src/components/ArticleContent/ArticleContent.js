@@ -3,6 +3,7 @@ import styled from "styled-components"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { BLOCKS } from "@contentful/rich-text-types"
 import { Link } from "gatsby"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import { AuthorBlock } from "../AuthorBlock"
 import { RatingBlock } from "../RatingBlock"
@@ -22,7 +23,7 @@ export const ArticleContent = ({
         const img = assets.find(i => {
           return i.contentful_id === node.data.target.sys.id
         })
-        return <img src={img?.fluid.src} alt="test" />
+        return <GatsbyImage image={getImage(img)} alt="content image" />
       },
     },
   }
@@ -34,7 +35,7 @@ export const ArticleContent = ({
           <Link to={`/categories/${category.slug}`}>{category.title}</Link>
         </CategoryText>
         <ArticleTitle>
-          <a href="#">{title}</a>
+          <Link to={window.location.href}>{title}</Link>
         </ArticleTitle>
         <Introduction>{introduction}</Introduction>
         <hr />
@@ -71,7 +72,7 @@ export const ArticleContent = ({
         </Author>
         <hr />
       </header>
-      {img && <ArticleImage src={img.fluid.src} alt={img.title} />}
+      {img && <ArticleImage image={getImage(img)} alt={img.title} />}
       {content && (
         <Content>
           {documentToReactComponents(JSON.parse(content), richTextOptions)}
@@ -229,7 +230,7 @@ const Author = styled.div`
     text-decoration: underline;
   }
 `
-const ArticleImage = styled.img`
+const ArticleImage = styled(GatsbyImage)`
   width: 100%;
   height: auto;
   max-width: 100%;
@@ -238,7 +239,7 @@ const ArticleImage = styled.img`
   }
 `
 const Content = styled.div`
-img {
+.gatsby-image-wrapper {
   margin-left: 0;
   margin-right: 0;
   max-width: 100%;

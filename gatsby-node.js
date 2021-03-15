@@ -1,5 +1,3 @@
-const authors = require(`./src/mocks/authors`)
-
 const path = require(`path`)
 /**
  * Implement Gatsby's Node APIs in this file.
@@ -20,9 +18,7 @@ exports.createPages = async ({ graphql, actions }) => {
             title
             introduction
             featuredImage {
-              fluid {
-                src
-              }
+              gatsbyImageData
             }
           }
         }
@@ -33,18 +29,14 @@ exports.createPages = async ({ graphql, actions }) => {
           introduction
           slug
           featuredImage {
-            fluid {
-              src
-            }
+            gatsbyImageData
             title
           }
           content {
             raw
             references {
               contentful_id
-              fluid {
-                src
-              }
+              gatsbyImageData
             }
           }
           category {
@@ -58,9 +50,7 @@ exports.createPages = async ({ graphql, actions }) => {
               details
             }
             featuredImage: picture {
-              fluid {
-                src
-              }
+              gatsbyImageData
             }
           }
         }
@@ -73,9 +63,7 @@ exports.createPages = async ({ graphql, actions }) => {
           }
           slug
           featuredImage: picture {
-            fluid {
-              src
-            }
+            gatsbyImageData(width: 125)
           }
           wrottenArticles: article {
             title
