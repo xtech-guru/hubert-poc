@@ -17,16 +17,12 @@ export const RatingBlock = ({ title, image, isLoading }) => {
                   src={image}
                   alt="1 Star"
                   title="1 Star"
-                  onmouseover="current_rating(12053, 1, '1 Star');"
-                  onmouseout="ratings_off(0, 0, 0);"
-                  onclick="rate_post();"
-                  onkeypress="rate_post();"
                 />
                 (No Ratings Yet)
                 <br />
               </PostRating>
               <PostRatingLoading id="post-ratings-12053-loading">
-                <img src={isLoading} />
+                <img src={isLoading} alt="" />
                 Loading...
               </PostRatingLoading>
             </div>
@@ -69,8 +65,9 @@ const RatingWidgetTitle = styled.div`
 const PostRating = styled.div`
   width: 100%;
   opacity: 1;
-  img{
-    cursor: "pointer", border: "0px"
+  img {
+    cursor: pointer;
+    border: 0;
   }
 `
 const PostRatingLoading = styled.div`

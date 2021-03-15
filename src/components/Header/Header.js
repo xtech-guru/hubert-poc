@@ -7,8 +7,12 @@ import { Menu } from "../Menu"
 export const Header = props => (
   <HeaderWrapper>
     <SocialMediaIconButtonsWrapper>
-      <a href={props.facebookUrl} target="_blank" />
-      <a href={props.pinterestUrl} target="_blank" />
+      <a href={props.facebookUrl} target="_blank" rel="noreferrer">
+        {" "}
+      </a>
+      <a href={props.pinterestUrl} target="_blank" rel="noreferrer">
+        {" "}
+      </a>
     </SocialMediaIconButtonsWrapper>
     <Menu />
   </HeaderWrapper>

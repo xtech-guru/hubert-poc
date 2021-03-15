@@ -28,12 +28,16 @@ export function Footer() {
               <h6>Folge uns</h6>
               <ul>
                 <li>
-                  <Link to="https://www.facebook.com/hubertmagazin">
+                  <Link to="https://www.facebook.com/hubertmagazin" target="_blank" rel="noreferrer">
                     Facebook
                   </Link>
                 </li>
                 <li>
-                  <Link to="https://www.pinterest.de/sorpetaler/hubert-magazin-f%C3%BCr-holzkultur/">
+                  <Link
+                    to="https://www.pinterest.de/sorpetaler/hubert-magazin-f%C3%BCr-holzkultur/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     Pinterest
                   </Link>
                 </li>

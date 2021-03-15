@@ -14,23 +14,24 @@ const IndexPage = ({ data }) => {
     <Layout>
       <SEO title="Home" />
 
-      <PostsWrapper mainArticleUrl={featuredArticle.featuredImage?.gatsbyImageData.images.fallback.src
-        }
-        ><article>
+      <PostsWrapper mainArticleUrl={featuredArticle.featuredImage?.gatsbyImageData.images.fallback.src}>
+        <article>
           <div>
-            <div><Link to={`/categories/${featuredArticle.category.slug}`}>
+            <div>
+              <Link to={`/categories/${featuredArticle.category.slug}`}>
                   {featuredArticle.category.title}
-                </Link></div>
+              </Link>
+            </div>
             <div>
               <Link to={`/articles/${featuredArticle.slug}`}>
                   {featuredArticle.title}
-                </Link>
+              </Link>
             </div>
             <p>{featuredArticle.introduction}</p>
-            <a>
-              <img src={icon_arrow_blue} />
-              <img src={icon_arrow_brown.svg} />
-            </a>
+            <Link to="/">
+              <img src={icon_arrow_blue} alt="" />
+              <img src={icon_arrow_brown.svg} alt="" />
+            </Link>
           </div>
         </article>
         <Posts data={articles} />

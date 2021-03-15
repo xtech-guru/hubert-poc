@@ -30,7 +30,7 @@ const MoreTextButton = styled(Link)`
 const ArticlePreviewWrapper = styled.article`
   padding-right: 30px;
   padding-bottom: 61px;
-  flex: 1 1 0px;
+  flex: 1 1 0;
   a {
     text-decoration: none;
     :hover {

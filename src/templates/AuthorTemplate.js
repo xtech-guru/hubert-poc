@@ -1,20 +1,14 @@
 import React from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import { Layout } from "../components"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 const Icon =
   "https://www.sorpetaler.de/wp-content/themes/hubert/assets/images/icon_arrow_blue.svg"
 const AuthorTemplate = ({ pageContext }) => {
-  const {
-    fullName,
-    details,
-    featuredImage,
-    wrottenArticles,
-    slug,
-  } = pageContext.data
+  const { fullName, details, featuredImage, wrottenArticles } = pageContext.data
   return (
     <Layout>
       <AuthorContainer>
@@ -99,7 +93,7 @@ const AuthorName = styled.h1`
   color: #4b3e31;
   text-transform: uppercase;
   margin: 32px 0 30px;
-  padding: 0px;
+  padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-weight: bold;

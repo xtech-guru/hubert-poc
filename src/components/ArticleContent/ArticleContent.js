@@ -35,7 +35,7 @@ export const ArticleContent = ({
           <Link to={`/categories/${category.slug}`}>{category.title}</Link>
         </CategoryText>
         <ArticleTitle>
-          <Link to={window.location.href}>{title}</Link>
+          <Link to="#">{title}</Link>
         </ArticleTitle>
         <Introduction>{introduction}</Introduction>
         <hr />
@@ -46,28 +46,31 @@ export const ArticleContent = ({
           <hr />
           <SocialMediaBlock>
             <span>Teilen</span>
-            <a href="#" target="_blank">
+            <Link to="#" target="_blank">
               <img
                 src={
                   "https://www.sorpetaler.de/wp-content/themes/hubert/assets/images/icon_facebook_share.svg"
                 }
+                alt=""
               />
-            </a>
-            <a href="#" target="_blank">
+            </Link>
+            <Link to="#" target="_blank">
               <img
                 src={
                   "https://www.sorpetaler.de/wp-content/themes/hubert/assets/images/icon_twitter_share.svg"
                 }
+                alt=""
               />
-            </a>
-            <a href="#" target="_blank">
+            </Link>
+            <Link to="#" target="_blank">
               <img
                 src={
                   "https://www.sorpetaler.de/wp-content/themes/hubert/assets/images/icon_pinterest_share.svg"
                 }
+                alt=""
               />
               Enregistrer
-            </a>
+            </Link>
           </SocialMediaBlock>
         </Author>
         <hr />
