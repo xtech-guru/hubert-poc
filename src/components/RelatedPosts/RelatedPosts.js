@@ -39,6 +39,7 @@ export const RelatedPosts = ({ category }) => {
               .slice(0, 3)
               .map(({ title, introduction, featuredImage, category, slug }) => (
                 <ArticlePreview
+                  key={slug}
                   title={title}
                   description={introduction}
                   img={featuredImage}

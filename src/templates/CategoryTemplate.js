@@ -12,7 +12,7 @@ const CategoryTemplate = ({ pageContext }) => {
   }))
 
   return (
-    <Layout>
+    <Layout seo={title}>
       <PageWrapper>
         <CategoryTitle>{title}</CategoryTitle>
         <ArticlesWrapper>

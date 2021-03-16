@@ -13,7 +13,7 @@ const ArticleTemplate = ({ pageContext }) => {
     author,
   } = pageContext.data
   return (
-    <Layout>
+    <Layout seo={title}>
       <PageWrapper>
         <ArticleContent
           title={title}

@@ -14,6 +14,7 @@ export const ShareWidget = ({ author }) => {
         <a
           href={`https://www.facebook.com/sharer/sharer.php?u=${window.location.href}`}
           target="_blank"
+          rel="noreferrer"
         >
           <img
             src={require("../../images/icon_facebook_share.svg")}
@@ -23,6 +24,7 @@ export const ShareWidget = ({ author }) => {
         <a
           href={`https://twitter.com/intent/tweet?text=${window.location.href}`}
           target="_blank"
+          rel="noreferrer"
         >
           <img
             src={require("../../images/icon_twitter_share.svg")}
@@ -32,6 +34,7 @@ export const ShareWidget = ({ author }) => {
         <a
           href={`https://www.pinterest.com/pin-builder/?url=${window.location.href}`}
           target="_blank"
+          rel="noreferrer"
         >
           <img
             src={require("../../images/icon_pinterest_share.svg")}

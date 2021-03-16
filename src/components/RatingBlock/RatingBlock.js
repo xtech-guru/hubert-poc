@@ -22,7 +22,7 @@ export const RatingBlock = ({ title, image, isLoading }) => {
                 <br />
               </PostRating>
               <PostRatingLoading id="post-ratings-12053-loading">
-                <img src={isLoading} alt="" />
+                {isLoading && <img src="" alt="" />}
                 Loading...
               </PostRatingLoading>
             </div>
