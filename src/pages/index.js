@@ -2,7 +2,7 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 import styled from "styled-components"
 
-import { Layout, Posts, SEO } from "../components"
+import { Layout, Posts } from "../components"
 
 import icon_arrow_blue from "../images/icon_arrow_blue.svg"
 import icon_arrow_brown from "../images/icon_arrow_brown.svg"
@@ -11,20 +11,22 @@ const IndexPage = ({ data }) => {
   const articles = [...data.allContentfulArticle.nodes]
   const featuredArticle = articles[0]
   return (
-    <Layout>
-      <SEO title="Home" />
-
-      <PostsWrapper mainArticleUrl={featuredArticle.featuredImage?.gatsbyImageData.images.fallback.src}>
+    <Layout seo="Home">
+      <PostsWrapper
+        mainArticleUrl={
+          featuredArticle.featuredImage?.gatsbyImageData.images.fallback.src
+        }
+      >
         <article>
           <div>
             <div>
               <Link to={`/categories/${featuredArticle.category.slug}`}>
-                  {featuredArticle.category.title}
+                {featuredArticle.category.title}
               </Link>
             </div>
             <div>
               <Link to={`/articles/${featuredArticle.slug}`}>
-                  {featuredArticle.title}
+                {featuredArticle.title}
               </Link>
             </div>
             <p>{featuredArticle.introduction}</p>
