@@ -32,7 +32,7 @@ const IndexPage = ({ data }) => {
             <p>{featuredArticle.introduction}</p>
             <Link to="/">
               <img src={icon_arrow_blue} alt="" />
-              <img src={icon_arrow_brown.svg} alt="" />
+              <img src={icon_arrow_brown} alt="" />
             </Link>
           </div>
         </article>

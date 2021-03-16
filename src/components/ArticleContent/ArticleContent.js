@@ -48,28 +48,22 @@ export const ArticleContent = ({
             <span>Teilen</span>
             <Link to="#" target="_blank">
               <img
-                src={
-                  "https://www.sorpetaler.de/wp-content/themes/hubert/assets/images/icon_facebook_share.svg"
-                }
+                src={require("../../images/icon_facebook_share.svg")}
                 alt=""
               />
             </Link>
             <Link to="#" target="_blank">
               <img
-                src={
-                  "https://www.sorpetaler.de/wp-content/themes/hubert/assets/images/icon_twitter_share.svg"
-                }
+                src={require("../../images/icon_twitter_share.svg")}
                 alt=""
               />
             </Link>
             <Link to="#" target="_blank">
               <img
-                src={
-                  "https://www.sorpetaler.de/wp-content/themes/hubert/assets/images/icon_pinterest_share.svg"
-                }
+                src={require("../../images/icon_pinterest_share.svg")}
                 alt=""
               />
-              Enregistrer
+              Save
             </Link>
           </SocialMediaBlock>
         </Author>
@@ -83,9 +77,7 @@ export const ArticleContent = ({
       )}
       <RatingBlock
         title="War dieser Artikel hilfreich?"
-        image={
-          "https://www.sorpetaler.de/wp-content/plugins/wp-postratings/images/heart/rating_1_over.gif"
-        }
+        image={require("../../images/rating_1_over.gif")}
         isLoading={false}
       />
       <AuthorBlock author={author} />
@@ -99,6 +91,7 @@ const SocialMediaBlock = styled.div`
     margin-left: 30px;
   }
   a:last-child {
+    display: flex;
     height: 20px;
     border-radius: 2px;
     padding: 0 4px 0 0;
@@ -106,7 +99,7 @@ const SocialMediaBlock = styled.div`
     font: 11px/20px "Helvetica Neue", Helvetica, sans-serif;
     font-weight: bold;
     color: #fff !important;
-    background: #111
+    background: #e60023
       url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zd…AyMS45NSwxLjY4NiAxNC43MzMsMS42ODYiIGZpbGw9IiMxMTEiPjwvcGF0aD48L2c+PC9zdmc+)
       3px 50% no-repeat;
     background-size: 14px 14px;

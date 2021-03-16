@@ -5,15 +5,13 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import { Layout } from "../components"
 
-const Icon =
-  "https://www.sorpetaler.de/wp-content/themes/hubert/assets/images/icon_arrow_blue.svg"
 const AuthorTemplate = ({ pageContext }) => {
   const { fullName, details, featuredImage, wrottenArticles } = pageContext.data
   return (
     <Layout>
       <AuthorContainer>
         <Link to="/about">
-          <BackIcon src={Icon} />
+          <BackIcon src={require("../images/icon_arrow_blue.svg")} />
           <span>Zurück zu 'Über uns'</span>
         </Link>
         <AuthorName>{fullName.substr(0, fullName.indexOf(" "))}</AuthorName>
