@@ -11,7 +11,7 @@ export const Article = ({ content }) => {
         const img = content.references.find(i => {
           return i.contentful_id === node.data.target.sys.id
         })
-        return <GatsbyImage image={getImage(img)} alt="About page image" />
+        return <GatsbyImage image={getImage(img)} alt={img.description} />
       },
     },
   }

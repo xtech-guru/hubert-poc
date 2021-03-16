@@ -25,6 +25,7 @@ export const query = graphql`
         references {
           contentful_id
           gatsbyImageData
+          description
         }
       }
     }
