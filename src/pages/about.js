@@ -1,19 +1,35 @@
 import React from "react"
 
 import { Article, Container, Layout, SEO } from "../components"
-import mockData from "../mocks/about.json"
+import { graphql } from "gatsby"
 
-const AboutPage = props => {
+const AboutPage = ({ data }) => {
+  const { title, seo, content } = data.contentfulPage
   return (
     <Layout>
-      <SEO title="About" />
+      <SEO title={seo || title} />
       <Container>
-        <Article header={props.header} content={props.content} />
+        <Article content={content} />
       </Container>
     </Layout>
   )
 }
 
-AboutPage.defaultProps = mockData
+export const query = graphql`
+  query {
+    contentfulPage(slug: { eq: "about" }) {
+      title
+      seo
+      content {
+        raw
+        references {
+          contentful_id
+          gatsbyImageData
+          description
+        }
+      }
+    }
+  }
+`
 
 export default AboutPage
