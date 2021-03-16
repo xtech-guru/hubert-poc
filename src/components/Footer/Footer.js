@@ -28,12 +28,20 @@ export function Footer() {
               <h6>Folge uns</h6>
               <ul>
                 <li>
-                  <Link to="https://www.facebook.com/hubertmagazin">
+                  <Link
+                    to="https://www.facebook.com/hubertmagazin"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     Facebook
                   </Link>
                 </li>
                 <li>
-                  <Link to="https://www.pinterest.de/sorpetaler/hubert-magazin-f%C3%BCr-holzkultur/">
+                  <Link
+                    to="https://www.pinterest.de/sorpetaler/hubert-magazin-f%C3%BCr-holzkultur/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     Pinterest
                   </Link>
                 </li>
@@ -117,7 +125,7 @@ const FooterContainer = styled.footer`
   font-size: 0.75rem;
   color: #fff;
   display: block;
-
+  line-height: 18px;
   > div:first-child {
     background-color: #f86968;
 
@@ -175,7 +183,6 @@ const FooterContainer = styled.footer`
           font-weight: 700;
           text-transform: uppercase;
           font-size: 1rem;
-          line-height: 1.1;
           margin-bottom: 0.5rem;
           font-family: GT Pressura, -apple-system, system-ui, BlinkMacSystemFont,
             Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
@@ -272,6 +279,7 @@ const FooterContainer = styled.footer`
 
         & a {
           color: #fff;
+          text-decoration: none;
         }
 
         > div:nth-child(-n + 3) {
@@ -288,6 +296,7 @@ const FooterContainer = styled.footer`
           position: relative;
           width: 100%;
           min-height: 1px;
+          margin-left: -15px !important;
           padding-left: 0 !important;
           padding-right: 15px;
 

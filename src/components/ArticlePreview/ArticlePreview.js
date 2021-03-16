@@ -17,16 +17,26 @@ export const ArticlePreview = ({ title, description, img, category, slug }) => {
           <Link to={`/articles/${slug}`}>{title}</Link>
         </Title>
         <Description>{description}</Description>
-        <Link to={`/articles/${slug}`}>Mehr</Link>
+        <MoreTextButton to={`/articles/${slug}`}>Mehr</MoreTextButton>
       </div>
     </ArticlePreviewWrapper>
   )
 }
 
+const MoreTextButton = styled(Link)`
+  color: #71b3e7;
+`
+
 const ArticlePreviewWrapper = styled.article`
   padding-right: 30px;
   padding-bottom: 61px;
-  flex: 1 1 0px;
+  flex: 1 1 0;
+  a {
+    text-decoration: none;
+    :hover {
+      text-decoration: underline;
+    }
+  }
 `
 const Title = styled.p`
   margin-bottom: 0.625rem;

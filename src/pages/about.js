@@ -1,13 +1,12 @@
 import React from "react"
 
-import { Article, Container, Layout, SEO } from "../components"
+import { Article, Container, Layout } from "../components"
 import { graphql } from "gatsby"
 
 const AboutPage = ({ data }) => {
   const { title, seo, content } = data.contentfulPage
   return (
-    <Layout>
-      <SEO title={seo || title} />
+    <Layout seo={seo || title}>
       <Container>
         <Article content={content} />
       </Container>

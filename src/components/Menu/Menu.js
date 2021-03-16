@@ -207,6 +207,7 @@ const NavBarWrapper = styled.nav`
         line-height: 1.1;
         color: #9d958e;
         margin-bottom: 0.5rem;
+        margin-top: 0;
       }
     }
   }
@@ -328,107 +329,49 @@ const FormWrapper = styled.div`
     display: block;
 
     > div {
+      position: relative;
       display: flex;
       flex-wrap: wrap;
       margin: 0;
       padding: 50px 46px;
       align-items: center !important;
-
-      @media (min-width: 576px) {
-        margin-right: -15px;
-        margin-left: -15px;
-      }
-
-      @media (min-width: 768px) {
-        margin-right: -15px;
-        margin-left: -15px;
-      }
-
-      @media (min-width: 992px) {
-        margin-right: -15px;
-        margin-left: -15px;
-      }
-
-      @media (min-width: 1200px) {
-        margin-right: -15px;
-        margin-left: -15px;
-      }
-
-      > div:first-child {
+      
+      > div {
         position: relative;
-        width: 100%;
         min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
 
-        @media (min-width: 768px) {
-          text-align: right !important;
+        :first-child {
+          @media (min-width: 768px) {
+            text-align: right !important;
+            flex: 0 0 66.6666666667%;
+            max-width: 66.6666666667%;
+          }
+
         }
 
-        @media (min-width: 768px) {
-          flex: 0 0 66.6666666667%;
-          max-width: 66.6666666667%;
-        }
+        :nth-child(2) {
 
-        @media (min-width: 576px) {
-          padding-right: 15px;
-          padding-left: 15px;
-        }
+          @media (min-width: 768px) {
+            flex: 0 0 33.3333333333%;
+            max-width: 33.3333333333%;
+          }
 
-        @media (min-width: 768px) {
-          text-align: right !important;
-          flex: 0 0 66.6666666667%;
-          max-width: 66.6666666667%;
-          padding-right: 15px;
-          padding-left: 15px;
-        }
+          > div {
+            margin-bottom: 20px;
 
-        @media (min-width: 992px) {
-          padding-right: 15px;
-          padding-left: 15px;
-        }
-
-        @media (min-width: 1200px) {
-          padding-right: 15px;
-          padding-left: 15px;
-        }
-      }
-
-      > div:nth-child(2) {
-        position: relative;
-        width: 100%;
-        min-height: 1px;
-
-        @media (min-width: 576px) {
-          padding-right: 15px;
-          padding-left: 15px;
-        }
-
-        @media (min-width: 768px) {
-          flex: 0 0 33.3333333333%;
-          max-width: 33.3333333333%;
-          padding-right: 15px;
-          padding-left: 15px;
-        }
-
-        @media (min-width: 992px) {
-          padding-right: 15px;
-          padding-left: 15px;
-        }
-
-        @media (min-width: 1200px) {
-          padding-right: 15px;
-          padding-left: 15px;
-        }
-
-        > div {
-          margin-bottom: 20px;
-
-          & form {
-            > div {
-              margin-bottom: 10px;
+            & form {
+              > div {
+                margin-bottom: 10px;
+              }
             }
           }
         }
+        
       }
+      
+
     }
   }
 `

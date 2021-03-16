@@ -22,24 +22,6 @@ export const Article = ({ content }) => {
   )
 }
 
-const Title = styled.div`
-  h1 {
-    ${props =>
-      props.hasLink
-        ? ` & a {
-      color: #0275d8 !important;
-      text-decoration: none !important;
-      touch-action: manipulation !important;
-      cursor: pointer;
-      &:hover {
-        color: #014c8c !important;
-        text-decoration: underline !important;
-      }
-    }`
-        : ""}
-  }
-`
-
 const Wrapper = styled.article`
   display: block;
   position: relative;
