@@ -5,7 +5,7 @@ import { Container, Layout, SEO } from "../components"
 import styled from "styled-components"
 
 const AboutPage = ({ data }) => {
-  const { content, title, seo } = data.allContentfulPage.nodes[0]
+  const { content, title, seo } = data.contentfulPage
   return (
     <Layout>
       <SEO title={seo || title} />
@@ -21,16 +21,14 @@ const AboutPage = ({ data }) => {
 
 export const query = graphql`
   query {
-    allContentfulPage(filter: { slug: { eq: "impressum" } }) {
-      nodes {
-        content {
-          raw
-          references {
-            gatsbyImageData
-          }
+    contentfulPage(slug: { eq: "impressum" }) {
+      title
+      seo
+      content {
+        raw
+        references {
+          gatsbyImageData
         }
-        title
-        seo
       }
     }
   }
