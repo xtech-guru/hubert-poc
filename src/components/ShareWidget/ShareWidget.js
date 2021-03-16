@@ -16,7 +16,7 @@ export const ShareWidget = ({ author }) => {
           target="_blank"
         >
           <img
-            src="https://www.sorpetaler.de/wp-content/themes/hubert/assets/images/icon_facebook_share.svg"
+            src={require("../../images/icon_facebook_share.svg")}
             alt="facebook"
           />
         </a>
@@ -25,7 +25,7 @@ export const ShareWidget = ({ author }) => {
           target="_blank"
         >
           <img
-            src="https://www.sorpetaler.de/wp-content/themes/hubert/assets/images/icon_twitter_share.svg"
+            src={require("../../images/icon_twitter_share.svg")}
             alt="twitter"
           />
         </a>
@@ -34,7 +34,7 @@ export const ShareWidget = ({ author }) => {
           target="_blank"
         >
           <img
-            src="https://www.sorpetaler.de/wp-content/themes/hubert/assets/images/icon_pinterest_share.svg"
+            src={require("../../images/icon_pinterest_share.svg")}
             alt="pinterest"
           />
           Speichern
