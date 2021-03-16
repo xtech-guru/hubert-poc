@@ -4,10 +4,10 @@ import { Article, Container, Layout, SEO } from "../components"
 import { graphql } from "gatsby"
 
 const AboutPage = ({ data }) => {
-  const { content } = data.allContentfulPage.nodes[0]
+  const { title, seo, content } = data.contentfulPage
   return (
     <Layout>
-      <SEO title="About" />
+      <SEO title={seo || title} />
       <Container>
         <Article content={content} />
       </Container>
@@ -17,14 +17,14 @@ const AboutPage = ({ data }) => {
 
 export const query = graphql`
   query {
-    allContentfulPage(filter: { title: { eq: "About" } }) {
-      nodes {
-        content {
-          raw
-          references {
-            contentful_id
-            gatsbyImageData
-          }
+    contentfulPage(slug: { eq: "about" }) {
+      title
+      seo
+      content {
+        raw
+        references {
+          contentful_id
+          gatsbyImageData
         }
       }
     }

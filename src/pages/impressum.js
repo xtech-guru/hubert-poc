@@ -1,8 +1,9 @@
 import React from "react"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import { graphql } from "gatsby"
+import styled from "styled-components"
 
 import { Container, Layout, SEO } from "../components"
-import styled from "styled-components"
 
 const AboutPage = ({ data }) => {
   const { content, title, seo } = data.contentfulPage
