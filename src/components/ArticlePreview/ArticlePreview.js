@@ -1,14 +1,15 @@
 import React from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 export const ArticlePreview = ({ title, description, img, category, slug }) => {
   return (
     <ArticlePreviewWrapper>
       <ImageWrapper>
-        <img src={img.fluid.src} />
+        <GatsbyImage image={getImage(img)} alt={img.title} />
         <Category>
-          <a href="#">{category.title}</a>
+          <Link to={`/categories/${category.slug}`}>{category.title}</Link>
         </Category>
       </ImageWrapper>
       <div>
@@ -36,9 +37,9 @@ const Title = styled.p`
   line-height: 1.5;
   a {
     color: #4b3e31;
-  }
-  a:hover {
-    color: #4b3e31;
+    :hover {
+      color: #4b3e31;
+    }
   }
 `
 const Description = styled.p`
@@ -61,6 +62,9 @@ const Category = styled.div`
   background-color: #f86968;
   padding: 5px 17px;
   a {
+    color: #fff;
+  }
+  a:hover {
     color: #fff;
   }
 `

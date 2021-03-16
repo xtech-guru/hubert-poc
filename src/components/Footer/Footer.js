@@ -16,34 +16,26 @@ export function Footer() {
                 liefert. Hubert wird herausgegeben von Sorpetaler Fensterbau.
               </p>
               <div>
-                <a href="https://www.sorpetaler.de/hubert/about">
-                  Mehr erfahren
-                </a>
+                <Link to="/about">Mehr erfahren</Link>
               </div>
               <div>
-                <a href="mailto:post@hubert-magazin.de">
+                <Link to="mailto:post@hubert-magazin.de">
                   post@hubert-magazin.de
-                </a>
+                </Link>
               </div>
             </div>
             <div>
               <h6>Folge uns</h6>
               <ul>
                 <li>
-                  <a
-                    href="https://www.facebook.com/hubertmagazin"
-                    target="_blank"
-                  >
+                  <Link to="https://www.facebook.com/hubertmagazin">
                     Facebook
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="https://www.pinterest.de/sorpetaler/hubert-magazin-f%C3%BCr-holzkultur/"
-                    target="_blank"
-                  >
+                  <Link to="https://www.pinterest.de/sorpetaler/hubert-magazin-f%C3%BCr-holzkultur/">
                     Pinterest
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -112,9 +104,7 @@ export function Footer() {
             <div>|</div>
             <div>
               Powered by&nbsp;
-              <a href="https://www.sorpetaler.de/" target="_blank">
-                Sorpetaler
-              </a>
+              <Link to="/">Sorpetaler</Link>
             </div>
           </div>
         </div>

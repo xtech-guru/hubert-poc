@@ -1,5 +1,3 @@
-const static_data = require(`./src/mocks/articles`)
-const authors = require(`./src/mocks/authors`)
 const path = require(`path`)
 /**
  * Implement Gatsby's Node APIs in this file.
@@ -12,24 +10,33 @@ exports.createPages = async ({ graphql, actions }) => {
   // Create articles pages
   const result = await graphql(`
     query {
+      allContentfulCategory {
+        nodes {
+          slug
+          title
+          relatedArticles: article {
+            title
+            introduction
+            featuredImage {
+              gatsbyImageData
+            }
+          }
+        }
+      }
       allContentfulArticle {
         nodes {
           title
           introduction
           slug
           featuredImage {
-            fluid {
-              src
-            }
+            gatsbyImageData
             title
           }
           content {
             raw
             references {
               contentful_id
-              fluid {
-                src
-              }
+              gatsbyImageData
             }
           }
           category {
@@ -43,9 +50,7 @@ exports.createPages = async ({ graphql, actions }) => {
               details
             }
             featuredImage: picture {
-              fluid {
-                src
-              }
+              gatsbyImageData
             }
           }
         }
@@ -58,9 +63,7 @@ exports.createPages = async ({ graphql, actions }) => {
           }
           slug
           featuredImage: picture {
-            fluid {
-              src
-            }
+            gatsbyImageData(width: 125)
           }
           wrottenArticles: article {
             title
@@ -77,6 +80,15 @@ exports.createPages = async ({ graphql, actions }) => {
       path: `/articles/${article.slug}`,
       component: path.resolve(`./src/templates/ArticleTemplate.js`),
       context: { data: article },
+    })
+
+    const categories_list = result.data.allContentfulCategory.nodes
+    categories_list.map(category => {
+      createPage({
+        path: `/categories/${category.slug}`,
+        component: path.resolve(`./src/templates/CategoryTemplate.js`),
+        context: { data: category },
+      })
     })
   })
 

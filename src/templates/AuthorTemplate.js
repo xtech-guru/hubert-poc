@@ -3,6 +3,7 @@ import styled from "styled-components"
 import { Link } from "gatsby"
 
 import { Layout } from "../components"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 const Icon =
   "https://www.sorpetaler.de/wp-content/themes/hubert/assets/images/icon_arrow_blue.svg"
@@ -23,7 +24,7 @@ const AuthorTemplate = ({ pageContext }) => {
         </Link>
         <AuthorName>{fullName.substr(0, fullName.indexOf(" "))}</AuthorName>
         <AvatarContainer>
-          <img src={featuredImage.fluid.src} />
+          <GatsbyImage image={getImage(featuredImage)} alt="Author image" />
         </AvatarContainer>
         <p>{details.details}</p>
         <ul>
@@ -122,13 +123,15 @@ const BackIcon = styled.img`
 const AvatarContainer = styled.div`
   float: right;
   margin-left: 30px;
-  img {
-    border-radius: 50%;
-    width: 125px;
-    height: auto;
-    @media (min-width: 992px) {
-      width: 202px;
-      height: auto;
+  .gatsby-image-wrapper {
+    img {
+      width: 125px !important;
+      height: auto !important;
+      border-radius: 50%;
+      @media (min-width: 992px) {
+        width: 202px;
+        height: auto;
+      }
     }
   }
 `
