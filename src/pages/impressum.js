@@ -5,13 +5,13 @@ import { Container, Layout, SEO } from "../components"
 import styled from "styled-components"
 
 const AboutPage = ({ data }) => {
-  const { content } = data.allContentfulPage.nodes[0]
+  const { content, title, seo } = data.allContentfulPage.nodes[0]
   return (
     <Layout>
-      <SEO title="Impressum" />
+      <SEO title={seo || title} />
       <Container>
         <ContentWrapper>
-          <Title>Impressum</Title>
+          <Title>{title}</Title>
           {documentToReactComponents(JSON.parse(content.raw))}
         </ContentWrapper>
       </Container>
@@ -21,7 +21,7 @@ const AboutPage = ({ data }) => {
 
 export const query = graphql`
   query {
-    allContentfulPage(filter: { title: { eq: "Impressum" } }) {
+    allContentfulPage(filter: { slug: { eq: "impressum" } }) {
       nodes {
         content {
           raw
@@ -29,6 +29,8 @@ export const query = graphql`
             gatsbyImageData
           }
         }
+        title
+        seo
       }
     }
   }
