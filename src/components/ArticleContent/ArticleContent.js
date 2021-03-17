@@ -17,8 +17,7 @@ export const ArticleContent = ({
   category,
   introduction,
   author,
-  rating,
-  link,
+  location,
 }) => {
   const richTextOptions = {
     renderNode: {
@@ -42,7 +41,10 @@ export const ArticleContent = ({
         </ArticleTitle>
         <Introduction>{introduction}</Introduction>
         <hr />
-        <ShareWidget author={{ name: author.name, slug: author.slug }} />
+        <ShareWidget
+          author={{ name: author.name, slug: author.slug }}
+          location={location}
+        />
         <hr />
       </header>
       {img && <ArticleImage image={getImage(img)} alt={img.title} />}

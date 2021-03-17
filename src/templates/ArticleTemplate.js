@@ -3,7 +3,7 @@ import styled from "styled-components"
 
 import { Layout, ArticleContent, RelatedPosts } from "../components"
 
-const ArticleTemplate = ({ pageContext }) => {
+const ArticleTemplate = ({ pageContext, location }) => {
   const {
     title,
     featuredImage,
@@ -23,6 +23,7 @@ const ArticleTemplate = ({ pageContext }) => {
           category={category}
           introduction={introduction}
           author={author}
+          location={location}
         />
         <RelatedPosts category={category} />
       </PageWrapper>
