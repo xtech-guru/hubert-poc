@@ -8,7 +8,7 @@ import { Layout } from "../components"
 const AuthorTemplate = ({ pageContext }) => {
   const { fullName, details, featuredImage, wrottenArticles } = pageContext.data
   return (
-    <Layout>
+    <Layout seo={fullName}>
       <AuthorContainer>
         <Link to="/about">
           <BackIcon src={require("../images/icon_arrow_blue.svg")} />

@@ -22,7 +22,10 @@ export const RatingBlock = ({ title, image, isLoading }) => {
                 <br />
               </PostRating>
               <PostRatingLoading id="post-ratings-12053-loading">
-                <img src={isLoading} alt="" />
+                <img
+                  src={require("../../images/loading.gif")}
+                  alt="Wird geladen"
+                />
                 Loading...
               </PostRatingLoading>
             </div>

@@ -7,6 +7,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import { AuthorBlock } from "../AuthorBlock"
 import { RatingBlock } from "../RatingBlock"
+import { ShareWidget } from "../ShareWidget"
 
 export const ArticleContent = ({
   content,
@@ -16,6 +17,8 @@ export const ArticleContent = ({
   category,
   introduction,
   author,
+  rating,
+  link,
 }) => {
   const richTextOptions = {
     renderNode: {
@@ -39,34 +42,7 @@ export const ArticleContent = ({
         </ArticleTitle>
         <Introduction>{introduction}</Introduction>
         <hr />
-        <Author>
-          <div>
-            Von <Link to={`/authors/${author.slug}`}>{author.fullName}</Link>
-          </div>
-          <hr />
-          <SocialMediaBlock>
-            <span>Teilen</span>
-            <Link to="#" target="_blank">
-              <img
-                src={require("../../images/icon_facebook_share.svg")}
-                alt=""
-              />
-            </Link>
-            <Link to="#" target="_blank">
-              <img
-                src={require("../../images/icon_twitter_share.svg")}
-                alt=""
-              />
-            </Link>
-            <Link to="#" target="_blank">
-              <img
-                src={require("../../images/icon_pinterest_share.svg")}
-                alt=""
-              />
-              Save
-            </Link>
-          </SocialMediaBlock>
-        </Author>
+        <ShareWidget author={{ name: author.name, slug: author.slug }} />
         <hr />
       </header>
       {img && <ArticleImage image={getImage(img)} alt={img.title} />}
@@ -84,33 +60,7 @@ export const ArticleContent = ({
     </ContentWrapper>
   )
 }
-const SocialMediaBlock = styled.div`
-  display: flex;
-  align-items: center;
-  a {
-    margin-left: 30px;
-  }
-  a:last-child {
-    display: flex;
-    height: 20px;
-    border-radius: 2px;
-    padding: 0 4px 0 0;
-    text-decoration: none;
-    font: 11px/20px "Helvetica Neue", Helvetica, sans-serif;
-    font-weight: bold;
-    color: #fff !important;
-    background: #e60023
-      url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zd…AyMS45NSwxLjY4NiAxNC43MzMsMS42ODYiIGZpbGw9IiMxMTEiPjwvcGF0aD48L2c+PC9zdmc+)
-      3px 50% no-repeat;
-    background-size: 14px 14px;
-    img {
-      width: 20px;
-    }
-  }
-  img {
-    margin: 0;
-  }
-`
+
 const Wrapper = styled.article`
   position: relative;
   margin-left: auto;
@@ -213,19 +163,6 @@ const Introduction = styled.p`
   margin-bottom: 25px;
 `
 
-const Author = styled.div`
-  display: flex;
-  justify-content: space-between !important;
-  align-items: center;
-  color: #c7bcb2;
-  text-transform: uppercase;
-  font-size: 14px;
-  margin: 0;
-  a {
-    color: #c7bcb2;
-    text-decoration: underline;
-  }
-`
 const ArticleImage = styled(GatsbyImage)`
   width: 100%;
   height: auto;
