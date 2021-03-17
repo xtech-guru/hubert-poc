@@ -5,6 +5,7 @@ import { BLOCKS } from "@contentful/rich-text-types"
 import { Link } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
+import { ArticleSuggestion } from "../ArticleSuggestion"
 import { AuthorBlock } from "../AuthorBlock"
 import { RatingBlock } from "../RatingBlock"
 import { ShareWidget } from "../ShareWidget"
@@ -26,6 +27,23 @@ export const ArticleContent = ({
           return i.contentful_id === node.data.target.sys.id
         })
         return <GatsbyImage image={getImage(img)} alt="content image" />
+      },
+      [BLOCKS.PARAGRAPH]: node => {
+        if (
+          node.content?.[0].marks?.length > 0 &&
+          node.content[0].marks[0].type === "code"
+        ) {
+          const link = {
+            title: node.content[1].content[0].value,
+            url: node.content[1].data.uri,
+          }
+
+          return (
+            <ArticleSuggestion content={node.content[0].value} link={link} />
+          )
+        }
+
+        return documentToReactComponents(node)
       },
     },
   }
@@ -138,6 +156,7 @@ const ContentWrapper = styled(Wrapper)`
     }
   }
 `
+
 const CategoryText = styled.span`
   background-color: #f86968;
   font-weight: 700;
@@ -147,6 +166,7 @@ const CategoryText = styled.span`
     color: #fff;
   }
 `
+
 const ArticleTitle = styled.div`
   font-family: GT Pressura, -apple-system, system-ui, BlinkMacSystemFont,
     Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
@@ -159,6 +179,7 @@ const ArticleTitle = styled.div`
     color: #4b3e31;
   }
 `
+
 const Introduction = styled.p`
   font-size: 1.125rem;
   color: #9d958e;
@@ -173,6 +194,7 @@ const ArticleImage = styled(GatsbyImage)`
     vertical-align: middle;
   }
 `
+
 const Content = styled.div`
 .gatsby-image-wrapper {
   margin-left: 0;
