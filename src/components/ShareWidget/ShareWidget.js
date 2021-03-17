@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
 
-export const ShareWidget = ({ author }) => {
+export const ShareWidget = ({ author, location }) => {
   return (
     <WidgetWrapper>
       <div>
@@ -12,7 +12,7 @@ export const ShareWidget = ({ author }) => {
       <SocialMediaBlock>
         <span>Teilen</span>
         <a
-          href={`https://www.facebook.com/sharer/sharer.php?u=${window.location.href}`}
+          href={`https://www.facebook.com/sharer/sharer.php?u=${location.href}`}
           target="_blank"
           rel="noreferrer"
         >
@@ -22,7 +22,7 @@ export const ShareWidget = ({ author }) => {
           />
         </a>
         <a
-          href={`https://twitter.com/intent/tweet?text=${window.location.href}`}
+          href={`https://twitter.com/intent/tweet?text=${location.href}`}
           target="_blank"
           rel="noreferrer"
         >
@@ -32,7 +32,7 @@ export const ShareWidget = ({ author }) => {
           />
         </a>
         <a
-          href={`https://www.pinterest.com/pin-builder/?url=${window.location.href}`}
+          href={`https://www.pinterest.com/pin-builder/?url=${location.href}`}
           target="_blank"
           rel="noreferrer"
         >
