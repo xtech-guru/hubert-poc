@@ -93,6 +93,7 @@ export const Menu = props => {
                         name="subscription_email"
                         required="required"
                         placeholder="* ihre@email.com"
+                        aria-label="subscription email"
                       />
                     </label>
                     <label>
@@ -100,6 +101,7 @@ export const Menu = props => {
                         type="hidden"
                         name="subscription_locale"
                         value="de_DE"
+                        aria-label="subscription locale"
                       />
                     </label>
                     <label>
@@ -115,7 +117,11 @@ export const Menu = props => {
                     name="widget_id"
                     value="wp_mailjet_subscribe_widget-2"
                   />
-                  <input type="submit" value={props.form.submitButtonContent} />
+                  <input
+                    type="submit"
+                    value={props.form.submitButtonContent}
+                    aria-label="subscription submit button"
+                  />
                 </form>
                 <span />
               </div>

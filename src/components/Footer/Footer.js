@@ -72,21 +72,19 @@ export function Footer() {
                   name="wp_mailjet_subscribe_widget-2"
                 >
                   <div>
-                    <label>
-                      <input
-                        type="email"
-                        name="subscription_email"
-                        required="required"
-                        placeholder="* ihre@email.com"
-                      />
-                    </label>
-                    <label>
-                      <input
-                        type="hidden"
-                        name="subscription_locale"
-                        value="de_DE"
-                      />
-                    </label>
+                    <input
+                      type="email"
+                      name="subscription_email"
+                      required="required"
+                      placeholder="* ihre@email.com"
+                      aria-label="subscription email"
+                    />
+                    <input
+                      type="hidden"
+                      name="subscription_locale"
+                      value="de_DE"
+                      aria-label="subscription locale"
+                    />
                     <label>
                       <input
                         type="hidden"
@@ -100,7 +98,11 @@ export function Footer() {
                     name="widget_id"
                     value="wp_mailjet_subscribe_widget-2"
                   />
-                  <input type="submit" value="Registrieren" />
+                  <input
+                    type="submit"
+                    value="Registrieren"
+                    aria-label="subscription submit button"
+                  />
                 </form>
                 <span />
               </div>
