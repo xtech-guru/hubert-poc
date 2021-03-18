@@ -8,7 +8,7 @@ export const AuthorBlock = ({ author }) => (
     <AuthorBlockWrapper>
       <AuthorBlockImage>
         <Link to={`/authors/${author.slug}`}>
-          <GatsbyImage image={getImage(author.featuredImage)} />
+          <StyledGatsbyImage image={getImage(author.featuredImage)} />
         </Link>
       </AuthorBlockImage>
 
@@ -49,7 +49,11 @@ const AuthorBlockWidget = styled.div`
     padding-right: 63px;
   }
 `
-
+const StyledGatsbyImage = styled(GatsbyImage)`
+  float: left;
+  border-radius: 50%;
+  margin: 0;
+`
 const AuthorBlockWrapper = styled.div`
   display: flex !important;
   align-items: center !important;
@@ -76,12 +80,6 @@ const AuthorBlockWrapper = styled.div`
   @media (min-width: 576px) {
     margin-right: -15px;
     margin-left: -15px;
-  }
-
-  img {
-    float: left;
-    border-radius: 50%;
-    margin: 0;
   }
 `
 const AuthorBlockName = styled.div`
