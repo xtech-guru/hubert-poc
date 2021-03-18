@@ -9,6 +9,7 @@ import { ArticleSuggestion } from "../ArticleSuggestion"
 import { AuthorBlock } from "../AuthorBlock"
 import { RatingBlock } from "../RatingBlock"
 import { ShareWidget } from "../ShareWidget"
+import { HighlightedElement } from "../HighlightedElement"
 
 export const ArticleContent = ({
   content,
@@ -40,6 +41,21 @@ export const ArticleContent = ({
 
           return (
             <ArticleSuggestion content={node.content[0].value} link={link} />
+          )
+        }
+
+        return documentToReactComponents(node)
+      },
+      [BLOCKS.PARAGRAPH]: node => {
+        if (
+          node.content?.[0].marks?.length > 0 &&
+          node.content[0].marks[0].type === "code"
+        ) {
+          return (
+            <HighlightedElement
+              content={node.content[0].value}
+              link={node.content[1].data.uri}
+            />
           )
         }
 
