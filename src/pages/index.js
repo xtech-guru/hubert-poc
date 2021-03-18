@@ -33,9 +33,9 @@ const IndexPage = ({ data }) => {
               </Link>
             </div>
             <p>{featuredArticle.introduction}</p>
-            <Link to="/" aria-label="Home">
-              <img src={icon_arrow_blue} alt="Arrow icon blue" />
-              <img src={icon_arrow_brown} alt="Arrow icon brown" />
+            <Link to={`/articles/${featuredArticle.slug}`} aria-label="Home">
+              <img src={icon_arrow_blue} alt="article-details" />
+              <img src={icon_arrow_brown} alt="article-details" />
             </Link>
           </div>
         </article>
@@ -138,6 +138,12 @@ const PostsWrapper = styled.div`
             vertical-align: middle;
 
             @media (min-width: 768px) {
+              display: none !important;
+            }
+          }
+
+          &:last-child {
+            @media (max-width: 767px) {
               display: none !important;
             }
           }
