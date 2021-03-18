@@ -10,23 +10,23 @@
       "items": [
         {
           "content": "allgemein",
-          "route": "/hubert/category/allgemein/"
+          "route": "/hubert/categories/allgemein/"
         },
         {
           "content": "der werkstoff holz",
-          "route": "/hubert/category/der-werkstoff-holz/"
+          "route": "/hubert/categories/der-werkstoff-holz/"
         },
         {
           "content": "fensterratgeber",
-          "route": "/hubert/category/fensterratgeber/"
+          "route": "/hubert/categories/fensterratgeber/"
         },
         {
           "content": "nachhaltig bauen und sanieren",
-          "route": "/hubert/category/nachhaltig-bauen-und-sanieren/"
+          "route": "/hubert/categories/nachhaltig-bauen-und-sanieren/"
         },
         {
           "content": "persönlichkeiten",
-          "route": "hubert/category/persoenlichkeiten/"
+          "route": "hubert/categories/persoenlichkeiten/"
         }
       ]
     },
@@ -40,7 +40,7 @@
       "type": "collapse"
     }
   ],
-  "form" : {
+  "form": {
     "title": "Newsletter",
     "description": "Verpasse keine Neuigkeiten von Hubert. Jetzt zum Newsletter anmelden!",
     "submitButtonContent": "Registrieren"
