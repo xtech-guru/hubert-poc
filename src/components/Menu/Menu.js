@@ -36,7 +36,7 @@ export const Menu = props => {
   return (
     <>
       <NavBarWrapper>
-        <button type="button">
+        <button type="button" aria-label="navbar button">
           <span />
         </button>
 
