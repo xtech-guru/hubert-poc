@@ -10,6 +10,7 @@ import { AuthorBlock } from "../AuthorBlock"
 import { RatingBlock } from "../RatingBlock"
 import { ShareWidget } from "../ShareWidget"
 import { HighlightedElement } from "../HighlightedElement"
+import { QuoteBlock } from "../QuoteBlock"
 
 export const ArticleContent = ({
   content,
@@ -30,23 +31,9 @@ export const ArticleContent = ({
         })
         return <GatsbyImage image={getImage(img)} alt="content image" />
       },
-      [BLOCKS.PARAGRAPH]: node => {
-        if (
-          node.content?.[0].marks?.length > 0 &&
-          node.content[0].marks[0].type === "code"
-        ) {
-          const link = {
-            title: node.content[1].content[0].value,
-            url: node.content[1].data.uri,
-          }
-
-          return (
-            <CrossLinkArticle content={node.content[0].value} link={link} />
-          )
-        }
-
-        return documentToReactComponents(node)
-      },
+      [BLOCKS.QUOTE]: node => (
+        <QuoteBlock content={node.content[0].content[0].value} />
+      ),
       [BLOCKS.PARAGRAPH]: node => {
         if (
           node.content?.[0].marks?.length > 0 &&
