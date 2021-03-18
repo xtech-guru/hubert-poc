@@ -9,12 +9,16 @@ export const ArticlePreview = ({ title, description, img, category, slug }) => {
       <ImageWrapper>
         <StyledGatsbyImage image={getImage(img)} alt={img.title} />
         <Category>
-          <Link to={`/categories/${category.slug}`}>{category.title}</Link>
+          <Link to={`/categories/${category.slug}`} aria-label="Category">
+            {category.title}
+          </Link>
         </Category>
       </ImageWrapper>
       <div>
         <Title>
-          <Link to={`/articles/${slug}`}>{title}</Link>
+          <Link to={`/articles/${slug}`} aria-label="Article">
+            {title}
+          </Link>
         </Title>
         <Description>{description}</Description>
         <MoreTextButton to={`/articles/${slug}`}>Mehr</MoreTextButton>

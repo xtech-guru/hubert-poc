@@ -9,13 +9,13 @@ import headerLogoLg from "../../images/HUBERT_logo_desktop.svg"
 const MenuItem = ({ content, route, type, selected, items = [], onClick }) => {
   return (
     <MenuItemWrapper selected={selected} type={type}>
-      <Link to={route} onClick={onClick}>
+      <Link to={route} onClick={onClick} aria-label="Menu">
         {content}
       </Link>
       {!!items.length && selected && (
         <div>
           {items.map(item => (
-            <Link key={item.route} to={item.route}>
+            <Link key={item.route} to={item.route} aria-label="Menu-item">
               {item.content}
             </Link>
           ))}
@@ -40,7 +40,7 @@ export const Menu = props => {
           <span />
         </button>
 
-        <Link to={props.logo.url}>
+        <Link to={props.logo.url} aria-label="Logo">
           <img src={headerLogoSm} alt="Hubert logo" />
           <img src={headerLogoLg} alt="Hubert logo" />
           <div>
@@ -78,34 +78,37 @@ export const Menu = props => {
             <div>{props.form.description}</div>
             <div>
               <div>
-                <div id="mailjet-widget-title-wrap">
+                <div>
                   <h3>{props.form.title}</h3>
                 </div>
                 <form
                   method="post"
                   action=""
-                  id="mailjetSubscriptionForm"
                   name="wp_mailjet_subscribe_widget-2"
                 >
                   <div>
-                    <input
-                      type="email"
-                      name="subscription_email"
-                      id="mailjet_widget_email"
-                      required="required"
-                      placeholder="* ihre@email.com"
-                    />
-                    <input
-                      type="hidden"
-                      name="subscription_locale"
-                      id="mailjet_widget_locale"
-                      value="de_DE"
-                    />
-                    <input
-                      type="hidden"
-                      name="action"
-                      value="send_mailjet_subscription_form"
-                    />
+                    <label>
+                      <input
+                        type="email"
+                        name="subscription_email"
+                        required="required"
+                        placeholder="* ihre@email.com"
+                      />
+                    </label>
+                    <label>
+                      <input
+                        type="hidden"
+                        name="subscription_locale"
+                        value="de_DE"
+                      />
+                    </label>
+                    <label>
+                      <input
+                        type="hidden"
+                        name="action"
+                        value="send_mailjet_subscription_form"
+                      />
+                    </label>
                   </div>
                   <input
                     type="hidden"

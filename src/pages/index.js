@@ -20,19 +20,22 @@ const IndexPage = ({ data }) => {
         <article>
           <div>
             <div>
-              <Link to={`/categories/${featuredArticle.category.slug}`}>
+              <Link
+                to={`/categories/${featuredArticle.category.slug}`}
+                aria-label="Category"
+              >
                 {featuredArticle.category.title}
               </Link>
             </div>
             <div>
-              <Link to={`/articles/${featuredArticle.slug}`}>
+              <Link to={`/articles/${featuredArticle.slug}`} aria-label="Link">
                 {featuredArticle.title}
               </Link>
             </div>
             <p>{featuredArticle.introduction}</p>
-            <Link to="/">
-              <img src={icon_arrow_blue} alt="" />
-              <img src={icon_arrow_brown} alt="" />
+            <Link to="/" aria-label="Home">
+              <img src={icon_arrow_blue} alt="Arrow icon blue" />
+              <img src={icon_arrow_brown} alt="Arrow icon brown" />
             </Link>
           </div>
         </article>

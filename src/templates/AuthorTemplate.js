@@ -10,7 +10,7 @@ const AuthorTemplate = ({ pageContext }) => {
   return (
     <Layout seo={fullName}>
       <AuthorContainer>
-        <Link to="/about">
+        <Link to="/about" aria-label="About">
           <BackIcon src={require("../images/icon_arrow_blue.svg")} />
           <span>Zurück zu 'Über uns'</span>
         </Link>
@@ -26,7 +26,9 @@ const AuthorTemplate = ({ pageContext }) => {
             return (
               <>
                 <li key={index}>
-                  <Link to={`/articles/${article.slug}`}>{article.title}</Link>
+                  <Link to={`/articles/${article.slug}`} aria-label="Article">
+                    {article.title}
+                  </Link>
                 </li>
                 <hr />
               </>

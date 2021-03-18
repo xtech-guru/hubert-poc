@@ -7,20 +7,24 @@ export const AuthorBlock = ({ author }) => (
   <AuthorBlockWidget>
     <AuthorBlockWrapper>
       <AuthorBlockImage>
-        <Link to={`/authors/${author.slug}`}>
+        <Link to={`/authors/${author.slug}`} aria-label="Author">
           <StyledGatsbyImage image={getImage(author.featuredImage)} />
         </Link>
       </AuthorBlockImage>
 
       <AuthorBlockParagraph>
         <AuthorBlockName>
-          <Link to={`/authors/${author.slug}`}>{author.fullName}</Link>
+          <Link to={`/authors/${author.slug}`} aria-label="Author">
+            {author.fullName}
+          </Link>
         </AuthorBlockName>
         <div>
           <AuthorBlockDescription>
             {author.details.details}
             <ReadMore>
-              <Link to={`/authors/${author.slug}`}>Mehr</Link>
+              <Link to={`/authors/${author.slug}`} aria-label="Read more">
+                Mehr
+              </Link>
             </ReadMore>
           </AuthorBlockDescription>
         </div>

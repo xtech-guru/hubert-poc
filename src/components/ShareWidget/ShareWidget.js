@@ -6,12 +6,16 @@ export const ShareWidget = ({ author, location }) => {
   return (
     <WidgetWrapper>
       <div>
-        Von <Link to={`/authors/${author.slug}`}>{author.name}</Link>
+        Von{" "}
+        <Link to={`/authors/${author.slug}`} aria-label="Author">
+          {author.name}
+        </Link>
       </div>
       <hr />
       <SocialMediaBlock>
         <span>Teilen</span>
         <a
+          aria-label="Facebbok"
           href={`https://www.facebook.com/sharer/sharer.php?u=${location.href}`}
           target="_blank"
           rel="noreferrer"
@@ -22,6 +26,7 @@ export const ShareWidget = ({ author, location }) => {
           />
         </a>
         <a
+          aria-label="Twitter"
           href={`https://twitter.com/intent/tweet?text=${location.href}`}
           target="_blank"
           rel="noreferrer"
@@ -32,6 +37,7 @@ export const ShareWidget = ({ author, location }) => {
           />
         </a>
         <a
+          aria-label="Pinterest"
           href={`https://www.pinterest.com/pin-builder/?url=${location.href}`}
           target="_blank"
           rel="noreferrer"

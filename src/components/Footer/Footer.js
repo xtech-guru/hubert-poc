@@ -16,10 +16,15 @@ export function Footer() {
                 liefert. Hubert wird herausgegeben von Sorpetaler Fensterbau.
               </p>
               <div>
-                <Link to="/about">Mehr erfahren</Link>
+                <Link to="/about" aria-label="About">
+                  Mehr erfahren
+                </Link>
               </div>
               <div>
-                <Link to="mailto:post@hubert-magazin.de">
+                <Link
+                  to="mailto:post@hubert-magazin.de"
+                  aria-label="Contact-us"
+                >
                   post@hubert-magazin.de
                 </Link>
               </div>
@@ -32,6 +37,7 @@ export function Footer() {
                     to="https://www.facebook.com/hubertmagazin"
                     target="_blank"
                     rel="noreferrer"
+                    aria-label="Facebook"
                   >
                     Facebook
                   </Link>
@@ -41,6 +47,7 @@ export function Footer() {
                     to="https://www.pinterest.de/sorpetaler/hubert-magazin-f%C3%BCr-holzkultur/"
                     target="_blank"
                     rel="noreferrer"
+                    aria-label="Pinterest"
                   >
                     Pinterest
                   </Link>
@@ -55,35 +62,38 @@ export function Footer() {
               </p>
 
               <div>
-                <div id="mailjet-widget-title-wrap">
+                <div>
                   <h3>Newsletter</h3>
                 </div>
 
                 <form
                   method="post"
                   action=""
-                  id="mailjetSubscriptionForm"
                   name="wp_mailjet_subscribe_widget-2"
                 >
                   <div>
-                    <input
-                      type="email"
-                      name="subscription_email"
-                      id="mailjet_widget_email"
-                      required="required"
-                      placeholder="* ihre@email.com"
-                    />
-                    <input
-                      type="hidden"
-                      name="subscription_locale"
-                      id="mailjet_widget_locale"
-                      value="de_DE"
-                    />
-                    <input
-                      type="hidden"
-                      name="action"
-                      value="send_mailjet_subscription_form"
-                    />
+                    <label>
+                      <input
+                        type="email"
+                        name="subscription_email"
+                        required="required"
+                        placeholder="* ihre@email.com"
+                      />
+                    </label>
+                    <label>
+                      <input
+                        type="hidden"
+                        name="subscription_locale"
+                        value="de_DE"
+                      />
+                    </label>
+                    <label>
+                      <input
+                        type="hidden"
+                        name="action"
+                        value="send_mailjet_subscription_form"
+                      />
+                    </label>
                   </div>
                   <input
                     type="hidden"
@@ -107,12 +117,16 @@ export function Footer() {
             <div>©2017 Hubert</div>
             <div>|</div>
             <div>
-              <Link to="/impressum">Impressum</Link>
+              <Link to="/impressum" aria-label="Impressum">
+                Impressum
+              </Link>
             </div>
             <div>|</div>
             <div>
               Powered by&nbsp;
-              <Link to="/">Sorpetaler</Link>
+              <Link to="/" aria-label="Home">
+                Sorpetaler
+              </Link>
             </div>
           </div>
         </div>
