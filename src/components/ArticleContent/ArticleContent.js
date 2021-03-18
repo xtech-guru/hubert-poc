@@ -98,6 +98,13 @@ const Wrapper = styled.article`
   margin-right: auto;
   padding-right: 15px;
   padding-left: 15px;
+  a {
+    text-decoration: none;
+    :hover {
+      text-decoration: underline;
+    }
+  }
+
   @media (min-width: 1200px) {
     width: 1140px;
     max-width: 100%;
@@ -207,6 +214,12 @@ const ArticleImage = styled(GatsbyImage)`
 `
 
 const Content = styled.div`
+a{
+  color : #0275d8;
+  :hover{
+    color : #014c8c;
+  }
+}
 .gatsby-image-wrapper {
   margin-left: 0;
   margin-right: 0;
