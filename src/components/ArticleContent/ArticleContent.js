@@ -5,7 +5,7 @@ import { BLOCKS } from "@contentful/rich-text-types"
 import { Link } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
-import { ArticleSuggestion } from "../ArticleSuggestion"
+import { CrossLinkArticle } from "../CrossLinkArticle"
 import { AuthorBlock } from "../AuthorBlock"
 import { RatingBlock } from "../RatingBlock"
 import { ShareWidget } from "../ShareWidget"
@@ -20,6 +20,7 @@ export const ArticleContent = ({
   introduction,
   author,
   location,
+  crossLink,
 }) => {
   const richTextOptions = {
     renderNode: {
@@ -40,7 +41,7 @@ export const ArticleContent = ({
           }
 
           return (
-            <ArticleSuggestion content={node.content[0].value} link={link} />
+            <CrossLinkArticle content={node.content[0].value} link={link} />
           )
         }
 
@@ -86,6 +87,13 @@ export const ArticleContent = ({
         <Content>
           {documentToReactComponents(JSON.parse(content), richTextOptions)}
         </Content>
+      )}
+      {crossLink && (
+        <CrossLinkArticle
+          content={crossLink.introduction}
+          link={`/articles/${crossLink.slug}`}
+          image={crossLink.featuredImage}
+        />
       )}
       <RatingBlock
         title="War dieser Artikel hilfreich?"

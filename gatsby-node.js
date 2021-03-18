@@ -53,6 +53,13 @@ exports.createPages = async ({ graphql, actions }) => {
               gatsbyImageData
             }
           }
+          crossLink {
+            introduction
+            slug
+            featuredImage {
+              gatsbyImageData
+            }
+          }
         }
       }
       allContentfulAuthor {

@@ -1,13 +1,14 @@
 import { Link } from "gatsby"
 import React from "react"
 import styled from "styled-components"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
-export function ArticleSuggestion({ content, link, image }) {
+export function CrossLinkArticle({ content, link, image }) {
   return (
-    <ArticleSuggestionWrapper>
+    <CrossLinkArticleWrapper>
       <div>
         <div>
-          <img src={image} alt="" />
+          <GatsbyImage image={getImage(image)} alt="article image" />
         </div>
         <div>
           <div>{content}</div>
@@ -15,16 +16,16 @@ export function ArticleSuggestion({ content, link, image }) {
             src={require("../../images/icon_arrow_blue.svg")}
             alt="icon_arrow_right"
           />
-          <Link to={link.url}>
-            <span>{link.title}</span>
+          <Link to={link}>
+            <span>Mehr erfahren</span>
           </Link>
         </div>
       </div>
-    </ArticleSuggestionWrapper>
+    </CrossLinkArticleWrapper>
   )
 }
 
-const ArticleSuggestionWrapper = styled.div`
+const CrossLinkArticleWrapper = styled.div`
   background-color: #f4efea;
   margin-top: 30px;
   margin-bottom: 30px;
@@ -65,7 +66,7 @@ const ArticleSuggestionWrapper = styled.div`
       :first-child {
         height: auto;
 
-        img {
+        .gatsby-image-wrapper {
           max-width: 100%;
           height: auto;
           vertical-align: middle;

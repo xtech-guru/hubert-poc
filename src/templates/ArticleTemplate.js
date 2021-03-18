@@ -11,6 +11,7 @@ const ArticleTemplate = ({ pageContext, location }) => {
     category,
     introduction,
     author,
+    crossLink,
   } = pageContext.data
   return (
     <Layout seo={title}>
@@ -24,6 +25,7 @@ const ArticleTemplate = ({ pageContext, location }) => {
           introduction={introduction}
           author={author}
           location={location}
+          crossLink={crossLink}
         />
         <RelatedPosts category={category} />
       </PageWrapper>
