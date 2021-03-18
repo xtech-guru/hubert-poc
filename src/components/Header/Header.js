@@ -7,22 +7,22 @@ import { Menu } from "../Menu"
 export const Header = props => (
   <HeaderWrapper>
     <SocialMediaIconButtonsWrapper>
-      <a
+      <StyledLink
         href={props.facebookUrl}
         target="_blank"
         rel="noreferrer"
         aria-label="Facebook page"
       >
         {" "}
-      </a>
-      <a
+      </StyledLink>
+      <StyledLink
         href={props.pinterestUrl}
         target="_blank"
         rel="noreferrer"
         aria-label="Pinterest page"
       >
         {" "}
-      </a>
+      </StyledLink>
     </SocialMediaIconButtonsWrapper>
     <Menu />
   </HeaderWrapper>
@@ -84,14 +84,13 @@ const SocialMediaIconButtonsWrapper = styled.div`
   display: flex !important;
   justify-content: flex-end !important;
   padding: 37px 0.5rem 5px 0;
-
-  & a {
-    display: block;
-    width: 24px;
-    height: 24px;
-    margin-left: 0.25rem;
-    margin-right: 0.25rem;
-    background-repeat: no-repeat;
-    background-position: 50%;
-  }
+`
+const StyledLink = styled.a`
+  display: block;
+  width: 24px;
+  height: 24px;
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
+  background-repeat: no-repeat;
+  background-position: 50%;
 `

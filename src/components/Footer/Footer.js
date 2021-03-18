@@ -9,12 +9,12 @@ export function Footer() {
         <div>
           <div>
             <div>
-              <h6>Hubert Magazin</h6>
-              <p>
+              <StyledTitle>Hubert Magazin</StyledTitle>
+              <StyledParagraph>
                 Hubert ist das neue Online-Magazin für Holz-Kultur, das
                 hochwertige und mitreißende Beiträge rund um den Baustoff Holz
                 liefert. Hubert wird herausgegeben von Sorpetaler Fensterbau.
-              </p>
+              </StyledParagraph>
               <div>
                 <Link to="/about" aria-label="About">
                   Mehr erfahren
@@ -30,8 +30,8 @@ export function Footer() {
               </div>
             </div>
             <div>
-              <h6>Folge uns</h6>
-              <ul>
+              <StyledTitle>Folge uns</StyledTitle>
+              <StyledList>
                 <li>
                   <Link
                     to="https://www.facebook.com/hubertmagazin"
@@ -52,14 +52,14 @@ export function Footer() {
                     Pinterest
                   </Link>
                 </li>
-              </ul>
+              </StyledList>
             </div>
             <div>
-              <h6>newsletter</h6>
-              <p>
+              <StyledTitle>newsletter</StyledTitle>
+              <StyledParagraph>
                 Verpasse keine Neuigkeiten von Hubert. Jetzt zum Newsletter
                 anmelden!
-              </p>
+              </StyledParagraph>
 
               <div>
                 <div>
@@ -111,7 +111,7 @@ export function Footer() {
         </div>
       </div>
 
-      <hr />
+      <StyledHr />
 
       <div>
         <div>
@@ -194,22 +194,6 @@ const FooterContainer = styled.footer`
           }
         }
 
-        h6 {
-          color: #fff;
-          font-weight: 700;
-          text-transform: uppercase;
-          font-size: 1rem;
-          margin-bottom: 0.5rem;
-          font-family: GT Pressura, -apple-system, system-ui, BlinkMacSystemFont,
-            Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
-          margin-top: 0;
-        }
-
-        p {
-          margin-top: 0;
-          margin-bottom: 1rem;
-        }
-
         > div:first-child {
           div {
             a {
@@ -219,35 +203,7 @@ const FooterContainer = styled.footer`
             }
           }
         }
-
-        > div:nth-child(2) {
-          ul {
-            margin: 0;
-            padding-left: 0;
-            list-style: none;
-
-            a {
-              color: #fff;
-              text-decoration: underline;
-              touch-action: manipulation;
-            }
-          }
-        }
       }
-    }
-  }
-
-  > hr {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-    box-sizing: content-box;
-    height: 0;
-    overflow: visible;
-
-    @media (min-width: 992px) {
-      display: none !important;
     }
   }
 
@@ -333,5 +289,42 @@ const FooterContainer = styled.footer`
         }
       }
     }
+  }
+`
+const StyledTitle = styled.h6`
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  font-family: GT Pressura, -apple-system, system-ui, BlinkMacSystemFont,
+    Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
+  margin-top: 0;
+`
+const StyledHr = styled.hr`
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+
+  @media (min-width: 992px) {
+    display: none !important;
+  }
+`
+const StyledParagraph = styled.p`
+  margin-top: 0;
+  margin-bottom: 1rem;
+`
+const StyledList = styled.ul`
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+  a {
+    color: #fff;
+    text-decoration: underline;
+    touch-action: manipulation;
   }
 `
