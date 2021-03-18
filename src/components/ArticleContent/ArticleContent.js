@@ -9,6 +9,7 @@ import { CrossLinkArticle } from "../CrossLinkArticle"
 import { AuthorBlock } from "../AuthorBlock"
 import { RatingBlock } from "../RatingBlock"
 import { ShareWidget } from "../ShareWidget"
+import { CommentBlock } from "../CommentBlock"
 import { HighlightedElement } from "../HighlightedElement"
 import { QuoteBlock } from "../QuoteBlock"
 
@@ -92,6 +93,7 @@ export const ArticleContent = ({
         isLoading={false}
       />
       <AuthorBlock author={author} />
+      <CommentBlock />
     </ContentWrapper>
   )
 }
