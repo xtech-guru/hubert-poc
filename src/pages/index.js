@@ -146,7 +146,7 @@ const PostsWrapper = styled.div`
 
 export const query = graphql`
   query {
-    allContentfulArticle {
+    allContentfulArticle(filter: { node_locale: { eq: "en-US" } }) {
       nodes {
         title
         introduction
