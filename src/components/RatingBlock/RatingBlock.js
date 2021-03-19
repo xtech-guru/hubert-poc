@@ -12,21 +12,20 @@ export const RatingBlock = ({ title, image, isLoading }) => {
             <RatingWidgetTitle>RATE</RatingWidgetTitle>
             <div>
               <PostRating>
-                <img
+                <RatingImage
                   id="rating_12053_1"
                   src={image}
                   alt="1 Star"
                   title="1 Star"
-                  onmouseover="current_rating(12053, 1, '1 Star');"
-                  onmouseout="ratings_off(0, 0, 0);"
-                  onclick="rate_post();"
-                  onkeypress="rate_post();"
                 />
                 (No Ratings Yet)
                 <br />
               </PostRating>
               <PostRatingLoading id="post-ratings-12053-loading">
-                <img src={isLoading} />
+                <LoadingImage
+                  src={require("../../images/loading.gif")}
+                  alt="Wird geladen"
+                />
                 Loading...
               </PostRatingLoading>
             </div>
@@ -46,6 +45,8 @@ const RatingContent = styled.div`
   padding-right: 233px;
 `
 const Row = styled.div`
+  display: flex;
+  justify-content: space-between;
   margin-right: -15px;
   margin-left: -15px;
 `
@@ -55,6 +56,10 @@ const RatingTitle = styled.div`
 `
 const RatingWidget = styled.div`
   text-align: right;
+  img {
+    margin: 0;
+    margin-right: 5px;
+  }
 `
 
 const RatingWidgetTitle = styled.div`
@@ -63,19 +68,21 @@ const RatingWidgetTitle = styled.div`
 const PostRating = styled.div`
   width: 100%;
   opacity: 1;
-  img{
-    cursor: "pointer", border: "0px"
-  }
+`
+const RatingImage = styled.img`
+  cursor: pointer;
+  border: 0;
 `
 const PostRatingLoading = styled.div`
   display: none;
   height: 16px;
   text-align: left;
-  img {
-    border: 0;
-    padding: 0;
-    margin: 0;
-    width: 16px;
-    height: 16px;
-  }
+`
+
+const LoadingImage = styled.img`
+  border: 0;
+  padding: 0;
+  margin: 0;
+  width: 16px;
+  height: 16px;
 `

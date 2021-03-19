@@ -1,23 +1,54 @@
 import React from "react"
 import styled from "styled-components"
+import { StaticQuery, graphql } from "gatsby"
 
 import { ArticlePreview } from "../ArticlePreview"
 
-export const RelatedPosts = ({ title, posts }) => {
+const articlesQuery = graphql`
+  query {
+    allContentfulArticle {
+      nodes {
+        category {
+          title
+        }
+        title
+        introduction
+        slug
+        featuredImage {
+          gatsbyImageData
+          title
+        }
+      }
+    }
+  }
+`
+export const RelatedPosts = ({ category }) => {
   return (
     <RelatedPostsWrapper>
-      <RelatedPostsTitle>{title}</RelatedPostsTitle>
+      <RelatedPostsTitle>DAS KÖNNTE DIR AUCH GEFALLEN</RelatedPostsTitle>
       <RelatedPostsList>
-        {posts.map((post, index) => (
-          <ArticlePreview
-            key={index}
-            title={post.title}
-            description={post.excerpt}
-            img={post.img}
-            link={post.link}
-            category={post.category}
-          />
-        ))}
+        <StaticQuery
+          query={articlesQuery}
+          render={data => {
+            const articles = data.allContentfulArticle.nodes
+            articles.filter(article => {
+              return article.category.title === category.title
+            })
+
+            return articles
+              .slice(0, 3)
+              .map(({ title, introduction, featuredImage, category, slug }) => (
+                <ArticlePreview
+                  key={slug}
+                  title={title}
+                  description={introduction}
+                  img={featuredImage}
+                  category={category}
+                  slug={slug}
+                />
+              ))
+          }}
+        />
       </RelatedPostsList>
     </RelatedPostsWrapper>
   )

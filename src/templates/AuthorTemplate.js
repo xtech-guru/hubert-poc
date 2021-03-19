@@ -1,37 +1,34 @@
 import React from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import { Layout } from "../components"
 
 const AuthorTemplate = ({ pageContext }) => {
-  const { author } = pageContext.data
+  const { fullName, details, featuredImage, wrottenArticles } = pageContext.data
   return (
-    <Layout>
+    <Layout seo={fullName}>
       <AuthorContainer>
-        <Link to="/about">
-          <BackIcon src={author.arrow_icon} />
+        <Link to="/about" aria-label="About">
+          <BackIcon src={require("../images/icon_arrow_blue.svg")} />
           <span>Zurück zu 'Über uns'</span>
         </Link>
-        <AuthorName>{author.name}</AuthorName>
+        <AuthorName>{fullName.substr(0, fullName.indexOf(" "))}</AuthorName>
         <AvatarContainer>
-          <img src={author.img} />
+          <GatsbyImage image={getImage(featuredImage)} alt="Author image" />
         </AvatarContainer>
-        <p>{author.description}</p>
+        <p>{details.details}</p>
         <ul>
           <h2>Publizierte Artikel</h2>
           <hr />
-          {author.publiched_articles.map((article, index) => {
+          {wrottenArticles.map((article, index) => {
             return (
               <>
                 <li key={index}>
-                  <a
-                    href={article.link}
-                    rel="bookmark"
-                    title={`Permanent Link:${article.title}`}
-                  >
+                  <Link to={`/articles/${article.slug}`} aria-label="Article">
                     {article.title}
-                  </a>
+                  </Link>
                 </li>
                 <hr />
               </>
@@ -96,7 +93,7 @@ const AuthorName = styled.h1`
   color: #4b3e31;
   text-transform: uppercase;
   margin: 32px 0 30px;
-  padding: 0px;
+  padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-weight: bold;
@@ -120,13 +117,15 @@ const BackIcon = styled.img`
 const AvatarContainer = styled.div`
   float: right;
   margin-left: 30px;
-  img {
-    border-radius: 50%;
-    width: 125px;
-    height: auto;
-    @media (min-width: 992px) {
-      width: 202px;
-      height: auto;
+  .gatsby-image-wrapper {
+    img {
+      width: 125px !important;
+      height: auto !important;
+      border-radius: 50%;
+      @media (min-width: 992px) {
+        width: 202px;
+        height: auto;
+      }
     }
   }
 `

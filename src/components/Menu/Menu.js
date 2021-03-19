@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { Link } from "gatsby"
 
 import data from "../../mocks/menu.json"
 import headerLogoSm from "../../images/H_logo.svg"
@@ -8,15 +9,15 @@ import headerLogoLg from "../../images/HUBERT_logo_desktop.svg"
 const MenuItem = ({ content, route, type, selected, items = [], onClick }) => {
   return (
     <MenuItemWrapper selected={selected} type={type}>
-      <a href={route} onClick={onClick}>
+      <Link to={route} onClick={onClick} aria-label="Menu">
         {content}
-      </a>
+      </Link>
       {!!items.length && selected && (
         <div>
           {items.map(item => (
-            <a key={item.route} href={item.route}>
+            <Link key={item.route} to={item.route} aria-label="Menu-item">
               {item.content}
-            </a>
+            </Link>
           ))}
         </div>
       )}
@@ -35,17 +36,17 @@ export const Menu = props => {
   return (
     <>
       <NavBarWrapper>
-        <button type="button">
+        <button type="button" aria-label="navbar button">
           <span />
         </button>
 
-        <a href={props.logo.url}>
+        <Link to={props.logo.url} aria-label="Logo">
           <img src={headerLogoSm} alt="Hubert logo" />
           <img src={headerLogoLg} alt="Hubert logo" />
           <div>
             <h1>{props.logo.content}</h1>
           </div>
-        </a>
+        </Link>
 
         <div>
           <ul>
@@ -77,41 +78,50 @@ export const Menu = props => {
             <div>{props.form.description}</div>
             <div>
               <div>
-                <div id="mailjet-widget-title-wrap">
+                <div>
                   <h3>{props.form.title}</h3>
                 </div>
                 <form
                   method="post"
                   action=""
-                  id="mailjetSubscriptionForm"
                   name="wp_mailjet_subscribe_widget-2"
                 >
-                  <div className="mailjet-widget-form-group">
-                    <input
-                      type="email"
-                      name="subscription_email"
-                      id="mailjet_widget_email"
-                      required="required"
-                      placeholder="* ihre@email.com"
-                    />
-                    <input
-                      type="hidden"
-                      name="subscription_locale"
-                      id="mailjet_widget_locale"
-                      value="de_DE"
-                    />
-                    <input
-                      type="hidden"
-                      name="action"
-                      value="send_mailjet_subscription_form"
-                    />
+                  <div>
+                    <label>
+                      <input
+                        type="email"
+                        name="subscription_email"
+                        required="required"
+                        placeholder="* ihre@email.com"
+                        aria-label="subscription email"
+                      />
+                    </label>
+                    <label>
+                      <input
+                        type="hidden"
+                        name="subscription_locale"
+                        value="de_DE"
+                        aria-label="subscription locale"
+                      />
+                    </label>
+                    <label>
+                      <input
+                        type="hidden"
+                        name="action"
+                        value="send_mailjet_subscription_form"
+                      />
+                    </label>
                   </div>
                   <input
                     type="hidden"
                     name="widget_id"
                     value="wp_mailjet_subscribe_widget-2"
                   />
-                  <input type="submit" value={props.form.submitButtonContent} />
+                  <input
+                    type="submit"
+                    value={props.form.submitButtonContent}
+                    aria-label="subscription submit button"
+                  />
                 </form>
                 <span />
               </div>
@@ -206,6 +216,7 @@ const NavBarWrapper = styled.nav`
         line-height: 1.1;
         color: #9d958e;
         margin-bottom: 0.5rem;
+        margin-top: 0;
       }
     }
   }
@@ -317,115 +328,59 @@ const MenuItemWrapper = styled.li`
 `
 
 const FormWrapper = styled.div`
-  display: ${props => (props.visible ? "block" : "none")};
+  overflow: hidden;
+  height: ${props => (props.visible ? "255px;" : "0px;")}
   background: #f86968;
   color: #fff;
+  transition: height .3s ease;
 
   > div {
     display: block;
 
     > div {
+      position: relative;
       display: flex;
       flex-wrap: wrap;
       margin: 0;
       padding: 50px 46px;
       align-items: center !important;
-
-      @media (min-width: 576px) {
-        margin-right: -15px;
-        margin-left: -15px;
-      }
-
-      @media (min-width: 768px) {
-        margin-right: -15px;
-        margin-left: -15px;
-      }
-
-      @media (min-width: 992px) {
-        margin-right: -15px;
-        margin-left: -15px;
-      }
-
-      @media (min-width: 1200px) {
-        margin-right: -15px;
-        margin-left: -15px;
-      }
-
-      > div:first-child {
+      
+      > div {
         position: relative;
-        width: 100%;
         min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
 
-        @media (min-width: 768px) {
-          text-align: right !important;
+        :first-child {
+          @media (min-width: 768px) {
+            text-align: right !important;
+            flex: 0 0 66.6666666667%;
+            max-width: 66.6666666667%;
+          }
+
         }
 
-        @media (min-width: 768px) {
-          flex: 0 0 66.6666666667%;
-          max-width: 66.6666666667%;
-        }
+        :nth-child(2) {
 
-        @media (min-width: 576px) {
-          padding-right: 15px;
-          padding-left: 15px;
-        }
+          @media (min-width: 768px) {
+            flex: 0 0 33.3333333333%;
+            max-width: 33.3333333333%;
+          }
 
-        @media (min-width: 768px) {
-          text-align: right !important;
-          flex: 0 0 66.6666666667%;
-          max-width: 66.6666666667%;
-          padding-right: 15px;
-          padding-left: 15px;
-        }
+          > div {
+            margin-bottom: 20px;
 
-        @media (min-width: 992px) {
-          padding-right: 15px;
-          padding-left: 15px;
-        }
-
-        @media (min-width: 1200px) {
-          padding-right: 15px;
-          padding-left: 15px;
-        }
-      }
-
-      > div:nth-child(2) {
-        position: relative;
-        width: 100%;
-        min-height: 1px;
-
-        @media (min-width: 576px) {
-          padding-right: 15px;
-          padding-left: 15px;
-        }
-
-        @media (min-width: 768px) {
-          flex: 0 0 33.3333333333%;
-          max-width: 33.3333333333%;
-          padding-right: 15px;
-          padding-left: 15px;
-        }
-
-        @media (min-width: 992px) {
-          padding-right: 15px;
-          padding-left: 15px;
-        }
-
-        @media (min-width: 1200px) {
-          padding-right: 15px;
-          padding-left: 15px;
-        }
-
-        > div {
-          margin-bottom: 20px;
-
-          & form {
-            > div {
-              margin-bottom: 10px;
+            & form {
+              > div {
+                margin-bottom: 10px;
+              }
             }
           }
         }
+        
       }
+      
+
     }
   }
 `

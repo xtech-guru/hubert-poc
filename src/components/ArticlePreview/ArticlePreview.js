@@ -1,29 +1,46 @@
 import React from "react"
 import styled from "styled-components"
+import { Link } from "gatsby"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
-export const ArticlePreview = ({ title, description, img, category, link }) => {
+export const ArticlePreview = ({ title, description, img, category, slug }) => {
   return (
     <ArticlePreviewWrapper>
       <ImageWrapper>
-        <img src={img} />
+        <StyledGatsbyImage image={getImage(img)} alt={img.title} />
         <Category>
-          <a href={category.link}>{category.name}</a>
+          <Link to={`/categories/${category.slug}`} aria-label="Category">
+            {category.title}
+          </Link>
         </Category>
       </ImageWrapper>
       <div>
         <Title>
-          <a dangerouslySetInnerHTML={{ __html: title }} href={link}></a>
+          <Link to={`/articles/${slug}`} aria-label="Article">
+            {title}
+          </Link>
         </Title>
         <Description>{description}</Description>
-        <a href={link}>Mehr</a>
+        <MoreTextButton to={`/articles/${slug}`}>Mehr</MoreTextButton>
       </div>
     </ArticlePreviewWrapper>
   )
 }
 
+const MoreTextButton = styled(Link)`
+  color: #71b3e7;
+`
+
 const ArticlePreviewWrapper = styled.article`
   padding-right: 30px;
   padding-bottom: 61px;
+  flex: 1 1 0;
+  a {
+    text-decoration: none;
+    :hover {
+      text-decoration: underline;
+    }
+  }
 `
 const Title = styled.p`
   margin-bottom: 0.625rem;
@@ -34,6 +51,9 @@ const Title = styled.p`
   line-height: 1.5;
   a {
     color: #4b3e31;
+    :hover {
+      color: #4b3e31;
+    }
   }
 `
 const Description = styled.p`
@@ -43,12 +63,13 @@ const Description = styled.p`
 const ImageWrapper = styled.div`
   position: relative;
   margin-bottom: 1.25rem;
-  img {
-    max-width: 100%;
-    height: auto;
-    vertical-align: middle;
-    margin-bottom: 0;
-  }
+`
+
+const StyledGatsbyImage = styled(GatsbyImage)`
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+  margin-bottom: 0;
 `
 const Category = styled.div`
   position: absolute;
@@ -56,6 +77,9 @@ const Category = styled.div`
   background-color: #f86968;
   padding: 5px 17px;
   a {
+    color: #fff;
+  }
+  a:hover {
     color: #fff;
   }
 `

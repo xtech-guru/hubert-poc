@@ -1,28 +1,30 @@
 import React from "react"
 import styled from "styled-components"
+import { Link } from "gatsby"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 export const AuthorBlock = ({ author }) => (
   <AuthorBlockWidget>
     <AuthorBlockWrapper>
       <AuthorBlockImage>
-        <a href={author.link} rel="author">
-          <img src={author.avatart} />
-        </a>
+        <Link to={`/authors/${author.slug}`} aria-label="Author">
+          <StyledGatsbyImage image={getImage(author.featuredImage)} />
+        </Link>
       </AuthorBlockImage>
 
       <AuthorBlockParagraph>
         <AuthorBlockName>
-          <a href={author.link} rel="author">
-            {author.name}
-          </a>
+          <Link to={`/authors/${author.slug}`} aria-label="Author">
+            {author.fullName}
+          </Link>
         </AuthorBlockName>
         <div>
           <AuthorBlockDescription>
-            {author.description}
+            {author.details.details}
             <ReadMore>
-              <a href={author.link} rel="author">
+              <Link to={`/authors/${author.slug}`} aria-label="Read more">
                 Mehr
-              </a>
+              </Link>
             </ReadMore>
           </AuthorBlockDescription>
         </div>
@@ -51,7 +53,11 @@ const AuthorBlockWidget = styled.div`
     padding-right: 63px;
   }
 `
-
+const StyledGatsbyImage = styled(GatsbyImage)`
+  float: left;
+  border-radius: 50%;
+  margin: 0;
+`
 const AuthorBlockWrapper = styled.div`
   display: flex !important;
   align-items: center !important;
@@ -78,12 +84,6 @@ const AuthorBlockWrapper = styled.div`
   @media (min-width: 576px) {
     margin-right: -15px;
     margin-left: -15px;
-  }
-
-  img {
-    float: left;
-    border-radius: 50%;
-    margin: 0;
   }
 `
 const AuthorBlockName = styled.div`
