@@ -9,29 +9,35 @@ export function Footer() {
         <div>
           <div>
             <div>
-              <h6>Hubert Magazin</h6>
-              <p>
+              <StyledTitle>Hubert Magazin</StyledTitle>
+              <StyledParagraph>
                 Hubert ist das neue Online-Magazin für Holz-Kultur, das
                 hochwertige und mitreißende Beiträge rund um den Baustoff Holz
                 liefert. Hubert wird herausgegeben von Sorpetaler Fensterbau.
-              </p>
+              </StyledParagraph>
               <div>
-                <Link to="/about">Mehr erfahren</Link>
+                <Link to="/about" aria-label="About">
+                  Mehr erfahren
+                </Link>
               </div>
               <div>
-                <Link to="mailto:post@hubert-magazin.de">
+                <Link
+                  to="mailto:post@hubert-magazin.de"
+                  aria-label="Contact-us"
+                >
                   post@hubert-magazin.de
                 </Link>
               </div>
             </div>
             <div>
-              <h6>Folge uns</h6>
-              <ul>
+              <StyledTitle>Folge uns</StyledTitle>
+              <StyledList>
                 <li>
                   <Link
                     to="https://www.facebook.com/hubertmagazin"
                     target="_blank"
                     rel="noreferrer"
+                    aria-label="Facebook"
                   >
                     Facebook
                   </Link>
@@ -41,56 +47,62 @@ export function Footer() {
                     to="https://www.pinterest.de/sorpetaler/hubert-magazin-f%C3%BCr-holzkultur/"
                     target="_blank"
                     rel="noreferrer"
+                    aria-label="Pinterest"
                   >
                     Pinterest
                   </Link>
                 </li>
-              </ul>
+              </StyledList>
             </div>
             <div>
-              <h6>newsletter</h6>
-              <p>
+              <StyledTitle>newsletter</StyledTitle>
+              <StyledParagraph>
                 Verpasse keine Neuigkeiten von Hubert. Jetzt zum Newsletter
                 anmelden!
-              </p>
+              </StyledParagraph>
 
               <div>
-                <div id="mailjet-widget-title-wrap">
+                <div>
                   <h3>Newsletter</h3>
                 </div>
 
                 <form
                   method="post"
                   action=""
-                  id="mailjetSubscriptionForm"
                   name="wp_mailjet_subscribe_widget-2"
                 >
                   <div>
                     <input
                       type="email"
                       name="subscription_email"
-                      id="mailjet_widget_email"
                       required="required"
                       placeholder="* ihre@email.com"
+                      aria-label="subscription email"
                     />
                     <input
                       type="hidden"
                       name="subscription_locale"
-                      id="mailjet_widget_locale"
                       value="de_DE"
+                      aria-label="subscription locale"
                     />
-                    <input
-                      type="hidden"
-                      name="action"
-                      value="send_mailjet_subscription_form"
-                    />
+                    <label>
+                      <input
+                        type="hidden"
+                        name="action"
+                        value="send_mailjet_subscription_form"
+                      />
+                    </label>
                   </div>
                   <input
                     type="hidden"
                     name="widget_id"
                     value="wp_mailjet_subscribe_widget-2"
                   />
-                  <input type="submit" value="Registrieren" />
+                  <input
+                    type="submit"
+                    value="Registrieren"
+                    aria-label="subscription submit button"
+                  />
                 </form>
                 <span />
               </div>
@@ -99,7 +111,7 @@ export function Footer() {
         </div>
       </div>
 
-      <hr />
+      <StyledHr />
 
       <div>
         <div>
@@ -107,12 +119,16 @@ export function Footer() {
             <div>©2017 Hubert</div>
             <div>|</div>
             <div>
-              <Link to="/impressum">Impressum</Link>
+              <Link to="/impressum" aria-label="Impressum">
+                Impressum
+              </Link>
             </div>
             <div>|</div>
             <div>
               Powered by&nbsp;
-              <Link to="/">Sorpetaler</Link>
+              <Link to="/" aria-label="Home">
+                Sorpetaler
+              </Link>
             </div>
           </div>
         </div>
@@ -178,22 +194,6 @@ const FooterContainer = styled.footer`
           }
         }
 
-        h6 {
-          color: #fff;
-          font-weight: 700;
-          text-transform: uppercase;
-          font-size: 1rem;
-          margin-bottom: 0.5rem;
-          font-family: GT Pressura, -apple-system, system-ui, BlinkMacSystemFont,
-            Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
-          margin-top: 0;
-        }
-
-        p {
-          margin-top: 0;
-          margin-bottom: 1rem;
-        }
-
         > div:first-child {
           div {
             a {
@@ -203,35 +203,7 @@ const FooterContainer = styled.footer`
             }
           }
         }
-
-        > div:nth-child(2) {
-          ul {
-            margin: 0;
-            padding-left: 0;
-            list-style: none;
-
-            a {
-              color: #fff;
-              text-decoration: underline;
-              touch-action: manipulation;
-            }
-          }
-        }
       }
-    }
-  }
-
-  > hr {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-    box-sizing: content-box;
-    height: 0;
-    overflow: visible;
-
-    @media (min-width: 992px) {
-      display: none !important;
     }
   }
 
@@ -317,5 +289,42 @@ const FooterContainer = styled.footer`
         }
       }
     }
+  }
+`
+const StyledTitle = styled.h6`
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  font-family: GT Pressura, -apple-system, system-ui, BlinkMacSystemFont,
+    Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
+  margin-top: 0;
+`
+const StyledHr = styled.hr`
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+
+  @media (min-width: 992px) {
+    display: none !important;
+  }
+`
+const StyledParagraph = styled.p`
+  margin-top: 0;
+  margin-bottom: 1rem;
+`
+const StyledList = styled.ul`
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+  a {
+    color: #fff;
+    text-decoration: underline;
+    touch-action: manipulation;
   }
 `

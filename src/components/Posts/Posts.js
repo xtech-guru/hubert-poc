@@ -37,7 +37,9 @@ export const Posts = function ({ data }) {
         )}
       </Masonry>
       <div>
-        <button rel="next">mehr Laden</button>
+        <button rel="next" aria-label="reload more">
+          mehr Laden
+        </button>
       </div>
     </MasonryContainer>
   )

@@ -12,7 +12,7 @@ export const RatingBlock = ({ title, image, isLoading }) => {
             <RatingWidgetTitle>RATE</RatingWidgetTitle>
             <div>
               <PostRating>
-                <img
+                <RatingImage
                   id="rating_12053_1"
                   src={image}
                   alt="1 Star"
@@ -22,7 +22,7 @@ export const RatingBlock = ({ title, image, isLoading }) => {
                 <br />
               </PostRating>
               <PostRatingLoading id="post-ratings-12053-loading">
-                <img
+                <LoadingImage
                   src={require("../../images/loading.gif")}
                   alt="Wird geladen"
                 />
@@ -68,20 +68,21 @@ const RatingWidgetTitle = styled.div`
 const PostRating = styled.div`
   width: 100%;
   opacity: 1;
-  img {
-    cursor: pointer;
-    border: 0;
-  }
+`
+const RatingImage = styled.img`
+  cursor: pointer;
+  border: 0;
 `
 const PostRatingLoading = styled.div`
   display: none;
   height: 16px;
   text-align: left;
-  img {
-    border: 0;
-    padding: 0;
-    margin: 0;
-    width: 16px;
-    height: 16px;
-  }
+`
+
+const LoadingImage = styled.img`
+  border: 0;
+  padding: 0;
+  margin: 0;
+  width: 16px;
+  height: 16px;
 `

@@ -7,14 +7,18 @@ export const ArticlePreview = ({ title, description, img, category, slug }) => {
   return (
     <ArticlePreviewWrapper>
       <ImageWrapper>
-        <GatsbyImage image={getImage(img)} alt={img.title} />
+        <StyledGatsbyImage image={getImage(img)} alt={img.title} />
         <Category>
-          <Link to={`/categories/${category.slug}`}>{category.title}</Link>
+          <Link to={`/categories/${category.slug}`} aria-label="Category">
+            {category.title}
+          </Link>
         </Category>
       </ImageWrapper>
       <div>
         <Title>
-          <Link to={`/articles/${slug}`}>{title}</Link>
+          <Link to={`/articles/${slug}`} aria-label="Article">
+            {title}
+          </Link>
         </Title>
         <Description>{description}</Description>
         <MoreTextButton to={`/articles/${slug}`}>Mehr</MoreTextButton>
@@ -59,12 +63,13 @@ const Description = styled.p`
 const ImageWrapper = styled.div`
   position: relative;
   margin-bottom: 1.25rem;
-  img {
-    max-width: 100%;
-    height: auto;
-    vertical-align: middle;
-    margin-bottom: 0;
-  }
+`
+
+const StyledGatsbyImage = styled(GatsbyImage)`
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+  margin-bottom: 0;
 `
 const Category = styled.div`
   position: absolute;
