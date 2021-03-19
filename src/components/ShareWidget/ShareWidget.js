@@ -46,7 +46,6 @@ export const ShareWidget = ({ author, location }) => {
             src={require("../../images/icon_pinterest_share.svg")}
             alt="pinterest"
           />
-          Speichern
         </a>
       </SocialMediaBlock>
     </WidgetWrapper>
@@ -58,22 +57,6 @@ const SocialMediaBlock = styled.div`
   align-items: center;
   a {
     margin-left: 30px;
-    :last-child {
-      display: flex;
-      height: 20px;
-      border-radius: 2px;
-      padding: 0 4px 0 0;
-      text-decoration: none;
-      font: 11px/20px "Helvetica Neue", Helvetica, sans-serif;
-      font-weight: bold;
-      color: #fff !important;
-      background-color: #e60023;
-      background-size: 14px 14px;
-      img {
-        width: 20px;
-        margin: 2px 4px;
-      }
-    }
   }
 `
 
