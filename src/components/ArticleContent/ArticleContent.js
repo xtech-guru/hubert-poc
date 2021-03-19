@@ -5,9 +5,12 @@ import { BLOCKS } from "@contentful/rich-text-types"
 import { Link } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
+import { CrossLinkArticle } from "../CrossLinkArticle"
 import { AuthorBlock } from "../AuthorBlock"
 import { RatingBlock } from "../RatingBlock"
 import { ShareWidget } from "../ShareWidget"
+import { HighlightedElement } from "../HighlightedElement"
+import { QuoteBlock } from "../QuoteBlock"
 
 export const ArticleContent = ({
   content,
@@ -18,6 +21,7 @@ export const ArticleContent = ({
   introduction,
   author,
   location,
+  crossLink,
 }) => {
   const richTextOptions = {
     renderNode: {
@@ -26,6 +30,24 @@ export const ArticleContent = ({
           return i.contentful_id === node.data.target.sys.id
         })
         return <GatsbyImage image={getImage(img)} alt="content image" />
+      },
+      [BLOCKS.QUOTE]: node => (
+        <QuoteBlock content={node.content[0].content[0].value} />
+      ),
+      [BLOCKS.PARAGRAPH]: node => {
+        if (
+          node.content?.[0].marks?.length > 0 &&
+          node.content[0].marks[0].type === "code"
+        ) {
+          return (
+            <HighlightedElement
+              content={node.content[0].value}
+              link={node.content[1].data.uri}
+            />
+          )
+        }
+
+        return documentToReactComponents(node)
       },
     },
   }
@@ -52,6 +74,13 @@ export const ArticleContent = ({
         <Content>
           {documentToReactComponents(JSON.parse(content), richTextOptions)}
         </Content>
+      )}
+      {crossLink && (
+        <CrossLinkArticle
+          content={crossLink.introduction}
+          link={`/articles/${crossLink.slug}`}
+          image={crossLink.featuredImage}
+        />
       )}
       <RatingBlock
         title="War dieser Artikel hilfreich?"
@@ -138,6 +167,7 @@ const ContentWrapper = styled(Wrapper)`
     }
   }
 `
+
 const CategoryText = styled.span`
   background-color: #f86968;
   font-weight: 700;
@@ -147,6 +177,7 @@ const CategoryText = styled.span`
     color: #fff;
   }
 `
+
 const ArticleTitle = styled.div`
   font-family: GT Pressura, -apple-system, system-ui, BlinkMacSystemFont,
     Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
@@ -159,6 +190,7 @@ const ArticleTitle = styled.div`
     color: #4b3e31;
   }
 `
+
 const Introduction = styled.p`
   font-size: 1.125rem;
   color: #9d958e;
@@ -173,6 +205,7 @@ const ArticleImage = styled(GatsbyImage)`
     vertical-align: middle;
   }
 `
+
 const Content = styled.div`
 .gatsby-image-wrapper {
   margin-left: 0;
@@ -232,5 +265,4 @@ h2:first-of-type{
       padding-left: 77px;
       padding-right: 233px;
     }
-
 `

@@ -8,6 +8,7 @@ const path = require(`path`)
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   // Create articles pages
+  // TODO: pass the slug and let the work be done in just one place (the template)
   const result = await graphql(`
     query {
       allContentfulCategory {
@@ -50,6 +51,13 @@ exports.createPages = async ({ graphql, actions }) => {
               details
             }
             featuredImage: picture {
+              gatsbyImageData
+            }
+          }
+          crossLink {
+            introduction
+            slug
+            featuredImage {
               gatsbyImageData
             }
           }
@@ -100,23 +108,4 @@ exports.createPages = async ({ graphql, actions }) => {
       context: { data: author },
     })
   })
-}
-
-function slugify(string) {
-  const a =
-    "àáâäæãåāăąçćčđďèéêëēėęěğǵḧîïíīįìłḿñńǹňôöòóœøōõőṕŕřßśšşșťțûüùúūǘůűųẃẍÿýžźż·/_,:;"
-  const b =
-    "aaaaaaaaaacccddeeeeeeeegghiiiiiilmnnnnoooooooooprrsssssttuuuuuuuuuwxyyzzz------"
-  const p = new RegExp(a.split("").join("|"), "g")
-
-  return string
-    .toString()
-    .toLowerCase()
-    .replace(/\s+/g, "-") // Replace spaces with -
-    .replace(p, c => b.charAt(a.indexOf(c))) // Replace special characters
-    .replace(/&/g, "-and-") // Replace & with 'and'
-    .replace(/[^\w\-]+/g, "") // Remove all non-word characters
-    .replace(/\-\-+/g, "-") // Replace multiple - with single -
-    .replace(/^-+/, "") // Trim - from start of text
-    .replace(/-+$/, "") // Trim - from end of text
 }
