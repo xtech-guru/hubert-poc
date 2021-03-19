@@ -265,5 +265,4 @@ h2:first-of-type{
       padding-left: 77px;
       padding-right: 233px;
     }
-
 `
