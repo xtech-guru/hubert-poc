@@ -8,6 +8,7 @@ const path = require(`path`)
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   // Create articles pages
+  // TODO: pass the slug and let the work be done in just one place (the template)
   const result = await graphql(`
     query {
       allContentfulCategory {

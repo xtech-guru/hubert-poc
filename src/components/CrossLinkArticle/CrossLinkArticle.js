@@ -12,6 +12,7 @@ export function CrossLinkArticle({ content, link, image }) {
         </div>
         <div>
           <div>{content}</div>
+          {/* //TODO: change to GatsbyImage (Static) */}
           <img
             src={require("../../images/icon_arrow_blue.svg")}
             alt="icon_arrow_right"
