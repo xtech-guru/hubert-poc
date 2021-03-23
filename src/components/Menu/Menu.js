@@ -91,7 +91,7 @@ export const Menu = props => {
             <div>
               <div>
                 <div>
-                  <h3>{props.form.title}</h3>
+                  <h2>{props.form.title}</h2>
                 </div>
                 <form
                   method="post"

@@ -63,7 +63,7 @@ export function Footer() {
 
               <div>
                 <div>
-                  <h3>Newsletter</h3>
+                  <h2>Newsletter</h2>
                 </div>
 
                 <form
@@ -294,7 +294,7 @@ const FooterContainer = styled.footer`
     }
   }
 `
-const StyledTitle = styled.h6`
+const StyledTitle = styled.h1`
   color: #fff;
   font-weight: 700;
   text-transform: uppercase;
