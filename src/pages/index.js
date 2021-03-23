@@ -36,8 +36,8 @@ const IndexPage = ({ data }) => {
               {featuredArticle.introduction.introduction}
             </MainArticleIntroduction>
             <Link to={`/articles/${featuredArticle.slug}`} aria-label="Home">
-              <img src={icon_arrow_blue} alt="" />
-              <img src={icon_arrow_brown} alt="" />
+              <img src={icon_arrow_blue} alt="" width={37} height={35} />
+              <img src={icon_arrow_brown} alt="" width={36} height={31} />
             </Link>
           </div>
         </MainArticle>

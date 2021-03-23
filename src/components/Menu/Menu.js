@@ -52,8 +52,8 @@ export const Menu = props => {
         </button>
         <MenuWrapper>
           <Link to={props.logo.url} aria-label="Logo">
-            <img src={headerLogoSm} alt="Hubert logo" />
-            <img src={headerLogoLg} alt="Hubert logo" />
+            <img src={headerLogoSm} alt="Hubert logo" width={40} height={27} />
+            <img src={headerLogoLg} alt="Hubert logo" width={150} height={44} />
             <div className="page-title">
               <h1>{props.logo.content}</h1>
             </div>
