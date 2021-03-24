@@ -19,7 +19,7 @@ const articlesQuery = graphql`
         }
         slug
         featuredImage {
-          gatsbyImageData
+          gatsbyImageData(formats: [WEBP])
           title
         }
       }

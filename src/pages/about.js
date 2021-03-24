@@ -23,7 +23,7 @@ export const query = graphql`
         raw
         references {
           contentful_id
-          gatsbyImageData
+          gatsbyImageData(formats: [WEBP])
           description
         }
       }

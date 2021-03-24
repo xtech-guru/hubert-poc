@@ -15,7 +15,8 @@ const IndexPage = ({ data }) => {
       <PostsWrapper>
         <MainArticle
           mainArticleUrl={
-            featuredArticle.featuredImage?.gatsbyImageData.images.fallback.src
+            featuredArticle.featuredImage?.gatsbyImageData?.images?.fallback
+              ?.src
           }
         >
           <div>
@@ -190,7 +191,7 @@ export const query = graphql`
         }
         slug
         featuredImage {
-          gatsbyImageData
+          gatsbyImageData(width: 310, formats: [WEBP])
           title
         }
         category {

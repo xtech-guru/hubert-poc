@@ -18,7 +18,7 @@ export const Image = () => {
     query {
       placeholderImage: file(relativePath: { eq: "gatsby-astronaut.png" }) {
         childImageSharp {
-          gatsbyImageData
+          gatsbyImageData(formats: [WEBP])
         }
       }
     }
