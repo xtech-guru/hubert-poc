@@ -40,7 +40,7 @@ const ArticlesWrapper = styled.div`
     display: flex;
     flex-direction: column;
     background-color: #fff;
-    @media (min-width: 576px) {
+    @media (min-width: 992px) {
       padding-right: 30px;
       padding-bottom: 61px;
       width: 33.333%;
