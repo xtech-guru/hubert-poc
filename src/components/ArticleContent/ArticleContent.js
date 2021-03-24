@@ -146,12 +146,14 @@ const Wrapper = styled.article`
 
 const ContentWrapper = styled(Wrapper)`
   color: #756b62;
-  width: 1140px;
-  padding-right: 15px;
-  padding-left: 15px;
-  header {
-    padding-left: 77px;
-    padding-right: 233px;
+  @media (min-width: 768px) {
+    width: 1140px;
+    padding-right: 15px;
+    padding-left: 15px;
+    header {
+      padding-left: 77px;
+      padding-right: 233px;
+    }
   }
   blockquote {
     @media (min-width: 992px) {
@@ -205,11 +207,15 @@ const CategoryText = styled.span`
 const ArticleTitle = styled.div`
   font-family: GT Pressura, -apple-system, system-ui, BlinkMacSystemFont,
     Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
-  font-weight: 700;
-  line-height: 1.1;
   margin: 20px 0 21px;
-  font-size: 48px;
   text-transform: uppercase;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 35.2px;
+  @media (min-width: 768px) {
+    font-size: 48px;
+    line-height: 1.1;
+  }
   a {
     color: #4b3e31;
   }
@@ -258,10 +264,12 @@ a{
 h2:first-of-type{
   display:inline-block;
 }
-  margin: 30px 0;
-  color: #756b62;
-  padding-left: 77px;
-  padding-right: 233px;
+  @media (min-width: 768px) {
+    margin: 30px 0;
+    color: #756b62;
+    padding-left: 77px;
+    padding-right: 233px;
+  }
   .text-with_link {
     margin-right: -233px;
     background-color: #f4efea;

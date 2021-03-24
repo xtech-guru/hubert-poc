@@ -38,24 +38,35 @@ export const RatingBlock = ({ title, image, isLoading }) => {
 }
 
 const RatingContent = styled.div`
-  text-align: center;
-  color: #c7bcb2;
-  font-size: 0.875rem;
-  padding-left: 77px;
-  padding-right: 233px;
+  @media (min-width: 768px) {
+    text-align: center;
+    color: #c7bcb2;
+    font-size: 0.875rem;
+    padding-left: 77px;
+    padding-right: 233px;
+  }
 `
 const Row = styled.div`
   display: flex;
-  justify-content: space-between;
-  margin-right: -15px;
-  margin-left: -15px;
+  flex-direction: column;
+  align-items: center;
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+    margin-right: -15px;
+    margin-left: -15px;
+  }
 `
 
 const RatingTitle = styled.div`
   text-align: left;
 `
 const RatingWidget = styled.div`
-  text-align: right;
+  display: flex;
+  @media (min-width: 768px) {
+    flex-direction: column;
+    text-align: right;
+  }
   img {
     margin: 0;
     margin-right: 5px;
