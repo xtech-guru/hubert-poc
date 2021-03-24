@@ -29,7 +29,7 @@ export const ArticlePreview = ({ title, description, img, category, slug }) => {
 }
 
 const MoreTextButton = styled(Link)`
-  color: #71b3e7;
+  color: #4e7b9f;
 `
 
 const ArticlePreviewWrapper = styled.article`

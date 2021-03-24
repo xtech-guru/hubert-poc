@@ -186,7 +186,7 @@ const NavBarWrapper = styled.nav`
     outline: none;
     position: absolute;
     right: 0;
-    color: #9d958e;
+    color: #7b756f;
     align-self: flex-start;
     padding: 0.25rem 0.75rem;
     font-size: 1.25rem;
@@ -210,7 +210,7 @@ const NavBarWrapper = styled.nav`
   }
 
   a {
-    color: #9d958e;
+    color: #7b756f;
     font-size: 1rem;
     display: inline-block;
     padding-top: 0.25rem;
@@ -252,7 +252,7 @@ const NavBarWrapper = styled.nav`
         font-family: GT Pressura, -apple-system, system-ui, BlinkMacSystemFont,
           Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
         line-height: 1.1;
-        color: #9d958e;
+        color: #7b756f;
         margin-bottom: 0.5rem;
         margin-top: 0;
       }
@@ -309,7 +309,7 @@ const NavBarWrapper = styled.nav`
       }
 
       & a {
-        color: #9d958e;
+        color: #7b756f;
         display: block;
         padding: 0.5em 0em;
         touch-action: manipulation;
