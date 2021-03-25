@@ -30,7 +30,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-disqus`,
       options: {
-        shortname: `sorpetaler`,
+        shortname: `sorpetaler-hubert`,
       },
     },
     `gatsby-plugin-image`,
