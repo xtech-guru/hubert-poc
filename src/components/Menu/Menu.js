@@ -149,7 +149,7 @@ const NavBarWrapper = styled.nav`
     align-items: flex-end !important;
   }
 
-  & button {
+  button {
     position: absolute;
     right: 0;
     color: #9d958e;
@@ -161,13 +161,17 @@ const NavBarWrapper = styled.nav`
     border: 1px solid transparent;
 
     span {
-      background-size: auto;
       display: inline-block;
       width: 1.5em;
       height: 1.5em;
       vertical-align: middle;
       content: "";
-      background: no-repeat 50%;
+      background-image: url(${require("../../images/burger_menu.svg")});
+      background-position: center;
+      background-size: cover;
+      @media (min-width: 768px) {
+        display: none;
+      }
     }
   }
 
