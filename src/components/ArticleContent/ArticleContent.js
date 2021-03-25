@@ -17,6 +17,7 @@ export const ArticleContent = ({
   content,
   assets,
   img,
+  slug,
   title,
   category,
   introduction,
@@ -93,7 +94,7 @@ export const ArticleContent = ({
         isLoading={false}
       />
       <AuthorBlock author={author} />
-      <CommentBlock />
+      <CommentBlock url={location.href} title={title} slug={slug} />
     </ContentWrapper>
   )
 }
