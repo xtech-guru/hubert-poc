@@ -33,41 +33,48 @@ export const Menu = props => {
     }, {})
   )
 
+  const [isCollapsed, setIsCollapsed] = React.useState(false)
+
   return (
     <>
       <NavBarWrapper>
-        <button type="button" aria-label="navbar button">
+        <button
+          type="button"
+          aria-label="navbar button"
+          onClick={() => setIsCollapsed(!isCollapsed)}
+        >
           <span />
         </button>
+        <MenuWrapper>
+          <Link to={props.logo.url} aria-label="Logo">
+            <img src={headerLogoSm} alt="Hubert logo" />
+            <img src={headerLogoLg} alt="Hubert logo" />
+            <div>
+              <h1>{props.logo.content}</h1>
+            </div>
+          </Link>
 
-        <Link to={props.logo.url} aria-label="Logo">
-          <img src={headerLogoSm} alt="Hubert logo" />
-          <img src={headerLogoLg} alt="Hubert logo" />
-          <div>
-            <h1>{props.logo.content}</h1>
-          </div>
-        </Link>
-
-        <div>
-          <ul>
-            {props.menuItems.map(item => (
-              <MenuItem
-                key={item.content}
-                content={item.content}
-                route={item.route}
-                type={item.type}
-                items={item.items}
-                selected={menuItemsSelectStatus[item.content]}
-                onClick={() => {
-                  setMenuItemsSelectStatus(prevState => ({
-                    ...prevState,
-                    [item.content]: !prevState[item.content],
-                  }))
-                }}
-              />
-            ))}
-          </ul>
-        </div>
+          <StyledMenuList isCollapsed={isCollapsed}>
+            <ul>
+              {props.menuItems.map(item => (
+                <MenuItem
+                  key={item.content}
+                  content={item.content}
+                  route={item.route}
+                  type={item.type}
+                  items={item.items}
+                  selected={menuItemsSelectStatus[item.content]}
+                  onClick={() => {
+                    setMenuItemsSelectStatus(prevState => ({
+                      ...prevState,
+                      [item.content]: !prevState[item.content],
+                    }))
+                  }}
+                />
+              ))}
+            </ul>
+          </StyledMenuList>
+        </MenuWrapper>
       </NavBarWrapper>
 
       <FormWrapper
@@ -133,10 +140,28 @@ export const Menu = props => {
   )
 }
 
+const MenuWrapper = styled.div`
+  @media (min-width: 768px) {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+  }
+`
+const StyledMenuList = styled.div`
+  ${({ isCollapsed }) =>
+    `
+    display : ${isCollapsed ? "block" : "none"} ;
+    @media (min-width: 768px) {
+      display: flex !important;
+      align-items:center
+    }
+  `}
+`
+
 const NavBarWrapper = styled.nav`
   position: relative;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
 
   font-family: "GT Pressura", -apple-system, system-ui, BlinkMacSystemFont,
     "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -147,6 +172,7 @@ const NavBarWrapper = styled.nav`
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: flex-end !important;
+    justify-content: space-between;
   }
 
   button {
@@ -159,7 +185,9 @@ const NavBarWrapper = styled.nav`
     line-height: 1;
     background: transparent;
     border: 1px solid transparent;
-
+    @media (min-width: 768px) {
+      display: none;
+    }
     span {
       display: inline-block;
       width: 1.5em;
@@ -169,9 +197,6 @@ const NavBarWrapper = styled.nav`
       background-image: url(${require("../../images/burger_menu.svg")});
       background-position: center;
       background-size: cover;
-      @media (min-width: 768px) {
-        display: none;
-      }
     }
   }
 
@@ -225,11 +250,11 @@ const NavBarWrapper = styled.nav`
     }
   }
 
-  & div {
+  & h1 {
     display: none;
 
     @media (min-width: 768px) {
-      display: flex !important;
+      display: block;
     }
   }
 
