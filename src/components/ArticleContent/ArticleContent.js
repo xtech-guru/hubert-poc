@@ -15,7 +15,7 @@ import { QuoteBlock } from "../QuoteBlock"
 
 export const ArticleContent = ({
   content,
-  assets,
+  references,
   img,
   slug,
   title,
@@ -28,9 +28,10 @@ export const ArticleContent = ({
   const richTextOptions = {
     renderNode: {
       [BLOCKS.EMBEDDED_ASSET]: node => {
-        const img = assets.find(i => {
+        const img = references.find(i => {
           return i.contentful_id === node.data.target.sys.id
         })
+
         return <GatsbyImage image={getImage(img)} alt="content image" />
       },
       [BLOCKS.QUOTE]: node => (
@@ -50,6 +51,21 @@ export const ArticleContent = ({
         }
 
         return documentToReactComponents(node)
+      },
+      [BLOCKS.EMBEDDED_ENTRY]: node => {
+        const crossLink = references.find(i => {
+          return i.contentful_id === node.data.target.sys.id
+        })
+        const { introduction, featuredImage, slug } = crossLink
+        if (introduction && featuredImage && slug) {
+          return (
+            <CrossLinkArticle
+              introduction={introduction}
+              image={featuredImage}
+              link={`/articles/${slug}`}
+            />
+          )
+        } else return <h3>noting</h3>
       },
     },
   }
@@ -81,13 +97,7 @@ export const ArticleContent = ({
           {documentToReactComponents(JSON.parse(content), richTextOptions)}
         </Content>
       )}
-      {crossLink && (
-        <CrossLinkArticle
-          content={crossLink.introduction}
-          link={`/articles/${crossLink.slug}`}
-          image={crossLink.featuredImage}
-        />
-      )}
+
       <RatingBlock
         title="War dieser Artikel hilfreich?"
         image={require("../../images/rating_1_over.gif")}
