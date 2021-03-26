@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useCallback } from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
 
@@ -35,13 +35,17 @@ export const Menu = props => {
 
   const [isCollapsed, setIsCollapsed] = React.useState(false)
 
+  const toggleCollapse = useCallback(() => {
+    setIsCollapsed(prevState => !prevState)
+  }, [])
+
   return (
     <>
       <NavBarWrapper>
         <button
           type="button"
           aria-label="navbar button"
-          onClick={() => setIsCollapsed(!isCollapsed)}
+          onClick={toggleCollapse}
         >
           <span />
         </button>
@@ -159,6 +163,7 @@ const StyledMenuList = styled.div`
 `
 
 const NavBarWrapper = styled.nav`
+  padding-top: 8px;
   position: relative;
   display: flex;
   justify-content: flex-start;
@@ -176,6 +181,7 @@ const NavBarWrapper = styled.nav`
   }
 
   button {
+    outline: none;
     position: absolute;
     right: 0;
     color: #9d958e;
@@ -295,7 +301,7 @@ const NavBarWrapper = styled.nav`
       & a {
         color: #9d958e;
         display: block;
-        padding: 0.5em 1em;
+        padding: 0.5em 0em;
         touch-action: manipulation;
         text-decoration: none;
         background-color: transparent;
