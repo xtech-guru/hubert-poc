@@ -3,7 +3,7 @@ import React from "react"
 import styled from "styled-components"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
-export function CrossLinkArticle({ content, link, image }) {
+export function CrossLinkArticle({ introduction, link, image }) {
   return (
     <CrossLinkArticleWrapper>
       <div>
@@ -11,7 +11,7 @@ export function CrossLinkArticle({ content, link, image }) {
           <GatsbyImage image={getImage(image)} alt="article image" />
         </div>
         <div>
-          <div>{content}</div>
+          <div>{introduction}</div>
           {/* //TODO: change to GatsbyImage (Static) */}
           <img
             src={require("../../images/icon_arrow_blue.svg")}
@@ -31,7 +31,6 @@ const CrossLinkArticleWrapper = styled.div`
   margin-top: 30px;
   margin-bottom: 30px;
   padding: 30px 20px;
-
   @media (min-width: 768px) {
     margin-right: -63px;
     margin-left: -63px;
