@@ -64,7 +64,7 @@ exports.createPages = async ({ graphql, actions }) => {
               details
             }
             featuredImage: picture {
-              gatsbyImageData
+              gatsbyImageData(width: 96)
             }
           }
           crossLink {
