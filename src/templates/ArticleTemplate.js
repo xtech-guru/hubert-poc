@@ -22,7 +22,7 @@ const ArticleTemplate = ({ pageContext, location }) => {
           title={title}
           img={featuredImage}
           content={content.raw}
-          assets={content.references}
+          references={content.references}
           category={category}
           introduction={introduction}
           author={author}
