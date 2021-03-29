@@ -16,8 +16,11 @@
   ],
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^14.1.2",
+    "axios": "^0.21.1",
     "babel-plugin-styled-components": "^1.12.0",
     "bootstrap": "4.0.0-alpha.6",
+    "contentful-management": "^7.13.0",
+    "dotenv": "^8.2.0",
     "gatsby": "^2.26.1",
     "gatsby-cli": "^2.16.2",
     "gatsby-plugin-disqus": "^1.2.2",
@@ -36,7 +39,8 @@
     "react-dom": "^16.12.0",
     "react-helmet": "^6.1.0",
     "react-masonry-component": "^6.2.1",
-    "styled-components": "^5.2.1"
+    "styled-components": "^5.2.1",
+    "turndown": "^7.0.0"
   },
   "devDependencies": {
     "prettier": "2.2.1"
@@ -52,6 +56,7 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
+    "migrate": "node migration",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "repository": {
