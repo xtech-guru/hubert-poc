@@ -44,8 +44,8 @@ export const ArticleContent = ({
         ) {
           return (
             <HighlightedElement
-              content={node.content[0].value}
-              link={node.content[1].data.uri}
+              content={node.content[0]?.value}
+              link={node.content[1]?.data.uri}
             />
           )
         }
