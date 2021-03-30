@@ -56,17 +56,23 @@ const MasonryContainer = styled.div`
   display: block;
   overflow: hidden;
   clear: both;
-
+  @media (max-width: 767px) {
+    margin-top: 0.875rem;
+    padding: 0 20px;
+  }
   ul {
     list-style: none;
     li {
-      padding-right: 30px;
-      padding-bottom: 61px;
-      width: 33.333%;
-      border: none;
-      display: flex;
-      flex-direction: column;
-      background-color: #fff;
+      width: 100%;
+      padding-bottom: 41px;
+      @media (min-width: 576px) {
+        display: flex;
+        flex-direction: column;
+        background-color: #fff;
+        padding-right: 30px;
+        padding-bottom: 61px;
+        width: 33.333%;
+      }
     }
   }
 

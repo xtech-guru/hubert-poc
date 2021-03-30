@@ -34,14 +34,14 @@ export const AuthorBlock = ({ author }) => (
 )
 
 const AuthorBlockWidget = styled.div`
-  margin: 30px 0 60px;
-  color: #9d958e;
-  text-transform: uppercase;
-  font-size: 0.875rem;
-  text-align: center;
-  padding-left: 77px;
-  padding-right: 233px;
   @media (min-width: 768px) {
+    margin: 30px 0 60px;
+    color: #9d958e;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    text-align: center;
+    padding-left: 77px;
+    padding-right: 233px;
     margin: 30px 0 60px;
   }
   @media (min-width: 992px) {
@@ -59,12 +59,17 @@ const StyledGatsbyImage = styled(GatsbyImage)`
   margin: 0;
 `
 const AuthorBlockWrapper = styled.div`
-  display: flex !important;
-  align-items: center !important;
-  flex-direction: row;
-  flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @media (min-width: 768px) {
+    display: flex !important;
+    align-items: center !important;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+  }
   @media (min-width: 1200px) {
     margin-right: -15px;
     margin-left: -15px;
@@ -91,7 +96,10 @@ const AuthorBlockName = styled.div`
     color: #756b62;
     font-weight: 700;
   }
-  text-align: left;
+  text-align: center;
+  @media (min-width: 768px) {
+    text-align: left;
+  }
 `
 const AuthorBlockParagraph = styled.div`
   flex-basis: 0;
@@ -110,6 +118,10 @@ const AuthorBlockDescription = styled.div`
   padding: 0;
   text-align: left;
   text-transform: none;
+  text-align: center;
+  @media (min-width: 768px) {
+    text-align: left;
+  }
   @media (min-width: 576px) {
     flex: 0 0 100%;
     max-width: 100%;

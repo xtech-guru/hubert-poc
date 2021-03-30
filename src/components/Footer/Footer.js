@@ -203,6 +203,10 @@ const FooterContainer = styled.footer`
             }
           }
         }
+        > div:last-child {
+          margin-top: 3rem !important;
+          margin-bottom: 3rem !important;
+        }
       }
     }
   }
