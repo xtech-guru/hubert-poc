@@ -23,8 +23,8 @@ const wpEndpoint = `https://www.sorpetaler.de/wp-json/wp/v2/`
  */
 let wpData = {
   posts: [],
-  tags: [],
   categories: [],
+  authors: [],
   media: [],
 }
 
@@ -53,7 +53,7 @@ const logSeparator = `-------`
 /**
  * Object to store WordPress API data in
  */
-let apiData = {}
+let apiData = []
 
 /**
  * Object to store Contentful Data in.
@@ -125,6 +125,7 @@ function migrateContent() {
   let categoriesPromises = []
   let tagsPromises = []
   let mediaPromises = []
+  let userPromises = []
 
   console.log(logSeparator)
   console.log(`Getting WordPress API data`)
@@ -151,12 +152,20 @@ function migrateContent() {
     mediaPromises.push(wpUrl)
   }
 
-  Promise.all([
-    getAllData(postsPromises),
-    getAllData(tagsPromises),
-    getAllData(categoriesPromises),
-    getAllData(mediaPromises),
-  ])
+  for (let i = 1; i <= 1; i++) {
+    let wpUrl = `${wpEndpoint}user?page=${i}&per_page=100`
+    userPromises.push(wpUrl)
+  }
+
+  Promise.all(
+    [[], [], [], [], []] || [
+      getAllData(postsPromises),
+      getAllData(tagsPromises),
+      getAllData(categoriesPromises),
+      getAllData(mediaPromises),
+      getAllData(userPromises),
+    ]
+  )
     .then(response => {
       const data = response.reduce((previous, current) => {
         const res = {
@@ -172,9 +181,9 @@ function migrateContent() {
       const filteredMedia = data[3].data.filter(post =>
         post.link.includes("hubert")
       )
+       */
 
-      const filteredMediaIds = filteredMedia.map(media => media.id)
-      */
+      //const filteredMediaIds = filteredMedia.map(media => media.id)
 
       /*
       apiData = [
@@ -190,6 +199,7 @@ function migrateContent() {
           ...data[3],
           data: filteredMedia,
         },
+        data[4],
       ]
       */
 
@@ -308,9 +318,58 @@ function migrateContent() {
             },
           ],
         },
-
-        data[1],
-        data[2],
+        {
+          status: "success",
+          endpoint: "",
+          data: [
+            {
+              id: 72,
+              count: 21,
+              description: "",
+              link:
+                "https://www.sorpetaler.de/hubert/category/nachhaltig-bauen-und-sanieren/",
+              name: "Nachhaltig Bauen und Sanieren",
+              slug: "nachhaltig-bauen-und-sanieren",
+              taxonomy: "category",
+              parent: 0,
+              meta: [],
+              _links: {},
+            },
+          ],
+        },
+        {
+          status: "success",
+          endpoint: "",
+          data: [
+            {
+              id: 7,
+              name: "Sandra Stein",
+              url: "",
+              description:
+                "Sandra ist hauptberuflich Digital Marketing Managerin und beschäftigt sich seit vielen Jahren mit den neuesten Trends im Internet. Seit 2016 arbeitet sie in der Baubranche. Ihr besonderes Interesse gilt dabei dem Thema nachhaltig Bauen und Leben. Weil sie so gerne spricht, ist sie unsere Hauptinterviewführerin.",
+              link: "https://www.sorpetaler.de/hubert/author/sandra/",
+              slug: "sandra",
+              avatar_urls: {
+                24: "https://secure.gravatar.com/avatar/1bd475830113d79a6d0f79eac7fdcdc4?s=24&r=g",
+                48: "https://secure.gravatar.com/avatar/1bd475830113d79a6d0f79eac7fdcdc4?s=48&r=g",
+                96: "https://secure.gravatar.com/avatar/1bd475830113d79a6d0f79eac7fdcdc4?s=96&r=g",
+              },
+              meta: [],
+              _links: {
+                self: [
+                  {
+                    href: "https://www.sorpetaler.de/wp-json/wp/v2/users/7",
+                  },
+                ],
+                collection: [
+                  {
+                    href: "https://www.sorpetaler.de/wp-json/wp/v2/users",
+                  },
+                ],
+              },
+            },
+          ],
+        },
         {
           status: "success",
           endpoint: "",
@@ -492,6 +551,9 @@ function migrateContent() {
         },
       ]
 
+      console.log("wpData: ", wpData)
+      console.log("apiData: ", apiData)
+
       mapData()
     })
     .catch(reason => {
@@ -530,9 +592,34 @@ function mapData() {
   }
 
   console.log(`Reducing API data to only include fields we want`)
+
+  const apiUsers = getApiDataType("authors")[0]
+  // Loop over users
+  for (let [, userData] of Object.entries(apiUsers.data)) {
+    console.log(`Parsing ${userData.slug}`)
+    const authorFieldData = {
+      fullName: userData.name,
+      slug: userData.slug,
+      description: userData.description,
+      //picture: should link to its picture
+    }
+    wpData.authors.push(authorFieldData)
+  }
+
+  const apiCategories = getApiDataType("categories")[0]
+  // Loop over categories
+  for (let [, categoryData] of Object.entries(apiCategories.data)) {
+    console.log(`Parsing ${categoryData.slug}`)
+    const categoryFieldData = {
+      title: categoryData.name,
+      slug: categoryData.slug,
+    }
+    wpData.categories.push(categoryFieldData)
+  }
+
   let apiPosts = getApiDataType("posts")[0]
   // Loop over posts - note: we probably /should/ be using .map() here.
-  for (let [key, postData] of Object.entries(apiPosts.data)) {
+  for (let [, postData] of Object.entries(apiPosts.data)) {
     console.log(`Parsing ${postData.slug}`)
     /**
      * Create base object with only limited keys
@@ -549,11 +636,10 @@ function mapData() {
       title: postData.title.rendered,
       slug: postData.slug,
       content: postData.content.rendered,
-      //publishDate: postData.date_gmt + "+00:00",
       featuredImage: postData.featured_media,
       //tags: getPostLabels(postData.tags, "tags"),
       //categories: getPostLabels(postData.categories, "categories"),
-      contentImages: getPostBodyImages(postData),
+      //contentImages: getPostBodyImages(postData),
     }
 
     wpData.posts.push(fieldData)
@@ -563,7 +649,9 @@ function mapData() {
   console.log(logSeparator)
 
   writeDataToFile(wpData, "data")
-  createForContentful()
+  /*
+createForContentful()
+ */
 }
 
 function getPostBodyImages(postData) {
@@ -635,6 +723,7 @@ function getApiDataType(resourceName) {
       return obj
     }
   })
+
   return apiType
 }
 
@@ -688,8 +777,8 @@ function buildContentfulAssets(environment) {
   console.log("Building Contentful Asset Objects")
 
   // For every image in every post, create a new asset.
-  for (let [index, wpPost] of wpData.posts.entries()) {
-    for (const [imgIndex, contentImage] of wpPost.contentImages.entries()) {
+  for (let [, wpPost] of wpData.posts.entries()) {
+    for (const [, contentImage] of wpPost.contentImages.entries()) {
       let assetObj = {
         title: {
           "en-US": contentImage.title,
