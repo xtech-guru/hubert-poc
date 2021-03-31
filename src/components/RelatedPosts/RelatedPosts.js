@@ -80,6 +80,12 @@ const Wrapper = styled.div`
 
 const RelatedPostsList = styled.div`
   display: flex;
+  flex-direction: column;
+  margin-top: 0.875rem;
+  padding: 0 20px;
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
 `
 
 const RelatedPostsWrapper = styled(Wrapper)`

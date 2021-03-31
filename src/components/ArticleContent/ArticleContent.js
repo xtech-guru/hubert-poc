@@ -9,13 +9,15 @@ import { CrossLinkArticle } from "../CrossLinkArticle"
 import { AuthorBlock } from "../AuthorBlock"
 import { RatingBlock } from "../RatingBlock"
 import { ShareWidget } from "../ShareWidget"
+import { CommentBlock } from "../CommentBlock"
 import { HighlightedElement } from "../HighlightedElement"
 import { QuoteBlock } from "../QuoteBlock"
 
 export const ArticleContent = ({
   content,
-  assets,
+  references,
   img,
+  slug,
   title,
   category,
   introduction,
@@ -26,9 +28,10 @@ export const ArticleContent = ({
   const richTextOptions = {
     renderNode: {
       [BLOCKS.EMBEDDED_ASSET]: node => {
-        const img = assets.find(i => {
+        const img = references.find(i => {
           return i.contentful_id === node.data.target.sys.id
         })
+
         return <GatsbyImage image={getImage(img)} alt="content image" />
       },
       [BLOCKS.QUOTE]: node => (
@@ -41,13 +44,28 @@ export const ArticleContent = ({
         ) {
           return (
             <HighlightedElement
-              content={node.content[0].value}
-              link={node.content[1].data.uri}
+              content={node.content[0]?.value}
+              link={node.content[1]?.data.uri}
             />
           )
         }
 
         return documentToReactComponents(node)
+      },
+      [BLOCKS.EMBEDDED_ENTRY]: node => {
+        const crossLink = references.find(i => {
+          return i.contentful_id === node.data.target.sys.id
+        })
+        const { introduction, featuredImage, slug } = crossLink
+        if (introduction && featuredImage && slug) {
+          return (
+            <CrossLinkArticle
+              introduction={introduction}
+              image={featuredImage}
+              link={`/articles/${slug}`}
+            />
+          )
+        } else return <h3>noting</h3>
       },
     },
   }
@@ -79,19 +97,14 @@ export const ArticleContent = ({
           {documentToReactComponents(JSON.parse(content), richTextOptions)}
         </Content>
       )}
-      {crossLink && (
-        <CrossLinkArticle
-          content={crossLink.introduction}
-          link={`/articles/${crossLink.slug}`}
-          image={crossLink.featuredImage}
-        />
-      )}
+
       <RatingBlock
         title="War dieser Artikel hilfreich?"
         image={require("../../images/rating_1_over.gif")}
         isLoading={false}
       />
       <AuthorBlock author={author} />
+      <CommentBlock url={location.href} title={title} slug={slug} />
     </ContentWrapper>
   )
 }
@@ -133,12 +146,14 @@ const Wrapper = styled.article`
 
 const ContentWrapper = styled(Wrapper)`
   color: #756b62;
-  width: 1140px;
-  padding-right: 15px;
-  padding-left: 15px;
-  header {
-    padding-left: 77px;
-    padding-right: 233px;
+  @media (min-width: 768px) {
+    width: 1140px;
+    padding-right: 15px;
+    padding-left: 15px;
+    header {
+      padding-left: 77px;
+      padding-right: 233px;
+    }
   }
   blockquote {
     @media (min-width: 992px) {
@@ -192,11 +207,15 @@ const CategoryText = styled.span`
 const ArticleTitle = styled.div`
   font-family: GT Pressura, -apple-system, system-ui, BlinkMacSystemFont,
     Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
-  font-weight: 700;
-  line-height: 1.1;
   margin: 20px 0 21px;
-  font-size: 48px;
   text-transform: uppercase;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 35.2px;
+  @media (min-width: 768px) {
+    font-size: 48px;
+    line-height: 1.1;
+  }
   a {
     color: #4b3e31;
   }
@@ -245,10 +264,12 @@ a{
 h2:first-of-type{
   display:inline-block;
 }
-  margin: 30px 0;
-  color: #756b62;
-  padding-left: 77px;
-  padding-right: 233px;
+  @media (min-width: 768px) {
+    margin: 30px 0;
+    color: #756b62;
+    padding-left: 77px;
+    padding-right: 233px;
+  }
   .text-with_link {
     margin-right: -233px;
     background-color: #f4efea;

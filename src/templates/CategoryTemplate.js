@@ -4,7 +4,7 @@ import styled from "styled-components"
 
 const CategoryTemplate = ({ pageContext }) => {
   const { title, relatedArticles } = pageContext.data
-  const articles = relatedArticles.map(item => ({
+  const articles = relatedArticles?.map(item => ({
     ...item,
     category: {
       title,
@@ -16,7 +16,7 @@ const CategoryTemplate = ({ pageContext }) => {
       <PageWrapper>
         <CategoryTitle>{title}</CategoryTitle>
         <ArticlesWrapper>
-          <Posts data={articles} />
+          {articles && <Posts data={articles} />}
         </ArticlesWrapper>
       </PageWrapper>
     </Layout>
@@ -40,7 +40,7 @@ const ArticlesWrapper = styled.div`
     display: flex;
     flex-direction: column;
     background-color: #fff;
-    @media (min-width: 576px) {
+    @media (min-width: 992px) {
       padding-right: 30px;
       padding-bottom: 61px;
       width: 33.333%;

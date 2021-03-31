@@ -5,6 +5,7 @@ import { Layout, ArticleContent, RelatedPosts } from "../components"
 
 const ArticleTemplate = ({ pageContext, location }) => {
   const {
+    slug,
     title,
     featuredImage,
     content,
@@ -17,10 +18,11 @@ const ArticleTemplate = ({ pageContext, location }) => {
     <Layout seo={title}>
       <PageWrapper>
         <ArticleContent
+          slug={slug}
           title={title}
           img={featuredImage}
           content={content.raw}
-          assets={content.references}
+          references={content.references}
           category={category}
           introduction={introduction}
           author={author}

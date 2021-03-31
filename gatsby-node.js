@@ -36,8 +36,21 @@ exports.createPages = async ({ graphql, actions }) => {
           content {
             raw
             references {
-              contentful_id
-              gatsbyImageData
+              ... on ContentfulArticle {
+                id
+                contentful_id
+                introduction
+                title
+                slug
+                featuredImage {
+                  gatsbyImageData
+                }
+              }
+              ... on ContentfulAsset {
+                id
+                gatsbyImageData
+                contentful_id
+              }
             }
           }
           category {
@@ -51,14 +64,7 @@ exports.createPages = async ({ graphql, actions }) => {
               details
             }
             featuredImage: picture {
-              gatsbyImageData
-            }
-          }
-          crossLink {
-            introduction
-            slug
-            featuredImage {
-              gatsbyImageData
+              gatsbyImageData(width: 96)
             }
           }
         }

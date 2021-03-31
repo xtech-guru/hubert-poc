@@ -32,8 +32,10 @@ const MoreTextButton = styled(Link)`
 `
 
 const ArticlePreviewWrapper = styled.article`
-  padding-right: 30px;
   padding-bottom: 61px;
+  @media (min-width: 768px) {
+    padding-right: 30px;
+  }
   flex: 1 1 0;
   a {
     text-decoration: none;
