@@ -58,7 +58,10 @@ let apiData = []
 /**
  * Object to store Contentful Data in.
  */
-let contentfulData = []
+let contentfulData = {
+  authorsById: {},
+  categoriesById: {},
+}
 
 /**
  * Markdown / Content conversion functions.
@@ -551,9 +554,6 @@ function migrateContent() {
         },
       ]
 
-      console.log("wpData: ", wpData)
-      console.log("apiData: ", apiData)
-
       mapData()
     })
     .catch(reason => {
@@ -598,6 +598,7 @@ function mapData() {
   for (let [, userData] of Object.entries(apiUsers.data)) {
     console.log(`Parsing ${userData.slug}`)
     const authorFieldData = {
+      id: userData.id,
       fullName: userData.name,
       slug: userData.slug,
       description: userData.description,
@@ -611,6 +612,7 @@ function mapData() {
   for (let [, categoryData] of Object.entries(apiCategories.data)) {
     console.log(`Parsing ${categoryData.slug}`)
     const categoryFieldData = {
+      id: categoryData.id,
       title: categoryData.name,
       slug: categoryData.slug,
     }
@@ -637,9 +639,9 @@ function mapData() {
       slug: postData.slug,
       content: postData.content.rendered,
       featuredImage: postData.featured_media,
-      //tags: getPostLabels(postData.tags, "tags"),
-      //categories: getPostLabels(postData.categories, "categories"),
-      //contentImages: getPostBodyImages(postData),
+      author: postData.author,
+      category: postData.categories[0],
+      contentImages: getPostBodyImages(postData),
     }
 
     wpData.posts.push(fieldData)
@@ -649,9 +651,7 @@ function mapData() {
   console.log(logSeparator)
 
   writeDataToFile(wpData, "data")
-  /*
-createForContentful()
- */
+  createForContentful()
 }
 
 function getPostBodyImages(postData) {
@@ -759,7 +759,16 @@ function createForContentful() {
     .getSpace(ctfData.spaceId)
     .then(space => space.getEnvironment(ctfData.environment))
     .then(environment => {
-      buildContentfulAssets(environment)
+      createContentfulCategories(environment).then(() => {
+        createContentfulAuthors(environment)
+          .then(() => {
+            buildContentfulAssets(environment)
+          })
+          .catch(error => {
+            console.log(error)
+            return error
+          })
+      })
     })
     .catch(error => {
       console.log(error)
@@ -812,6 +821,101 @@ function buildContentfulAssets(environment) {
 
     getAndStoreAssets(environment, assets)
   })
+}
+
+function createContentfulCategories(environment) {
+  const apiCategories = getApiDataType("categories")[0]
+  let promises = apiCategories.data.map(category => {
+    let categoryFields = {
+      id: category.id,
+      title: {
+        "en-US": category.name,
+        "de-DE": category.name,
+      },
+      slug: {
+        "en-US": category.slug,
+        "de-DE": category.slug,
+      },
+    }
+
+    return categoryFields
+  })
+
+  let newCategory
+
+  return Promise.all(
+    promises.map(
+      (category, index) =>
+        new Promise((resolve, reject) => {
+          const categoryId = category.id
+          delete category.id
+
+          setTimeout(() => {
+            newCategory = environment
+              .createEntry("category", {
+                fields: category,
+              })
+              .then(entry => entry.publish())
+              .then(entry => {
+                contentfulData.categoriesById[categoryId] = entry.sys.id
+                console.log(`Success: ${entry.fields.slug["en-US"]}`)
+              })
+              .catch(error => {
+                throw Error(error)
+              })
+            resolve(newCategory)
+          }, 1000 + 5000 * index)
+        })
+    )
+  )
+}
+
+function createContentfulAuthors(environment) {
+  const apiAuthors = getApiDataType("authors")[0]
+
+  let promises = apiAuthors.data.map(author => {
+    let authorFields = {
+      id: author.id,
+      fullName: {
+        "en-US": author.name,
+      },
+      slug: {
+        "en-US": author.slug,
+      },
+      details: {
+        "en-US": author.description,
+      },
+    }
+
+    return authorFields
+  })
+
+  let newAuthor
+
+  return Promise.all(
+    promises.map(
+      (author, index) =>
+        new Promise((resolve, reject) => {
+          const authorId = author.id
+          delete author.id
+          setTimeout(() => {
+            newAuthor = environment
+              .createEntry("author", {
+                fields: author,
+              })
+              .then(entry => entry.publish())
+              .then(entry => {
+                contentfulData.authorsById[authorId] = entry.sys.id
+                console.log(`Success: ${entry.fields.slug["en-US"]}`)
+              })
+              .catch(error => {
+                throw Error(error)
+              })
+            resolve(newAuthor)
+          }, 1000 + 5000 * index)
+        })
+    )
+  )
 }
 
 /**
@@ -915,7 +1019,7 @@ function createContentfulPosts(environment, assets) {
    */
   let promises = []
 
-  for (const [index, post] of wpData.posts.entries()) {
+  for (const [_, post] of wpData.posts.entries()) {
     let postFields = {}
 
     for (let [postKey, postValue] of Object.entries(post)) {
@@ -928,11 +1032,35 @@ function createContentfulPosts(environment, assets) {
        * Remove values/flags/checks used for this script that
        * Contentful doesn't need.
        */
-      let keysToSkip = ["id", "type", "contentImages"]
+      let keysToSkip = ["id", "type", "category", "author", "contentImages"]
 
       if (!keysToSkip.includes(postKey)) {
         postFields[postKey] = {
           "en-US": postValue,
+        }
+      }
+
+      if (postKey === "category") {
+        postFields[postKey] = {
+          "en-US": {
+            sys: {
+              type: "Category",
+              linkType: "Entry",
+              id: contentfulData.categoriesById[postValue],
+            },
+          },
+        }
+      }
+
+      if (postKey === "author") {
+        postFields[postKey] = {
+          "en-US": {
+            sys: {
+              type: "Author",
+              linkType: "Entry",
+              id: contentfulData.authorsById[postValue],
+            },
+          },
         }
       }
 
