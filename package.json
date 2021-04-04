@@ -15,6 +15,7 @@
     }
   ],
   "dependencies": {
+    "@contentful/rich-text-from-markdown": "^14.1.2",
     "@contentful/rich-text-react-renderer": "^14.1.2",
     "axios": "^0.21.1",
     "babel-plugin-styled-components": "^1.12.0",
