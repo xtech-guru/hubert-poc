@@ -3,6 +3,7 @@ const axios = require("axios")
 const fs = require("fs")
 const path = require("path")
 const TurndownService = require("turndown")
+const { richTextFromMarkdown } = require("@contentful/rich-text-from-markdown")
 
 require("dotenv/config")
 
@@ -59,6 +60,8 @@ let apiData = []
  * Object to store Contentful Data in.
  */
 let contentfulData = {
+  assets: [],
+  authorAssets: {},
   authorsById: {},
   categoriesById: {},
 }
@@ -126,7 +129,6 @@ turndownService.addRule("replaceWordPressImages", {
 function migrateContent() {
   let postsPromises = []
   let categoriesPromises = []
-  let tagsPromises = []
   let mediaPromises = []
   let userPromises = []
 
@@ -145,30 +147,22 @@ function migrateContent() {
     categoriesPromises.push(wpUrl)
   }
 
-  for (let i = 1; i <= 1; i++) {
-    let wpUrl = `${wpEndpoint}tags?=page${i}&per_page=100`
-    tagsPromises.push(wpUrl)
-  }
-
   for (let i = 1; i <= 16; i++) {
     let wpUrl = `${wpEndpoint}media?page=${i}&per_page=100`
     mediaPromises.push(wpUrl)
   }
 
   for (let i = 1; i <= 1; i++) {
-    let wpUrl = `${wpEndpoint}user?page=${i}&per_page=100`
+    let wpUrl = `${wpEndpoint}users?page=${i}&per_page=100`
     userPromises.push(wpUrl)
   }
 
-  Promise.all(
-    [[], [], [], [], []] || [
-      getAllData(postsPromises),
-      getAllData(tagsPromises),
-      getAllData(categoriesPromises),
-      getAllData(mediaPromises),
-      getAllData(userPromises),
-    ]
-  )
+  Promise.all([
+    getAllData(postsPromises),
+    getAllData(categoriesPromises),
+    getAllData(userPromises),
+    getAllData(mediaPromises),
+  ])
     .then(response => {
       const data = response.reduce((previous, current) => {
         const res = {
@@ -180,32 +174,24 @@ function migrateContent() {
         return previous
       }, [])
 
-      /*
       const filteredMedia = data[3].data.filter(post =>
         post.link.includes("hubert")
       )
-       */
 
-      //const filteredMediaIds = filteredMedia.map(media => media.id)
+      const filteredMediaIds = filteredMedia.map(media => media.id)
 
-      /*
+      const filteredPosts = data[0].data.filter(post =>
+        filteredMediaIds.includes(post.featured_media)
+      )
+
       apiData = [
-        {
-          ...data[0],
-          data: data[0].data.filter(post =>
-            filteredMediaIds.includes(post.featured_media)
-          ),
-        },
+        { ...data[0], data: filteredPosts },
         data[1],
         data[2],
-        {
-          ...data[3],
-          data: filteredMedia,
-        },
-        data[4],
+        { ...data[3], data: filteredMedia },
       ]
-      */
 
+      /*
       apiData = [
         {
           status: "success",
@@ -356,19 +342,6 @@ function migrateContent() {
                 24: "https://secure.gravatar.com/avatar/1bd475830113d79a6d0f79eac7fdcdc4?s=24&r=g",
                 48: "https://secure.gravatar.com/avatar/1bd475830113d79a6d0f79eac7fdcdc4?s=48&r=g",
                 96: "https://secure.gravatar.com/avatar/1bd475830113d79a6d0f79eac7fdcdc4?s=96&r=g",
-              },
-              meta: [],
-              _links: {
-                self: [
-                  {
-                    href: "https://www.sorpetaler.de/wp-json/wp/v2/users/7",
-                  },
-                ],
-                collection: [
-                  {
-                    href: "https://www.sorpetaler.de/wp-json/wp/v2/users",
-                  },
-                ],
               },
             },
           ],
@@ -553,6 +526,7 @@ function migrateContent() {
           ],
         },
       ]
+      */
 
       mapData()
     })
@@ -602,7 +576,7 @@ function mapData() {
       fullName: userData.name,
       slug: userData.slug,
       description: userData.description,
-      //picture: should link to its picture
+      picture: userData.avatar_urls["96"],
     }
     wpData.authors.push(authorFieldData)
   }
@@ -727,6 +701,52 @@ function getApiDataType(resourceName) {
   return apiType
 }
 
+function createContentfulAuthorsAssets(environment) {
+  const promises = wpData.authors.map((user, index) => {
+    const assetFilename = user.picture.split("/").pop()
+
+    const asset = {
+      title: {
+        "en-US": assetFilename,
+      },
+      description: {
+        "en-US": "",
+      },
+      file: {
+        "en-US": {
+          contentType: "image/jpeg",
+          fileName: user.picture.split("/").pop(),
+          upload: encodeURI(user.picture),
+        },
+      },
+    }
+
+    return new Promise(resolve => {
+      let authorAsset
+      setTimeout(() => {
+        try {
+          authorAsset = environment
+            .createAsset({ fields: asset })
+            .then(asset => asset.processForAllLocales())
+            .then(asset => asset.publish())
+            .then(asset => {
+              console.log(
+                `Published Asset: ${asset.fields.file["en-US"].fileName}`
+              )
+              contentfulData.authorAssets[user.id] = asset.sys.id
+            })
+        } catch (error) {
+          throw Error(error)
+        }
+
+        resolve(authorAsset)
+      }, 1000 + 5000 * index)
+    })
+  })
+
+  return Promise.all(promises)
+}
+
 /**
  * Write all exported WP data to its own JSON file.
  * @param {Object} dataTree - JSON body of WordPress data
@@ -760,14 +780,16 @@ function createForContentful() {
     .then(space => space.getEnvironment(ctfData.environment))
     .then(environment => {
       createContentfulCategories(environment).then(() => {
-        createContentfulAuthors(environment)
-          .then(() => {
-            buildContentfulAssets(environment)
-          })
-          .catch(error => {
-            console.log(error)
-            return error
-          })
+        createContentfulAuthorsAssets(environment).then(() => {
+          createContentfulAuthors(environment)
+            .then(() => {
+              buildContentfulAssets(environment)
+            })
+            .catch(error => {
+              console.log(error)
+              return error
+            })
+        })
       })
     })
     .catch(error => {
@@ -885,6 +907,15 @@ function createContentfulAuthors(environment) {
       details: {
         "en-US": author.description,
       },
+      picture: {
+        "en-US": {
+          sys: {
+            type: "Link",
+            linkType: "Asset",
+            id: contentfulData.authorAssets[author.id],
+          },
+        },
+      },
     }
 
     return authorFields
@@ -1000,7 +1031,7 @@ function createContentfulAssets(environment, promises, assets) {
  * @param {String} environment - Name of Contentful Environment.
  * @param {Array} assets - array to store Assets in
  */
-function createContentfulPosts(environment, assets) {
+async function createContentfulPosts(environment, assets) {
   console.log(`Creating Contentful Posts...`)
   console.log(logSeparator)
 
@@ -1025,7 +1056,8 @@ function createContentfulPosts(environment, assets) {
     for (let [postKey, postValue] of Object.entries(post)) {
       // console.log(`postKey: ${postValue}`)
       if (postKey === "content") {
-        postValue = turndownService.turndown(postValue)
+        const markdownContent = turndownService.turndown(postValue)
+        postValue = await richTextFromMarkdown(markdownContent)
       }
 
       /**
