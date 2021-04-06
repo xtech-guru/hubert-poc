@@ -83,7 +83,7 @@ const HeaderWrapper = styled.header`
 const SocialMediaIconButtonsWrapper = styled.div`
   display: none;
 
-  @media (min-width: 768px) {
+  @media (min-width: 992px) {
     display: flex !important;
     justify-content: flex-end !important;
     padding: 37px 0.5rem 5px 0;

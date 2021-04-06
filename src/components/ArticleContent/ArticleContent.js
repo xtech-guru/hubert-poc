@@ -23,7 +23,6 @@ export const ArticleContent = ({
   introduction,
   author,
   location,
-  crossLink,
 }) => {
   const richTextOptions = {
     renderNode: {
@@ -148,11 +147,15 @@ const ContentWrapper = styled(Wrapper)`
   color: #756b62;
   @media (min-width: 768px) {
     width: 1140px;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 40px;
+    padding-left: 40px;
     header {
       padding-left: 77px;
       padding-right: 233px;
+      @media (min-width: 768px) {
+        padding-left: 63px;
+        padding-right: 63px;
+      }
     }
   }
   blockquote {
@@ -264,12 +267,20 @@ a{
 h2:first-of-type{
   display:inline-block;
 }
+    
+
   @media (min-width: 768px) {
     margin: 30px 0;
     color: #756b62;
+    padding-left: 63px;
+    padding-right: 63px;
+  }
+  
+  @media (min-width: 992px) {
     padding-left: 77px;
     padding-right: 233px;
   }
+  
   .text-with_link {
     margin-right: -233px;
     background-color: #f4efea;

@@ -259,11 +259,18 @@ const NavBarWrapper = styled.nav`
   & h1 {
     display: none;
 
-    @media (min-width: 768px) {
+    @media (min-width: 992px) {
       display: block;
     }
   }
 
+  > div {
+    > div {
+      @media (min-width: 768px) {
+        align-items: flex-end;
+      }
+    }
+  }
   & ul {
     display: flex;
     flex-direction: column;

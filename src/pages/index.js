@@ -49,11 +49,11 @@ const IndexPage = ({ data }) => {
 
 const PostsWrapper = styled.div`
   @media (max-width: 767px) {
-    margin-top: 0.875rem;
+    margin-top: 14px;
     padding: 0 20px;
   }
   @media (min-width: 992px) {
-    margin-top: 1.3125rem;
+    margin-top: 17px;
     padding: 0 14px;
   }
 `

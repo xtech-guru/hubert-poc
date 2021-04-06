@@ -38,6 +38,8 @@ const Wrapper = styled.article`
   @media (min-width: 768px) {
     width: 720px;
     max-width: 100%;
+    padding-right: 80px;
+    padding-left: 80px;
   }
 
   @media (min-width: 992px) {
