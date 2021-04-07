@@ -3,8 +3,7 @@ import React from "react"
 
 const QuoteBlockWrapper = styled.div`
   padding: 15px 0;
-  font-family: GT Pressura, -apple-system, system-ui, BlinkMacSystemFont,
-    Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
+  font-family: "GT Pressura";
   font-size: 30px;
   line-height: 36px;
   font-weight: 700;
