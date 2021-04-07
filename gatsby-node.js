@@ -63,13 +63,6 @@ exports.createPages = async ({ graphql, actions }) => {
               gatsbyImageData(formats: [WEBP], width: 96)
             }
           }
-          crossLink {
-            introduction
-            slug
-            featuredImage {
-              gatsbyImageData(formats: [WEBP])
-            }
-          }
         }
       }
       allContentfulAuthor {
