@@ -1,8 +1,9 @@
-import React from "react"
+import React, { useCallback, useMemo, useState } from "react"
 import Masonry from "react-masonry-component"
 import styled from "styled-components"
 
 import { ArticlePreview } from "../ArticlePreview"
+import InfiniteScroll from "react-infinite-scroll-component"
 
 const masonryOptions = {
   transitionDuration: 0,
@@ -10,40 +11,72 @@ const masonryOptions = {
 
 const imagesLoadedOptions = { background: ".my-bg-image-el" }
 
+const paginationSize = 4
+
 export const Posts = function ({ data }) {
+  const [articles, setArticles] = useState(data.slice(0, paginationSize))
+
+  const hasMore = useMemo(() => data.length > articles.length, [
+    data,
+    articles.length,
+  ])
+
+  const loadMore = useCallback(() => {
+    setArticles(prevState => {
+      const newPage = data.slice(
+        prevState.length,
+        prevState.length + paginationSize
+      )
+
+      return prevState.concat(newPage)
+    })
+  }, [data, setArticles])
   return (
     <MasonryContainer>
-      <Masonry
-        elementType={"ul"} // default 'div'
-        options={masonryOptions} // default {}
-        disableImagesLoaded={false} // default false
-        updateOnEachImageLoad={false} // default false and works only if disableImagesLoaded is false
-        imagesLoadedOptions={imagesLoadedOptions} // default {}
+      <StyledInfiniteScroll
+        dataLength={articles.length}
+        hasMore={hasMore}
+        next={loadMore}
       >
-        {data.map(
-          ({ title, featuredImage, introduction, category, slug }, index) => {
-            return (
-              <li key={index}>
-                <ArticlePreview
-                  title={title}
-                  description={introduction}
-                  img={featuredImage}
-                  category={category}
-                  slug={slug}
-                />
-              </li>
-            )
-          }
-        )}
-      </Masonry>
-      <div>
-        <button rel="next" aria-label="reload more">
-          mehr Laden
-        </button>
-      </div>
+        <Masonry
+          elementType={"ul"} // default 'div'
+          options={masonryOptions} // default {}
+          disableImagesLoaded={false} // default false
+          updateOnEachImageLoad={false} // default false and works only if disableImagesLoaded is false
+          imagesLoadedOptions={imagesLoadedOptions} // default {}
+        >
+          {articles.map(
+            ({ title, featuredImage, introduction, category, slug }, index) => {
+              return (
+                <li key={index}>
+                  <ArticlePreview
+                    title={title}
+                    description={introduction}
+                    img={featuredImage}
+                    category={category}
+                    slug={slug}
+                  />
+                </li>
+              )
+            }
+          )}
+        </Masonry>
+      </StyledInfiniteScroll>
+
+      {hasMore && (
+        <div>
+          <button rel="next" aria-label="reload more">
+            mehr Laden
+          </button>
+        </div>
+      )}
     </MasonryContainer>
   )
 }
+
+const StyledInfiniteScroll = styled(InfiniteScroll)`
+  overflow: hidden !important;
+`
 
 const MasonryContainer = styled.div`
   opacity: 1;
