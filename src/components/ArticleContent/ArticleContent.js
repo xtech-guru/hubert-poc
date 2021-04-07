@@ -33,9 +33,13 @@ export const ArticleContent = ({
 
         return <GatsbyImage image={getImage(img)} alt="content image" />
       },
-      [BLOCKS.QUOTE]: node => (
-        <QuoteBlock content={node.content[0].content[0].value} />
-      ),
+      [BLOCKS.QUOTE]: node => {
+        const content = node.content[0].content.reduce(
+          (prev, item) => prev.concat(item.value),
+          ""
+        )
+        return <QuoteBlock content={content} />
+      },
       [BLOCKS.PARAGRAPH]: node => {
         if (
           node.content?.[0].marks?.length > 0 &&
@@ -85,7 +89,7 @@ export const ArticleContent = ({
         <Introduction>{introduction}</Introduction>
         <hr />
         <ShareWidget
-          author={{ name: author.name, slug: author.slug }}
+          author={{ name: author.fullName, slug: author.slug }}
           location={location}
         />
         <hr />
@@ -155,6 +159,15 @@ const ContentWrapper = styled(Wrapper)`
       @media (min-width: 768px) {
         padding-left: 63px;
         padding-right: 63px;
+      }
+    }
+  }
+  hr {
+    border: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    :last-child {
+      @media (max-width: 767px) {
+        display: none;
       }
     }
   }
@@ -234,19 +247,33 @@ const ArticleImage = styled(GatsbyImage)`
   width: 100%;
   height: auto;
   max-width: 100%;
+  margin-top: 10px;
   img {
     vertical-align: middle;
   }
 `
 
 const Content = styled.div`
-a{
-  color : #0275d8;
-  :hover{
-    color : #014c8c;
+  > ul {
+    padding-left: 40px;
+    list-style: none;
+    
+    ul {
+      padding-left: 40px;  
+      p {
+        margin: 0;
+      }
+      }
+    }
   }
-}
-.gatsby-image-wrapper {
+  a {
+    color : #0275d8;
+    :hover{
+      color : #014c8c;
+    }
+  }
+
+  .gatsby-image-wrapper {
   margin-left: 0;
   margin-right: 0;
   max-width: 100%;
@@ -254,21 +281,21 @@ a{
   max-width: 500px;
   max-height : 495px;
   float: left !important;
-  @media (min-width: 992px) {
-    margin-left: -77px;
-  }
-  @media (min-width: 768px) {
     margin-bottom: 20px;
+  
+  @media (min-width: 768px) {
     margin-right: 30px;
     margin-left: -63px;
   }
+  @media (min-width: 992px) {
+    margin-left: -77px;
+  }
 }
 
-h2:first-of-type{
+  h2:first-of-type{
   display:inline-block;
 }
     
-
   @media (min-width: 768px) {
     margin: 30px 0;
     color: #756b62;
