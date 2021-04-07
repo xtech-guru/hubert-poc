@@ -32,8 +32,8 @@ const MoreTextButton = styled(Link)`
 `
 
 const ArticlePreviewWrapper = styled.article`
-  padding-bottom: 61px;
   @media (min-width: 768px) {
+    padding-bottom: 61px;
     padding-right: 30px;
   }
   flex: 1 1 0;
@@ -80,6 +80,8 @@ const Category = styled.div`
   padding: 5px 17px;
   a {
     color: #fff;
+    font-family: Merriweather;
+    font-weight: bold;
   }
   a:hover {
     color: #fff;
