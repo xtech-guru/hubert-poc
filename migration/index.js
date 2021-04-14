@@ -6,14 +6,26 @@ const ShortcodeParser = require("meta-shortcodes")
 
 require("dotenv/config")
 
-const logSeparator = `-------`
-
-const BODY_IMAGE_REGEX = /<img\s[^>]*?src\s*=\s*['\"]([^'\"]*?)['\"][^>]*?>/g
-
 /**
  * Main WordPress endpoint.
  */
 const WORD_PRESS_ENDPOINT = `https://www.sorpetaler.de/wp-json/wp/v2/`
+
+/**
+ * http client instance for making http requests
+ * @type {AxiosInstance}
+ */
+const httpClient = axios.create({
+  baseURL: WORD_PRESS_ENDPOINT,
+  auth: {
+    username: process.env.WORDPRESS_USERNAME,
+    password: process.env.WORDPRESS_PASSWORD,
+  },
+})
+
+const logSeparator = `-------`
+
+const BODY_IMAGE_REGEX = /<img\s[^>]*?src\s*=\s*['\"]([^'\"]*?)['\"][^>]*?>/g
 
 /**
  * Contentful API requirements
@@ -96,6 +108,7 @@ const wordPressPagesLengthByEndpointName = {
  * @type {{avatarAssets: {}, assets: {}, categories: {}, authors: {}}}
  */
 let contentfulDataByTypeKey = {
+  linkBlocks: [],
   linkBlockAssets: {
     0: "4fRM81Ba5hGYSBofg4DuaH",
     1: "3RehLWO5EEl5ftXLmUEaER",
@@ -522,7 +535,7 @@ function log(message, type) {
  * @returns {Promise<{data: any, success: boolean, type: *} | {success: boolean}>}
  */
 function fetchData(url, type) {
-  return axios
+  return httpClient
     .get(url)
     .then(response => ({ success: true, type, data: response.data }))
     .catch(() => ({ success: false }))
@@ -541,7 +554,7 @@ function createWordPressPromises() {
 
   for (const [k, v] of Object.entries(wordPressPagesLengthByEndpointName)) {
     for (let i = 1; i <= v; i++) {
-      promises[k].push(`${WORD_PRESS_ENDPOINT}${k}?page=${i}&per_page=100`)
+      promises[k].push(`${k}?page=${i}&per_page=100&context=edit`)
     }
   }
 
@@ -582,7 +595,7 @@ function getPostBodyImages(post) {
     })
   }
 
-  while ((foundImage = BODY_IMAGE_REGEX.exec(post.content.rendered))) {
+  while ((foundImage = BODY_IMAGE_REGEX.exec(post.content.raw))) {
     let alt = post.id
 
     if (foundImage[0].includes('alt="')) {
@@ -644,24 +657,22 @@ async function bootstrapDataForMigration() {
       })
 
       parser.add("text-with-link", function (opts, content) {
+        console.log(post.id, opts)
+
         const linkBlock = {
           postId: post.id,
-          opts: {
-            linkImage:
-              opts.image &&
-              opts.image
-                .replace(new RegExp("&#8221;", "gi"), "")
-                .replace(new RegExp("&#215;", "gi"), "x"),
-            linkUrl: opts["link-url"].replace(new RegExp("&#8221;", "gi"), ""),
-          },
+          linkImage: opts.image,
+          linkUrl: opts["link-url"],
+          linkText: opts["link-text"],
           content,
         }
+
         wordPressData.linkBlocks.push(linkBlock)
 
         return `link-block ${opts["link-url"]} `
       })
 
-      const content = parser.parse(post.content.rendered)
+      const content = parser.parse(post.content.raw)
 
       return { ...post, content: { rendered: content } }
     })
@@ -720,15 +731,33 @@ function createCategoryFields(category) {
   }
 }
 
+function createLinkBlockFields(linkBlock, contentfulAssetId) {
+  return {
+    title: { "en-US": linkBlock.linkUrl },
+    image: {
+      "en-US": {
+        sys: {
+          type: "Link",
+          linkType: "Asset",
+          id: contentfulAssetId,
+        },
+      },
+    },
+    linkText: { "en-US": linkBlock.linkText },
+    linkUrl: { "en-US": linkBlock.linkUrl },
+    text: { "en-US": linkBlock.content },
+  }
+}
+
 async function createContentfulLinkBlocksAssets(environment) {
   const promises = []
 
   wordPressData.linkBlocks.forEach((linkBlock, index) => {
-    if (linkBlock.opts.linkImage) {
+    if (linkBlock.linkImage) {
       const promise = new Promise(resolve => {
         let linkBlockAsset
         setTimeout(async () => {
-          const fields = createAssetFields(linkBlock.opts.linkImage)
+          const fields = createAssetFields(linkBlock.linkImage)
 
           try {
             linkBlockAsset = await environment.createAsset({ fields })
@@ -758,7 +787,7 @@ async function createContentfulAvatarsAssets(environment) {
     return new Promise(resolve => {
       let authorAsset
       setTimeout(async () => {
-        const fields = createAvatarAssetFields(user.avatar_urls["96"])
+        const fields = createAssetFields(user.avatar_urls["96"])
 
         try {
           authorAsset = await environment.createAsset({ fields })
@@ -877,7 +906,7 @@ async function createContentfulArticles(environment) {
   const promises = []
 
   for (const [index, post] of wordPressData.posts.entries()) {
-    const markdownContent = turndownService.turndown(post.content.rendered)
+    const markdownContent = turndownService.turndown(post.content.raw)
     const articleContent = await richTextFromMarkdown(markdownContent)
 
     const fields = {
@@ -946,6 +975,36 @@ async function createContentfulArticles(environment) {
   return Promise.all(promises)
 }
 
+async function createContentfulLinkBlocks(environment) {
+  const promises = []
+
+  wordPressData.linkBlocks.forEach((linkBlock, index) => {
+    const promise = new Promise(resolve => {
+      let contentfulLinkBlock
+      setTimeout(async () => {
+        const fields = createLinkBlockFields(linkBlock)
+
+        try {
+          contentfulLinkBlock = await environment.createEntry("linkBlock", {
+            fields,
+          })
+          contentfulLinkBlock = await contentfulLinkBlock.publish()
+
+          console.log(contentfulLinkBlock.fields.slug["en-US"], "Link Block")
+          // push link block to contentful object
+        } catch (error) {
+          throw Error(error)
+        }
+
+        resolve(contentfulLinkBlock)
+      }, 1000 + 5000 * index)
+    })
+    promises.push(promise)
+  })
+
+  return Promise.all(promises)
+}
+
 async function migrateContent() {
   try {
     log("Fetching data from WordPress")
@@ -961,9 +1020,10 @@ async function migrateContent() {
     await createContentfulLinkBlocksAssets(environment)
     log("Contentful link blocks assets created✓")
 
-    console.log(
-      JSON.stringify(contentfulDataByTypeKey.linkBlockAssets, null, 5)
-    )
+    log("Creating contentful link blocks")
+    await createContentfulLinkBlocks(environment)
+    log("Contentful link blocks created✓")
+
     log("Creating contentful authors avatars")
     await createContentfulAvatarsAssets(environment)
     log("Contentful authors avatars created✓")
