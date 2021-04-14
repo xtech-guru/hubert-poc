@@ -35,6 +35,7 @@
     "gatsby-source-filesystem": "^3.0.0",
     "gatsby-source-wordpress": "^3.9.0",
     "gatsby-transformer-sharp": "^3.0.0",
+    "meta-shortcodes": "^1.0.3",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",

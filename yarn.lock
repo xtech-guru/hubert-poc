@@ -9512,6 +9512,11 @@ merge2@^1.2.3, merge2@^1.3.0:
   resolved "https://registry.yarnpkg.com/merge2/-/merge2-1.4.1.tgz#4368892f885e907455a6fd7dc55c0c9d404990ae"
   integrity sha512-8q7VEgMJW4J8tcfVPy8g09NcQwZdbwFEqhe/WZkoIzjn/3TGDwtOCYtXGxA3O8tPzpczCCDgv+P2P5y00ZJOOg==
 
+meta-shortcodes@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/meta-shortcodes/-/meta-shortcodes-1.0.3.tgz#b07287623f78750eaea9306b3048d1d5ce606448"
+  integrity sha1-sHKHYj94dQ6uqTBrMEjR1c5gZEg=
+
 methods@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/methods/-/methods-1.1.2.tgz#5529a4d67654134edcc5266656835b0f851afcee"
