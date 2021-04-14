@@ -2,6 +2,7 @@ const contentful = require("contentful-management")
 const axios = require("axios")
 const TurndownService = require("turndown")
 const { richTextFromMarkdown } = require("@contentful/rich-text-from-markdown")
+const ShortcodeParser = require("meta-shortcodes")
 
 require("dotenv/config")
 
@@ -95,6 +96,80 @@ const wordPressPagesLengthByEndpointName = {
  * @type {{avatarAssets: {}, assets: {}, categories: {}, authors: {}}}
  */
 let contentfulDataByTypeKey = {
+  linkBlockAssets: {
+    0: "4fRM81Ba5hGYSBofg4DuaH",
+    1: "3RehLWO5EEl5ftXLmUEaER",
+    2: "3cjyCW6DDgI5pVv1WteMlh",
+    3: "79Q9oU68KDlZkI6YsHI7Bl",
+    4: "11ALaI4y1seQ3CdOKbjTdq",
+    5: "47Q0YepkrW6K34fC2dIjHI",
+    6: "66YIEYivb9QLuiWvsIWiIO",
+    7: "4EMIRT2xRv7gu3ElAJalHE",
+    8: "5JSvTkSq6yyDJQfEqonLhq",
+    9: "6b9Xrq86JeYa2LQWedzHjw",
+    10: "4M1GwiQDU81DVkSpXGcqgf",
+    11: "15V6YvWISOHNBmAyFbe4Ys",
+    12: "6dmTeks3J4LVM4yfqcK6oT",
+    13: "eCsD5eRiDGwpYe2hgKKTE",
+    14: "7w5DS4PhtvnXDF29H3A4Ta",
+    15: "drL5CdJJO9tIpPwiE66Ce",
+    16: "hrCan3lTirgi1F5D797vb",
+    17: "7uRwxabGims9NGWgnGcQND",
+    18: "KKXZ6yuK3gnIcuR0lNUf6",
+    19: "6i751wz00Wx9HWXWct9UBP",
+    20: "7vM8yncEjRI44PwwglmjGM",
+    21: "2ECb8JRBsCQYE53xubm3N7",
+    22: "3ScEWAVibmwcmFLAWj0PWI",
+    23: "2Ga3bVBSKzuTViOqzTIMwT",
+    24: "6l3ctgE90HG5pqreM72yHM",
+    25: "2KwhivDqNzrYgwFVWxNjLL",
+    26: "4sepLDborM5RC6TzfrFgm0",
+    27: "6f2dzs0mEZqquxKhxQrYLx",
+    28: "5gFOQtjJh5lNBP2lGeV0sI",
+    29: "1ZpOBmlyjmm1h2FhmGQfcl",
+    30: "MYkgXpJq8vrO2CSSmrkxF",
+    31: "rZdDsT8T3Y6N1Bed5PlH5",
+    32: "DluUS7ZYlGFzKULdgVyAB",
+    33: "3eIpYnYVv3pUnsOf6gafGf",
+    34: "6sgSftORdOvb6PEJmnIwIK",
+    35: "2049tZFMrSMmzugm1BnTnm",
+    36: "681CoWwQNkYUYcy3nrLDM1",
+    37: "6QWcP3bvoOd9Qdn1yv5LGN",
+    38: "5meJLGFkkGlERaTlyAQBIf",
+    39: "3qxOP4OlM1C3tlFJHL8QPL",
+    40: "2AuI3GkVFuisQ3j3n0yOfF",
+    41: "4nCtiH7RrNdtBC4mReN7gi",
+    42: "2t8nY4KF03kb871A5tWchL",
+    43: "696MqcbdkUYfDzFENVDWBv",
+    44: "2FiQhtlA7xLLOoKkGiwEfF",
+    45: "01O8uFyXuIe0W48Y1tgUlc",
+    46: "38zwgBK2i9HowVnASuuUsw",
+    47: "5oPPXhYjUiZB5b65vT8bYS",
+    48: "42UTLCGJJuL6GwTvORZFxR",
+    50: "7qR3lMG9pG4RxuoxihWaR9",
+    51: "4bNkCFIOvHLrJeg83FIs77",
+    52: "160Jg0tyhXM25G7fGpdU2b",
+    53: "5HIOWxHiBV1IcZfV08JOnQ",
+    54: "5GAwEBQ38fFOUXOaweGeng",
+    55: "1AqE0daK45DHdPm33sqBVy",
+    56: "7AbJrvW65nzSU5ym4R1c0b",
+    57: "6yRHxLHauWfMHB3HodPFZo",
+    58: "32vRuGhK2HfEa5kWLxL3zI",
+    59: "2fett4h9iVkJnxBqlQmtmz",
+    60: "3tazpJ1DbBUmkK1MLTt9lV",
+    61: "4DljVf6lPJA77pzMGLXJYO",
+    62: "3old2dCEJJz3rL3a47peee",
+    63: "hXtuGPfRmtHxO6sY8XTOh",
+    64: "4rNbdwX8eFmKUUVRXmeGQ2",
+    65: "8sSt7jCdTEF5Hc0QE3ynz",
+    66: "56ekWHHXVLlap7LIUwUQuA",
+    67: "jIBY0nwLQ9jFChHpTEiGg",
+    68: "4kzsAzaImfj7ligAFZSVqB",
+    69: "4Fu6wnKZrs1WvYMJDqQyc",
+    70: "7ziVDQk5ynGj9woHgrw1sr",
+    71: "2MrFDFJjI5n3X6ad9sJFcf",
+    72: "6Oxd25MI1W2vHaWLyN71yf",
+  },
   avatarAssets: {},
   assets: {},
   assetsArray: [],
@@ -111,6 +186,7 @@ let wordPressData = {
   categories: {},
   users: {},
   media: {},
+  linkBlocks: [],
 }
 
 /*
@@ -555,12 +631,46 @@ async function bootstrapDataForMigration() {
     wordPressData.posts = wordPressData.posts.filter(post =>
       mediaIds.includes(post.featured_media)
     )
+
+    wordPressData.posts = wordPressData.posts.map(post => {
+      const parser = ShortcodeParser()
+
+      parser.add("float-left", function (opts, content) {
+        return content
+      })
+
+      parser.add("highlight", function (opts, content) {
+        return `<code>${content}</code>`
+      })
+
+      parser.add("text-with-link", function (opts, content) {
+        const linkBlock = {
+          postId: post.id,
+          opts: {
+            linkImage:
+              opts.image &&
+              opts.image
+                .replace(new RegExp("&#8221;", "gi"), "")
+                .replace(new RegExp("&#215;", "gi"), "x"),
+            linkUrl: opts["link-url"].replace(new RegExp("&#8221;", "gi"), ""),
+          },
+          content,
+        }
+        wordPressData.linkBlocks.push(linkBlock)
+
+        return `link-block ${opts["link-url"]} `
+      })
+
+      const content = parser.parse(post.content.rendered)
+
+      return { ...post, content: { rendered: content } }
+    })
   } catch (e) {
     console.log(e)
   }
 }
 
-function createAvatarAssetFields(url) {
+function createAssetFields(url) {
   const fileName = url.split("/").pop()
 
   return {
@@ -608,6 +718,39 @@ function createCategoryFields(category) {
     title: { "en-US": category.name, "de-DE": category.name },
     slug: { "en-US": category.slug, "de-DE": category.slug },
   }
+}
+
+async function createContentfulLinkBlocksAssets(environment) {
+  const promises = []
+
+  wordPressData.linkBlocks.forEach((linkBlock, index) => {
+    if (linkBlock.opts.linkImage) {
+      const promise = new Promise(resolve => {
+        let linkBlockAsset
+        setTimeout(async () => {
+          const fields = createAssetFields(linkBlock.opts.linkImage)
+
+          try {
+            linkBlockAsset = await environment.createAsset({ fields })
+            linkBlockAsset = await linkBlockAsset.processForAllLocales()
+            linkBlockAsset = await linkBlockAsset.publish()
+
+            contentfulDataByTypeKey.linkBlockAssets[index] =
+              linkBlockAsset.sys.id
+            log(linkBlockAsset.fields.file["en-US"].fileName, "LinkBlock asset")
+          } catch (error) {
+            throw Error(error)
+          }
+
+          resolve(linkBlockAsset)
+        }, 1000 + 10000 * index)
+      })
+
+      promises.push(promise)
+    }
+  })
+
+  return Promise.all(promises)
 }
 
 async function createContentfulAvatarsAssets(environment) {
@@ -694,21 +837,7 @@ async function createContentfulAssets(environment) {
 
   wordPressData.posts.forEach(post => {
     for (const [, contentImage] of getPostBodyImages(post).entries()) {
-      const assetFields = {
-        title: {
-          "en-US": contentImage.title,
-        },
-        description: {
-          "en-US": contentImage.description,
-        },
-        file: {
-          "en-US": {
-            contentType: "image/jpeg",
-            fileName: contentImage.link.split("/").pop(),
-            upload: encodeURI(contentImage.link),
-          },
-        },
-      }
+      const assetFields = createAssetFields(contentImage.link)
       contentfulAssets.push(assetFields)
     }
   })
@@ -828,6 +957,13 @@ async function migrateContent() {
       ctfData.environment
     )
 
+    log("Creating contentful link blocks assets")
+    await createContentfulLinkBlocksAssets(environment)
+    log("Contentful link blocks assets created✓")
+
+    console.log(
+      JSON.stringify(contentfulDataByTypeKey.linkBlockAssets, null, 5)
+    )
     log("Creating contentful authors avatars")
     await createContentfulAvatarsAssets(environment)
     log("Contentful authors avatars created✓")
