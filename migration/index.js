@@ -108,81 +108,8 @@ const wordPressPagesLengthByEndpointName = {
  * @type {{avatarAssets: {}, assets: {}, categories: {}, authors: {}}}
  */
 let contentfulDataByTypeKey = {
-  linkBlocks: [],
-  linkBlockAssets: {
-    0: "4fRM81Ba5hGYSBofg4DuaH",
-    1: "3RehLWO5EEl5ftXLmUEaER",
-    2: "3cjyCW6DDgI5pVv1WteMlh",
-    3: "79Q9oU68KDlZkI6YsHI7Bl",
-    4: "11ALaI4y1seQ3CdOKbjTdq",
-    5: "47Q0YepkrW6K34fC2dIjHI",
-    6: "66YIEYivb9QLuiWvsIWiIO",
-    7: "4EMIRT2xRv7gu3ElAJalHE",
-    8: "5JSvTkSq6yyDJQfEqonLhq",
-    9: "6b9Xrq86JeYa2LQWedzHjw",
-    10: "4M1GwiQDU81DVkSpXGcqgf",
-    11: "15V6YvWISOHNBmAyFbe4Ys",
-    12: "6dmTeks3J4LVM4yfqcK6oT",
-    13: "eCsD5eRiDGwpYe2hgKKTE",
-    14: "7w5DS4PhtvnXDF29H3A4Ta",
-    15: "drL5CdJJO9tIpPwiE66Ce",
-    16: "hrCan3lTirgi1F5D797vb",
-    17: "7uRwxabGims9NGWgnGcQND",
-    18: "KKXZ6yuK3gnIcuR0lNUf6",
-    19: "6i751wz00Wx9HWXWct9UBP",
-    20: "7vM8yncEjRI44PwwglmjGM",
-    21: "2ECb8JRBsCQYE53xubm3N7",
-    22: "3ScEWAVibmwcmFLAWj0PWI",
-    23: "2Ga3bVBSKzuTViOqzTIMwT",
-    24: "6l3ctgE90HG5pqreM72yHM",
-    25: "2KwhivDqNzrYgwFVWxNjLL",
-    26: "4sepLDborM5RC6TzfrFgm0",
-    27: "6f2dzs0mEZqquxKhxQrYLx",
-    28: "5gFOQtjJh5lNBP2lGeV0sI",
-    29: "1ZpOBmlyjmm1h2FhmGQfcl",
-    30: "MYkgXpJq8vrO2CSSmrkxF",
-    31: "rZdDsT8T3Y6N1Bed5PlH5",
-    32: "DluUS7ZYlGFzKULdgVyAB",
-    33: "3eIpYnYVv3pUnsOf6gafGf",
-    34: "6sgSftORdOvb6PEJmnIwIK",
-    35: "2049tZFMrSMmzugm1BnTnm",
-    36: "681CoWwQNkYUYcy3nrLDM1",
-    37: "6QWcP3bvoOd9Qdn1yv5LGN",
-    38: "5meJLGFkkGlERaTlyAQBIf",
-    39: "3qxOP4OlM1C3tlFJHL8QPL",
-    40: "2AuI3GkVFuisQ3j3n0yOfF",
-    41: "4nCtiH7RrNdtBC4mReN7gi",
-    42: "2t8nY4KF03kb871A5tWchL",
-    43: "696MqcbdkUYfDzFENVDWBv",
-    44: "2FiQhtlA7xLLOoKkGiwEfF",
-    45: "01O8uFyXuIe0W48Y1tgUlc",
-    46: "38zwgBK2i9HowVnASuuUsw",
-    47: "5oPPXhYjUiZB5b65vT8bYS",
-    48: "42UTLCGJJuL6GwTvORZFxR",
-    50: "7qR3lMG9pG4RxuoxihWaR9",
-    51: "4bNkCFIOvHLrJeg83FIs77",
-    52: "160Jg0tyhXM25G7fGpdU2b",
-    53: "5HIOWxHiBV1IcZfV08JOnQ",
-    54: "5GAwEBQ38fFOUXOaweGeng",
-    55: "1AqE0daK45DHdPm33sqBVy",
-    56: "7AbJrvW65nzSU5ym4R1c0b",
-    57: "6yRHxLHauWfMHB3HodPFZo",
-    58: "32vRuGhK2HfEa5kWLxL3zI",
-    59: "2fett4h9iVkJnxBqlQmtmz",
-    60: "3tazpJ1DbBUmkK1MLTt9lV",
-    61: "4DljVf6lPJA77pzMGLXJYO",
-    62: "3old2dCEJJz3rL3a47peee",
-    63: "hXtuGPfRmtHxO6sY8XTOh",
-    64: "4rNbdwX8eFmKUUVRXmeGQ2",
-    65: "8sSt7jCdTEF5Hc0QE3ynz",
-    66: "56ekWHHXVLlap7LIUwUQuA",
-    67: "jIBY0nwLQ9jFChHpTEiGg",
-    68: "4kzsAzaImfj7ligAFZSVqB",
-    69: "4Fu6wnKZrs1WvYMJDqQyc",
-    70: "7ziVDQk5ynGj9woHgrw1sr",
-    71: "2MrFDFJjI5n3X6ad9sJFcf",
-    72: "6Oxd25MI1W2vHaWLyN71yf",
-  },
+  linkBlocks: {},
+  linkBlockAssets: {},
   avatarAssets: {},
   assets: {},
   assetsArray: [],
@@ -194,6 +121,7 @@ let contentfulDataByTypeKey = {
  * fetch data from WordPress endpoints
  * @type {{categories: {}, media: {}, posts: {}, users: {}}}
  */
+/*
 let wordPressData = {
   posts: {},
   categories: {},
@@ -201,63 +129,57 @@ let wordPressData = {
   media: {},
   linkBlocks: [],
 }
-
-/*
+*/
 let wordPressData = {
   posts: [
     {
-      id: 12053,
-      date: "2020-10-29T14:44:55",
-      date_gmt: "2020-10-29T13:44:55",
+      id: 11928,
+      date: "2020-07-06T12:08:55",
+      date_gmt: "2020-07-06T10:08:55",
       guid: {
-        rendered: "https://www.sorpetaler.de/?p=12053",
+        rendered: "https://www.sorpetaler.de/?p=11928",
+        raw: "https://www.sorpetaler.de/?p=11928",
       },
-      modified: "2020-10-30T10:19:21",
-      modified_gmt: "2020-10-30T09:19:21",
-      slug: "die-schoensten-holzhaeuser-gewinner",
+      modified: "2020-10-29T14:34:22",
+      modified_gmt: "2020-10-29T13:34:22",
+      password: "",
+      slug: "was-macht-ein-restaurator",
       status: "publish",
       type: "post",
       link:
-        "https://www.sorpetaler.de/hubert/nachhaltig-bauen-und-sanieren/die-schoensten-holzhaeuser-gewinner/",
+        "https://www.sorpetaler.de/hubert/der-werkstoff-holz/was-macht-ein-restaurator/",
       title: {
-        rendered: "Die schönsten Holzhäuser &#8211; Gewinner stehen fest",
+        raw: "Video: Was macht eigentlich ein Restaurator?",
+        rendered: "Video: Was macht eigentlich ein Restaurator?",
       },
       content: {
+        raw:
+          'In unserer neuen Reihe "Was macht eigentlich ein...?" schauen wir uns Holzberufe genauer an und sprechen mit Menschen, die bei ihrer Arbeit jeden Tag mit dem Werkstoff Holz zu tun haben. Den Auftakt unserer Reihe macht das Gespr\u00e4ch mit Michael H\u00fcndgen, das wir bereits im letzten Jahr gef\u00fchrt haben. Michael H\u00fcndgen ist Restaurator und Denkmalpfleger in Meerbusch und hat sich mit Leib und Seele dem Holz verschrieben.\r\n<h2>Welche Aufgaben \u00fcbernimmt ein Restaurator?</h2>\r\nAls Restaurator k\u00fcmmert sich Michael H\u00fcndgen um die Instandsetzung unterschiedlichster Bauteile wie Treppen, Fu\u00dfb\u00f6den, Wandvert\u00e4felungen oder Decken insbesondere in denkmalgesch\u00fctzten Geb\u00e4uden. Einen besonderen Schwerpunkt seiner Arbeit bildet die Sanierung von Au\u00dfenbauteilen wie Fenster, Fensterl\u00e4den, Haust\u00fcren oder Dachgauben. Bei der Sanierung denkmalgesch\u00fctzter Geb\u00e4ude steht er dabei in engem Kontakt zur Denkmalbeh\u00f6rde, mit der er gemeinsam ein Sanierungskonzept entwickelt. [float-left]<img class="alignnone wp-image-11940" src="https://www.sorpetaler.de/wp-content/uploads/2020/07/alte-fenster-restaurieren.jpg" alt="Ein Haus mit alten Holzfenstern" width="450" height="677" />[/float-left]Daf\u00fcr schaut er sich den Zustand der Bauteile, die instand gesetzt werden sollen, genau an: Wie stark sind die Bauteile besch\u00e4digt? Was davon l\u00e4sst sich erhalten, was vielleicht nicht? Lohnt sich eine Instandsetzung oder muss das Bauteil doch durch ein dem Original nachempfundenes neues Bauteil ersetzt werden? Grunds\u00e4tzlich gilt bei der Denkmalsanierung, dass so viel Originalsubstanz wie m\u00f6glich erhalten werden soll. Im Umkehrschluss hei\u00dft das: Ausgetauscht beziehungsweise durch Neues ersetzt wird in der Regel nur das, was sich gar nicht mehr erhalten l\u00e4sst.\r\n<blockquote>"Holz ist der\u00a0sch\u00f6nste Werkstoff, den die Natur je geschaffen hat."</blockquote>\r\n<h2>Welche Rolle spielt Holz f\u00fcr einen Restaurator?</h2>\r\nNaturgem\u00e4\u00df geh\u00f6rt Holz zu den wichtigsten Baustoffen f\u00fcr einen Restaurator, da in alten Geb\u00e4uden Kunststoffe noch nicht vorkamen. In der Regel handelt es sich dabei um einheimische H\u00f6lzer wie Eiche, L\u00e4rche oder Kiefer. Tropenh\u00f6lzer finden sich entsprechend kaum in alten H\u00e4usern. Abgesehen davon sind sie, so Michael H\u00fcndgen, aufgrund ihrer h\u00e4ufig unsicheren Herkunft und der langen Transportwege richtiggehend verp\u00f6nt unter Restauratoren. Denn das eint viele unter ihnen: ein \u00f6kologisches Bewusstsein und eine ressourcenschonende Herangehensweise an ihre Arbeit. F\u00fcr \u00d6kologie, Ressourcenschonung und Klimaschutz steht Holz als nachwachsender, CO2-neutraler Baustoff wie kein anderer. Au\u00dferdem ist es laut Michael H\u00fcndgen "der sch\u00f6nste Werkstoff, den die Natur je geschaffen hat."\r\n<blockquote>"Holz ist die Zukunft."</blockquote>\r\nIm Sinne der Nachhaltigkeit - aber auch, um Bauteile m\u00f6glichst originalgetreu aufzuarbeiten - setzen Restauratoren zudem h\u00e4ufig auf Altholz, das zum Beispiel aus H\u00e4usern stammt, die abgerissen werden mussten. Das k\u00f6nnen Fu\u00dfbodendielen sein, Fensterholz, Balken oder altes M\u00f6belholz. Auch neue M\u00f6bel aus Altholz fertigen viele Restauratoren.\r\n\r\nGrunds\u00e4tzlich gilt die Leidenschaft und Liebe von Restauratoren nat\u00fcrlich dem Alten. Die Entwicklung bei Neubauten sieht Michael H\u00fcndgen dennoch sehr positiv: Dass ein regelrechter Holzhaus-Boom entstanden ist und Holz auch in anderen Bereichen neuer H\u00e4user wieder verst\u00e4rkt zum Einsatz kommt, sind f\u00fcr ihn ein richtiger und wichtiger Trend. "Holz ist die Zukunft", so Michael H\u00fcndgen.\r\n\r\n&nbsp;\r\n<div class="video-container-wrapper">\r\n<div class="video-container"><iframe src="https://www.youtube.com/embed/PiGaazRU_uE?rel=0" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe></div>\r\n</div>\r\n&nbsp;\r\n\r\nIm Video beschreibt Michael H\u00fcndgen ausf\u00fchrlich, womit er in seiner t\u00e4glichen Arbeit zu tun hat. Dabei geht er auch darauf ein, wie bei einem denkmalgesch\u00fctzten Haus der Prozess eigentlich abl\u00e4uft, bis entschieden wird, ob ein Bauteil restauriert werden kann oder durch ein neues ersetzt werden muss.\r\n\r\n<em>Beitragsbild von\u00a0<a href="https://unsplash.com/@ivybarn?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Ivy Barn</a>; Bild im Text von\u00a0<a href="https://unsplash.com/@anniespratt?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Annie Spratt</a>\u00a0(beides via\u00a0<a href="https://unsplash.com/?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>)</em>\r\n\r\n[text-with-link link-text="Jetzt lesen" link-url="https://www.sorpetaler.de/hubert/fensterratgeber/denkmalschutz-was-es-bei-holzfenstern-zu-beachten-gilt/" image="https://www.sorpetaler.de/wp-content/uploads/2020/07/holzfenster-denkmalschutz-vorgaben.jpg"] Wann m\u00fcssen Fenster in denkmalgesch\u00fctzten Geb\u00e4uden ausgetauscht werden? Wann restauriert? Welche Vorgaben gibt es in Bezug auf die W\u00e4rmed\u00e4mmwerte? Und wie kann man sich das f\u00f6rdern lassen? In unserem Artikel "Denkmalschutz: Was es bei Holzfenstern zu beachten gilt" liefern wir Antworten.[/text-with-link]',
         rendered:
-          '<p>Bis zum 30. Juni konnten Studierende, Architekt*innen oder Bauherr*innen ihre Entwürfe für ein besonderes Holzhaus beim Wettbewerb &#8220;Die schönsten Holzhäuser 2020&#8221; von Sorpetaler Fensterbau einreichen. Nach der Sommerpause hat sich die Jury beraten und die drei besten Entwürfe gekürt. Welche das sind und warum gerade diese überzeugt haben, verraten wir hier.</p>\n<h2>1. Platz: Wohnhaus vis-à-vis von luna productions</h2>\n<p>Das Wohnhaus <em>via-à-vis</em> im schweizerischen Deitingen ist modern und traditionell zugleich. Das Gebäude, das in zwei Gebäudeteilen mit zwei Etagen jeweils zwei Wohnungen mit 2,5 bzw. 5 Zimmern beherbergt, spiegelt mit seiner Kombination aus Holz und Beton die Strömungen zeitgenössischer Architektur wider. Und fügt sich gleichzeitig mit seinem Erscheinungsbild wie selbstverständlich in seine dörfliche Umgebung ein.</p>\n<blockquote><p>Wir haben den Anspruch, beim Eingriff in bestehende Situationen nicht nur auf die Bedürfnisse des Einzelnen zu achten, sondern mit unserer Intervention die Situation so zu verbessern, dass eine lebendige Nachbarschaft entstehen kann.</p></blockquote>\n<p>Dieser Ansatz ist es auch, der die Architekten angetrieben hat. Nadja und Lukas Frei (beide Anfang 30) von luna productions wünschen sich &#8220;mehr Baukultur im Dorf&#8221;, die neue Bauten nicht losgelöst von der Umgebung, rein funktional oder wirtschaftlich in der Blick nimmt. Im Gegenteil: Das Architektenpaar betrachtet ein Gebäude nicht bloß als die Verwirklichung individueller Ideen, sondern immer als Teil eines Ganzen, einer Gemeinschaft. [float-left]<img class="alignnone" src="https://www.sorpetaler.de/wp-content/uploads/2020/10/schoenste-holzhaeuser-vis-a-vis-luna-productions-2.png" alt="Das Holzhaus vis-à-vis von luna productions aus der Schweiz mit einem Kirschbaum als tragendem Element" width="400" height="677" />[/float-left]&#8221;Entwerfen wir einen Kindergarten, reden wir mit der Lehrperson, den Eltern und den Kindern; bauen wir im Dorf, studieren wir das Dorf und interessieren uns für die Sicht der Nachbarn ebenso wie für die des Bauherrn. Wir haben den Anspruch, beim Eingriff in bestehende Situationen nicht nur auf die Bedürfnisse des Einzelnen zu achten, sondern mit unserer Intervention die Situation so zu verbessern, dass eine lebendige Nachbarschaft entstehen kann&#8221;, so Nadja und Lukas.</p>\n<p>Genau das ist ihnen dabei aus Sicht der Jury gelungen. Das neue Haus schließt eine Lücke zwischen der gegenüber liegenden Schreinerei (daher übrigens auch der Name <em>vis-à-vis</em>, französisch für gegenüber) und den umliegenden Wohnbauten. Es entsteht ein gemeinsamer Hof als &#8220;Begegnungsraum für die ganze Nachbarschaft&#8221;, wie Nadja und Lukas es beschreiben. Interessant ist auch der Materialmix, der den klassischen Holzbau weiterentwickelt. Die Außenwände bestehen aus Kalksandstein &#8211; verkleidet mit Holz, der Erschließungsbereich in der Mitte, der beide Gebäudeteile miteinander verbindet, ist aus rohem Beton. Im Inneren wiederum hat luna productions auf eine nichttragende Holzständerkonstruktion gesetzt, die sich wechselnden Bedürfnissen ihrer Bewohner*innen anpassen kann.</p>\n<p>Auch bei den Themen Wohngesundheit und Regionalität hat das Wohnhaus gepunktet. So haben die Architekten beispielsweise auf heimische Rohstoffe mit kurzen Transportwegen und auf schadstoffarme Anstriche gesetzt. Viele Materialien blieben roh. Die unbehandelte, sägerauhe Fichtenfassade etwa darf natürlich altern. Insgesamt haben die beiden jungen Architekten ein sehr stimmiges Gebäude entwickelt, bei dessen Planung sehr feinfühlig und differenziert unterschiedlichste Aspekte berücksichtigt und miteinander in Einklang gebracht wurden. Ein verdienter erster Platz!</p>\n<h2>2. Platz: Haus H. von Eva Miclavcic und Eugen Happacher</h2>\n<p>Haus H. ist ein Einfamilienhaus in Südtirol, das Eva Miclavcic und Eugen Happacher, heute 29 Jahre alt, noch während ihres Studiums an der Akademie der Bildenden Künste München entwerfen durften. Bauherr war ein Ehepaar, das biologische Landwirtschaft betreibt.</p>\n<blockquote><p>Ziel war es, ein kleines, einfaches und nachhaltiges Gebäude zu entwickeln, das durch ein zurückhaltendes Äußeres, großzügige Räume und raffinierte Details sich selbstverständlich in die Landschaft einfügt.</p></blockquote>\n<p>Dabei standen die Planer vor der Herausforderung, das Wohnhaus in eine traditionelle Umgebung mit bereits bestehenden Wirtschaftsgebäuden einzubetten. &#8220;Ziel war es, ein kleines, einfaches und nachhaltiges Gebäude zu entwickeln, das durch ein zurückhaltendes Äußeres, großzügige Räume und raffinierte Details sich selbstverständlich in die Landschaft einfügt und den Bogen von traditioneller bis hin zu moderner Bauweise spannt&#8221;, beschreiben es Eva und Eugen in ihrer Bewerbung. Was sofort ins Auge sticht: Optisch fällt das Wohnhaus neben den landwirtschaftlichen Gebäuden kaum auf &#8211; bis auf die Fassade vielleicht, die auf den Fotos noch ganz frisch wirkt. Ansonsten aber fügt es sich unglaublich natürlich in seine Umgebung ein.[float-left]<img class="alignnone" src="https://www.sorpetaler.de/wp-content/uploads/2020/10/schoenste-holzhaeuser-haus-h-eugen-happacher.png" alt="Zweiter Platz beim Wettbewerb Die schönsten Holzhäuser: Haus H in Südtirol von Eva Miclavcic und Eugen Happacher" width="500" height="677" />[/float-left]</p>\n<p>&#8220;Das Gebäude besticht durch seine Einfachheit und Klarheit. Im gewohnten Blick seiner Umgebung eher schlicht und unauffällig. Dies allerdings nur auf den ersten Blick!&#8221;, drückt es Joachim Kranendonck von der Jury der &#8220;Schönsten Holzhäuser&#8221; aus. Denn auf den zweiten Blick offenbaren sich viele moderne Elemente, die den aktuellen Zeitgeist widerspiegeln. Etwa die großzügigen Holzfensterflächen, die den Bewohnern des Hauses ein unglaubliches Bergpanorama eröffnen. Die Lärchenlattung der Fassade in drei verschiedenen Breiten, die sich selbst bei der Haustür fortsetzt. Oder aber auch die großen, luftigen Räume im Inneren.</p>\n<p>Der zeitgenössische Ansatz zeigt sich ebenfalls beim Thema Nachhaltigkeit: Architekten und Bauherren setzten konsequent auf Holzsorten, die in der Region vorkommen und ließen sie von ansässigen Firmen verbauen. &#8220;Auf aus fossilen Materialien hergestellte Baustoffe wurde so weit wie möglich verzichtet. Die Dämmung der Bodenplatte erfolgte durch recycelbaren Glasschaumschotter und die der Fassade und des Daches aus Holzfaserdämmplatten&#8221;, heißt es in der Bewerbung weiter. Kombiniert mit einem klugen und klaren Entwurf macht dies das Haus H. zu einem würdigen Zweitplatzierten.</p>\n<h2>3. Platz: Umweltbildungszentrum Kienbergpark von KolbRipke</h2>\n<p>Das Umweltbildungszentrum, das im Kienbergpark in Berlin Marzahn-Hellersdorf entstanden ist, macht auf besondere Weise deutlich, welche Wandelbarkeit der Werkstoff Holz in sich birgt. Das Zentrum- der Name verrät es schon &#8211; bietet Kitas und Schulen, Jugendlichen, Familien oder anderen Interessierten vielfältige Veranstaltungen und Angebote rund um die Themen Umwelt und Nachhaltigkeit. [float-left]<img class="alignnone" src="https://www.sorpetaler.de/wp-content/uploads/2020/10/schoenste-holzhaeuser-umweltbildungszentrum-kienbergpark-kolbripke.png" alt="Platz 3 des Wettbewerbs Die schönsten Holzhäuser: Das Umweltbildungszentrum Kienbergpark von KolpRipke Architekten in Berlin" width="500" height="677" />[/float-left]Umgeben von Gärten, Wiesen, Wäldern und dem Wuhleteich bildet es einen vorbildlichen Raum für Umweltbildung.</p>\n<p>Insofern ist es nur stimmig, dass die Planer von KolbRipke Gesellschaft von Architekten mbH aus Berlin für dieses Gebäude auf den natürlichen Werkstoff Holz gesetzt haben. Um eine kurze Bauzeit und eine möglichst große Flexibilität gewährleisten zu können, entschieden sie sich für Holz-Raummodule in Holzrahmenbauweise, die zu einem großen Grad vorgefertigt wurden. Aneinandergereiht ergeben die einzelnen Module mit zwischengeschalteten Licht- und Erschließungsfugen das längliche Gebäude. Ein extensiv begrüntes Dach vervollständigt den nachhaltigen Charakter des Umweltbildungszentrums, sodass es sich trotz der modernen Architektur harmonisch in den umliegenden Park einfügt.</p>\n<blockquote><p>Das Objekt besticht auf Anhieb durch seine klare Konstruktion, eine Aneinanderreihung von Raummodulen in Holzrahmenbauweise.</p></blockquote>\n<p>Im Inneren des Gebäudes steht Wandelbarkeit im Mittelpunkt. Getrennte Räume entstanden durch den Einsatz von leichten Trennwänden, Ausstellungs- und Seminarbereich können mittels Faltschiebewänden flexibel umgestaltet werden. Denkbar wäre selbst der Einsatz des gesamten Gebäudes an einem anderen Ort. &#8220;Das Gebäude stellt einen Prototypen dar, der zeigen soll, was mit einem Holzmodulbau möglich ist. Die leichte Abbaubarkeit und der einfache Transport eröffnen die Chance, dieses System für vielfältigste andere Nutzungen einzusetzen&#8221;, schließen die Architekten von KolbRipke. [float-left]<img class="alignnone" src="https://www.sorpetaler.de/wp-content/uploads/2020/10/schoenste-holzhaeuser-umweltbildungszentrum-kienbergpark-kolbripke-skizze.png" alt="Skizze des Umweltbildungszentrum Kienbergpark von KolbRipke Architekten" width="450" height="677" />[/float-left]Gerade dieses hohe Maß an Flexibilität kombiniert mit sleeker Architektur hat die Jury des Wettbewerbs besonders überzeugt. &#8220;Das Objekt besticht auf Anhieb durch seine klare Konstruktion, eine Aneinanderreihung von Raummodulen in Holzrahmenbauweise. Diese Konstruktion lässt eine offene und flexible Grundrissgestaltung zu. Sowohl der hohe Anteil an Vorfertigung als auch klare und einfache Detaillösungen machen das Gebäude zu einem äußerst wirtschaftlichen Element. Ein schönes Beispiel dafür, was Holzbau leisten kann&#8221;, heißt es von Seiten der Experten. Herzlichen Glückwunsch zum dritten Platz!</p>\n<h2>Neues E-Book mit den Top 10 Holzhaus-Entwürfen</h2>\n<p>Die vorgestellten drei Entwürfe erhalten als Gewinner des Wettbewerbs &#8220;Die schönsten Holzhäuser&#8221; Preisgelder in Höhe von 1.500, 1.000 und 500 Euro. Darüber hinaus finden sie herausgehobene Erwähnung in der zweiten Auflage des E-Books &#8220;Die schönsten Holzhäuser&#8221;, die Anfang 2021 erscheinen wird. Neben den Gewinner-Einsendungen nimmt das neue E-Book sieben weitere Holzhausentwürfe in den Blick, die die Jury aus unterschiedlichen Gründen für erwähnenswert hielt.</p>\n<p>Die erste Auflage des E-Books &#8220;Die schönsten Holzhäuser&#8221; kannst du dir <a href="https://www.sorpetaler.de/wp-content/uploads/2020/02/ebook-die-schoensten-holzhaeuser-2019.pdf">hier</a> kostenfrei herunterladen.</p>\n<p><em>Bildmaterial: luna productions/Mark Drotsky &#8211; Eugen Happacher &#8211; Hanns Joosten &#8211; KolbRipke</em></p>\n<p>[text-with-link link-text=&#8221;Jetzt lesen&#8221; link-url=&#8221;https://www.sorpetaler.de/hubert/nachhaltig-bauen-und-sanieren/hausbau-mit-holz/&#8221; image=&#8221;https://www.sorpetaler.de/wp-content/uploads/2019/10/hausbau-mit-holz-klimaschutz.jpg&#8221;] Der Holzhaus-Bau entwickelt sich zu einem echten Trend. Doch nicht nur kurze Bauzeiten und große Flexibilität machen den Werkstoff Holz zu einem beliebten Material für neue Häuser. In unserem Artikel &#8220;Hausbau mit Holz &#8211; ein echter Klimaretter&#8221; zeigen wir auf, welchen Effekt die Entscheidung für ein Holzhaus auf unsere Umwelt haben kann.[/text-with-link]</p>\n',
+          '<p>In unserer neuen Reihe &#8220;Was macht eigentlich ein&#8230;?&#8221; schauen wir uns Holzberufe genauer an und sprechen mit Menschen, die bei ihrer Arbeit jeden Tag mit dem Werkstoff Holz zu tun haben. Den Auftakt unserer Reihe macht das Gespr\u00e4ch mit Michael H\u00fcndgen, das wir bereits im letzten Jahr gef\u00fchrt haben. Michael H\u00fcndgen ist Restaurator und Denkmalpfleger in Meerbusch und hat sich mit Leib und Seele dem Holz verschrieben.</p>\n<h2>Welche Aufgaben \u00fcbernimmt ein Restaurator?</h2>\n<p>Als Restaurator k\u00fcmmert sich Michael H\u00fcndgen um die Instandsetzung unterschiedlichster Bauteile wie Treppen, Fu\u00dfb\u00f6den, Wandvert\u00e4felungen oder Decken insbesondere in denkmalgesch\u00fctzten Geb\u00e4uden. Einen besonderen Schwerpunkt seiner Arbeit bildet die Sanierung von Au\u00dfenbauteilen wie Fenster, Fensterl\u00e4den, Haust\u00fcren oder Dachgauben. Bei der Sanierung denkmalgesch\u00fctzter Geb\u00e4ude steht er dabei in engem Kontakt zur Denkmalbeh\u00f6rde, mit der er gemeinsam ein Sanierungskonzept entwickelt. [float-left]<img class="alignnone wp-image-11940" src="https://www.sorpetaler.de/wp-content/uploads/2020/07/alte-fenster-restaurieren.jpg" alt="Ein Haus mit alten Holzfenstern" width="450" height="677" srcset="https://www.sorpetaler.de/wp-content/uploads/2020/07/alte-fenster-restaurieren.jpg 798w, https://www.sorpetaler.de/wp-content/uploads/2020/07/alte-fenster-restaurieren-200x300.jpg 200w, https://www.sorpetaler.de/wp-content/uploads/2020/07/alte-fenster-restaurieren-768x1155.jpg 768w, https://www.sorpetaler.de/wp-content/uploads/2020/07/alte-fenster-restaurieren-681x1024.jpg 681w" sizes="(max-width: 450px) 100vw, 450px" />[/float-left]Daf\u00fcr schaut er sich den Zustand der Bauteile, die instand gesetzt werden sollen, genau an: Wie stark sind die Bauteile besch\u00e4digt? Was davon l\u00e4sst sich erhalten, was vielleicht nicht? Lohnt sich eine Instandsetzung oder muss das Bauteil doch durch ein dem Original nachempfundenes neues Bauteil ersetzt werden? Grunds\u00e4tzlich gilt bei der Denkmalsanierung, dass so viel Originalsubstanz wie m\u00f6glich erhalten werden soll. Im Umkehrschluss hei\u00dft das: Ausgetauscht beziehungsweise durch Neues ersetzt wird in der Regel nur das, was sich gar nicht mehr erhalten l\u00e4sst.</p>\n<blockquote><p>&#8220;Holz ist der\u00a0sch\u00f6nste Werkstoff, den die Natur je geschaffen hat.&#8221;</p></blockquote>\n<h2>Welche Rolle spielt Holz f\u00fcr einen Restaurator?</h2>\n<p>Naturgem\u00e4\u00df geh\u00f6rt Holz zu den wichtigsten Baustoffen f\u00fcr einen Restaurator, da in alten Geb\u00e4uden Kunststoffe noch nicht vorkamen. In der Regel handelt es sich dabei um einheimische H\u00f6lzer wie Eiche, L\u00e4rche oder Kiefer. Tropenh\u00f6lzer finden sich entsprechend kaum in alten H\u00e4usern. Abgesehen davon sind sie, so Michael H\u00fcndgen, aufgrund ihrer h\u00e4ufig unsicheren Herkunft und der langen Transportwege richtiggehend verp\u00f6nt unter Restauratoren. Denn das eint viele unter ihnen: ein \u00f6kologisches Bewusstsein und eine ressourcenschonende Herangehensweise an ihre Arbeit. F\u00fcr \u00d6kologie, Ressourcenschonung und Klimaschutz steht Holz als nachwachsender, CO2-neutraler Baustoff wie kein anderer. Au\u00dferdem ist es laut Michael H\u00fcndgen &#8220;der sch\u00f6nste Werkstoff, den die Natur je geschaffen hat.&#8221;</p>\n<blockquote><p>&#8220;Holz ist die Zukunft.&#8221;</p></blockquote>\n<p>Im Sinne der Nachhaltigkeit &#8211; aber auch, um Bauteile m\u00f6glichst originalgetreu aufzuarbeiten &#8211; setzen Restauratoren zudem h\u00e4ufig auf Altholz, das zum Beispiel aus H\u00e4usern stammt, die abgerissen werden mussten. Das k\u00f6nnen Fu\u00dfbodendielen sein, Fensterholz, Balken oder altes M\u00f6belholz. Auch neue M\u00f6bel aus Altholz fertigen viele Restauratoren.</p>\n<p>Grunds\u00e4tzlich gilt die Leidenschaft und Liebe von Restauratoren nat\u00fcrlich dem Alten. Die Entwicklung bei Neubauten sieht Michael H\u00fcndgen dennoch sehr positiv: Dass ein regelrechter Holzhaus-Boom entstanden ist und Holz auch in anderen Bereichen neuer H\u00e4user wieder verst\u00e4rkt zum Einsatz kommt, sind f\u00fcr ihn ein richtiger und wichtiger Trend. &#8220;Holz ist die Zukunft&#8221;, so Michael H\u00fcndgen.</p>\n<p>&nbsp;</p>\n<div class="video-container-wrapper">\n<div class="video-container"><iframe src="https://www.youtube.com/embed/PiGaazRU_uE?rel=0" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe></div>\n</div>\n<p>&nbsp;</p>\n<p>Im Video beschreibt Michael H\u00fcndgen ausf\u00fchrlich, womit er in seiner t\u00e4glichen Arbeit zu tun hat. Dabei geht er auch darauf ein, wie bei einem denkmalgesch\u00fctzten Haus der Prozess eigentlich abl\u00e4uft, bis entschieden wird, ob ein Bauteil restauriert werden kann oder durch ein neues ersetzt werden muss.</p>\n<p><em>Beitragsbild von\u00a0<a href="https://unsplash.com/@ivybarn?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Ivy Barn</a>; Bild im Text von\u00a0<a href="https://unsplash.com/@anniespratt?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Annie Spratt</a>\u00a0(beides via\u00a0<a href="https://unsplash.com/?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>)</em></p>\n<p>[text-with-link link-text=&#8221;Jetzt lesen&#8221; link-url=&#8221;https://www.sorpetaler.de/hubert/fensterratgeber/denkmalschutz-was-es-bei-holzfenstern-zu-beachten-gilt/&#8221; image=&#8221;https://www.sorpetaler.de/wp-content/uploads/2020/07/holzfenster-denkmalschutz-vorgaben.jpg&#8221;] Wann m\u00fcssen Fenster in denkmalgesch\u00fctzten Geb\u00e4uden ausgetauscht werden? Wann restauriert? Welche Vorgaben gibt es in Bezug auf die W\u00e4rmed\u00e4mmwerte? Und wie kann man sich das f\u00f6rdern lassen? In unserem Artikel &#8220;Denkmalschutz: Was es bei Holzfenstern zu beachten gilt&#8221; liefern wir Antworten.[/text-with-link]</p>\n',
         protected: false,
       },
       excerpt: {
+        raw:
+          'Welche Aufgaben \u00fcbernimmt ein Restaurator? Welche Rolle spielt Holz dabei? Und warum ist es der "sch\u00f6nste Werkstoff, den die Natur je geschaffen hat"? Dar\u00fcber sprechen wir im Video mit dem Restaurator und Denkmalpfleger Michael H\u00fcndgen.',
         rendered:
-          "Die Gewinner des Wettbewerbs &#8220;Die schönsten Holzhäuser 2020&#8221; stehen fest. Hier stellen wir ihre Entwürfe vor und erläutern, warum gerade diese die Jury am meisten überzeugt haben.",
+          "Welche Aufgaben \u00fcbernimmt ein Restaurator? Welche Rolle spielt Holz dabei? Und warum ist es der &#8220;sch\u00f6nste Werkstoff, den die Natur je geschaffen hat&#8221;? Dar\u00fcber sprechen wir im Video mit dem Restaurator und Denkmalpfleger Michael H\u00fcndgen.",
         protected: false,
       },
       author: 7,
-      featured_media: 12107,
+      featured_media: 11938,
       comment_status: "closed",
       ping_status: "closed",
       sticky: false,
       template: "",
       format: "standard",
       meta: [],
-      categories: [72],
+      categories: [90],
       tags: [],
       _links: {
-        self: [
-          {
-            href: "https://www.sorpetaler.de/wp-json/wp/v2/posts/12053",
-          },
-        ],
-        collection: [
-          {
-            href: "https://www.sorpetaler.de/wp-json/wp/v2/posts",
-          },
-        ],
-        about: [
-          {
-            href: "https://www.sorpetaler.de/wp-json/wp/v2/types/post",
-          },
-        ],
+        self: [{ href: "https://www.sorpetaler.de/wp-json/wp/v2/posts/11928" }],
+        collection: [{ href: "https://www.sorpetaler.de/wp-json/wp/v2/posts" }],
+        about: [{ href: "https://www.sorpetaler.de/wp-json/wp/v2/types/post" }],
         author: [
           {
             embeddable: true,
@@ -267,24 +189,24 @@ let wordPressData = {
         replies: [
           {
             embeddable: true,
-            href: "https://www.sorpetaler.de/wp-json/wp/v2/comments?post=12053",
+            href: "https://www.sorpetaler.de/wp-json/wp/v2/comments?post=11928",
           },
         ],
         "version-history": [
           {
             href:
-              "https://www.sorpetaler.de/wp-json/wp/v2/posts/12053/revisions",
+              "https://www.sorpetaler.de/wp-json/wp/v2/posts/11928/revisions",
           },
         ],
         "wp:featuredmedia": [
           {
             embeddable: true,
-            href: "https://www.sorpetaler.de/wp-json/wp/v2/media/12107",
+            href: "https://www.sorpetaler.de/wp-json/wp/v2/media/11938",
           },
         ],
         "wp:attachment": [
           {
-            href: "https://www.sorpetaler.de/wp-json/wp/v2/media?parent=12053",
+            href: "https://www.sorpetaler.de/wp-json/wp/v2/media?parent=11928",
           },
         ],
         "wp:term": [
@@ -292,73 +214,172 @@ let wordPressData = {
             taxonomy: "category",
             embeddable: true,
             href:
-              "https://www.sorpetaler.de/wp-json/wp/v2/categories?post=12053",
+              "https://www.sorpetaler.de/wp-json/wp/v2/categories?post=11928",
           },
           {
             taxonomy: "post_tag",
             embeddable: true,
-            href: "https://www.sorpetaler.de/wp-json/wp/v2/tags?post=12053",
+            href: "https://www.sorpetaler.de/wp-json/wp/v2/tags?post=11928",
           },
         ],
         curies: [
-          {
-            name: "wp",
-            href: "https://api.w.org/{rel}",
-            templated: true,
-          },
+          { name: "wp", href: "https://api.w.org/{rel}", templated: true },
         ],
       },
     },
   ],
   categories: [
     {
-      id: 72,
-      count: 21,
+      id: 90,
+      count: 64,
       description: "",
-      link:
-        "https://www.sorpetaler.de/hubert/category/nachhaltig-bauen-und-sanieren/",
-      name: "Nachhaltig Bauen und Sanieren",
-      slug: "nachhaltig-bauen-und-sanieren",
+      link: "https://www.sorpetaler.de/hubert/category/der-werkstoff-holz/",
+      name: "Der Werkstoff Holz",
+      slug: "der-werkstoff-holz",
       taxonomy: "category",
       parent: 0,
       meta: [],
-      _links: {},
+      _links: {
+        self: [
+          { href: "https://www.sorpetaler.de/wp-json/wp/v2/categories/90" },
+        ],
+        collection: [
+          { href: "https://www.sorpetaler.de/wp-json/wp/v2/categories" },
+        ],
+        about: [
+          {
+            href: "https://www.sorpetaler.de/wp-json/wp/v2/taxonomies/category",
+          },
+        ],
+        "wp:post_type": [
+          {
+            href: "https://www.sorpetaler.de/wp-json/wp/v2/posts?categories=90",
+          },
+        ],
+        curies: [
+          { name: "wp", href: "https://api.w.org/{rel}", templated: true },
+        ],
+      },
     },
   ],
   users: [
     {
       id: 7,
+      username: "sandra",
       name: "Sandra Stein",
+      first_name: "Sandra",
+      last_name: "Stein",
+      email: "sandra.stein86@gmail.com",
       url: "",
       description:
-        "Sandra ist hauptberuflich Digital Marketing Managerin und beschäftigt sich seit vielen Jahren mit den neuesten Trends im Internet. Seit 2016 arbeitet sie in der Baubranche. Ihr besonderes Interesse gilt dabei dem Thema nachhaltig Bauen und Leben. Weil sie so gerne spricht, ist sie unsere Hauptinterviewführerin.",
+        "Sandra ist hauptberuflich Digital Marketing Managerin und besch\u00e4ftigt sich seit vielen Jahren mit den neuesten Trends im Internet. Seit 2016 arbeitet sie in der Baubranche. Ihr besonderes Interesse gilt dabei dem Thema nachhaltig Bauen und Leben. Weil sie so gerne spricht, ist sie unsere Hauptinterviewf\u00fchrerin.",
       link: "https://www.sorpetaler.de/hubert/author/sandra/",
+      locale: "de_DE",
+      nickname: "sandra",
       slug: "sandra",
+      roles: ["administrator"],
+      registered_date: "2016-11-20T21:34:46+00:00",
+      capabilities: {
+        switch_themes: true,
+        edit_themes: true,
+        activate_plugins: true,
+        edit_plugins: true,
+        edit_users: true,
+        edit_files: true,
+        manage_options: true,
+        moderate_comments: true,
+        manage_categories: true,
+        manage_links: true,
+        upload_files: true,
+        import: true,
+        unfiltered_html: true,
+        edit_posts: true,
+        edit_others_posts: true,
+        edit_published_posts: true,
+        publish_posts: true,
+        edit_pages: true,
+        read: true,
+        level_10: true,
+        level_9: true,
+        level_8: true,
+        level_7: true,
+        level_6: true,
+        level_5: true,
+        level_4: true,
+        level_3: true,
+        level_2: true,
+        level_1: true,
+        level_0: true,
+        edit_others_pages: true,
+        edit_published_pages: true,
+        publish_pages: true,
+        delete_pages: true,
+        delete_others_pages: true,
+        delete_published_pages: true,
+        delete_posts: true,
+        delete_others_posts: true,
+        delete_published_posts: true,
+        delete_private_posts: true,
+        edit_private_posts: true,
+        read_private_posts: true,
+        delete_private_pages: true,
+        edit_private_pages: true,
+        read_private_pages: true,
+        delete_users: true,
+        create_users: true,
+        unfiltered_upload: true,
+        edit_dashboard: true,
+        update_plugins: true,
+        delete_plugins: true,
+        install_plugins: true,
+        update_themes: true,
+        install_themes: true,
+        update_core: true,
+        list_users: true,
+        remove_users: true,
+        promote_users: true,
+        edit_theme_options: true,
+        delete_themes: true,
+        export: true,
+        wpseo_bulk_edit: true,
+        manage_ratings: true,
+        wpseo_manage_options: true,
+        administrator: true,
+      },
+      extra_capabilities: { administrator: true },
       avatar_urls: {
         24: "https://secure.gravatar.com/avatar/1bd475830113d79a6d0f79eac7fdcdc4?s=24&r=g",
         48: "https://secure.gravatar.com/avatar/1bd475830113d79a6d0f79eac7fdcdc4?s=48&r=g",
         96: "https://secure.gravatar.com/avatar/1bd475830113d79a6d0f79eac7fdcdc4?s=96&r=g",
       },
+      meta: [],
+      _links: {
+        self: [{ href: "https://www.sorpetaler.de/wp-json/wp/v2/users/7" }],
+        collection: [{ href: "https://www.sorpetaler.de/wp-json/wp/v2/users" }],
+      },
     },
   ],
   media: [
     {
-      id: 12107,
-      date: "2020-10-30T10:16:43",
-      date_gmt: "2020-10-30T09:16:43",
+      id: 11938,
+      date: "2020-07-06T12:02:46",
+      date_gmt: "2020-07-06T10:02:46",
       guid: {
         rendered:
-          "https://www.sorpetaler.de/wp-content/uploads/2020/10/schoenste-holzhaeuser-vis-a-vis-luna-productions_fassade.jpg",
+          "https://www.sorpetaler.de/wp-content/uploads/2020/07/alte-haeuser-restaurieren.jpg",
+        raw:
+          "https://www.sorpetaler.de/wp-content/uploads/2020/07/alte-haeuser-restaurieren.jpg",
       },
-      modified: "2020-10-30T10:17:03",
-      modified_gmt: "2020-10-30T09:17:03",
-      slug: "schoenste-holzhaeuser-vis-a-vis-luna-productions_fassade",
+      modified: "2020-07-06T12:03:47",
+      modified_gmt: "2020-07-06T10:03:47",
+      slug: "alte-haeuser-restaurieren",
       status: "inherit",
       type: "attachment",
       link:
-        "https://www.sorpetaler.de/hubert/nachhaltig-bauen-und-sanieren/die-schoensten-holzhaeuser-gewinner/attachment/schoenste-holzhaeuser-vis-a-vis-luna-productions_fassade/",
+        "https://www.sorpetaler.de/hubert/der-werkstoff-holz/was-macht-ein-restaurator/attachment/alte-haeuser-restaurieren/",
       title: {
-        rendered: "Schoenste-Holzhaeuser-vis-a-vis-luna-productions_Fassade",
+        raw: "Alte-Haeuser-restaurieren",
+        rendered: "Alte-Haeuser-restaurieren",
       },
       author: 7,
       comment_status: "closed",
@@ -366,102 +387,91 @@ let wordPressData = {
       template: "",
       meta: [],
       description: {
+        raw: "",
         rendered:
-          '<p class="attachment"><a href=\'https://www.sorpetaler.de/wp-content/uploads/2020/10/schoenste-holzhaeuser-vis-a-vis-luna-productions_fassade-e1604049455169.jpg\'><img width="300" height="230" src="https://www.sorpetaler.de/wp-content/uploads/2020/10/schoenste-holzhaeuser-vis-a-vis-luna-productions_fassade-e1604049455169-300x230.jpg" class="attachment-medium size-medium" alt="Wettbewerb &quot;Die schönsten Holzhäuser: Gewinnerentwurf Wohnhaus &quot;vis-à-vis&quot; von luna productions" srcset="https://www.sorpetaler.de/wp-content/uploads/2020/10/schoenste-holzhaeuser-vis-a-vis-luna-productions_fassade-e1604049455169-300x230.jpg 300w, https://www.sorpetaler.de/wp-content/uploads/2020/10/schoenste-holzhaeuser-vis-a-vis-luna-productions_fassade-e1604049455169-768x588.jpg 768w, https://www.sorpetaler.de/wp-content/uploads/2020/10/schoenste-holzhaeuser-vis-a-vis-luna-productions_fassade-e1604049455169-1024x783.jpg 1024w" sizes="(max-width: 300px) 100vw, 300px" /></a></p>\n',
+          '<p class="attachment"><a href=\'https://www.sorpetaler.de/wp-content/uploads/2020/07/alte-haeuser-restaurieren.jpg\'><img width="300" height="199" src="https://www.sorpetaler.de/wp-content/uploads/2020/07/alte-haeuser-restaurieren-300x199.jpg" class="attachment-medium size-medium" alt="Alte H\u00e4user in einem idyllischen Ort in Gro\u00dfbritannien" srcset="https://www.sorpetaler.de/wp-content/uploads/2020/07/alte-haeuser-restaurieren-300x199.jpg 300w, https://www.sorpetaler.de/wp-content/uploads/2020/07/alte-haeuser-restaurieren-768x510.jpg 768w, https://www.sorpetaler.de/wp-content/uploads/2020/07/alte-haeuser-restaurieren-1024x680.jpg 1024w, https://www.sorpetaler.de/wp-content/uploads/2020/07/alte-haeuser-restaurieren.jpg 1600w" sizes="(max-width: 300px) 100vw, 300px" /></a></p>\n',
       },
-      caption: {
-        rendered: "",
-      },
+      caption: { raw: "", rendered: "" },
       alt_text:
-        'Wettbewerb "Die schönsten Holzhäuser: Gewinnerentwurf Wohnhaus "vis-à-vis" von luna productions',
+        "Alte H\u00e4user in einem idyllischen Ort in Gro\u00dfbritannien",
       media_type: "image",
       mime_type: "image/jpeg",
       media_details: {
-        width: 1800,
-        height: 1377,
-        file:
-          "2020/10/schoenste-holzhaeuser-vis-a-vis-luna-productions_fassade-e1604049455169.jpg",
+        width: 1600,
+        height: 1062,
+        file: "2020/07/alte-haeuser-restaurieren.jpg",
         sizes: {
           thumbnail: {
-            file:
-              "schoenste-holzhaeuser-vis-a-vis-luna-productions_fassade-e1604049455169-150x150.jpg",
+            file: "alte-haeuser-restaurieren-150x150.jpg",
             width: 150,
             height: 150,
             mime_type: "image/jpeg",
             source_url:
-              "https://www.sorpetaler.de/wp-content/uploads/2020/10/schoenste-holzhaeuser-vis-a-vis-luna-productions_fassade-e1604049455169-150x150.jpg",
+              "https://www.sorpetaler.de/wp-content/uploads/2020/07/alte-haeuser-restaurieren-150x150.jpg",
           },
           medium: {
-            file:
-              "schoenste-holzhaeuser-vis-a-vis-luna-productions_fassade-e1604049455169-300x230.jpg",
+            file: "alte-haeuser-restaurieren-300x199.jpg",
             width: 300,
-            height: 230,
+            height: 199,
             mime_type: "image/jpeg",
             source_url:
-              "https://www.sorpetaler.de/wp-content/uploads/2020/10/schoenste-holzhaeuser-vis-a-vis-luna-productions_fassade-e1604049455169-300x230.jpg",
+              "https://www.sorpetaler.de/wp-content/uploads/2020/07/alte-haeuser-restaurieren-300x199.jpg",
           },
           medium_large: {
-            file:
-              "schoenste-holzhaeuser-vis-a-vis-luna-productions_fassade-e1604049455169-768x588.jpg",
+            file: "alte-haeuser-restaurieren-768x510.jpg",
             width: 768,
-            height: 588,
+            height: 510,
             mime_type: "image/jpeg",
             source_url:
-              "https://www.sorpetaler.de/wp-content/uploads/2020/10/schoenste-holzhaeuser-vis-a-vis-luna-productions_fassade-e1604049455169-768x588.jpg",
+              "https://www.sorpetaler.de/wp-content/uploads/2020/07/alte-haeuser-restaurieren-768x510.jpg",
           },
           large: {
-            file:
-              "schoenste-holzhaeuser-vis-a-vis-luna-productions_fassade-e1604049455169-1024x783.jpg",
+            file: "alte-haeuser-restaurieren-1024x680.jpg",
             width: 1024,
-            height: 783,
+            height: 680,
             mime_type: "image/jpeg",
             source_url:
-              "https://www.sorpetaler.de/wp-content/uploads/2020/10/schoenste-holzhaeuser-vis-a-vis-luna-productions_fassade-e1604049455169-1024x783.jpg",
+              "https://www.sorpetaler.de/wp-content/uploads/2020/07/alte-haeuser-restaurieren-1024x680.jpg",
           },
           employee: {
-            file:
-              "schoenste-holzhaeuser-vis-a-vis-luna-productions_fassade-e1604049455169-380x380.jpg",
+            file: "alte-haeuser-restaurieren-380x380.jpg",
             width: 380,
             height: 380,
             mime_type: "image/jpeg",
             source_url:
-              "https://www.sorpetaler.de/wp-content/uploads/2020/10/schoenste-holzhaeuser-vis-a-vis-luna-productions_fassade-e1604049455169-380x380.jpg",
+              "https://www.sorpetaler.de/wp-content/uploads/2020/07/alte-haeuser-restaurieren-380x380.jpg",
           },
           gallery: {
-            file:
-              "schoenste-holzhaeuser-vis-a-vis-luna-productions_fassade-e1604049455169-660x525.jpg",
+            file: "alte-haeuser-restaurieren-660x525.jpg",
             width: 660,
             height: 525,
             mime_type: "image/jpeg",
             source_url:
-              "https://www.sorpetaler.de/wp-content/uploads/2020/10/schoenste-holzhaeuser-vis-a-vis-luna-productions_fassade-e1604049455169-660x525.jpg",
+              "https://www.sorpetaler.de/wp-content/uploads/2020/07/alte-haeuser-restaurieren-660x525.jpg",
           },
           slide: {
-            file:
-              "schoenste-holzhaeuser-vis-a-vis-luna-productions_fassade-e1604049455169-1800x600.jpg",
-            width: 1800,
+            file: "alte-haeuser-restaurieren-1600x600.jpg",
+            width: 1600,
             height: 600,
             mime_type: "image/jpeg",
             source_url:
-              "https://www.sorpetaler.de/wp-content/uploads/2020/10/schoenste-holzhaeuser-vis-a-vis-luna-productions_fassade-e1604049455169-1800x600.jpg",
+              "https://www.sorpetaler.de/wp-content/uploads/2020/07/alte-haeuser-restaurieren-1600x600.jpg",
           },
           "alm-thumbnail": {
-            file:
-              "schoenste-holzhaeuser-vis-a-vis-luna-productions_fassade-e1604049455169-150x150.jpg",
+            file: "alte-haeuser-restaurieren-150x150.jpg",
             width: 150,
             height: 150,
             mime_type: "image/jpeg",
             source_url:
-              "https://www.sorpetaler.de/wp-content/uploads/2020/10/schoenste-holzhaeuser-vis-a-vis-luna-productions_fassade-e1604049455169-150x150.jpg",
+              "https://www.sorpetaler.de/wp-content/uploads/2020/07/alte-haeuser-restaurieren-150x150.jpg",
           },
           full: {
-            file:
-              "schoenste-holzhaeuser-vis-a-vis-luna-productions_fassade-e1604049455169.jpg",
-            width: 1800,
-            height: 1377,
+            file: "alte-haeuser-restaurieren.jpg",
+            width: 1600,
+            height: 1062,
             mime_type: "image/jpeg",
             source_url:
-              "https://www.sorpetaler.de/wp-content/uploads/2020/10/schoenste-holzhaeuser-vis-a-vis-luna-productions_fassade-e1604049455169.jpg",
+              "https://www.sorpetaler.de/wp-content/uploads/2020/07/alte-haeuser-restaurieren.jpg",
           },
         },
         image_meta: {
@@ -479,24 +489,14 @@ let wordPressData = {
           keywords: [],
         },
       },
-      post: 12053,
+      post: 11928,
       source_url:
-        "https://www.sorpetaler.de/wp-content/uploads/2020/10/schoenste-holzhaeuser-vis-a-vis-luna-productions_fassade-e1604049455169.jpg",
+        "https://www.sorpetaler.de/wp-content/uploads/2020/07/alte-haeuser-restaurieren.jpg",
       _links: {
-        self: [
-          {
-            href: "https://www.sorpetaler.de/wp-json/wp/v2/media/12107",
-          },
-        ],
-        collection: [
-          {
-            href: "https://www.sorpetaler.de/wp-json/wp/v2/media",
-          },
-        ],
+        self: [{ href: "https://www.sorpetaler.de/wp-json/wp/v2/media/11938" }],
+        collection: [{ href: "https://www.sorpetaler.de/wp-json/wp/v2/media" }],
         about: [
-          {
-            href: "https://www.sorpetaler.de/wp-json/wp/v2/types/attachment",
-          },
+          { href: "https://www.sorpetaler.de/wp-json/wp/v2/types/attachment" },
         ],
         author: [
           {
@@ -507,14 +507,14 @@ let wordPressData = {
         replies: [
           {
             embeddable: true,
-            href: "https://www.sorpetaler.de/wp-json/wp/v2/comments?post=12107",
+            href: "https://www.sorpetaler.de/wp-json/wp/v2/comments?post=11938",
           },
         ],
       },
     },
   ],
+  linkBlocks: [],
 }
-*/
 
 /**
  * logger function
@@ -613,6 +613,8 @@ function getPostBodyImages(post) {
   return bodyImages
 }
 
+let linkBlockCounter = 0
+
 /**
  * fetch, filter and save the fetched data in wordPressData object
  * @returns {Promise<void>}
@@ -627,6 +629,7 @@ async function bootstrapDataForMigration() {
   }
 
   try {
+    /*
     const responses = await Promise.all(promises)
 
     mergeResponses(responses).forEach(response => {
@@ -644,6 +647,7 @@ async function bootstrapDataForMigration() {
     wordPressData.posts = wordPressData.posts.filter(post =>
       mediaIds.includes(post.featured_media)
     )
+    */
 
     wordPressData.posts = wordPressData.posts.map(post => {
       const parser = ShortcodeParser()
@@ -657,24 +661,28 @@ async function bootstrapDataForMigration() {
       })
 
       parser.add("text-with-link", function (opts, content) {
-        console.log(post.id, opts)
-
         const linkBlock = {
+          id: `${post.id}-${linkBlockCounter}`,
           postId: post.id,
           linkImage: opts.image,
-          linkUrl: opts["link-url"],
-          linkText: opts["link-text"],
+          linkUrl: opts["link-url"].replace(
+            "https://www.sorpetaler.de/hubert",
+            ""
+          ),
+          linkText: opts["link-text"] || opts[" link-text"],
           content,
         }
 
+        linkBlockCounter += 1
+
         wordPressData.linkBlocks.push(linkBlock)
 
-        return `link-block ${opts["link-url"]} `
+        return `link-block ${linkBlock.id} `
       })
 
       const content = parser.parse(post.content.raw)
 
-      return { ...post, content: { rendered: content } }
+      return { ...post, content: { raw: content } }
     })
   } catch (e) {
     console.log(e)
@@ -731,7 +739,10 @@ function createCategoryFields(category) {
   }
 }
 
-function createLinkBlockFields(linkBlock, contentfulAssetId) {
+async function createLinkBlockFields(linkBlock, contentfulAssetId) {
+  const markdownText = turndownService.turndown(linkBlock.content)
+  const linkBlockText = await richTextFromMarkdown(markdownText)
+
   return {
     title: { "en-US": linkBlock.linkUrl },
     image: {
@@ -745,7 +756,7 @@ function createLinkBlockFields(linkBlock, contentfulAssetId) {
     },
     linkText: { "en-US": linkBlock.linkText },
     linkUrl: { "en-US": linkBlock.linkUrl },
-    text: { "en-US": linkBlock.content },
+    text: { "en-US": linkBlockText },
   }
 }
 
@@ -772,7 +783,7 @@ async function createContentfulLinkBlocksAssets(environment) {
           }
 
           resolve(linkBlockAsset)
-        }, 1000 + 10000 * index)
+        }, 1000 + 5000 * index)
       })
 
       promises.push(promise)
@@ -902,6 +913,37 @@ async function createContentfulAssets(environment) {
   return Promise.all(promises)
 }
 
+function updateContent(content) {
+  return content.map(c => {
+    console.log("Value: ", c.value)
+    if (c.content) {
+      return { ...c, content: updateContent(c.content) }
+    } else if (
+      typeof c.value === "string" &&
+      c.value.trim().startsWith("link-block")
+    ) {
+      return {
+        nodeType: "embedded-entry-inline", //"embedded-entry-block",
+        content: [],
+        data: {
+          target: {
+            sys: {
+              id:
+                contentfulDataByTypeKey.linkBlocks[
+                  c.value.trim().replace("link-block ", "")
+                ], // Find the entry with this ID in the includes["Entry"] object below
+              type: "Link",
+              linkType: "Entry",
+            },
+          },
+        },
+      }
+    } else {
+      return c
+    }
+  })
+}
+
 async function createContentfulArticles(environment) {
   const promises = []
 
@@ -909,15 +951,17 @@ async function createContentfulArticles(environment) {
     const markdownContent = turndownService.turndown(post.content.raw)
     const articleContent = await richTextFromMarkdown(markdownContent)
 
+    articleContent.content = updateContent(articleContent.content)
+
     const fields = {
       title: {
-        "en-US": post.title.rendered,
+        "en-US": post.title.raw,
       },
       slug: {
         "en-US": post.slug,
       },
       introduction: {
-        "en-US": post.excerpt.rendered,
+        "en-US": post.excerpt.raw,
       },
       content: {
         "en-US": articleContent,
@@ -982,7 +1026,10 @@ async function createContentfulLinkBlocks(environment) {
     const promise = new Promise(resolve => {
       let contentfulLinkBlock
       setTimeout(async () => {
-        const fields = createLinkBlockFields(linkBlock)
+        const fields = await createLinkBlockFields(
+          linkBlock,
+          contentfulDataByTypeKey.linkBlockAssets[index]
+        )
 
         try {
           contentfulLinkBlock = await environment.createEntry("linkBlock", {
@@ -990,8 +1037,10 @@ async function createContentfulLinkBlocks(environment) {
           })
           contentfulLinkBlock = await contentfulLinkBlock.publish()
 
-          console.log(contentfulLinkBlock.fields.slug["en-US"], "Link Block")
-          // push link block to contentful object
+          log(contentfulLinkBlock.fields.title["en-US"], "Link Block")
+
+          contentfulDataByTypeKey.linkBlocks[linkBlock.id] =
+            contentfulLinkBlock.sys.id
         } catch (error) {
           throw Error(error)
         }
@@ -1043,7 +1092,6 @@ async function migrateContent() {
     log("Creating contentful articles")
     await createContentfulArticles(environment)
     log("Contentful articles created ✓")
-
     console.log("Done ✓✓✓")
   } catch (e) {
     console.log(e)
