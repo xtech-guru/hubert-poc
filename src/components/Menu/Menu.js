@@ -53,7 +53,7 @@ export const Menu = props => {
           <Link to={props.logo.url} aria-label="Logo">
             <img src={headerLogoSm} alt="Hubert logo" />
             <img src={headerLogoLg} alt="Hubert logo" />
-            <div>
+            <div className="page-title">
               <h1>{props.logo.content}</h1>
             </div>
           </Link>
@@ -166,6 +166,7 @@ const NavBarWrapper = styled.nav`
   padding-top: 8px;
   position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: flex-start;
 
   font-family: "GT Pressura", -apple-system, system-ui, BlinkMacSystemFont,
@@ -202,7 +203,8 @@ const NavBarWrapper = styled.nav`
       content: "";
       background-image: url(${require("../../images/burger_menu.svg")});
       background-position: center;
-      background-size: cover;
+      background-size: auto;
+      background-repeat: no-repeat;
     }
   }
 
@@ -256,7 +258,7 @@ const NavBarWrapper = styled.nav`
     }
   }
 
-  & h1 {
+  & .page-title {
     display: none;
 
     @media (min-width: 992px) {
@@ -360,21 +362,24 @@ const NavBarWrapper = styled.nav`
 const MenuItemWrapper = styled.li`
   ${props =>
     props.selected && props.type === "collapse"
-      ? `background: #f86968;
-         transition: background-color 1s ease, color 1s ease;
-         a {
-           color: #fff !important;
-         }
-        `
+      ? `
+  @media (min-width: 768px) {
+    background: #f86968;
+    transition: background-color 1s ease, color 1s ease;
+    a {
+      color: #fff !important;
+    }
+  }
+`
       : ""}
 `
 
 const FormWrapper = styled.div`
   overflow: hidden;
-  height: ${props => (props.visible ? "255px;" : "0px;")}
+  max-height: ${props => (props.visible ? "350px;" : "0px;")}
   background: #f86968;
   color: #fff;
-  transition: height .3s ease;
+  transition: max-height .5s ease;
 
   > div {
     display: block;

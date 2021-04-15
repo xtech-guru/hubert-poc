@@ -48,12 +48,15 @@ const IndexPage = ({ data }) => {
 }
 
 const PostsWrapper = styled.div`
-  @media (max-width: 767px) {
-    margin-top: 14px;
-    padding: 0 20px;
-  }
-  @media (min-width: 992px) {
+  margin-top: 14px;
+  padding: 0 20px;
+
+  @media (min-width: 768px) {
     margin-top: 17px;
+    padding: 0;
+  }
+
+  @media (min-width: 992px) {
     padding: 0 14px;
   }
 `

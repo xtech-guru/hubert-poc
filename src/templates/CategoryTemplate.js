@@ -48,13 +48,19 @@ const ArticlesWrapper = styled.div`
   }
 `
 const CategoryTitle = styled.h2`
+  margin-bottom: 60px;
+  font-size: 2rem;
   color: #4b3e31;
-  margin-bottom: 70px;
-  font-size: 3rem;
   text-align: center !important;
-  text-transform: uppercase;
+
+  @media (min-width: 768px) {
+    margin-bottom: 70px;
+    font-size: 2.5rem;
+  }
+
   @media (min-width: 992px) {
-    font-size: 1.75rem;
+    font-size: 3rem;
   }
 `
+
 export default CategoryTemplate

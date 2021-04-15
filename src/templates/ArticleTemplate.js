@@ -36,7 +36,11 @@ const ArticleTemplate = ({ pageContext, location }) => {
 }
 
 const PageWrapper = styled.div`
-  margin-top: 2.625rem;
+  margin-top: 1.875rem;
+
+  media (min-width: 768px) {
+    margin-top: 2.625rem;
+  }
 `
 
 export default ArticleTemplate
