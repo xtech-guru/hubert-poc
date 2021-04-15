@@ -3,7 +3,6 @@ import Masonry from "react-masonry-component"
 import styled from "styled-components"
 
 import { ArticlePreview } from "../ArticlePreview"
-import InfiniteScroll from "react-infinite-scroll-component"
 
 const masonryOptions = {
   transitionDuration: 0,
@@ -11,7 +10,7 @@ const masonryOptions = {
 
 const imagesLoadedOptions = { background: ".my-bg-image-el" }
 
-const paginationSize = 4
+const paginationSize = 12
 
 export const Posts = function ({ data }) {
   const [articles, setArticles] = useState(data.slice(0, paginationSize))
@@ -31,41 +30,36 @@ export const Posts = function ({ data }) {
       return prevState.concat(newPage)
     })
   }, [data, setArticles])
+
   return (
     <MasonryContainer>
-      <StyledInfiniteScroll
-        dataLength={articles.length}
-        hasMore={hasMore}
-        next={loadMore}
+      <Masonry
+        elementType={"ul"} // default 'div'
+        options={masonryOptions} // default {}
+        disableImagesLoaded={false} // default false
+        updateOnEachImageLoad={false} // default false and works only if disableImagesLoaded is false
+        imagesLoadedOptions={imagesLoadedOptions} // default {}
       >
-        <Masonry
-          elementType={"ul"} // default 'div'
-          options={masonryOptions} // default {}
-          disableImagesLoaded={false} // default false
-          updateOnEachImageLoad={false} // default false and works only if disableImagesLoaded is false
-          imagesLoadedOptions={imagesLoadedOptions} // default {}
-        >
-          {articles.map(
-            ({ title, featuredImage, introduction, category, slug }, index) => {
-              return (
-                <li key={index}>
-                  <ArticlePreview
-                    title={title}
-                    description={introduction}
-                    img={featuredImage}
-                    category={category}
-                    slug={slug}
-                  />
-                </li>
-              )
-            }
-          )}
-        </Masonry>
-      </StyledInfiniteScroll>
+        {articles.map(
+          ({ title, featuredImage, introduction, category, slug }, index) => {
+            return (
+              <li key={index}>
+                <ArticlePreview
+                  title={title}
+                  description={introduction}
+                  img={featuredImage}
+                  category={category}
+                  slug={slug}
+                />
+              </li>
+            )
+          }
+        )}
+      </Masonry>
 
       {hasMore && (
         <div>
-          <button rel="next" aria-label="reload more">
+          <button rel="next" aria-label="reload more" onClick={loadMore}>
             mehr Laden
           </button>
         </div>
@@ -73,10 +67,6 @@ export const Posts = function ({ data }) {
     </MasonryContainer>
   )
 }
-
-const StyledInfiniteScroll = styled(InfiniteScroll)`
-  overflow: hidden !important;
-`
 
 const MasonryContainer = styled.div`
   opacity: 1;
