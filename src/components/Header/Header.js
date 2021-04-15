@@ -4,10 +4,14 @@ import styled from "styled-components"
 import data from "../../mocks/header.json"
 import { Menu } from "../Menu"
 
+import iconFacebook from "../../images/icon_facebook.svg"
+import iconPinterest from "../../images/icon_pinterest.svg"
+
 export const Header = props => (
   <HeaderWrapper>
     <SocialMediaIconButtonsWrapper>
       <StyledLink
+        className="fb"
         href={props.facebookUrl}
         target="_blank"
         rel="noreferrer"
@@ -16,6 +20,7 @@ export const Header = props => (
         {" "}
       </StyledLink>
       <StyledLink
+        className="pinterest"
         href={props.pinterestUrl}
         target="_blank"
         rel="noreferrer"
@@ -83,7 +88,7 @@ const HeaderWrapper = styled.header`
 const SocialMediaIconButtonsWrapper = styled.div`
   display: none;
 
-  @media (min-width: 768px) {
+  @media (min-width: 992px) {
     display: flex !important;
     justify-content: flex-end !important;
     padding: 37px 0.5rem 5px 0;
@@ -97,4 +102,12 @@ const StyledLink = styled.a`
   margin-right: 0.25rem;
   background-repeat: no-repeat;
   background-position: 50%;
+
+  &.fb {
+    background-image: url(${iconFacebook});
+  }
+
+  &.pinterest {
+    background-image: url(${iconPinterest});
+  }
 `

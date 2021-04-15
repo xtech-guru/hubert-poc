@@ -61,6 +61,7 @@ const MasonryContainer = styled.div`
     padding: 0 20px;
   }
   ul {
+    margin: 0;
     list-style: none;
     li {
       width: 100%;
@@ -69,9 +70,8 @@ const MasonryContainer = styled.div`
         display: flex;
         flex-direction: column;
         background-color: #fff;
-        padding-right: 30px;
-        padding-bottom: 61px;
         width: 33.333%;
+        padding-bottom: 0;
       }
     }
   }

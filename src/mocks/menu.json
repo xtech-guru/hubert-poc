@@ -10,23 +10,23 @@
       "items": [
         {
           "content": "allgemein",
-          "route": "/hubert/categories/allgemein/"
+          "route": "/categories/allgemein/"
         },
         {
           "content": "der werkstoff holz",
-          "route": "/hubert/categories/der-werkstoff-holz/"
+          "route": "/categories/der-werkstoff-holz/"
         },
         {
           "content": "fensterratgeber",
-          "route": "/hubert/categories/fensterratgeber/"
+          "route": "/categories/fensterratgeber/"
         },
         {
           "content": "nachhaltig bauen und sanieren",
-          "route": "/hubert/categories/nachhaltig-bauen-und-sanieren/"
+          "route": "/categories/nachhaltig-bauen-und-sanieren/"
         },
         {
           "content": "persönlichkeiten",
-          "route": "hubert/categories/persoenlichkeiten/"
+          "route": "/categories/persoenlichkeiten/"
         }
       ]
     },

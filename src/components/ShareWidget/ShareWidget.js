@@ -63,13 +63,29 @@ const SocialMediaBlock = styled.div`
 const WidgetWrapper = styled.div`
   display: flex;
   justify-content: space-between !important;
+  font-family: Merriweather;
+  @media (max-width: 767px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
   align-items: center;
   color: #c7bcb2;
   text-transform: uppercase;
   font-size: 14px;
   margin: 0;
+  > div {
+    a {
+      text-decoration: underline;
+    }
+  }
+
   a {
     color: #c7bcb2;
     text-decoration: underline;
+  }
+  hr {
+    @media (max-width: 767px) {
+      width: 100%;
+    }
   }
 `
