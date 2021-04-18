@@ -2,7 +2,6 @@ const contentful = require("contentful-management")
 const axios = require("axios")
 const TurndownService = require("turndown")
 const { richTextFromMarkdown } = require("@contentful/rich-text-from-markdown")
-const ShortcodeParser = require("meta-shortcodes")
 
 require("dotenv/config")
 
@@ -782,60 +781,6 @@ function createCategoryFields(category) {
   }
 }
 
-async function createLinkBlockFields(linkBlock, contentfulAssetId) {
-  const markdownText = turndownService.turndown(linkBlock.content)
-  const linkBlockText = await richTextFromMarkdown(markdownText)
-
-  return {
-    title: { "en-US": linkBlock.linkUrl },
-    image: {
-      "en-US": {
-        sys: {
-          type: "Link",
-          linkType: "Asset",
-          id: contentfulAssetId,
-        },
-      },
-    },
-    linkText: { "en-US": linkBlock.linkText },
-    linkUrl: { "en-US": linkBlock.linkUrl },
-    text: { "en-US": linkBlockText },
-  }
-}
-
-async function createContentfulLinkBlocksAssets(environment) {
-  const promises = []
-
-  wordPressData.linkBlocks.forEach((linkBlock, index) => {
-    if (linkBlock.linkImage) {
-      const promise = new Promise(resolve => {
-        let linkBlockAsset
-        setTimeout(async () => {
-          const fields = createAssetFields(linkBlock.linkImage)
-
-          try {
-            linkBlockAsset = await environment.createAsset({ fields })
-            linkBlockAsset = await linkBlockAsset.processForAllLocales()
-            linkBlockAsset = await linkBlockAsset.publish()
-
-            contentfulDataByTypeKey.linkBlockAssets[index] =
-              linkBlockAsset.sys.id
-            log(linkBlockAsset.fields.file["en-US"].fileName, "LinkBlock asset")
-          } catch (error) {
-            throw Error(error)
-          }
-
-          resolve(linkBlockAsset)
-        }, 1000 + 5000 * index)
-      })
-
-      promises.push(promise)
-    }
-  })
-
-  return Promise.all(promises)
-}
-
 async function createContentfulAvatarsAssets(environment) {
   const promises = wordPressData.users.map((user, index) => {
     return new Promise(resolve => {
@@ -965,53 +910,6 @@ async function createContentfulAssets(environment) {
   return Promise.all(promises)
 }
 
-function createEmbeddedLinkBlock(linkBlockContent) {
-  return {
-    nodeType: "embedded-entry-block",
-    content: [],
-    data: {
-      target: {
-        sys: {
-          id:
-            contentfulDataByTypeKey.linkBlocks[
-              linkBlockContent.trim().replace("link-block ", "")
-            ],
-          type: "Link",
-          linkType: "Entry",
-        },
-      },
-    },
-  }
-}
-
-function updateContent(content) {
-  return content.reduce((prev, current) => {
-    if (
-      typeof current.value === "string" &&
-      current.value.trim().startsWith("link-block")
-    ) {
-      console.log("here")
-      prev.push(createEmbeddedLinkBlock(current.value))
-    } else {
-      const linkBlockIndex = current.content.findIndex(
-        node =>
-          typeof node.value === "string" &&
-          node.value.trim().startsWith("link-block")
-      )
-
-      if (linkBlockIndex > -1) {
-        const linkBlock = current.content[linkBlockIndex]
-        current.content.splice(linkBlockIndex, 1)
-        prev.push(current)
-        prev.push(createEmbeddedLinkBlock(linkBlock.value))
-      } else {
-        prev.push(current)
-      }
-    }
-    return prev
-  }, [])
-}
-
 async function createContentfulArticles(environment) {
   const promises = []
 
@@ -1100,41 +998,6 @@ async function createContentfulArticles(environment) {
   return Promise.all(promises)
 }
 
-async function createContentfulLinkBlocks(environment) {
-  const promises = []
-
-  wordPressData.linkBlocks.forEach((linkBlock, index) => {
-    const promise = new Promise(resolve => {
-      let contentfulLinkBlock
-      setTimeout(async () => {
-        const fields = await createLinkBlockFields(
-          linkBlock,
-          contentfulDataByTypeKey.linkBlockAssets[index]
-        )
-
-        try {
-          contentfulLinkBlock = await environment.createEntry("linkBlock", {
-            fields,
-          })
-          contentfulLinkBlock = await contentfulLinkBlock.publish()
-
-          log(contentfulLinkBlock.fields.title["en-US"], "Link Block")
-
-          contentfulDataByTypeKey.linkBlocks[linkBlock.id] =
-            contentfulLinkBlock.sys.id
-        } catch (error) {
-          throw Error(error)
-        }
-
-        resolve(contentfulLinkBlock)
-      }, 1000 + 5000 * index)
-    })
-    promises.push(promise)
-  })
-
-  return Promise.all(promises)
-}
-
 async function migrateContent() {
   try {
     log("Fetching data from WordPress")
@@ -1145,16 +1008,6 @@ async function migrateContent() {
     const environment = await contentfulSpace.getEnvironment(
       ctfData.environment
     )
-
-    /*
-    log("Creating contentful link blocks assets")
-    await createContentfulLinkBlocksAssets(environment)
-    log("Contentful link blocks assets created✓")
-
-    log("Creating contentful link blocks")
-    await createContentfulLinkBlocks(environment)
-    log("Contentful link blocks created✓")
-     */
 
     log("Creating contentful authors avatars")
     await createContentfulAvatarsAssets(environment)
