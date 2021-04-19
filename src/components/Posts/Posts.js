@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useCallback, useMemo, useState } from "react"
 import Masonry from "react-masonry-component"
 import styled from "styled-components"
 
@@ -10,7 +10,27 @@ const masonryOptions = {
 
 const imagesLoadedOptions = { background: ".my-bg-image-el" }
 
+const paginationSize = 12
+
 export const Posts = function ({ data }) {
+  const [articles, setArticles] = useState(data.slice(0, paginationSize))
+
+  const hasMore = useMemo(() => data.length > articles.length, [
+    data,
+    articles.length,
+  ])
+
+  const loadMore = useCallback(() => {
+    setArticles(prevState => {
+      const newPage = data.slice(
+        prevState.length,
+        prevState.length + paginationSize
+      )
+
+      return prevState.concat(newPage)
+    })
+  }, [data, setArticles])
+
   return (
     <MasonryContainer>
       <Masonry
@@ -20,7 +40,7 @@ export const Posts = function ({ data }) {
         updateOnEachImageLoad={false} // default false and works only if disableImagesLoaded is false
         imagesLoadedOptions={imagesLoadedOptions} // default {}
       >
-        {data.map(
+        {articles.map(
           ({ title, featuredImage, introduction, category, slug }, index) => {
             return (
               <li key={index}>
@@ -36,11 +56,14 @@ export const Posts = function ({ data }) {
           }
         )}
       </Masonry>
-      <div>
-        <button rel="next" aria-label="reload more">
-          mehr Laden
-        </button>
-      </div>
+
+      {hasMore && (
+        <div>
+          <button rel="next" aria-label="reload more" onClick={loadMore}>
+            mehr Laden
+          </button>
+        </div>
+      )}
     </MasonryContainer>
   )
 }
@@ -61,6 +84,7 @@ const MasonryContainer = styled.div`
     padding: 0 20px;
   }
   ul {
+    margin: 0;
     list-style: none;
     li {
       width: 100%;
@@ -69,9 +93,8 @@ const MasonryContainer = styled.div`
         display: flex;
         flex-direction: column;
         background-color: #fff;
-        padding-right: 30px;
-        padding-bottom: 61px;
         width: 33.333%;
+        padding-bottom: 0;
       }
     }
   }

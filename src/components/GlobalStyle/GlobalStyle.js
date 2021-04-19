@@ -61,14 +61,54 @@ export const GlobalStyle = createGlobalStyle`
     max-width: 100vw;
     overflow-x: hidden;
     margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+    -o-font-smoothing: antialiased;
   }
 
   * {
     box-sizing: border-box;
   }
 
-  h1 {
-    font-size: 3rem;
+  h1, h2, h3, h4, h5, h6,
+  .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: 'GT Pressura';
+    font-weight: 700;
+    line-height: 1.1;
+    margin-top: 0;
+    margin-bottom: .5rem;
+  }
+
+  h1,
+  .h1 {
+    font-size: 2rem;
+
+    @media (min-width: 768px) and (max-width: 991px) {
+      font-size: 2.5rem;
+    }
+
+    @media (min-width: 992px) {
+      font-size: 3rem;
+    }
+  }
+
+  h2,
+  .h2 {
+    font-size: 1.375rem;
+
+    @media (min-width: 992px) {
+      font-size: 1.75rem;
+    }
+  }
+
+  h1, h2,
+  .h1, .h2 {
+    text-transform: uppercase;
+  }
+
+  p {
+    margin-top: 0;
+    margin-bottom: 1rem;
   }
 
   article {
@@ -81,5 +121,9 @@ export const GlobalStyle = createGlobalStyle`
 
   ul {
     padding: 0;
+  }
+
+  blockquote {
+    margin: 0 0 1rem;
   }
 `

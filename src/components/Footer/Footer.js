@@ -138,7 +138,6 @@ export function Footer() {
 }
 
 const FooterContainer = styled.footer`
-  font-size: 0.75rem;
   color: #fff;
   display: block;
   line-height: 18px;

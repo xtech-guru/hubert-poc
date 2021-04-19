@@ -11,7 +11,6 @@ import { RatingBlock } from "../RatingBlock"
 import { ShareWidget } from "../ShareWidget"
 import { CommentBlock } from "../CommentBlock"
 import { HighlightedElement } from "../HighlightedElement"
-import { QuoteBlock } from "../QuoteBlock"
 
 export const ArticleContent = ({
   content,
@@ -23,7 +22,6 @@ export const ArticleContent = ({
   introduction,
   author,
   location,
-  crossLink,
 }) => {
   const richTextOptions = {
     renderNode: {
@@ -34,9 +32,6 @@ export const ArticleContent = ({
 
         return <GatsbyImage image={getImage(img)} alt="content image" />
       },
-      [BLOCKS.QUOTE]: node => (
-        <QuoteBlock content={node.content[0].content[0].value} />
-      ),
       [BLOCKS.PARAGRAPH]: node => {
         if (
           node.content?.[0].marks?.length > 0 &&
@@ -78,7 +73,7 @@ export const ArticleContent = ({
             {category.title}
           </Link>
         </CategoryText>
-        <ArticleTitle>
+        <ArticleTitle className="h1">
           <Link to={location.href} aria-label="Article">
             {title}
           </Link>
@@ -86,7 +81,7 @@ export const ArticleContent = ({
         <Introduction>{introduction}</Introduction>
         <hr />
         <ShareWidget
-          author={{ name: author.name, slug: author.slug }}
+          author={{ name: author.fullName, slug: author.slug }}
           location={location}
         />
         <hr />
@@ -109,12 +104,29 @@ export const ArticleContent = ({
   )
 }
 
-const Wrapper = styled.article`
+const ContentWrapper = styled.article`
   position: relative;
   margin-left: auto;
   margin-right: auto;
   padding-right: 15px;
   padding-left: 15px;
+  color: #756b62;
+
+  @media (min-width: 576px) {
+    width: 540px;
+    max-width: 100%;
+  }
+
+  @media (min-width: 768px) {
+    width: 720px;
+    max-width: 100%;
+  }
+
+  @media (min-width: 1200px) {
+    width: 1140px;
+    max-width: 100%;
+  }
+
   a {
     text-decoration: none;
     :hover {
@@ -122,72 +134,72 @@ const Wrapper = styled.article`
     }
   }
 
-  @media (min-width: 1200px) {
-    width: 1140px;
-    max-width: 100%;
-  }
-  @media (min-width: 768px) {
-    padding-right: 15px;
-    padding-left: 15px;
-    width: 720px;
-    max-width: 100%;
-  }
-  @media (min-width: 576px) {
-    width: 540px;
-    max-width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
-  }
   hr {
     margin-top: 1rem;
     margin-bottom: 1rem;
   }
-`
 
-const ContentWrapper = styled(Wrapper)`
-  color: #756b62;
-  @media (min-width: 768px) {
-    width: 1140px;
-    padding-right: 15px;
-    padding-left: 15px;
-    header {
+  header {
+    @media (min-width: 768px) {
+      padding-left: 63px;
+      padding-right: 63px;
+    }
+
+    @media (min-width: 992px) {
       padding-left: 77px;
       padding-right: 233px;
     }
   }
+
+  hr {
+    border: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    :last-child {
+      @media (max-width: 767px) {
+        display: none;
+      }
+    }
+  }
+
   blockquote {
-    @media (min-width: 992px) {
-      margin-right: -77px;
-    }
-    @media (min-width: 768px) {
-      margin-right: -63px;
-    }
-    @media (min-width: 992px) {
-      margin-left: -77px;
-    }
-    @media (min-width: 768px) {
-      margin-left: -63px;
-    }
     padding: 15px 0;
-    font-family: GT Pressura, -apple-system, system-ui, BlinkMacSystemFont,
-      Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
+    font-family: GT Pressura;
     font-size: 30px;
     line-height: 36px;
     font-weight: 700;
     color: #f86968;
     border-top: 3px solid #ffd0d0;
     border-bottom: 3px solid #ffd0d0;
+
+    p {
+      font-family: GT Pressura;
+      margin: 0;
+    }
+
+    @media (min-width: 768px) {
+      margin-left: -63px;
+      margin-right: -63px;
+    }
+
+    @media (min-width: 992px) {
+      margin-left: -77px;
+      margin-right: -77px;
+    }
   }
+
   .unpad-left {
+    margin-bottom: 30px;
+
     @media (min-width: 992px) {
       margin-left: -77px;
     }
+
     @media (min-width: 768px) {
       margin-bottom: 20px;
       margin-right: 30px;
       margin-left: -63px;
     }
-    margin-bottom: 30px;
+
     @media (min-width: 768px) {
       float: left !important;
     }
@@ -205,17 +217,8 @@ const CategoryText = styled.span`
 `
 
 const ArticleTitle = styled.div`
-  font-family: GT Pressura, -apple-system, system-ui, BlinkMacSystemFont,
-    Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
   margin: 20px 0 21px;
-  text-transform: uppercase;
-  font-size: 2rem;
-  font-weight: 700;
-  line-height: 35.2px;
-  @media (min-width: 768px) {
-    font-size: 48px;
-    line-height: 1.1;
-  }
+
   a {
     color: #4b3e31;
   }
@@ -231,19 +234,33 @@ const ArticleImage = styled(GatsbyImage)`
   width: 100%;
   height: auto;
   max-width: 100%;
+  margin-top: 10px;
   img {
     vertical-align: middle;
   }
 `
 
 const Content = styled.div`
-a{
-  color : #0275d8;
-  :hover{
-    color : #014c8c;
+  > ul {
+    padding-left: 40px;
+    list-style: none;
+    
+    ul {
+      padding-left: 40px;  
+      p {
+        margin: 0;
+      }
+      }
+    }
   }
-}
-.gatsby-image-wrapper {
+  a {
+    color : #0275d8;
+    :hover{
+      color : #014c8c;
+    }
+  }
+
+  .gatsby-image-wrapper {
   margin-left: 0;
   margin-right: 0;
   max-width: 100%;
@@ -251,25 +268,33 @@ a{
   max-width: 500px;
   max-height : 495px;
   float: left !important;
-  @media (min-width: 992px) {
-    margin-left: -77px;
-  }
-  @media (min-width: 768px) {
     margin-bottom: 20px;
+  
+  @media (min-width: 768px) {
     margin-right: 30px;
     margin-left: -63px;
   }
+  @media (min-width: 992px) {
+    margin-left: -77px;
+  }
 }
 
-h2:first-of-type{
+  h2:first-of-type{
   display:inline-block;
 }
+    
   @media (min-width: 768px) {
     margin: 30px 0;
     color: #756b62;
+    padding-left: 63px;
+    padding-right: 63px;
+  }
+  
+  @media (min-width: 992px) {
     padding-left: 77px;
     padding-right: 233px;
   }
+  
   .text-with_link {
     margin-right: -233px;
     background-color: #f4efea;

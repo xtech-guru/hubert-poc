@@ -102,6 +102,7 @@ const AuthorBlockName = styled.div`
   }
 `
 const AuthorBlockParagraph = styled.div`
+  font-family: Merriweather;
   flex-basis: 0;
   flex-grow: 1;
   max-width: 100%;
