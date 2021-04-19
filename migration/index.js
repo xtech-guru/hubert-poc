@@ -1,7 +1,6 @@
 const contentful = require("contentful-management")
 const axios = require("axios")
 const TurndownService = require("turndown")
-const { richTextFromMarkdown } = require("@contentful/rich-text-from-markdown")
 
 require("dotenv/config")
 
@@ -84,7 +83,11 @@ turndownService.addRule("fencedCodeBlock", {
 turndownService.addRule("replaceWordPressImages", {
   filter: ["img"],
   replacement: function (content, node) {
-    return `![${node.getAttribute("alt")}](${node.getAttribute("src")})`
+    const url =
+      contentfulDataByTypeKey.assetsByUrl[node.getAttribute("src")].url
+    const alt = node.getAttribute("alt")
+
+    return `\n![${alt}](${url})\n`
   },
 })
 
@@ -113,7 +116,6 @@ let contentfulDataByTypeKey = {
  * fetch data from WordPress endpoints
  * @type {{categories: {}, media: {}, posts: {}, users: {}}}
  */
-/*
 let wordPressData = {
   posts: {},
   categories: {},
@@ -121,8 +123,8 @@ let wordPressData = {
   media: {},
   linkBlocks: [],
 }
- */
 
+/*
 let wordPressData = {
   posts: [
     {
@@ -148,8 +150,6 @@ let wordPressData = {
       content: {
         raw:
           'Im letzten Jahr hat <a href="http://www.sorpetaler.de">Sorpetaler Fensterbau</a> in einem Wettbewerb nach den schönsten Holzhäusern 2020 gesucht. Drei Gewinner wurden bereits gekürt. Jetzt ist aus den interessantesten Einsendungen (darunter natürlich auch die Gewinner) ein neues E-Book entstanden. Darin enthalten sind sowohl Häuser, die noch in Planung sind, wie auch bereits fertiggestellte Häuser. Sie alle verdeutlichen, wie vielfältig und flexibel der Werkstoff Holz ist. Und welches Potenzial in ihm steckt.\r\n<h2>Modular und nachhaltig</h2>\r\nInsbesondere bei den Häusern, die sich noch in Planung befinden zeigt sich: Flexible Lösungen sind der neue Standard.[float-left]<a href="https://www.sorpetaler.de/wp-content/uploads/2021/03/sorpetaler_e-book_die-schoensten-holzhaeuser-2020.pdf" target="_blank" rel="noopener"><img class="alignnone" title="E-Book herunterladen" src="https://www.sorpetaler.de/wp-content/uploads/2021/04/sorpetaler_e-book-cover_die-schoensten-holzhaeuser-2020.jpg" alt="Cover des E-Books Die schönsten Holzhäuser 2020" width="400" height="677" /></a>[/float-left] So bietet das modulare Holzhaus von der Architektin Ines Maria Fiala ein Grundmodul mit etwa 70m², das je nach Lebensphase durch zwei Erweiterungsmodule vergrößert werden kann - etwa, wenn Nachwuchs kommt. Die Architektin hat sich dabei die Idee der <em>tiny houses </em>als Vorbild genommen. "Das Konzept des modularen Holzhauses gründet auf der gesellschaftlichen Beobachtung, dass Menschen einen bestimmten Bedarf an Platz benötigen, der sich im Laufe ihres Lebens aufgrund ihrer aktuellen Lebenslage ändert. (...) Der Platzbedarf wird allerdings nicht auf ein Minimum, sondern durch einen praktischen Grundriss auf ein Mindestmaß an Wohnqualität gebracht."\r\n<blockquote>"Am Minimum Wohnen, aber intensiver leben."</blockquote>\r\nÄhnlichen drücken es die Architektinnen Sofia Salviani de Boseck und Gabriele Kruse aus: "Am Minimum Wohnen, aber intensiver leben" - diesem Motto folgt ihr Entwurf des BauMHauses. Das Haus setzt sich aus verschiedenen Modulen zusammen, in deren Mitte sich ein Baum befindet. Das BauMHaus ist Teil der Reihe <em>Modul+</em>, die die Architektinnen insbesondere für Projekte in Afrika und Lateinamerika entwickelt haben. Dabei möchten sie nicht nur hohen Wohnkomfort auf kleinem Raum ermöglichen, sondern die Menschen vor Ort für nachhaltiges und ökologisches Bauen sensibilisieren.\r\n<h2>Wohnkonzepte der Zukunft</h2>\r\nBei der Bewertung der Einsendungen spielte auch die Frage eine Rolle, wie wir in der Zukunft leben werden. [float-left]<img class="alignnone" src="https://www.sorpetaler.de/wp-content/uploads/2021/04/schoenste-holzhaeuser_vis-a-vis_luna-productions.jpg" alt="Das schönste Holzhaus 2020: Wohnhaus vis-à-vis von luna productions aus der Schweiz" width="550" height="677" />[/float-left]Besonders hervorgetan hat sich dabei das Wohnhaus <em>vis-à-vis</em>, das mit seinem intelligenten Konzept den ersten Platz errang. Den Architekt*innen Nadja und Lukas Frei ist es gelungen eine Brücke zu schlagen zwischen modernen Wohnformen und den baulichen Traditionen des Schweizer Dorfes, in welchem das Haus steht.\r\n\r\nDer Neubau in Mischbauweise (Massiv + Holz) beherbergt mehrere Wohnungen, die sich im Inneren dank der Holzständerkonstruktion leicht an sich verändernde Bedürfnisse ihrer Bewohner*innen anpassen lassen. Architektonisch fügt sich das Haus dennoch geschmeidig in die gewachsenen Strukturen ein und bildet mit den benachbarten Häusern und der gegenüberliegenden Schreinerei einen gemeinsamen Hof, der als halb-öffentlicher Bereich ein Begegnungsort für die ganze Nachbarschaft ist.\r\n\r\nBegegnungsorte und gemeinschaftliches Leben spielten bei der Planung des Wohnquartiers <em>Auf dem Rode</em>  in Lippstadt ebenfalls eine große Rolle. [float-left]<img class="alignnone" src="https://www.sorpetaler.de/wp-content/uploads/2021/04/schoenste-holzhauser_auf-dem-rode_rsa-materio.jpg" alt="Einfamilienhäuser aus Holz im neuen Wohnquartier auf dem Rode in Lippstadt" width="500" height="677" />[/float-left]Das spannende Projekt hat es als Nicht-Wettbewerbs-Beitrag in das E-Book geschafft. Ausgestattet mit <a href="https://www.sorpetaler.de/fenster/holzfenster/">Sorpetaler Holzfenstern</a>, geplant vom Architekturbüro <a href="https://www.rsarchitekten.com/">rsa</a> und umgesetzt vom Sorpetaler-Partner <em><a href="https://www.materio.de/">materio</a>, </em>bietet<em> </em>das neue Viertel im Lippstädter Norden künftig ökologische Einfamilienhäuser, die vom Leben als junge Familie bis hin zum altersgerechten Wohnen vieles möglich machen. In ihrer Mitte entsteht dabei ein verkehrsberuhigter gemeinsamer Raum für das ganze Quartier - als Spielfläche für Kinder, Ort für Nachbarschaftsfeste oder Areal für Projekte wie Urban Gardening.\r\n<h2>"Holz ist ein Baustoff mit langer Tradition"</h2>\r\nDen Abschluss des neuen E-Books bildet ein Interview mit dem Architekten Joachim E. Kranendonck, der als Teil der Jury die Wettbewerbseinsendungen mit bewertet hat und gleichzeitig als Mitglied der Deutschen Gesellschaft für nachhaltiges Bauen (<a href="https://www.dgnb.de/de/index.php">DGNB</a>) ein Verfechter ökologischer Bauweise ist. Im Gespräch zeichnet er ein positives Bild der Entwicklungen im Holzbau und hebt die Vorteile des Werkstoffes Holz hervor.\r\n<blockquote>"Kaum ein anderer Baustoff ist so flexibel und variantenreich einzusetzen."</blockquote>\r\n"Holz ist ein Baustoff mit langer Tradition und zugleich hochmodern. Er verbindet hervorragende technische Eigenschaften mit vielfältigen Gestaltungsmöglichkeiten. Kaum ein anderer Baustoff ist so flexibel und variantenreich einzusetzen. Der Baustoff bietet genügend Entwicklungsmöglichkeiten für neue Ideen mit denen Effizienz, Nachhaltigkeit, Funktionalität und Qualität in der Architektur erreicht werden können. Und das mit einem ganz entscheidenden Merkmal: Holz wächst immer wieder nach. Die Wettbewerbsbeiträge zeigen vorbildlich die Verwendung des Baustoffes und sind ein gutes Beispiel dafür, dass sich die Gestaltungsqualität mit Holz auf höchstem Niveau erreichen lässt."\r\n\r\nDas ganze E-Book könnt ihr über diesen Link herunterladen: <a href="https://www.sorpetaler.de/wp-content/uploads/2021/03/sorpetaler_e-book_die-schoensten-holzhaeuser-2020.pdf">E-Book <em>Die schönsten Holzhäuser 2020</em></a>\r\n\r\n<em>Bildnachweise: Beitragsbild "Schwarzwaldpanorama" von Partner &amp; Partner Architekten - Foto Jan Rottler; Bilder im Text: (1) Wohnhaus vis-à-vis von luna productions - Foto Mark Drotsky (2) Wohnquartier auf dem Rode, Lippstadt - Planung: rsa, Visualisierung: loomn</em>\r\n\r\n&nbsp;',
-        rendered:
-          '<p>Im letzten Jahr hat <a href="http://www.sorpetaler.de">Sorpetaler Fensterbau</a> in einem Wettbewerb nach den schönsten Holzhäusern 2020 gesucht. Drei Gewinner wurden bereits gekürt. Jetzt ist aus den interessantesten Einsendungen (darunter natürlich auch die Gewinner) ein neues E-Book entstanden. Darin enthalten sind sowohl Häuser, die noch in Planung sind, wie auch bereits fertiggestellte Häuser. Sie alle verdeutlichen, wie vielfältig und flexibel der Werkstoff Holz ist. Und welches Potenzial in ihm steckt.</p>\n<h2>Modular und nachhaltig</h2>\n<p>Insbesondere bei den Häusern, die sich noch in Planung befinden zeigt sich: Flexible Lösungen sind der neue Standard.[float-left]<a href="https://www.sorpetaler.de/wp-content/uploads/2021/03/sorpetaler_e-book_die-schoensten-holzhaeuser-2020.pdf" target="_blank" rel="noopener"><img class="alignnone" title="E-Book herunterladen" src="https://www.sorpetaler.de/wp-content/uploads/2021/04/sorpetaler_e-book-cover_die-schoensten-holzhaeuser-2020.jpg" alt="Cover des E-Books Die schönsten Holzhäuser 2020" width="400" height="677" /></a>[/float-left] So bietet das modulare Holzhaus von der Architektin Ines Maria Fiala ein Grundmodul mit etwa 70m², das je nach Lebensphase durch zwei Erweiterungsmodule vergrößert werden kann &#8211; etwa, wenn Nachwuchs kommt. Die Architektin hat sich dabei die Idee der <em>tiny houses </em>als Vorbild genommen. &#8220;Das Konzept des modularen Holzhauses gründet auf der gesellschaftlichen Beobachtung, dass Menschen einen bestimmten Bedarf an Platz benötigen, der sich im Laufe ihres Lebens aufgrund ihrer aktuellen Lebenslage ändert. (&#8230;) Der Platzbedarf wird allerdings nicht auf ein Minimum, sondern durch einen praktischen Grundriss auf ein Mindestmaß an Wohnqualität gebracht.&#8221;</p>\n<blockquote><p>&#8220;Am Minimum Wohnen, aber intensiver leben.&#8221;</p></blockquote>\n<p>Ähnlichen drücken es die Architektinnen Sofia Salviani de Boseck und Gabriele Kruse aus: &#8220;Am Minimum Wohnen, aber intensiver leben&#8221; &#8211; diesem Motto folgt ihr Entwurf des BauMHauses. Das Haus setzt sich aus verschiedenen Modulen zusammen, in deren Mitte sich ein Baum befindet. Das BauMHaus ist Teil der Reihe <em>Modul+</em>, die die Architektinnen insbesondere für Projekte in Afrika und Lateinamerika entwickelt haben. Dabei möchten sie nicht nur hohen Wohnkomfort auf kleinem Raum ermöglichen, sondern die Menschen vor Ort für nachhaltiges und ökologisches Bauen sensibilisieren.</p>\n<h2>Wohnkonzepte der Zukunft</h2>\n<p>Bei der Bewertung der Einsendungen spielte auch die Frage eine Rolle, wie wir in der Zukunft leben werden. [float-left]<img class="alignnone" src="https://www.sorpetaler.de/wp-content/uploads/2021/04/schoenste-holzhaeuser_vis-a-vis_luna-productions.jpg" alt="Das schönste Holzhaus 2020: Wohnhaus vis-à-vis von luna productions aus der Schweiz" width="550" height="677" />[/float-left]Besonders hervorgetan hat sich dabei das Wohnhaus <em>vis-à-vis</em>, das mit seinem intelligenten Konzept den ersten Platz errang. Den Architekt*innen Nadja und Lukas Frei ist es gelungen eine Brücke zu schlagen zwischen modernen Wohnformen und den baulichen Traditionen des Schweizer Dorfes, in welchem das Haus steht.</p>\n<p>Der Neubau in Mischbauweise (Massiv + Holz) beherbergt mehrere Wohnungen, die sich im Inneren dank der Holzständerkonstruktion leicht an sich verändernde Bedürfnisse ihrer Bewohner*innen anpassen lassen. Architektonisch fügt sich das Haus dennoch geschmeidig in die gewachsenen Strukturen ein und bildet mit den benachbarten Häusern und der gegenüberliegenden Schreinerei einen gemeinsamen Hof, der als halb-öffentlicher Bereich ein Begegnungsort für die ganze Nachbarschaft ist.</p>\n<p>Begegnungsorte und gemeinschaftliches Leben spielten bei der Planung des Wohnquartiers <em>Auf dem Rode</em>  in Lippstadt ebenfalls eine große Rolle. [float-left]<img class="alignnone" src="https://www.sorpetaler.de/wp-content/uploads/2021/04/schoenste-holzhauser_auf-dem-rode_rsa-materio.jpg" alt="Einfamilienhäuser aus Holz im neuen Wohnquartier auf dem Rode in Lippstadt" width="500" height="677" />[/float-left]Das spannende Projekt hat es als Nicht-Wettbewerbs-Beitrag in das E-Book geschafft. Ausgestattet mit <a href="https://www.sorpetaler.de/fenster/holzfenster/">Sorpetaler Holzfenstern</a>, geplant vom Architekturbüro <a href="https://www.rsarchitekten.com/">rsa</a> und umgesetzt vom Sorpetaler-Partner <em><a href="https://www.materio.de/">materio</a>, </em>bietet<em> </em>das neue Viertel im Lippstädter Norden künftig ökologische Einfamilienhäuser, die vom Leben als junge Familie bis hin zum altersgerechten Wohnen vieles möglich machen. In ihrer Mitte entsteht dabei ein verkehrsberuhigter gemeinsamer Raum für das ganze Quartier &#8211; als Spielfläche für Kinder, Ort für Nachbarschaftsfeste oder Areal für Projekte wie Urban Gardening.</p>\n<h2>&#8220;Holz ist ein Baustoff mit langer Tradition&#8221;</h2>\n<p>Den Abschluss des neuen E-Books bildet ein Interview mit dem Architekten Joachim E. Kranendonck, der als Teil der Jury die Wettbewerbseinsendungen mit bewertet hat und gleichzeitig als Mitglied der Deutschen Gesellschaft für nachhaltiges Bauen (<a href="https://www.dgnb.de/de/index.php">DGNB</a>) ein Verfechter ökologischer Bauweise ist. Im Gespräch zeichnet er ein positives Bild der Entwicklungen im Holzbau und hebt die Vorteile des Werkstoffes Holz hervor.</p>\n<blockquote><p>&#8220;Kaum ein anderer Baustoff ist so flexibel und variantenreich einzusetzen.&#8221;</p></blockquote>\n<p>&#8220;Holz ist ein Baustoff mit langer Tradition und zugleich hochmodern. Er verbindet hervorragende technische Eigenschaften mit vielfältigen Gestaltungsmöglichkeiten. Kaum ein anderer Baustoff ist so flexibel und variantenreich einzusetzen. Der Baustoff bietet genügend Entwicklungsmöglichkeiten für neue Ideen mit denen Effizienz, Nachhaltigkeit, Funktionalität und Qualität in der Architektur erreicht werden können. Und das mit einem ganz entscheidenden Merkmal: Holz wächst immer wieder nach. Die Wettbewerbsbeiträge zeigen vorbildlich die Verwendung des Baustoffes und sind ein gutes Beispiel dafür, dass sich die Gestaltungsqualität mit Holz auf höchstem Niveau erreichen lässt.&#8221;</p>\n<p>Das ganze E-Book könnt ihr über diesen Link herunterladen: <a href="https://www.sorpetaler.de/wp-content/uploads/2021/03/sorpetaler_e-book_die-schoensten-holzhaeuser-2020.pdf">E-Book <em>Die schönsten Holzhäuser 2020</em></a></p>\n<p><em>Bildnachweise: Beitragsbild &#8220;Schwarzwaldpanorama&#8221; von Partner &amp; Partner Architekten &#8211; Foto Jan Rottler; Bilder im Text: (1) Wohnhaus vis-à-vis von luna productions &#8211; Foto Mark Drotsky (2) Wohnquartier auf dem Rode, Lippstadt &#8211; Planung: rsa, Visualisierung: loomn</em></p>\n<p>&nbsp;</p>\n',
         protected: false,
       },
       excerpt: {
@@ -559,6 +559,7 @@ let wordPressData = {
   ],
   linkBlocks: [],
 }
+*/
 
 /**
  * logger function
@@ -670,7 +671,6 @@ async function bootstrapDataForMigration() {
     promises.push(getAllData(v, k))
   }
   try {
-    /*
     const responses = await Promise.all(promises)
 
     mergeResponses(responses).forEach(response => {
@@ -688,44 +688,6 @@ async function bootstrapDataForMigration() {
     wordPressData.posts = wordPressData.posts.filter(post =>
       mediaIds.includes(post.featured_media)
     )
-     */
-    /*
-    wordPressData.posts = wordPressData.posts.map(post => {
-      const parser = ShortcodeParser()
-
-      parser.add("float-left", function (opts, content) {
-        return content
-      })
-
-      parser.add("highlight", function (opts, content) {
-        return `<code>${content}</code>`
-      })
-
-      parser.add("text-with-link", function (opts, content) {
-        const linkBlock = {
-          id: `${post.id}-${linkBlockCounter}`,
-          postId: post.id,
-          linkImage: opts.image,
-          linkUrl: opts["link-url"].replace(
-            "https://www.sorpetaler.de/hubert",
-            ""
-          ),
-          linkText: opts["link-text"] || opts[" link-text"],
-          content,
-        }
-
-        linkBlockCounter += 1
-
-        wordPressData.linkBlocks.push(linkBlock)
-
-        return `<br/>link-block ${linkBlock.id}</br>`
-      })
-
-      const content = parser.parse(post.content.raw)
-
-      return { ...post, content: { raw: content } }
-    })
-    */
   } catch (e) {
     console.log(e)
   }
@@ -889,6 +851,7 @@ async function createContentfulAssets(environment) {
             const newAsset = {
               id: contentfulAsset.sys.id,
               fileName: contentfulAsset.fields.file["en-US"].fileName,
+              url: contentfulAsset.fields.file["en-US"].url,
             }
 
             if (assetsIdsByIndex[index]) {
@@ -914,24 +877,8 @@ async function createContentfulArticles(environment) {
   const promises = []
 
   for (const [index, post] of wordPressData.posts.entries()) {
-    const markdownContent = turndownService.turndown(post.content.raw)
-    const articleContent = await richTextFromMarkdown(markdownContent, node => {
-      return {
-        nodeType: "embedded-asset-block",
-        content: [],
-        data: {
-          target: {
-            sys: {
-              id: contentfulDataByTypeKey.assetsByUrl[node.url].id,
-              type: "Link",
-              linkType: "Asset",
-            },
-          },
-        },
-      }
-    })
+    const content = turndownService.turndown(post.content.raw)
 
-    console.log(JSON.stringify(articleContent, null, 5))
     const fields = {
       title: {
         "en-US": post.title.raw,
@@ -943,7 +890,7 @@ async function createContentfulArticles(environment) {
         "en-US": post.excerpt.raw,
       },
       content: {
-        "en-US": articleContent,
+        "en-US": content,
       },
       category: {
         "en-US": {
