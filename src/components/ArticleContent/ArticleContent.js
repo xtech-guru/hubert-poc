@@ -7,8 +7,7 @@ import { AuthorBlock } from "../AuthorBlock"
 import { RatingBlock } from "../RatingBlock"
 import { ShareWidget } from "../ShareWidget"
 import { CommentBlock } from "../CommentBlock"
-import { CrossLinkArticle } from "../CrossLinkArticle"
-import { HighlightedElement } from "../HighlightedElement"
+import { parse } from "../../utils/shotCodeParser"
 
 export const ArticleContent = ({
   content,
@@ -33,7 +32,9 @@ export const ArticleContent = ({
             {title}
           </Link>
         </ArticleTitle>
-        <Introduction dangerouslySetInnerHTML={{ __html: introduction }} />
+        <Introduction
+          dangerouslySetInnerHTML={{ __html: parse(introduction) }}
+        />
         <hr />
         <ShareWidget
           author={{ name: author.fullName, slug: author.slug }}
@@ -42,7 +43,9 @@ export const ArticleContent = ({
         <hr />
       </header>
       {img && <ArticleImage image={getImage(img)} alt={img.title} />}
-      {content && <Content dangerouslySetInnerHTML={{ __html: content }} />}
+      {content && (
+        <Content dangerouslySetInnerHTML={{ __html: parse(content) }} />
+      )}
 
       <RatingBlock
         title="War dieser Artikel hilfreich?"
@@ -192,6 +195,7 @@ const ArticleImage = styled(GatsbyImage)`
 `
 
 const Content = styled.div`
+  font-family: Merriweather;
   > ul {
     padding-left: 40px;
     list-style: none;
@@ -204,6 +208,59 @@ const Content = styled.div`
       }
     }
   }
+  
+  .highlight {
+    margin-left: 30px;
+    margin-bottom: 20px;
+    float: right;
+    background-color: #f4efea;
+    padding: 20px;
+    p {
+      font-family: "GT Pressura";
+      font-weight: 700;
+      color: #9d958e;
+      text-transform: uppercase;
+      line-height: 1.25;
+      margin: 0;
+      
+   
+
+      @media (min-width: 992px){
+        max-width: 163px;
+      }
+    }
+    
+    @media (max-width: 767px) {
+        float: none;
+        margin: 30px 0;
+      }
+  }
+  
+  .float-left {
+    margin-bottom: 30px;
+  
+    @media (min-width: 992px) {
+      margin-left: -77px;
+      float: left!important;
+    }
+
+    @media (min-width: 768px) {
+        margin-bottom: 20px;
+        margin-right: 30px;
+        margin-left: -63px;
+    }
+    
+    img {
+      margin-left: 0;
+      margin-right: 0;
+      max-width: 100%;
+      height: auto;
+      vertical-align: middle;
+      border-style: none;
+    }
+  }
+  
+  
   a {
     color : #0275d8;
     :hover{
@@ -246,37 +303,91 @@ const Content = styled.div`
     padding-right: 233px;
   }
   
-  .text-with_link {
+  .text-with-link {
     margin-right: -233px;
     background-color: #f4efea;
     margin-top: 30px;
     margin-bottom: 30px;
     padding: 30px 20px;
-    .row {
-      .text_content {
+    
+    > div  {
+      margin-right: -15px;
+      margin-left: -15px;
+      display: flex;
+      flex-wrap: wrap;
+      > div:first-child {
         color: #756b62;
         margin-bottom: 20px;
         font-size: 18px;
         font-weight: bold;
-      }
-      div:last-child {
+        position: relative;
+        width: 100%;
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+        
         img {
-          width: 20px;
-          height: 18px;
-          margin: 0;
+          max-width: 100%;
+          height: auto;
+          vertical-align: middle;
+          border-style: none;
         }
-        a {
-          color: #71b3e7;
-          text-decoration: none;
+        @media (min-width: 768px) {
+          flex: 0 0 50%;
+          max-width: 50%;
         }
+      }
+      > div:nth-child(2) {
+          position: relative;
+          width: 100%;
+          min-height: 1px;
+          padding-right: 15px;
+          padding-left: 15px;
+
+        @media (min-width: 768px) {
+          flex: 0 0 50%;
+          max-width: 50%;
+          margin-top: 0!important;
+        }
+         > div {
+          font-size: 1.125rem;
+          margin-bottom: 20px;
+         }
+          img {
+            width: 20px;
+            height: 18px;
+            margin: 0;
+            vertical-align: middle;
+            border-style: none;
+          }
+          a {
+            color: #71b3e7;
+            touch-action: manipulation;
+            text-decoration: none;
+            background-color: transparent;
+          }
       }
     }
-    @media (min-width: 768px) {
-      margin-left: -63px;
+    
+    
+    @media (min-width: 992px){
+      margin-right: -233px;
+    }
+    @media (min-width: 768px){
       margin-right: -63px;
     }
-    @media (min-width: 992px) {
+    @media (min-width: 992px){
+      margin-left: -77px;
+    }
+    @media (min-width: 768px){
+      margin-left: -63px;
+    }
+    @media (min-width: 992px){
       padding-left: 77px;
       padding-right: 233px;
     }
+    @media (min-width: 768px){
+      padding: 40px 63px;
+    }
+
 `
