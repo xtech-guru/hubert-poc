@@ -8,7 +8,7 @@ import icon_arrow_blue from "../images/icon_arrow_blue.svg"
 import icon_arrow_brown from "../images/icon_arrow_brown.svg"
 
 const IndexPage = ({ data }) => {
-  const articles = [...data.allContentfulArticle.nodes]
+  const articles = data.allContentfulArticle.nodes
   const featuredArticle = articles[0]
   return (
     <Layout seo="Home">
@@ -33,7 +33,7 @@ const IndexPage = ({ data }) => {
               </Link>
             </div>
             <MainArticleIntroduction>
-              {featuredArticle.introduction}
+              {featuredArticle.introduction.introduction}
             </MainArticleIntroduction>
             <Link to={`/articles/${featuredArticle.slug}`} aria-label="Home">
               <img src={icon_arrow_blue} alt="" />
@@ -177,7 +177,11 @@ export const query = graphql`
     allContentfulArticle(filter: { node_locale: { eq: "en-US" } }) {
       nodes {
         title
-        introduction
+        introduction {
+          childMarkdownRemark {
+            html
+          }
+        }
         slug
         featuredImage {
           gatsbyImageData

@@ -21,7 +21,7 @@ export const ArticlePreview = ({ title, description, img, category, slug }) => {
             {title}
           </Link>
         </Title>
-        <Description>{description}</Description>
+        <Description dangerouslySetInnerHTML={{ __html: description }} />
         <MoreTextButton to={`/articles/${slug}`}>Mehr</MoreTextButton>
       </div>
     </ArticlePreviewWrapper>

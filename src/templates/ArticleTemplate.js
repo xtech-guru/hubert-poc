@@ -21,10 +21,10 @@ const ArticleTemplate = ({ pageContext, location }) => {
           slug={slug}
           title={title}
           img={featuredImage}
-          content={content.raw}
+          content={content.childMarkdownRemark.html}
           references={content.references}
           category={category}
-          introduction={introduction}
+          introduction={introduction.childMarkdownRemark.html}
           author={author}
           location={location}
           crossLink={crossLink}

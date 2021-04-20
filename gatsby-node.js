@@ -17,15 +17,13 @@ exports.createPages = async ({ graphql, actions }) => {
           title
           relatedArticles: article {
             title
-            introduction
-            slug
+            introduction {
+              childMarkdownRemark {
+                html
+              }
+            }
             featuredImage {
               gatsbyImageData
-              title
-            }
-            category {
-              title
-              slug
             }
           }
         }
@@ -33,30 +31,19 @@ exports.createPages = async ({ graphql, actions }) => {
       allContentfulArticle {
         nodes {
           title
-          introduction
+          introduction {
+            childMarkdownRemark {
+              html
+            }
+          }
           slug
           featuredImage {
             gatsbyImageData
             title
           }
           content {
-            raw
-            references {
-              ... on ContentfulArticle {
-                id
-                contentful_id
-                introduction
-                title
-                slug
-                featuredImage {
-                  gatsbyImageData
-                }
-              }
-              ... on ContentfulAsset {
-                id
-                gatsbyImageData
-                contentful_id
-              }
+            childMarkdownRemark {
+              html
             }
           }
           category {

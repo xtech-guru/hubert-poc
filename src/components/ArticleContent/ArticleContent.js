@@ -1,19 +1,17 @@
 import React from "react"
 import styled from "styled-components"
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
-import { BLOCKS } from "@contentful/rich-text-types"
 import { Link } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
-import { CrossLinkArticle } from "../CrossLinkArticle"
 import { AuthorBlock } from "../AuthorBlock"
+import { RatingBlock } from "../RatingBlock"
 import { ShareWidget } from "../ShareWidget"
 import { CommentBlock } from "../CommentBlock"
+import { CrossLinkArticle } from "../CrossLinkArticle"
 import { HighlightedElement } from "../HighlightedElement"
 
 export const ArticleContent = ({
   content,
-  references,
   img,
   slug,
   title,
@@ -22,48 +20,6 @@ export const ArticleContent = ({
   author,
   location,
 }) => {
-  const richTextOptions = {
-    renderNode: {
-      [BLOCKS.EMBEDDED_ASSET]: node => {
-        const img = references.find(i => {
-          return i.contentful_id === node.data.target.sys.id
-        })
-
-        return <GatsbyImage image={getImage(img)} alt="content image" />
-      },
-      [BLOCKS.PARAGRAPH]: node => {
-        if (
-          node.content?.[0].marks?.length > 0 &&
-          node.content[0].marks[0].type === "code"
-        ) {
-          return (
-            <HighlightedElement
-              content={node.content[0]?.value}
-              link={node.content[1]?.data.uri}
-            />
-          )
-        }
-
-        return documentToReactComponents(node)
-      },
-      [BLOCKS.EMBEDDED_ENTRY]: node => {
-        const crossLink = references.find(i => {
-          return i.contentful_id === node.data.target.sys.id
-        })
-        const { introduction, featuredImage, slug } = crossLink
-        if (introduction && featuredImage && slug) {
-          return (
-            <CrossLinkArticle
-              introduction={introduction}
-              image={featuredImage}
-              link={`/articles/${slug}`}
-            />
-          )
-        } else return <h3>noting</h3>
-      },
-    },
-  }
-
   return (
     <ContentWrapper>
       <header>
@@ -77,7 +33,7 @@ export const ArticleContent = ({
             {title}
           </Link>
         </ArticleTitle>
-        <Introduction>{introduction}</Introduction>
+        <Introduction dangerouslySetInnerHTML={{ __html: introduction }} />
         <hr />
         <ShareWidget
           author={{ name: author.fullName, slug: author.slug }}
@@ -86,12 +42,13 @@ export const ArticleContent = ({
         <hr />
       </header>
       {img && <ArticleImage image={getImage(img)} alt={img.title} />}
-      {content && (
-        <Content>
-          {documentToReactComponents(JSON.parse(content), richTextOptions)}
-        </Content>
-      )}
-      <hr />
+      {content && <Content dangerouslySetInnerHTML={{ __html: content }} />}
+
+      <RatingBlock
+        title="War dieser Artikel hilfreich?"
+        image={require("../../images/rating_1_over.gif")}
+        isLoading={false}
+      />
       <AuthorBlock author={author} />
       <CommentBlock url={location.href} title={title} slug={slug} />
     </ContentWrapper>

@@ -46,7 +46,7 @@ export const Posts = function ({ data }) {
               <li key={index}>
                 <ArticlePreview
                   title={title}
-                  description={introduction}
+                  description={introduction.childMarkdownRemark.html}
                   img={featuredImage}
                   category={category}
                   slug={slug}
