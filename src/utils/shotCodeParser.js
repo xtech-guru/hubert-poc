@@ -14,6 +14,9 @@ parser.add("highlight", function (opts, content) {
 })
 
 parser.add("text-with-link", function (opts, content) {
+  const linkText = opts["link-text"]
+  const linkUrl = opts["link-url"]
+
   return `<div class="text-with-link">
             <div>
                 <div>
@@ -22,7 +25,7 @@ parser.add("text-with-link", function (opts, content) {
                 <div>
                     <div>${content}</div>
                     <img src="${iconArrowBlue}"/>
-                    <a href={${opts["link-url"]}}>{${opts["link-text"]}}/>
+                    <a href={${linkUrl}}>${linkText}</a>
                 </div>
             </div>
           </div>`
