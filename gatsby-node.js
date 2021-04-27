@@ -18,8 +18,14 @@ exports.createPages = async ({ graphql, actions }) => {
           relatedArticles: article {
             title
             introduction
+            slug
             featuredImage {
               gatsbyImageData
+              title
+            }
+            category {
+              title
+              slug
             }
           }
         }
