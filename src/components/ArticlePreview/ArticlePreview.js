@@ -4,6 +4,7 @@ import { Link } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 export const ArticlePreview = ({ title, description, img, category, slug }) => {
+  if (!slug) throw new Error("Slug is missing in the passed data")
   return (
     <ArticlePreviewWrapper>
       <ImageWrapper>
