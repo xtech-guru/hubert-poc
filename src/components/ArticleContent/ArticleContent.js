@@ -7,7 +7,6 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import { CrossLinkArticle } from "../CrossLinkArticle"
 import { AuthorBlock } from "../AuthorBlock"
-import { RatingBlock } from "../RatingBlock"
 import { ShareWidget } from "../ShareWidget"
 import { CommentBlock } from "../CommentBlock"
 import { HighlightedElement } from "../HighlightedElement"
@@ -92,12 +91,7 @@ export const ArticleContent = ({
           {documentToReactComponents(JSON.parse(content), richTextOptions)}
         </Content>
       )}
-
-      <RatingBlock
-        title="War dieser Artikel hilfreich?"
-        image={require("../../images/rating_1_over.gif")}
-        isLoading={false}
-      />
+      <hr />
       <AuthorBlock author={author} />
       <CommentBlock url={location.href} title={title} slug={slug} />
     </ContentWrapper>
