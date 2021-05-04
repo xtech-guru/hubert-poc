@@ -24,6 +24,9 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       options: { gfm: false },
     },
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-image`,
     {
       resolve: `gatsby-source-contentful`,
       options: {
@@ -38,9 +41,6 @@ module.exports = {
         shortname: `sorpetaler-hubert`,
       },
     },
-    `gatsby-plugin-image`,
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
