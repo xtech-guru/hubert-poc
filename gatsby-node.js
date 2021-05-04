@@ -16,6 +16,7 @@ exports.createPages = async ({ graphql, actions }) => {
           slug
           title
           relatedArticles: article {
+            slug
             title
             introduction {
               childMarkdownRemark {
@@ -23,7 +24,8 @@ exports.createPages = async ({ graphql, actions }) => {
               }
             }
             featuredImage {
-              gatsbyImageData
+              gatsbyImageData(formats: [AUTO, WEBP])
+              title
             }
           }
         }
@@ -38,7 +40,7 @@ exports.createPages = async ({ graphql, actions }) => {
           }
           slug
           featuredImage {
-            gatsbyImageData
+            gatsbyImageData(formats: [AUTO, WEBP])
             title
           }
           content {
@@ -57,7 +59,7 @@ exports.createPages = async ({ graphql, actions }) => {
               details
             }
             featuredImage: picture {
-              gatsbyImageData(width: 96)
+              gatsbyImageData(width: 96, formats: [AUTO, WEBP])
             }
           }
         }
@@ -70,7 +72,7 @@ exports.createPages = async ({ graphql, actions }) => {
           }
           slug
           featuredImage: picture {
-            gatsbyImageData(width: 125)
+            gatsbyImageData(width: 125, formats: [AUTO, WEBP])
           }
           wrottenArticles: article {
             title
