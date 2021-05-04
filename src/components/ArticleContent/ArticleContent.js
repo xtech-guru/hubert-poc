@@ -4,7 +4,6 @@ import { Link } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import { AuthorBlock } from "../AuthorBlock"
-import { RatingBlock } from "../RatingBlock"
 import { ShareWidget } from "../ShareWidget"
 import { CommentBlock } from "../CommentBlock"
 import { parse } from "../../utils/shotCodeParser"
@@ -46,12 +45,7 @@ export const ArticleContent = ({
       {content && (
         <Content dangerouslySetInnerHTML={{ __html: parse(content) }} />
       )}
-
-      <RatingBlock
-        title="War dieser Artikel hilfreich?"
-        image={require("../../images/rating_1_over.gif")}
-        isLoading={false}
-      />
+      <hr />
       <AuthorBlock author={author} />
       <CommentBlock url={location.href} title={title} slug={slug} />
     </ContentWrapper>
