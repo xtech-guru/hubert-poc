@@ -1,4 +1,3 @@
-import React from "react"
 import ShortcodeParser from "meta-shortcodes"
 
 const iconArrowBlue = require("../images/icon_arrow_blue.svg")
