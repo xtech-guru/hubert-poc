@@ -3,6 +3,8 @@ import React from "react"
 import styled from "styled-components"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
+import cross_link_icon from "../../images/icon_arrow_blue.svg"
+
 export function CrossLinkArticle({ introduction, link, image }) {
   return (
     <CrossLinkArticleWrapper>
@@ -13,10 +15,7 @@ export function CrossLinkArticle({ introduction, link, image }) {
         <div>
           <div>{introduction}</div>
           {/* //TODO: change to GatsbyImage (Static) */}
-          <img
-            src={require("../../images/icon_arrow_blue.svg")}
-            alt="icon_arrow_right"
-          />
+          <img src={cross_link_icon} alt="icon_arrow_right" />
           <Link to={link}>
             <span>Mehr erfahren</span>
           </Link>

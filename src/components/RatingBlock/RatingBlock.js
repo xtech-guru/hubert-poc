@@ -1,6 +1,9 @@
 import React from "react"
 import styled from "styled-components"
 
+import rating_icon from "../../images/rating_1_over.gif"
+import loading_icon from "../../images/loading.gif"
+
 export const RatingBlock = ({ title, image, isLoading }) => {
   return (
     <RatingContent>
@@ -14,7 +17,7 @@ export const RatingBlock = ({ title, image, isLoading }) => {
               <PostRating>
                 <RatingImage
                   id="rating_12053_1"
-                  src={image}
+                  src={image || rating_icon}
                   alt="1 Star"
                   title="1 Star"
                 />
@@ -22,10 +25,7 @@ export const RatingBlock = ({ title, image, isLoading }) => {
                 <br />
               </PostRating>
               <PostRatingLoading id="post-ratings-12053-loading">
-                <LoadingImage
-                  src={require("../../images/loading.gif")}
-                  alt="Wird geladen"
-                />
+                <LoadingImage src={loading_icon} alt="Wird geladen" />
                 Loading...
               </PostRatingLoading>
             </div>
