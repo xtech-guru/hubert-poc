@@ -4,12 +4,8 @@ import styled from "styled-components"
 
 import { ArticlePreview } from "../ArticlePreview"
 
-const masonryOptions = {
-  transitionDuration: 0,
-}
-
+const masonryOptions = { transitionDuration: 0 }
 const imagesLoadedOptions = { background: ".my-bg-image-el" }
-
 const paginationSize = 12
 
 export const Posts = function ({ data }) {
@@ -93,8 +89,15 @@ const MasonryContainer = styled.div`
         display: flex;
         flex-direction: column;
         background-color: #fff;
-        width: 33.333%;
+        width: 100%;
         padding-bottom: 0;
+      }
+      @media (min-width: 768px) {
+        width: 50%;
+      }
+
+      @media (min-width: 992px) {
+        width: 33.333%;
       }
     }
   }
