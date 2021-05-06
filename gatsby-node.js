@@ -30,7 +30,7 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
-      allContentfulArticle {
+      allContentfulArticle(sort: { order: ASC, fields: createdAt }) {
         nodes {
           title
           introduction {
