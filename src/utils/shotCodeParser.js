@@ -1,6 +1,6 @@
 import ShortcodeParser from "meta-shortcodes"
 
-const iconArrowBlue = require("../images/icon_arrow_blue.svg")
+import arrow_icon from "../images/icon_arrow_blue.svg"
 
 const parser = new ShortcodeParser()
 
@@ -23,7 +23,7 @@ parser.add("text-with-link", function (opts, content) {
                 </div>
                 <div>
                     <div>${content}</div>
-                    <img src="${iconArrowBlue}"/>
+                    <img src="${arrow_icon}"/>
                     <a href={${linkUrl}}>${linkText}</a>
                 </div>
             </div>

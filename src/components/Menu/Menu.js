@@ -5,6 +5,7 @@ import { Link } from "gatsby"
 import data from "../../mocks/menu.json"
 import headerLogoSm from "../../images/H_logo.svg"
 import headerLogoLg from "../../images/HUBERT_logo_desktop.svg"
+import burger_menu_icon from "../../images/burger_menu.svg"
 
 const MenuItem = ({ content, route, type, selected, items = [], onClick }) => {
   return (
@@ -201,7 +202,7 @@ const NavBarWrapper = styled.nav`
       height: 1.5em;
       vertical-align: middle;
       content: "";
-      background-image: url(${require("../../images/burger_menu.svg")});
+      background-image: url(${burger_menu_icon});
       background-position: center;
       background-size: auto;
       background-repeat: no-repeat;
