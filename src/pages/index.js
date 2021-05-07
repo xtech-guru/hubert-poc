@@ -8,7 +8,7 @@ import icon_arrow_blue from "../images/icon_arrow_blue.svg"
 import icon_arrow_brown from "../images/icon_arrow_brown.svg"
 
 const IndexPage = ({ data }) => {
-  const articles = [...data.allContentfulArticle.nodes]
+  const articles = data.allContentfulArticle.nodes
   const featuredArticle = articles[0]
   return (
     <Layout seo="Home">
@@ -33,7 +33,7 @@ const IndexPage = ({ data }) => {
               </Link>
             </div>
             <MainArticleIntroduction>
-              {featuredArticle.introduction}
+              {featuredArticle.introduction.introduction}
             </MainArticleIntroduction>
             <Link to={`/articles/${featuredArticle.slug}`} aria-label="Home">
               <img src={icon_arrow_blue} alt="" />
@@ -41,7 +41,7 @@ const IndexPage = ({ data }) => {
             </Link>
           </div>
         </MainArticle>
-        <Posts data={articles} />
+        <Posts data={articles.slice(1)} />
       </PostsWrapper>
     </Layout>
   )
@@ -123,9 +123,11 @@ const MainArticle = styled.article`
         color: #4b3e31;
         @media (min-width: 992px) {
           font-size: 3rem;
-          color: #fff;
           touch-action: manipulation;
           background-color: transparent;
+        }
+        @media (min-width: 768px) {
+          color: #fff;
         }
       }
     }
@@ -165,11 +167,11 @@ const MainArticleIntroduction = styled.p`
   max-width: 700px;
   margin: 20px auto;
   line-height: 1.44;
+  color: #fff;
 
   @media (min-width: 768px) {
     margin-bottom: 90px;
     font-size: 1.125rem;
-    color: #fff;
   }
 `
 export const query = graphql`
@@ -177,7 +179,12 @@ export const query = graphql`
     allContentfulArticle(filter: { node_locale: { eq: "en-US" } }) {
       nodes {
         title
-        introduction
+        introduction {
+          introduction
+          childMarkdownRemark {
+            html
+          }
+        }
         slug
         featuredImage {
           gatsbyImageData

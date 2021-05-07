@@ -12,7 +12,11 @@ const articlesQuery = graphql`
           title
         }
         title
-        introduction
+        introduction {
+          childMarkdownRemark {
+            html
+          }
+        }
         slug
         featuredImage {
           gatsbyImageData
@@ -41,7 +45,7 @@ export const RelatedPosts = ({ category }) => {
                 <ArticlePreview
                   key={slug}
                   title={title}
-                  description={introduction}
+                  description={introduction.childMarkdownRemark.html}
                   img={featuredImage}
                   category={category}
                   slug={slug}

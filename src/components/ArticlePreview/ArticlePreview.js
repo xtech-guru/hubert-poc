@@ -4,6 +4,7 @@ import { Link } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 export const ArticlePreview = ({ title, description, img, category, slug }) => {
+  if (!slug) throw new Error("Slug is missing in the passed data")
   return (
     <ArticlePreviewWrapper>
       <ImageWrapper>
@@ -20,7 +21,7 @@ export const ArticlePreview = ({ title, description, img, category, slug }) => {
             {title}
           </Link>
         </Title>
-        <Description>{description}</Description>
+        <Description dangerouslySetInnerHTML={{ __html: description }} />
         <MoreTextButton to={`/articles/${slug}`}>Mehr</MoreTextButton>
       </div>
     </ArticlePreviewWrapper>

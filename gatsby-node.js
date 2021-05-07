@@ -16,41 +16,36 @@ exports.createPages = async ({ graphql, actions }) => {
           slug
           title
           relatedArticles: article {
+            slug
             title
-            introduction
+            introduction {
+              childMarkdownRemark {
+                html
+              }
+            }
             featuredImage {
-              gatsbyImageData
+              gatsbyImageData(formats: [AUTO, WEBP])
+              title
             }
           }
         }
       }
-      allContentfulArticle {
+      allContentfulArticle(sort: { order: ASC, fields: createdAt }) {
         nodes {
           title
-          introduction
+          introduction {
+            childMarkdownRemark {
+              html
+            }
+          }
           slug
           featuredImage {
-            gatsbyImageData
+            gatsbyImageData(formats: [AUTO, WEBP])
             title
           }
           content {
-            raw
-            references {
-              ... on ContentfulArticle {
-                id
-                contentful_id
-                introduction
-                title
-                slug
-                featuredImage {
-                  gatsbyImageData
-                }
-              }
-              ... on ContentfulAsset {
-                id
-                gatsbyImageData
-                contentful_id
-              }
+            childMarkdownRemark {
+              html
             }
           }
           category {
@@ -64,7 +59,7 @@ exports.createPages = async ({ graphql, actions }) => {
               details
             }
             featuredImage: picture {
-              gatsbyImageData(width: 96)
+              gatsbyImageData(width: 96, formats: [AUTO, WEBP])
             }
           }
         }
@@ -77,7 +72,7 @@ exports.createPages = async ({ graphql, actions }) => {
           }
           slug
           featuredImage: picture {
-            gatsbyImageData(width: 125)
+            gatsbyImageData(width: 125, formats: [AUTO, WEBP])
           }
           wrottenArticles: article {
             title

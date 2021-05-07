@@ -2,6 +2,10 @@ import React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
 
+import facebook_icon from "../../images/icon_facebook_share.svg"
+import twitter_icon from "../../images/icon_twitter_share.svg"
+import pinterest_icon from "../../images/icon_pinterest_share.svg"
+
 export const ShareWidget = ({ author, location }) => {
   return (
     <WidgetWrapper>
@@ -20,10 +24,7 @@ export const ShareWidget = ({ author, location }) => {
           target="_blank"
           rel="noreferrer"
         >
-          <img
-            src={require("../../images/icon_facebook_share.svg")}
-            alt="facebook"
-          />
+          <img src={facebook_icon} alt="facebook" />
         </a>
         <a
           aria-label="Twitter"
@@ -31,10 +32,7 @@ export const ShareWidget = ({ author, location }) => {
           target="_blank"
           rel="noreferrer"
         >
-          <img
-            src={require("../../images/icon_twitter_share.svg")}
-            alt="twitter"
-          />
+          <img src={twitter_icon} alt="twitter" />
         </a>
         <a
           aria-label="Pinterest"
@@ -42,10 +40,7 @@ export const ShareWidget = ({ author, location }) => {
           target="_blank"
           rel="noreferrer"
         >
-          <img
-            src={require("../../images/icon_pinterest_share.svg")}
-            alt="pinterest"
-          />
+          <img src={pinterest_icon} alt="pinterest" />
         </a>
       </SocialMediaBlock>
     </WidgetWrapper>

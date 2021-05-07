@@ -5,13 +5,15 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import { Layout } from "../components"
 
+import back_icon from "../images/icon_arrow_blue.svg"
+
 const AuthorTemplate = ({ pageContext }) => {
   const { fullName, details, featuredImage, wrottenArticles } = pageContext.data
   return (
     <Layout seo={fullName}>
       <AuthorContainer>
         <Link to="/about" aria-label="About">
-          <BackIcon src={require("../images/icon_arrow_blue.svg")} />
+          <BackIcon src={back_icon} />
           <span>Zurück zu 'Über uns'</span>
         </Link>
         <AuthorName>{fullName.substr(0, fullName.indexOf(" "))}</AuthorName>
