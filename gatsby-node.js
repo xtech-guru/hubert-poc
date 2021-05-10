@@ -18,6 +18,7 @@ exports.createPages = async ({ graphql, actions }) => {
           relatedArticles: article {
             slug
             title
+            createdAt
             introduction {
               childMarkdownRemark {
                 html
@@ -30,7 +31,7 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
-      allContentfulArticle(sort: { order: ASC, fields: createdAt }) {
+      allContentfulArticle {
         nodes {
           title
           introduction {
@@ -75,8 +76,9 @@ exports.createPages = async ({ graphql, actions }) => {
             gatsbyImageData(width: 125, formats: [AUTO, WEBP])
           }
           wrottenArticles: article {
-            title
             slug
+            title
+            createdAt
           }
         }
       }
@@ -92,6 +94,15 @@ exports.createPages = async ({ graphql, actions }) => {
     })
 
     const categories_list = result.data.allContentfulCategory.nodes
+    //Sort articles in the category by field createdAt
+    for (const category of categories_list) {
+      category &&
+        category.relatedArticles &&
+        category.relatedArticles.sort(
+          (a, b) => new Date(a.createdAt) - new Date(b.createdAt)
+        )
+    }
+
     categories_list.map(category => {
       createPage({
         path: `/categories/${category.slug}`,
@@ -102,6 +113,16 @@ exports.createPages = async ({ graphql, actions }) => {
   })
 
   const authors_list = result.data.allContentfulAuthor.nodes
+
+  //Sort articles in the author by field createdAt
+  for (const author of authors_list) {
+    author &&
+      author.wrottenArticles &&
+      author.wrottenArticles.sort(
+        (a, b) => new Date(a.createdAt) - new Date(b.createdAt)
+      )
+  }
+
   authors_list.map(author => {
     createPage({
       path: `/authors/${author.slug}`,

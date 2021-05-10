@@ -176,7 +176,10 @@ const MainArticleIntroduction = styled.p`
 `
 export const query = graphql`
   query {
-    allContentfulArticle(filter: { node_locale: { eq: "en-US" } }) {
+    allContentfulArticle(
+      filter: { node_locale: { eq: "en-US" } }
+      sort: { order: ASC, fields: createdAt }
+    ) {
       nodes {
         title
         introduction {
