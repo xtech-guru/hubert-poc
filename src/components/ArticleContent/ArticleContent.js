@@ -174,7 +174,7 @@ const Content = styled.div`
   font-family: Merriweather;
   > ul {
     padding-left: 40px;
-    list-style: none;
+    list-style: disc;
     
     ul {
       padding-left: 40px;  
