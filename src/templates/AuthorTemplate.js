@@ -9,6 +9,7 @@ import back_icon from "../images/icon_arrow_blue.svg"
 
 const AuthorTemplate = ({ pageContext }) => {
   const { fullName, details, featuredImage, wrottenArticles } = pageContext.data
+  //todo: make something for authors that did not have articles
   return (
     <Layout seo={fullName}>
       <AuthorContainer>
@@ -24,7 +25,7 @@ const AuthorTemplate = ({ pageContext }) => {
         <ul>
           <h2>Publizierte Artikel</h2>
           <hr />
-          {wrottenArticles.map((article, index) => {
+          {wrottenArticles?.map((article, index) => {
             return (
               <>
                 <li key={index}>
