@@ -191,7 +191,7 @@ export const query = graphql`
         }
         slug
         featuredImage {
-          gatsbyImageData(width: 310, formats: [WEBP])
+          gatsbyImageData(formats: [AUTO, WEBP])
           title
         }
         category {
