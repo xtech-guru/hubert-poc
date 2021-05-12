@@ -25,7 +25,7 @@ exports.createPages = async ({ graphql, actions }) => {
               }
             }
             featuredImage {
-              gatsbyImageData(formats: [AUTO, WEBP])
+              gatsbyImageData(formats: [WEBP])
               title
             }
           }
@@ -41,7 +41,7 @@ exports.createPages = async ({ graphql, actions }) => {
           }
           slug
           featuredImage {
-            gatsbyImageData(formats: [AUTO, WEBP])
+            gatsbyImageData(formats: [WEBP])
             title
           }
           content {
@@ -60,7 +60,7 @@ exports.createPages = async ({ graphql, actions }) => {
               details
             }
             featuredImage: picture {
-              gatsbyImageData(width: 96, formats: [AUTO, WEBP])
+              gatsbyImageData(formats: [WEBP], width: 96)
             }
           }
         }
@@ -73,7 +73,7 @@ exports.createPages = async ({ graphql, actions }) => {
           }
           slug
           featuredImage: picture {
-            gatsbyImageData(width: 125, formats: [AUTO, WEBP])
+            gatsbyImageData(width: 125, formats: [WEBP])
           }
           wrottenArticles: article {
             slug
