@@ -73,7 +73,7 @@ exports.createPages = async ({ graphql, actions }) => {
           }
           slug
           featuredImage: picture {
-            gatsbyImageData(width: 125, formats: [WEBP])
+            gatsbyImageData(layout: FIXED)
           }
           wrottenArticles: article {
             slug

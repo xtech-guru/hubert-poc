@@ -24,7 +24,14 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       options: { gfm: false },
     },
-    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        defaults: {
+          breakpoints: [768, 992, 1200, 1400],
+        },
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-image`,
     {

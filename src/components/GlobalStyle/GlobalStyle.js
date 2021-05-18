@@ -57,13 +57,15 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    font-family: 'GT Pressura';
     max-width: 100vw;
     overflow-x: hidden;
     margin: 0;
-    -webkit-font-smoothing: antialiased;
-    -moz-font-smoothing: antialiased;
-    -o-font-smoothing: antialiased;
+    font-family: Merriweather,Georgia,"Times New Roman",Times,serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #4b3e31;
+    background-color: #fff;
   }
 
   * {
@@ -72,7 +74,7 @@ export const GlobalStyle = createGlobalStyle`
 
   h1, h2, h3, h4, h5, h6,
   .h1, .h2, .h3, .h4, .h5, .h6 {
-    font-family: 'GT Pressura';
+    font-family: 'GT Pressura',-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;;
     font-weight: 700;
     line-height: 1.1;
     margin-top: 0;
