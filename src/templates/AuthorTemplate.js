@@ -92,16 +92,26 @@ const AuthorContainer = styled.div`
 `
 
 const AuthorBackLink = styled(Link)`
-  img {
-    vertical-align: middle;
-  }
+  font-family: Merriweather, Georgia, Times New Roman, Times, serif;
+  font-size: 0.875rem;
+  font-weight: 400;
   &:hover {
     border-bottom: 3px solid #eaf2fa;
     padding-bottom: 2px;
     color: #71b3e7;
     outline-width: 0;
   }
+  img {
+    vertical-align: middle;
+  }
 `
+
+const BackIcon = styled.img`
+  width: 20px;
+  height: 18px;
+  transform: rotateY(180deg);
+`
+
 const AuthorName = styled.h1`
   color: #4b3e31;
   text-transform: uppercase;
@@ -119,12 +129,6 @@ const AuthorName = styled.h1`
   @media (min-width: 992px) {
     font-size: 3rem;
   }
-`
-const BackIcon = styled.img`
-  width: 20px;
-  height: 18px;
-  transform: rotateY(180deg);
-  margin: 0;
 `
 
 const AvatarContainer = styled.div`
