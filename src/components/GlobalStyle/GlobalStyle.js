@@ -66,6 +66,9 @@ export const GlobalStyle = createGlobalStyle`
     line-height: 1.5;
     color: #4b3e31;
     background-color: #fff;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+    -o-font-smoothing: antialiased;
   }
 
   * {
@@ -108,9 +111,17 @@ export const GlobalStyle = createGlobalStyle`
     text-transform: uppercase;
   }
 
+  h6{
+    font-size: 1rem;
+  }
+
   p {
     margin-top: 0;
     margin-bottom: 1rem;
+  }
+
+  a:focus, a:hover{
+    text-decoration: underline;
   }
 
   article {
