@@ -27,7 +27,7 @@ export const query = graphql`
       content {
         raw
         references {
-          gatsbyImageData
+          gatsbyImageData(formats: [WEBP])
         }
       }
     }

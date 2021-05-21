@@ -15,7 +15,8 @@ const IndexPage = ({ data }) => {
       <PostsWrapper>
         <MainArticle
           mainArticleUrl={
-            featuredArticle.featuredImage?.gatsbyImageData.images.fallback.src
+            featuredArticle.featuredImage?.gatsbyImageData?.images?.fallback
+              ?.src
           }
         >
           <div>
@@ -36,8 +37,8 @@ const IndexPage = ({ data }) => {
               {featuredArticle.introduction.introduction}
             </MainArticleIntroduction>
             <Link to={`/articles/${featuredArticle.slug}`} aria-label="Home">
-              <img src={icon_arrow_blue} alt="" />
-              <img src={icon_arrow_brown} alt="" />
+              <img src={icon_arrow_blue} alt="" width={37} height={35} />
+              <img src={icon_arrow_brown} alt="" width={36} height={31} />
             </Link>
           </div>
         </MainArticle>
@@ -176,7 +177,10 @@ const MainArticleIntroduction = styled.p`
 `
 export const query = graphql`
   query {
-    allContentfulArticle(filter: { node_locale: { eq: "en-US" } }) {
+    allContentfulArticle(
+      filter: { node_locale: { eq: "en-US" } }
+      sort: { order: ASC, fields: createdAt }
+    ) {
       nodes {
         title
         introduction {
@@ -187,7 +191,7 @@ export const query = graphql`
         }
         slug
         featuredImage {
-          gatsbyImageData
+          gatsbyImageData(formats: [AUTO, WEBP])
           title
         }
         category {

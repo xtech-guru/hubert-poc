@@ -3,18 +3,19 @@ import { Link } from "gatsby"
 import styled from "styled-components"
 
 export function Footer() {
+  //TODO: externalize the value to another place more suitable for data
   return (
     <FooterContainer>
       <div>
         <div>
           <div>
             <div>
-              <StyledTitle>Hubert Magazin</StyledTitle>
-              <StyledParagraph>
+              <h6>Hubert Magazin</h6>
+              <p>
                 Hubert ist das neue Online-Magazin für Holz-Kultur, das
                 hochwertige und mitreißende Beiträge rund um den Baustoff Holz
                 liefert. Hubert wird herausgegeben von Sorpetaler Fensterbau.
-              </StyledParagraph>
+              </p>
               <div>
                 <Link to="/about" aria-label="About">
                   Mehr erfahren
@@ -30,7 +31,7 @@ export function Footer() {
               </div>
             </div>
             <div>
-              <StyledTitle>Folge uns</StyledTitle>
+              <h6>Folge uns</h6>
               <StyledList>
                 <li>
                   <Link
@@ -55,17 +56,13 @@ export function Footer() {
               </StyledList>
             </div>
             <div>
-              <StyledTitle>newsletter</StyledTitle>
-              <StyledParagraph>
+              <h6>newsletter</h6>
+              <p>
                 Verpasse keine Neuigkeiten von Hubert. Jetzt zum Newsletter
                 anmelden!
-              </StyledParagraph>
+              </p>
 
               <div>
-                <div>
-                  <h3>Newsletter</h3>
-                </div>
-
                 <form
                   method="post"
                   action=""
@@ -138,74 +135,72 @@ export function Footer() {
 }
 
 const FooterContainer = styled.footer`
+  font-size: 0.75rem;
   color: #fff;
-  display: block;
-  line-height: 18px;
-  > div:first-child {
-    background-color: #f86968;
+  background-color: #f86968;
+
+  h6 {
+    text-transform: uppercase;
+  }
+
+  > div:first-child > div {
+    /* Layout style */
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: 15px;
+    padding-left: 15px;
+    max-width: 100%;
+    @media (min-width: 576px) {
+      width: 540px;
+    }
+    @media (min-width: 768px) {
+      width: 720px;
+    }
+    @media (min-width: 992px) {
+      width: 960px;
+    }
+    @media (min-width: 1200px) {
+      width: 1140px;
+    }
 
     > div {
-      position: relative;
-      margin-left: auto;
-      margin-right: auto;
-      padding-right: 15px;
-      padding-left: 15px;
-      max-width: 100%;
-
-      @media (min-width: 576px) {
-        width: 540px;
-      }
-
-      @media (min-width: 768px) {
-        width: 720px;
-      }
-
-      @media (min-width: 992px) {
-        width: 960px;
-      }
-
-      @media (min-width: 1200px) {
-        width: 1140px;
-      }
+      display: flex;
+      flex-wrap: wrap;
+      margin-right: -15px;
+      margin-left: -15px;
 
       > div {
-        display: flex;
-        flex-wrap: wrap;
-        margin-right: -15px;
-        margin-left: -15px;
+        position: relative;
+        width: 100%;
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-top: 3rem !important;
 
-        > div {
-          position: relative;
-          width: 100%;
-          min-height: 1px;
-          padding-right: 15px;
-          padding-left: 15px;
-          margin-top: 3rem !important;
-
-          @media (min-width: 576px) {
-            flex: 0 0 100%;
-            max-width: 100%;
-          }
-
-          @media (min-width: 992px) {
-            flex: 0 0 33.3333333333%;
-            max-width: 33.3333333333%;
-          }
+        @media (min-width: 576px) {
+          flex: 0 0 100%;
+          max-width: 100%;
         }
 
-        > div:first-child {
-          div {
-            a {
-              color: #fff;
-              text-decoration: underline;
-              touch-action: manipulation;
-            }
+        @media (min-width: 992px) {
+          flex: 0 0 33.3333333333%;
+          max-width: 33.3333333333%;
+        }
+      }
+
+      > div:first-child {
+        div {
+          a {
+            color: #fff;
+            text-decoration: underline;
+            touch-action: manipulation;
           }
         }
-        > div:last-child {
-          margin-top: 3rem !important;
-          margin-bottom: 3rem !important;
-        }
+      }
+      > div:last-child {
+        margin-top: 3rem !important;
+        margin-bottom: 3rem !important;
       }
     }
   }
@@ -252,9 +247,14 @@ const FooterContainer = styled.footer`
         margin-left: -15px;
         flex-wrap: wrap;
 
-        & a {
+        a {
           color: #fff;
           text-decoration: none;
+        }
+
+        a:focus,
+        a:hover {
+          text-decoration: underline;
         }
 
         > div:nth-child(-n + 3) {
@@ -294,16 +294,7 @@ const FooterContainer = styled.footer`
     }
   }
 `
-const StyledTitle = styled.h6`
-  color: #fff;
-  font-weight: 700;
-  text-transform: uppercase;
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
-  font-family: GT Pressura, -apple-system, system-ui, BlinkMacSystemFont,
-    Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
-  margin-top: 0;
-`
+
 const StyledHr = styled.hr`
   margin: 0;
   padding: 0;
@@ -317,10 +308,7 @@ const StyledHr = styled.hr`
     display: none !important;
   }
 `
-const StyledParagraph = styled.p`
-  margin-top: 0;
-  margin-bottom: 1rem;
-`
+
 const StyledList = styled.ul`
   margin: 0;
   padding-left: 0;

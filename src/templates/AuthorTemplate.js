@@ -9,13 +9,14 @@ import back_icon from "../images/icon_arrow_blue.svg"
 
 const AuthorTemplate = ({ pageContext }) => {
   const { fullName, details, featuredImage, wrottenArticles } = pageContext.data
+  //todo: make something for authors that did not have articles
   return (
     <Layout seo={fullName}>
       <AuthorContainer>
-        <Link to="/about" aria-label="About">
+        <AuthorBackLink to="/about" aria-label="About">
           <BackIcon src={back_icon} />
           <span>Zurück zu 'Über uns'</span>
-        </Link>
+        </AuthorBackLink>
         <AuthorName>{fullName.substr(0, fullName.indexOf(" "))}</AuthorName>
         <AvatarContainer>
           <GatsbyImage image={getImage(featuredImage)} alt="Author image" />
@@ -24,16 +25,16 @@ const AuthorTemplate = ({ pageContext }) => {
         <ul>
           <h2>Publizierte Artikel</h2>
           <hr />
-          {wrottenArticles.map((article, index) => {
+          {wrottenArticles?.map(article => {
             return (
-              <>
-                <li key={index}>
+              <React.Fragment key={article.slug}>
+                <li>
                   <Link to={`/articles/${article.slug}`} aria-label="Article">
                     {article.title}
                   </Link>
                 </li>
                 <hr />
-              </>
+              </React.Fragment>
             )
           })}
         </ul>
@@ -48,39 +49,27 @@ const AuthorContainer = styled.div`
   margin-right: auto;
   padding-right: 15px;
   padding-left: 15px;
+  margin-top: 25px;
   @media (min-width: 576px) {
     width: 540px;
-    max-width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
   }
   @media (min-width: 768px) {
     width: 720px;
-    max-width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
+    margin-top: 35px;
   }
   @media (min-width: 992px) {
+    width: 960px;
     margin-top: 15px;
-    padding-right: 15px;
-    padding-left: 15px;
   }
   @media (min-width: 1200px) {
     width: 1140px;
-    max-width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
   }
+
   p {
     color: #756b62;
     @media (min-width: 992px) {
       min-height: 202px;
     }
-  }
-  ul {
-    list-style-type: none;
-    padding: 0;
-    margin-bottom: 60px;
   }
   h2 {
     font-size: 1.375rem;
@@ -89,8 +78,40 @@ const AuthorContainer = styled.div`
   }
   a {
     color: #71b3e7;
+    text-decoration: none;
+  }
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 60px;
+    hr {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
   }
 `
+
+const AuthorBackLink = styled(Link)`
+  font-family: Merriweather, Georgia, Times New Roman, Times, serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  &:hover {
+    border-bottom: 3px solid #eaf2fa;
+    padding-bottom: 2px;
+    color: #71b3e7;
+    outline-width: 0;
+  }
+  img {
+    vertical-align: middle;
+  }
+`
+
+const BackIcon = styled.img`
+  width: 20px;
+  height: 18px;
+  transform: rotateY(180deg);
+`
+
 const AuthorName = styled.h1`
   color: #4b3e31;
   text-transform: uppercase;
@@ -109,25 +130,23 @@ const AuthorName = styled.h1`
     font-size: 3rem;
   }
 `
-const BackIcon = styled.img`
-  width: 20px;
-  height: 18px;
-  transform: rotateY(180deg);
-  margin: 0;
-`
 
 const AvatarContainer = styled.div`
-  float: right;
-  margin-left: 30px;
   .gatsby-image-wrapper {
-    img {
-      width: 125px !important;
-      height: auto !important;
-      border-radius: 50%;
-      @media (min-width: 992px) {
-        width: 202px;
-        height: auto;
-      }
+    width: 125px !important;
+    height: 125px !important;
+    border-radius: 1000px;
+    margin-bottom: 30px;
+    @media (min-width: 768px) {
+      float: right;
+      margin-left: 30px;
+      margin-bottom: 0;
+      width: 157px !important;
+      height: 157px !important;
+    }
+    @media (min-width: 992px) {
+      width: 202px !important;
+      height: 202px !important;
     }
   }
 `
