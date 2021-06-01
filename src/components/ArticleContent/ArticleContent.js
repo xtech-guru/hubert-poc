@@ -41,7 +41,7 @@ export const ArticleContent = ({
         />
         <hr />
       </header>
-      {img && <ArticleImage image={getImage(img)} alt={img.title} />}
+      {img && <ArticleImage image={getImage(img?.localFile)} alt={img.title} />}
       {content && (
         <Content dangerouslySetInnerHTML={{ __html: parse(content) }} />
       )}

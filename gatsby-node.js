@@ -41,7 +41,11 @@ exports.createPages = async ({ graphql, actions }) => {
           }
           slug
           featuredImage {
-            gatsbyImageData(formats: [WEBP])
+            localFile {
+              childImageSharp {
+                gatsbyImageData(width: 1110)
+              }
+            }
             title
           }
           content {
