@@ -18,6 +18,7 @@ export const ArticleContent = ({
   author,
   location,
 }) => {
+  const { localFile: imageFile, imageTitle } = img
   return (
     <ContentWrapper>
       <header>
@@ -41,7 +42,7 @@ export const ArticleContent = ({
         />
         <hr />
       </header>
-      {img && <ArticleImage image={getImage(img?.localFile)} alt={img.title} />}
+      {img && <ArticleImage image={getImage(imageFile)} alt={imageTitle} />}
       {content && (
         <Content dangerouslySetInnerHTML={{ __html: parse(content) }} />
       )}

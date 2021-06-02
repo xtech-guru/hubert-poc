@@ -8,12 +8,12 @@ export const Article = ({ content }) => {
   const richTextOptions = {
     renderNode: {
       [BLOCKS.EMBEDDED_ASSET]: node => {
-        const img = content.references.find(i => {
-          return i.contentful_id === node.data.target.sys.id
-        })
-        return (
-          <GatsbyImage image={getImage(img?.localFile)} alt={img.description} />
+        const { localFile: imageFile, description } = content.references.find(
+          i => {
+            return i.contentful_id === node.data.target.sys.id
+          }
         )
+        return <GatsbyImage image={getImage(imageFile)} alt={description} />
       },
     },
   }

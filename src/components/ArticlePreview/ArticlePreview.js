@@ -5,10 +5,11 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 export const ArticlePreview = ({ title, description, img, category, slug }) => {
   if (!slug) throw new Error("Slug is missing in the passed data")
+  const { localFile: imageFile, title: imageTitle } = img
   return (
     <ArticlePreviewWrapper>
       <ImageWrapper>
-        <StyledGatsbyImage image={getImage(img?.localFile)} alt={img.title} />
+        <StyledGatsbyImage image={getImage(imageFile)} alt={imageTitle} />
         <Category>
           <Link to={`/categories/${category.slug}`} aria-label="Category">
             {category.title}
