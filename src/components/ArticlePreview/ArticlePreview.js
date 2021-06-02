@@ -8,7 +8,7 @@ export const ArticlePreview = ({ title, description, img, category, slug }) => {
   return (
     <ArticlePreviewWrapper>
       <ImageWrapper>
-        <StyledGatsbyImage image={getImage(img)} alt={img.title} />
+        <StyledGatsbyImage image={getImage(img?.localFile)} alt={img.title} />
         <Category>
           <Link to={`/categories/${category.slug}`} aria-label="Category">
             {category.title}
