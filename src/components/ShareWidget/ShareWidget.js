@@ -11,7 +11,7 @@ export const ShareWidget = ({ author, location }) => {
     <WidgetWrapper>
       <div>
         Von{" "}
-        <Link to={`/authors/${author.slug}`} aria-label="Author">
+        <Link to={`/hubert/authors/${author.slug}`} aria-label="Author">
           {author.name}
         </Link>
       </div>

@@ -17,17 +17,14 @@ export function Footer() {
                 liefert. Hubert wird herausgegeben von Sorpetaler Fensterbau.
               </p>
               <div>
-                <Link to="/about" aria-label="About">
+                <Link to="/hubert/about" aria-label="About">
                   Mehr erfahren
                 </Link>
               </div>
               <div>
-                <Link
-                  to="mailto:post@hubert-magazin.de"
-                  aria-label="Contact-us"
-                >
+                <a href="mailto:post@hubert-magazin.de" aria-label="Contact-us">
                   post@hubert-magazin.de
-                </Link>
+                </a>
               </div>
             </div>
             <div>

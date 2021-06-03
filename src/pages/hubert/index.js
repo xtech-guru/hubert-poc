@@ -2,10 +2,10 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 import styled from "styled-components"
 
-import { Layout, Posts } from "../components"
+import { Layout, Posts } from "../../components"
 
-import icon_arrow_blue from "../images/icon_arrow_blue.svg"
-import icon_arrow_brown from "../images/icon_arrow_brown.svg"
+import icon_arrow_blue from "../../images/icon_arrow_blue.svg"
+import icon_arrow_brown from "../../images/icon_arrow_brown.svg"
 
 const IndexPage = ({ data }) => {
   const articles = data.allContentfulArticle.nodes
@@ -22,21 +22,27 @@ const IndexPage = ({ data }) => {
           <div>
             <div>
               <Link
-                to={`/categories/${featuredArticle.category.slug}`}
+                to={`/hubert/categories/${featuredArticle.category.slug}`}
                 aria-label="Category"
               >
                 {featuredArticle.category.title}
               </Link>
             </div>
             <div>
-              <Link to={`/articles/${featuredArticle.slug}`} aria-label="Link">
+              <Link
+                to={`/hubert/articles/${featuredArticle.slug}`}
+                aria-label="Link"
+              >
                 {featuredArticle.title}
               </Link>
             </div>
             <MainArticleIntroduction>
               {featuredArticle.introduction.introduction}
             </MainArticleIntroduction>
-            <Link to={`/articles/${featuredArticle.slug}`} aria-label="Home">
+            <Link
+              to={`/hubert/articles/${featuredArticle.slug}`}
+              aria-label="Home"
+            >
               <img src={icon_arrow_blue} alt="" width={37} height={35} />
               <img src={icon_arrow_brown} alt="" width={36} height={31} />
             </Link>
