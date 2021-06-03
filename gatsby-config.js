@@ -29,6 +29,7 @@ module.exports = {
       options: {
         defaults: {
           breakpoints: [768, 992, 1200, 1400],
+          placeholder: "blurred",
         },
       },
     },
@@ -40,6 +41,7 @@ module.exports = {
         spaceId: process.env.CONTENTFUL_SPACE_ID,
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
         environment: process.env.CONTENTFUL_ENVIRONMENT_ID,
+        downloadLocal: true,
       },
     },
     {

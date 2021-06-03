@@ -23,7 +23,11 @@ export const query = graphql`
         raw
         references {
           contentful_id
-          gatsbyImageData(formats: [WEBP])
+          localFile {
+            childImageSharp {
+              gatsbyImageData(width: 500)
+            }
+          }
           description
         }
       }
