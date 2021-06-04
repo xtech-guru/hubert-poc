@@ -29,7 +29,10 @@ const AuthorTemplate = ({ pageContext }) => {
             return (
               <React.Fragment key={article.slug}>
                 <li>
-                  <Link to={`/articles/${article.slug}`} aria-label="Article">
+                  <Link
+                    to={`/hubert/articles/${article.slug}`}
+                    aria-label="Article"
+                  >
                     {article.title}
                   </Link>
                 </li>

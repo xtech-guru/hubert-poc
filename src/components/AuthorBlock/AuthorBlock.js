@@ -7,14 +7,14 @@ export const AuthorBlock = ({ author }) => (
   <AuthorBlockWidget>
     <AuthorBlockWrapper>
       <AuthorBlockImage>
-        <Link to={`/authors/${author.slug}`} aria-label="Author">
+        <Link to={`/hubert/authors/${author.slug}`} aria-label="Author">
           <StyledGatsbyImage image={getImage(author.featuredImage)} />
         </Link>
       </AuthorBlockImage>
 
       <AuthorBlockParagraph>
         <AuthorBlockName>
-          <Link to={`/authors/${author.slug}`} aria-label="Author">
+          <Link to={`/hubert/authors/${author.slug}`} aria-label="Author">
             {author.fullName}
           </Link>
         </AuthorBlockName>
@@ -22,7 +22,10 @@ export const AuthorBlock = ({ author }) => (
           <AuthorBlockDescription>
             {author.details.details}
             <ReadMore>
-              <Link to={`/authors/${author.slug}`} aria-label="Read more">
+              <Link
+                to={`/hubert/authors/${author.slug}`}
+                aria-label="Read more"
+              >
                 Mehr
               </Link>
             </ReadMore>

@@ -23,7 +23,10 @@ export const ArticleContent = ({
     <ContentWrapper>
       <header>
         <CategoryText>
-          <Link to={`/categories/${category.slug}`} aria-label="Category">
+          <Link
+            to={`/hubert/categories/${category.slug}`}
+            aria-label="Category"
+          >
             {category.title}
           </Link>
         </CategoryText>
