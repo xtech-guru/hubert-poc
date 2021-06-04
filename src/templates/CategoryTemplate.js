@@ -4,19 +4,13 @@ import styled from "styled-components"
 
 const CategoryTemplate = ({ pageContext }) => {
   const { title, relatedArticles } = pageContext.data
-  const articles = relatedArticles?.map(item => ({
-    ...item,
-    category: {
-      title,
-    },
-  }))
 
   return (
     <Layout seo={title}>
       <PageWrapper>
         <CategoryTitle>{title}</CategoryTitle>
         <ArticlesWrapper>
-          {articles && <Posts data={articles} />}
+          {relatedArticles && <Posts data={relatedArticles} />}
         </ArticlesWrapper>
       </PageWrapper>
     </Layout>

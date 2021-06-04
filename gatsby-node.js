@@ -25,7 +25,15 @@ exports.createPages = async ({ graphql, actions }) => {
               }
             }
             featuredImage {
-              gatsbyImageData(formats: [WEBP])
+              localFile {
+                childImageSharp {
+                  gatsbyImageData(width: 340)
+                }
+              }
+              title
+            }
+            category {
+              slug
               title
             }
           }
@@ -41,7 +49,11 @@ exports.createPages = async ({ graphql, actions }) => {
           }
           slug
           featuredImage {
-            gatsbyImageData(formats: [WEBP])
+            localFile {
+              childImageSharp {
+                gatsbyImageData(width: 1110)
+              }
+            }
             title
           }
           content {
@@ -88,7 +100,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const articles_list = result.data.allContentfulArticle.nodes
   articles_list.map(article => {
     createPage({
-      path: `/articles/${article.slug}`,
+      path: `/hubert/articles/${article.slug}`,
       component: path.resolve(`./src/templates/ArticleTemplate.js`),
       context: { data: article },
     })
@@ -105,7 +117,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
     categories_list.map(category => {
       createPage({
-        path: `/categories/${category.slug}`,
+        path: `/hubert/categories/${category.slug}`,
         component: path.resolve(`./src/templates/CategoryTemplate.js`),
         context: { data: category },
       })
@@ -125,7 +137,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   authors_list.map(author => {
     createPage({
-      path: `/authors/${author.slug}`,
+      path: `/hubert/authors/${author.slug}`,
       component: path.resolve(`./src/templates/AuthorTemplate.js`),
       context: { data: author },
     })

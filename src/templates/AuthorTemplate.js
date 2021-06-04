@@ -13,7 +13,7 @@ const AuthorTemplate = ({ pageContext }) => {
   return (
     <Layout seo={fullName}>
       <AuthorContainer>
-        <AuthorBackLink to="/about" aria-label="About">
+        <AuthorBackLink to="/about/" aria-label="About">
           <BackIcon src={back_icon} />
           <span>Zurück zu 'Über uns'</span>
         </AuthorBackLink>
@@ -29,7 +29,10 @@ const AuthorTemplate = ({ pageContext }) => {
             return (
               <React.Fragment key={article.slug}>
                 <li>
-                  <Link to={`/articles/${article.slug}`} aria-label="Article">
+                  <Link
+                    to={`/hubert/articles/${article.slug}`}
+                    aria-label="Article"
+                  >
                     {article.title}
                   </Link>
                 </li>

@@ -29,6 +29,7 @@ module.exports = {
       options: {
         defaults: {
           breakpoints: [768, 992, 1200, 1400],
+          placeholder: "blurred",
         },
       },
     },
@@ -40,6 +41,7 @@ module.exports = {
         spaceId: process.env.CONTENTFUL_SPACE_ID,
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
         environment: process.env.CONTENTFUL_ENVIRONMENT_ID,
+        downloadLocal: true,
       },
     },
     {
@@ -60,6 +62,7 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
+    `gatsby-plugin-sass`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

@@ -3,7 +3,7 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { graphql } from "gatsby"
 import styled from "styled-components"
 
-import { Container, Layout } from "../components"
+import { Container, Layout } from "../../components"
 
 const AboutPage = ({ data }) => {
   const { content, title, seo } = data.contentfulPage
