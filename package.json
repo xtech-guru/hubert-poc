@@ -2,11 +2,7 @@
   "name": "hubert",
   "private": true,
   "description": "Hubert - Sorpetaler Fensterbau",
-<<<<<<< HEAD
-  "version": "2.1.8",
-=======
   "version": "2.3.1",
->>>>>>> release/2.3.1
   "author": "Oussama Bouthouri <oussamabo@xtech.guru>",
   "contributors": [
     {
