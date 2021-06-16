@@ -113,7 +113,7 @@ export function Footer() {
             <div>©2017 Hubert</div>
             <div>|</div>
             <div>
-              <Link to="/impressum" aria-label="Impressum">
+              <Link to="/hubert/impressum" aria-label="Impressum">
                 Impressum
               </Link>
             </div>
