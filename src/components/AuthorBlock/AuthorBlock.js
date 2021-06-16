@@ -11,7 +11,7 @@ export const AuthorBlock = ({ author }) => (
         <Link to={`/hubert/authors/${author.slug}`} aria-label="Author">
           <GatsbyImage
             className={styles.authorImage}
-            image={getImage(author.featuredImage)}
+            image={getImage(author.featuredImage?.localFile)}
           />
         </Link>
       </div>

@@ -80,7 +80,11 @@ exports.createPages = async ({ graphql, actions }) => {
               details
             }
             featuredImage: picture {
-              gatsbyImageData(formats: [WEBP], width: 96)
+              localFile {
+                childImageSharp {
+                  gatsbyImageData(width: 96)
+                }
+              }
             }
           }
         }
