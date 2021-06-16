@@ -142,7 +142,9 @@ exports.createPages = async ({ graphql, actions }) => {
     categories_list.map(category => {
       createPage({
         path: `/hubert/categories/${category.slug}`,
-        component: path.resolve(`./src/templates/CategoryTemplate.js`),
+        component: path.resolve(
+          `./src/templates/CategoryTemplate/CategoryTemplate.js`
+        ),
         context: { data: category },
       })
     })
