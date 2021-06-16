@@ -164,7 +164,9 @@ exports.createPages = async ({ graphql, actions }) => {
   authors_list.map(author => {
     createPage({
       path: `/hubert/authors/${author.slug}`,
-      component: path.resolve(`./src/templates/AuthorTemplate.js`),
+      component: path.resolve(
+        `./src/templates/AuthorTemplate/AuthorTemplate.js`
+      ),
       context: { data: author },
     })
   })
