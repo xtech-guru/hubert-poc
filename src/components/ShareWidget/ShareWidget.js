@@ -1,14 +1,14 @@
 import React from "react"
 import { Link } from "gatsby"
-import styled from "styled-components"
 
+import { container, block } from "./ShareWidget.module.scss"
 import facebook_icon from "../../images/icon_facebook_share.svg"
 import twitter_icon from "../../images/icon_twitter_share.svg"
 import pinterest_icon from "../../images/icon_pinterest_share.svg"
 
 export const ShareWidget = ({ author, location }) => {
   return (
-    <WidgetWrapper>
+    <div className={container}>
       <div>
         Von{" "}
         <Link to={`/hubert/authors/${author.slug}`} aria-label="Author">
@@ -16,7 +16,7 @@ export const ShareWidget = ({ author, location }) => {
         </Link>
       </div>
       <hr />
-      <SocialMediaBlock>
+      <div className={block}>
         <span>Teilen</span>
         <a
           aria-label="Facebbok"
@@ -42,45 +42,7 @@ export const ShareWidget = ({ author, location }) => {
         >
           <img src={pinterest_icon} alt="pinterest" />
         </a>
-      </SocialMediaBlock>
-    </WidgetWrapper>
+      </div>
+    </div>
   )
 }
-
-const SocialMediaBlock = styled.div`
-  display: flex;
-  align-items: center;
-  a {
-    margin-left: 30px;
-  }
-`
-
-const WidgetWrapper = styled.div`
-  display: flex;
-  justify-content: space-between !important;
-  font-family: Merriweather;
-  @media (max-width: 767px) {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  align-items: center;
-  color: #c7bcb2;
-  text-transform: uppercase;
-  font-size: 14px;
-  margin: 0;
-  > div {
-    a {
-      text-decoration: underline;
-    }
-  }
-
-  a {
-    color: #c7bcb2;
-    text-decoration: underline;
-  }
-  hr {
-    @media (max-width: 767px) {
-      width: 100%;
-    }
-  }
-`
