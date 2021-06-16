@@ -123,7 +123,9 @@ exports.createPages = async ({ graphql, actions }) => {
   articles_list.map(article => {
     createPage({
       path: `/hubert/articles/${article.slug}`,
-      component: path.resolve(`./src/templates/ArticleTemplate.js`),
+      component: path.resolve(
+        `./src/templates/ArticleTemplate/ArticleTemplate.js`
+      ),
       context: { data: article },
     })
 
