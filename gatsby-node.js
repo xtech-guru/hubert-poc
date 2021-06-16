@@ -85,7 +85,15 @@ exports.createPages = async ({ graphql, actions }) => {
           }
           slug
           featuredImage: picture {
-            gatsbyImageData(layout: FIXED)
+            localFile {
+              childImageSharp {
+                gatsbyImageData(
+                  width: 202
+                  breakpoints: [125, 157, 202]
+                  sizes: "(max-width: 768px) 125px, (max-width:992px) 157px, 202px"
+                )
+              }
+            }
           }
           wrottenArticles: article {
             slug
