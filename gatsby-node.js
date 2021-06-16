@@ -55,7 +55,11 @@ exports.createPages = async ({ graphql, actions }) => {
           featuredImage {
             localFile {
               childImageSharp {
-                gatsbyImageData(width: 1110)
+                gatsbyImageData(
+                  width: 1110
+                  breakpoints: [510, 690, 1110]
+                  sizes: "(max-width: 768px) 510px, (max-width: 1199px) 690px, 1110px"
+                )
               }
             }
             title
