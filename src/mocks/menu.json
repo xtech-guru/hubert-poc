@@ -32,7 +32,7 @@
     },
     {
       "content": "Über uns",
-      "route": "/about/"
+      "route": "/hubert/about/"
     },
     {
       "content": "newsletter",
