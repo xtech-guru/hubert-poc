@@ -11,7 +11,9 @@ const MenuItem = ({ content, route, type, selected, items = [], onClick }) => {
     <li
       selected={selected}
       type={type}
-      className={selected && type === "collapse" && styles.menuItemSelected}
+      className={
+        selected && type === "collapse" ? styles.menuItemSelected : null
+      }
     >
       <Link to={route} onClick={onClick} aria-label="Menu">
         {content}
@@ -91,7 +93,6 @@ export const Menu = props => {
         className={` ${styles.form}  ${
           isVisible ? styles.visibleForm : styles.invisibleForm
         }`}
-        visible={!!menuItemsSelectStatus[props.menuItems[2].content]}
       >
         <div>
           <div>
