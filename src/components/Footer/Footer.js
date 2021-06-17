@@ -31,24 +31,24 @@ export function Footer() {
               <h6>Folge uns</h6>
               <StyledList>
                 <li>
-                  <Link
-                    to="https://www.facebook.com/hubertmagazin"
+                  <a
+                    href="https://www.facebook.com/hubertmagazin"
                     target="_blank"
                     rel="noreferrer"
                     aria-label="Facebook"
                   >
                     Facebook
-                  </Link>
+                  </a>
                 </li>
                 <li>
-                  <Link
-                    to="https://www.pinterest.de/sorpetaler/hubert-magazin-f%C3%BCr-holzkultur/"
+                  <a
+                    href="https://www.pinterest.de/sorpetaler/hubert-magazin-f%C3%BCr-holzkultur/"
                     target="_blank"
                     rel="noreferrer"
                     aria-label="Pinterest"
                   >
                     Pinterest
-                  </Link>
+                  </a>
                 </li>
               </StyledList>
             </div>
