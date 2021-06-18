@@ -18,7 +18,7 @@ export const ArticleContent = ({
   author,
   location,
 }) => {
-  const { localFile: imageFile, imageTitle } = img
+  const { localFile: imageFile, title: imageTitle } = img
   return (
     <article className={styles.container}>
       <header>
@@ -31,7 +31,7 @@ export const ArticleContent = ({
           </Link>
         </span>
         <h1 className={styles.title}>
-          <Link to={location.href} aria-label="Article">
+          <Link to={`/hubert/articles/${slug}`} aria-label="Article">
             {title}
           </Link>
         </h1>
