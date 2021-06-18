@@ -8,47 +8,51 @@ import icon_arrow_blue from "../../images/icon_arrow_blue.svg"
 import icon_arrow_brown from "../../images/icon_arrow_brown.svg"
 
 const IndexPage = ({ data }) => {
-  const articles = data.allContentfulArticle.nodes
-  const featuredArticle = articles[0]
+  const featuredArticle = data.contentfulMainArticle.mainArticle
+  const articles = data.allContentfulArticle.nodes.filter(
+    item => item?.slug !== featuredArticle?.slug
+  )
   return (
     <Layout seo="Hubert">
       <PostsWrapper>
-        <MainArticle
-          mainArticleUrl={
-            featuredArticle.featuredImage?.localFile?.childImageSharp
-              ?.gatsbyImageData?.images?.fallback?.src
-          }
-        >
-          <div>
+        {featuredArticle && (
+          <MainArticle
+            mainArticleUrl={
+              featuredArticle.featuredImage?.localFile?.childImageSharp
+                ?.gatsbyImageData?.images?.fallback?.src
+            }
+          >
             <div>
-              <Link
-                to={`/hubert/categories/${featuredArticle.category.slug}`}
-                aria-label="Category"
-              >
-                {featuredArticle.category.title}
-              </Link>
-            </div>
-            <div>
+              <div>
+                <Link
+                  to={`/hubert/categories/${featuredArticle.category.slug}`}
+                  aria-label="Category"
+                >
+                  {featuredArticle.category.title}
+                </Link>
+              </div>
+              <div>
+                <Link
+                  to={`/hubert/articles/${featuredArticle.slug}`}
+                  aria-label="Link"
+                >
+                  {featuredArticle.title}
+                </Link>
+              </div>
+              <MainArticleIntroduction>
+                {featuredArticle.introduction.introduction}
+              </MainArticleIntroduction>
               <Link
                 to={`/hubert/articles/${featuredArticle.slug}`}
-                aria-label="Link"
+                aria-label="Home"
               >
-                {featuredArticle.title}
+                <img src={icon_arrow_blue} alt="" width={37} height={35} />
+                <img src={icon_arrow_brown} alt="" width={36} height={31} />
               </Link>
             </div>
-            <MainArticleIntroduction>
-              {featuredArticle.introduction.introduction}
-            </MainArticleIntroduction>
-            <Link
-              to={`/hubert/articles/${featuredArticle.slug}`}
-              aria-label="Home"
-            >
-              <img src={icon_arrow_blue} alt="" width={37} height={35} />
-              <img src={icon_arrow_brown} alt="" width={36} height={31} />
-            </Link>
-          </div>
-        </MainArticle>
-        <Posts data={articles.slice(1)} />
+          </MainArticle>
+        )}
+        <Posts data={articles} />
       </PostsWrapper>
     </Layout>
   )
@@ -203,6 +207,30 @@ export const query = graphql`
                 breakpoints: [280, 315, 340, 500]
                 sizes: "(max-width: 768px) 500px, (max-width:992px) 315px, (max-width: 1199px) 280px, 340px"
               )
+            }
+          }
+          title
+        }
+        category {
+          title
+          slug
+        }
+      }
+    }
+    contentfulMainArticle {
+      mainArticle {
+        title
+        introduction {
+          introduction
+          childMarkdownRemark {
+            html
+          }
+        }
+        slug
+        featuredImage {
+          localFile {
+            childImageSharp {
+              gatsbyImageData
             }
           }
           title
