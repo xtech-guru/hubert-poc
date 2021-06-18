@@ -13,14 +13,18 @@ export const Header = props => (
         target="_blank"
         rel="noreferrer"
         aria-label="Facebook page"
-      />
+      >
+        <span className={styles.anchor}>facebook</span>
+      </a>
       <a
         className={`${styles.pinterest} ${styles.link}`}
         href={props.pinterestUrl}
         target="_blank"
         rel="noreferrer"
         aria-label="Pinterest page"
-      />
+      >
+        <span className={styles.anchor}>pinterest</span>
+      </a>
     </div>
     <Menu />
   </header>
