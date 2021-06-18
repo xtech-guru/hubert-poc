@@ -31,7 +31,7 @@ export const ArticleContent = ({
           </Link>
         </CategoryText>
         <ArticleTitle className="h1">
-          <Link to={location.href} aria-label="Article">
+          <Link to={`/hubert/articles/${slug}`} aria-label="Article">
             {title}
           </Link>
         </ArticleTitle>

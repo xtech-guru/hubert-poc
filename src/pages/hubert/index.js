@@ -11,7 +11,7 @@ const IndexPage = ({ data }) => {
   const articles = data.allContentfulArticle.nodes
   const featuredArticle = articles[0]
   return (
-    <Layout seo="Home">
+    <Layout seo="Hubert">
       <PostsWrapper>
         <MainArticle
           mainArticleUrl={
