@@ -10,6 +10,7 @@ const articlesQuery = graphql`
       nodes {
         category {
           title
+          slug
         }
         title
         introduction {
