@@ -11,8 +11,10 @@ const AboutPage = ({ data }) => {
     <Layout seo={seo || title}>
       <Container>
         <article className={styles.content}>
-          <h1 className={styles.title}>{title}</h1>
-          {documentToReactComponents(JSON.parse(content.raw))}
+          <div>
+            <h1 className={styles.title}>{title}</h1>
+            {documentToReactComponents(JSON.parse(content.raw))}
+          </div>
         </article>
       </Container>
     </Layout>

@@ -35,10 +35,14 @@
     margin: 0 0 20px;
     color: #756b62;
     @media (min-width: 992px) {
-      padding-left: 77px;
-      padding-right: 233px;
+      padding-left: 77px !important;
+      padding-right: 233px !important;
     }
     @media (min-width: 768px) {
+      padding-left: 63px;
+      padding-right: 63px;
+    }
+    & h1 {
       margin-bottom: 30px;
     }
     & img {
