@@ -213,6 +213,30 @@ export const query = graphql`
         }
       }
     }
+    contentfulMainArticle {
+      mainArticleRef {
+        title
+        introduction {
+          introduction
+          childMarkdownRemark {
+            html
+          }
+        }
+        slug
+        featuredImage {
+          localFile {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
+          title
+        }
+        category {
+          title
+          slug
+        }
+      }
+    }
   }
 `
 
