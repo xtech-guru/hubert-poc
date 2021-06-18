@@ -1,113 +1,33 @@
 import React from "react"
-import styled from "styled-components"
 
-import data from "../../mocks/header.json"
+import * as styles from "./Header.module.scss"
 import { Menu } from "../Menu"
-
-import iconFacebook from "../../images/icon_facebook.svg"
-import iconPinterest from "../../images/icon_pinterest.svg"
+import data from "../../mocks/header.json"
 
 export const Header = props => (
-  <HeaderWrapper>
-    <SocialMediaIconButtonsWrapper>
-      <StyledLink
-        className="fb"
+  <header className={styles.container}>
+    <div className={styles.socialMediaIconButtonsWrapper}>
+      <a
+        className={`${styles.fb} ${styles.link}`}
         href={props.facebookUrl}
         target="_blank"
         rel="noreferrer"
         aria-label="Facebook page"
       >
-        {" "}
-      </StyledLink>
-      <StyledLink
-        className="pinterest"
+        <span className={styles.anchor}>facebook</span>
+      </a>
+      <a
+        className={`${styles.pinterest} ${styles.link}`}
         href={props.pinterestUrl}
         target="_blank"
         rel="noreferrer"
         aria-label="Pinterest page"
       >
-        {" "}
-      </StyledLink>
-    </SocialMediaIconButtonsWrapper>
+        <span className={styles.anchor}>pinterest</span>
+      </a>
+    </div>
     <Menu />
-  </HeaderWrapper>
+  </header>
 )
 
 Header.defaultProps = data
-
-const HeaderWrapper = styled.header`
-  display: block;
-
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
-  padding-right: 15px;
-  padding-left: 15px;
-
-  @media (min-width: 576px) {
-    width: 540px;
-    max-width: 100%;
-  }
-
-  @media (min-width: 576px) {
-    padding-right: 15px;
-    padding-left: 15px;
-  }
-
-  @media (min-width: 768px) {
-    width: 720px;
-    max-width: 100%;
-  }
-
-  @media (min-width: 768px) {
-    padding-right: 15px;
-    padding-left: 15px;
-  }
-
-  @media (min-width: 992px) {
-    width: 960px;
-    max-width: 100%;
-  }
-
-  @media (min-width: 992px) {
-    padding-right: 15px;
-    padding-left: 15px;
-  }
-
-  @media (min-width: 1200px) {
-    width: 1140px;
-    max-width: 100%;
-  }
-
-  @media (min-width: 1200px) {
-    padding-right: 15px;
-    padding-left: 15px;
-  }
-`
-
-const SocialMediaIconButtonsWrapper = styled.div`
-  display: none;
-
-  @media (min-width: 992px) {
-    display: flex !important;
-    justify-content: flex-end !important;
-    padding: 37px 0.5rem 5px 0;
-  }
-`
-const StyledLink = styled.a`
-  display: block;
-  width: 24px;
-  height: 24px;
-  margin-left: 0.25rem;
-  margin-right: 0.25rem;
-  background-repeat: no-repeat;
-  background-position: 50%;
-
-  &.fb {
-    background-image: url(${iconFacebook});
-  }
-
-  &.pinterest {
-    background-image: url(${iconPinterest});
-  }
-`

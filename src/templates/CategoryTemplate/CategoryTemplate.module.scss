@@ -1,0 +1,16 @@
+.container {
+  margin-top: 60px;
+}
+.title {
+  margin-bottom: 60px;
+  font-size: 2rem;
+  color: #4b3e31;
+  text-align: center !important;
+  @media (min-width: 768px) {
+    margin-bottom: 70px;
+    font-size: 2.5rem;
+  }
+  @media (min-width: 992px) {
+    font-size: 3rem;
+  }
+}

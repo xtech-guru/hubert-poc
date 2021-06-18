@@ -1,0 +1,36 @@
+.container {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 15px;
+  padding-left: 15px;
+  @media (min-width: 576px) {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+.postsWrapper {
+  width: 1140px;
+  max-width: 100%;
+}
+.postsList {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.875rem;
+  padding: 0 20px;
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+}
+.postsWrapper {
+  width: 1140px;
+  max-width: 100%;
+  @media (min-width: 992px) {
+    margin-top: 1.3125rem;
+    padding: 0 14px;
+  }
+}
+.postTitle {
+  color: #756b62;
+  font-size: 0.875rem;
+}

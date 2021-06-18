@@ -27,7 +27,11 @@ exports.createPages = async ({ graphql, actions }) => {
             featuredImage {
               localFile {
                 childImageSharp {
-                  gatsbyImageData(width: 340)
+                  gatsbyImageData(
+                    width: 500
+                    breakpoints: [280, 315, 340, 500]
+                    sizes: "(max-width: 768px) 500px, (max-width:992px) 315px, (max-width: 1199px) 280px, 340px"
+                  )
                 }
               }
               title
@@ -51,7 +55,11 @@ exports.createPages = async ({ graphql, actions }) => {
           featuredImage {
             localFile {
               childImageSharp {
-                gatsbyImageData(width: 1110)
+                gatsbyImageData(
+                  width: 1110
+                  breakpoints: [510, 690, 1110]
+                  sizes: "(max-width: 768px) 510px, (max-width: 1199px) 690px, 1110px"
+                )
               }
             }
             title
@@ -72,7 +80,12 @@ exports.createPages = async ({ graphql, actions }) => {
               details
             }
             featuredImage: picture {
-              gatsbyImageData(formats: [WEBP], width: 96)
+              localFile {
+                childImageSharp {
+                  gatsbyImageData(width: 96)
+                }
+              }
+              title
             }
           }
         }
@@ -85,7 +98,16 @@ exports.createPages = async ({ graphql, actions }) => {
           }
           slug
           featuredImage: picture {
-            gatsbyImageData(layout: FIXED)
+            localFile {
+              childImageSharp {
+                gatsbyImageData(
+                  width: 202
+                  breakpoints: [125, 157, 202]
+                  sizes: "(max-width: 768px) 125px, (max-width:992px) 157px, 202px"
+                )
+              }
+            }
+            title
           }
           wrottenArticles: article {
             slug
@@ -101,7 +123,9 @@ exports.createPages = async ({ graphql, actions }) => {
   articles_list.map(article => {
     createPage({
       path: `/hubert/articles/${article.slug}`,
-      component: path.resolve(`./src/templates/ArticleTemplate.js`),
+      component: path.resolve(
+        `./src/templates/ArticleTemplate/ArticleTemplate.js`
+      ),
       context: { data: article },
     })
 
@@ -118,7 +142,9 @@ exports.createPages = async ({ graphql, actions }) => {
     categories_list.map(category => {
       createPage({
         path: `/hubert/categories/${category.slug}`,
-        component: path.resolve(`./src/templates/CategoryTemplate.js`),
+        component: path.resolve(
+          `./src/templates/CategoryTemplate/CategoryTemplate.js`
+        ),
         context: { data: category },
       })
     })
@@ -138,7 +164,9 @@ exports.createPages = async ({ graphql, actions }) => {
   authors_list.map(author => {
     createPage({
       path: `/hubert/authors/${author.slug}`,
-      component: path.resolve(`./src/templates/AuthorTemplate.js`),
+      component: path.resolve(
+        `./src/templates/AuthorTemplate/AuthorTemplate.js`
+      ),
       context: { data: author },
     })
   })
