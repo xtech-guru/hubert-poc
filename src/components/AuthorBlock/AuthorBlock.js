@@ -12,6 +12,7 @@ export const AuthorBlock = ({ author }) => (
           <GatsbyImage
             className={styles.authorImage}
             image={getImage(author.featuredImage?.localFile)}
+            alt={author.featuredImage.title}
           />
         </Link>
       </div>

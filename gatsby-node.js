@@ -85,6 +85,7 @@ exports.createPages = async ({ graphql, actions }) => {
                   gatsbyImageData(width: 96)
                 }
               }
+              title
             }
           }
         }
@@ -106,6 +107,7 @@ exports.createPages = async ({ graphql, actions }) => {
                 )
               }
             }
+            title
           }
           wrottenArticles: article {
             slug

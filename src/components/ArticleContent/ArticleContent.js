@@ -18,7 +18,7 @@ export const ArticleContent = ({
   author,
   location,
 }) => {
-  const { localFile: imageFile, imageTitle } = img
+  const { localFile: imageFile, title: imageTitle } = img
   return (
     <ContentWrapper>
       <header>
