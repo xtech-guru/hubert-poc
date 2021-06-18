@@ -12,7 +12,7 @@ const AuthorTemplate = ({ pageContext }) => {
   return (
     <Layout seo={fullName}>
       <div className={styles.container}>
-        <Link to="/about/" aria-label="About" className={styles.link}>
+        <Link to="/hubert/about/" aria-label="About" className={styles.link}>
           <img src={back_icon} className={styles.icon} alt="" />
           <span>Zurück zu 'Über uns'</span>
         </Link>
@@ -22,7 +22,7 @@ const AuthorTemplate = ({ pageContext }) => {
         <div>
           <GatsbyImage
             className={styles.avatar}
-            image={getImage(featuredImage)}
+            image={getImage(featuredImage?.localFile)}
             alt="Author image"
           />
         </div>
