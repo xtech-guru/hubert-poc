@@ -8,9 +8,9 @@ import icon_arrow_blue from "../../images/icon_arrow_blue.svg"
 import icon_arrow_brown from "../../images/icon_arrow_brown.svg"
 
 const IndexPage = ({ data }) => {
-  const featuredArticle = data.contentfulMainArticle.mainArticleRef
+  const featuredArticle = data.contentfulMainArticle.mainArticle
   const articles = data.allContentfulArticle.nodes.filter(
-    item => item.slug !== featuredArticle.slug
+    item => item?.slug !== featuredArticle?.slug
   )
   return (
     <Layout seo="Hubert">
@@ -218,7 +218,7 @@ export const query = graphql`
       }
     }
     contentfulMainArticle {
-      mainArticleRef {
+      mainArticle {
         title
         introduction {
           introduction
