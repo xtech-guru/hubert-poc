@@ -19,7 +19,10 @@ const AuthorTemplate = ({ pageContext }) => {
         </AuthorBackLink>
         <AuthorName>{fullName.substr(0, fullName.indexOf(" "))}</AuthorName>
         <AvatarContainer>
-          <GatsbyImage image={getImage(featuredImage)} alt="Author image" />
+          <GatsbyImage
+            image={getImage(featuredImage?.localFile)}
+            alt="Author image"
+          />
         </AvatarContainer>
         <p>{details.details}</p>
         <ul>

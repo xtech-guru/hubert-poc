@@ -199,7 +199,10 @@ export const query = graphql`
         featuredImage {
           localFile {
             childImageSharp {
-              gatsbyImageData
+              gatsbyImageData(
+                breakpoints: [280, 315, 340, 500]
+                sizes: "(max-width: 768px) 500px, (max-width:992px) 315px, (max-width: 1199px) 280px, 340px"
+              )
             }
           }
           title
