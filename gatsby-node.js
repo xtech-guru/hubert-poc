@@ -123,7 +123,9 @@ exports.createPages = async ({ graphql, actions }) => {
   articles_list.map(article => {
     createPage({
       path: `/hubert/articles/${article.slug}`,
-      component: path.resolve(`./src/templates/ArticleTemplate.js`),
+      component: path.resolve(
+        `./src/templates/ArticleTemplate/ArticleTemplate.js`
+      ),
       context: { data: article },
     })
 
@@ -140,7 +142,9 @@ exports.createPages = async ({ graphql, actions }) => {
     categories_list.map(category => {
       createPage({
         path: `/hubert/categories/${category.slug}`,
-        component: path.resolve(`./src/templates/CategoryTemplate.js`),
+        component: path.resolve(
+          `./src/templates/CategoryTemplate/CategoryTemplate.js`
+        ),
         context: { data: category },
       })
     })
@@ -160,7 +164,9 @@ exports.createPages = async ({ graphql, actions }) => {
   authors_list.map(author => {
     createPage({
       path: `/hubert/authors/${author.slug}`,
-      component: path.resolve(`./src/templates/AuthorTemplate.js`),
+      component: path.resolve(
+        `./src/templates/AuthorTemplate/AuthorTemplate.js`
+      ),
       context: { data: author },
     })
   })

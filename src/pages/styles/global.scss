@@ -1,0 +1,155 @@
+@font-face {
+  font-family: "Merriweather";
+  src: local("Merriweather Regular"),
+    url("../../fonts/MerriweatherRegular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Merriweather";
+  src: local("Merriweather Italic"),
+    url("../../fonts/MerriweatherItalic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "GT Pressura";
+  src: local("GT Pressura Regular"),
+    url("../../fonts/GTPressuraRegular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "GT Pressura";
+  src: local("GT Pressura Regular Italic"),
+    url("../../fonts/GTPressuraRegularItalic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "GT Pressura";
+  src: local("GT Pressura Bold"),
+    url("../../fonts/GTPressuraBold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "GT Pressura";
+  src: local("GT Pressura Bold Italic"),
+    url("../../fonts/GTPressuraBoldItalic.ttf") format("truetype");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  margin: 0;
+  font-family: Merriweather, Georgia, "Times New Roman", Times, serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #4b3e31;
+  background-color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family: "GT Pressura", -apple-system, system-ui, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+h1,
+.h1 {
+  font-size: 2rem;
+
+  @media (min-width: 768px) and (max-width: 991px) {
+    font-size: 2.5rem;
+  }
+
+  @media (min-width: 992px) {
+    font-size: 3rem;
+  }
+}
+
+h2,
+.h2 {
+  font-size: 1.375rem;
+
+  @media (min-width: 992px) {
+    font-size: 1.75rem;
+  }
+}
+
+h1,
+h2,
+.h1,
+.h2 {
+  text-transform: uppercase;
+}
+
+h6 {
+  font-size: 1rem;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+a:focus,
+a:hover {
+  text-decoration: underline !important;
+}
+
+article {
+  line-height: 24px;
+
+  p {
+    font-family: Merriweather;
+  }
+}
+
+ul {
+  padding: 0;
+}
+
+blockquote {
+  margin: 0 0 1rem;
+}

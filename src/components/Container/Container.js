@@ -1,18 +1,7 @@
 import React from "react"
-import styled from "styled-components"
 
-const StyledContainer = styled.div`
-  margin: 30px 0 60px;
-
-  @media (min-width: 768px) {
-    margin-top: 60px;
-  }
-
-  * {
-    box-sizing: inherit;
-  }
-`
+import { container } from "./Container.module.scss"
 
 export const Container = ({ children }) => {
-  return <StyledContainer>{children}</StyledContainer>
+  return <div className={container}>{children}</div>
 }

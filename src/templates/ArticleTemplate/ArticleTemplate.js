@@ -1,7 +1,7 @@
 import React from "react"
-import styled from "styled-components"
 
-import { Layout, ArticleContent, RelatedPosts } from "../components"
+import * as styles from "./ArticleTemplate.module.scss"
+import { Layout, ArticleContent, RelatedPosts } from "../../components"
 
 const ArticleTemplate = ({ pageContext, location }) => {
   const {
@@ -16,7 +16,7 @@ const ArticleTemplate = ({ pageContext, location }) => {
   } = pageContext.data
   return (
     <Layout seo={title}>
-      <PageWrapper>
+      <div className={styles.container}>
         <ArticleContent
           slug={slug}
           title={title}
@@ -30,17 +30,9 @@ const ArticleTemplate = ({ pageContext, location }) => {
           crossLink={crossLink}
         />
         <RelatedPosts category={category} />
-      </PageWrapper>
+      </div>
     </Layout>
   )
 }
-
-const PageWrapper = styled.div`
-  margin-top: 1.875rem;
-
-  media (min-width: 768px) {
-    margin-top: 2.625rem;
-  }
-`
 
 export default ArticleTemplate
