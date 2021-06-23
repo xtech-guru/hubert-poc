@@ -17,7 +17,6 @@
   "dependencies": {
     "@contentful/rich-text-from-markdown": "^14.1.2",
     "axios": "^0.21.1",
-    "babel-plugin-styled-components": "^1.12.0",
     "bootstrap": "4.0.0-alpha.6",
     "contentful-management": "^7.17.6",
     "dotenv": "^8.2.0",
@@ -30,7 +29,6 @@
     "gatsby-plugin-react-helmet": "^4.4.0",
     "gatsby-plugin-sass": "^4.6.0",
     "gatsby-plugin-sharp": "^3.4.0",
-    "gatsby-plugin-styled-components": "^4.4.0",
     "gatsby-source-contentful": "^5.4.0",
     "gatsby-source-filesystem": "^3.4.0",
     "gatsby-source-wordpress": "^5.4.0",
@@ -43,7 +41,6 @@
     "react-dom": "^17.0.2",
     "react-helmet": "^6.1.0",
     "react-masonry-component": "^6.2.1",
-    "styled-components": "^5.2.3",
     "turndown": "^7.0.0"
   },
   "devDependencies": {
