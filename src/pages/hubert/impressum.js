@@ -7,13 +7,19 @@ import { Container, Layout } from "../../components"
 
 const AboutPage = ({ data }) => {
   const { content, title, seo } = data.contentfulPage
+
+  const options = {
+    renderText: text =>
+      text.split("\n").map((text, i) => [i > 0 && <br />, text]),
+  }
+
   return (
     <Layout seo={seo || title}>
       <Container>
         <article className={styles.content}>
           <div>
             <h1 className={styles.title}>{title}</h1>
-            {documentToReactComponents(JSON.parse(content.raw))}
+            {documentToReactComponents(JSON.parse(content.raw), options)}
           </div>
         </article>
       </Container>
