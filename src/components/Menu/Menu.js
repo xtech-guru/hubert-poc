@@ -1,5 +1,6 @@
 import React, { useCallback } from "react"
 import { Link } from "gatsby"
+import { StaticImage } from "gatsby-plugin-image"
 
 import * as styles from "./Menu.module.scss"
 import data from "../../mocks/menu.json"
@@ -53,7 +54,9 @@ export const Menu = props => {
           aria-label="navbar button"
           onClick={toggleCollapse}
         >
-          <span />
+          <span>
+            <StaticImage src="../../images/burger_menu.svg" alt="facebook" />
+          </span>
         </button>
         <div className={styles.menu}>
           <Link to={props.logo.url} aria-label="Logo">
