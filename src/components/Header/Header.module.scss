@@ -45,24 +45,8 @@
   }
 }
 .link {
-  display: block;
-  width: 24px;
-  height: 24px;
   margin-left: 0.25rem;
   margin-right: 0.25rem;
-  background-repeat: no-repeat;
-  background-position: 50%;
-}
-.fb {
-  background-image: url("../../images/icon_facebook.svg");
-}
-.pinterest {
-  background-image: url("../../images/icon_pinterest.svg");
-}
-.anchor {
-  height: 1px;
-  width: 1px;
-  position: absolute;
-  overflow: hidden;
-  top: -10px;
+  width: 24px;
+  height: 24px;
 }
