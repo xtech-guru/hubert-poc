@@ -20,13 +20,13 @@
   }
 }
 .article {
-  //   background-image: url("${mainArticleUrl}");
   padding-top: 30px;
   display: block;
   background-color: #f4efea;
   margin-bottom: 3.75rem;
   background-repeat: repeat-x;
   background-position: top;
+  padding-bottom: 30px;
   @media (max-width: 767px) {
     padding-top: 208px;
     background-size: 100% 250px;
@@ -94,7 +94,6 @@
       background-color: transparent;
       touch-action: manipulation;
       text-decoration: none;
-      padding-bottom: 30px;
       img {
         width: 36px;
         &:first-child {

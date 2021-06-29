@@ -1,4 +1,5 @@
 import React from "react"
+
 import { Link } from "gatsby"
 
 import * as styles from "./Footer.module.scss"
@@ -11,7 +12,7 @@ export function Footer() {
         <div>
           <div>
             <div>
-              <h6>Hubert Magazin</h6>
+              <h1 className={styles.heading}>Hubert Magazin</h1>
               <p>
                 Hubert ist das neue Online-Magazin für Holz-Kultur, das
                 hochwertige und mitreißende Beiträge rund um den Baustoff Holz
@@ -29,7 +30,7 @@ export function Footer() {
               </div>
             </div>
             <div>
-              <h6>Folge uns</h6>
+              <h1 className={styles.heading}>Folge uns</h1>
               <ul className={styles.list}>
                 <li>
                   <a
@@ -54,7 +55,7 @@ export function Footer() {
               </ul>
             </div>
             <div>
-              <h6>newsletter</h6>
+              <h1 className={styles.heading}>newsletter</h1>
               <p>
                 Verpasse keine Neuigkeiten von Hubert. Jetzt zum Newsletter
                 anmelden!
