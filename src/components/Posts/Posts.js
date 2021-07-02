@@ -4,12 +4,13 @@ import Masonry from "react-masonry-component"
 import { container } from "./Posts.module.scss"
 import { ArticlePreview } from "../ArticlePreview"
 
-const masonryOptions = { transitionDuration: 0 }
+const masonryOptions = { transitionDuration: 0, columnWidth: 1 }
 const imagesLoadedOptions = { background: ".my-bg-image-el" }
 const paginationSize = 12
 
 export const Posts = function ({ data }) {
   const [articles, setArticles] = useState(data.slice(0, paginationSize))
+  const [layoutComplete, setlayoutComplete] = useState(false)
 
   const hasMore = useMemo(() => data.length > articles.length, [
     data,
@@ -35,22 +36,24 @@ export const Posts = function ({ data }) {
         disableImagesLoaded={false} // default false
         updateOnEachImageLoad={false} // default false and works only if disableImagesLoaded is false
         imagesLoadedOptions={imagesLoadedOptions} // default {}
+        onLayoutComplete={() => setlayoutComplete(true)}
       >
-        {articles.map(
-          ({ title, featuredImage, introduction, category, slug }, index) => {
-            return (
-              <li key={index}>
-                <ArticlePreview
-                  title={title}
-                  description={introduction.childMarkdownRemark.html}
-                  img={featuredImage}
-                  category={category}
-                  slug={slug}
-                />
-              </li>
-            )
-          }
-        )}
+        {layoutComplete &&
+          articles.map(
+            ({ title, featuredImage, introduction, category, slug }, index) => {
+              return (
+                <li key={index}>
+                  <ArticlePreview
+                    title={title}
+                    description={introduction.childMarkdownRemark.html}
+                    img={featuredImage}
+                    category={category}
+                    slug={slug}
+                  />
+                </li>
+              )
+            }
+          )}
       </Masonry>
 
       {hasMore && (
