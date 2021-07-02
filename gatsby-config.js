@@ -12,7 +12,6 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -62,6 +61,7 @@ module.exports = {
       },
     },
     `gatsby-plugin-sass`,
+    "gatsby-plugin-webpack-bundle-analyser-v2"
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
