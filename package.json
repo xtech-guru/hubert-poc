@@ -2,7 +2,7 @@
   "name": "hubert",
   "private": true,
   "description": "Hubert - Sorpetaler Fensterbau",
-  "version": "2.6.0",
+  "version": "2.8.2",
   "author": "Oussama Bouthouri <oussamabo@xtech.guru>",
   "contributors": [
     {
@@ -12,6 +12,10 @@
     {
       "name": "Fekher Ghouili",
       "email": "fekhergh@xtech.guru"
+    },
+    {
+      "name": "Ranim Bahri",
+      "email": "ranimba@xtech.guru"
     }
   ],
   "dependencies": {
